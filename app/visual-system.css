@@ -1,2383 +1,1664 @@
+@reference "./globals.css";
 /* TechGy Link: real work, deliberate scale and connected motion. */
 .next-hero {
-  position: relative;
-  overflow: clip;
-  background: #f7f8fa;
-  padding-top: 32px;
+  @apply relative overflow-clip bg-[#f7f8fa] pt-8;
 }
 .next-hero-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #596273;
+  @apply flex justify-between items-center text-[#596273];
 }
 .next-hero-top > .eyebrow {
-  color: #263854;
-  font-size: 12px;
-  letter-spacing: 0.09em;
+  @apply text-[#263854] text-[12px] tracking-[0.09em];
 }
 .next-hero-top > span {
-  font-size: 12px;
+  @apply text-[12px];
 }
 .next-hero-layout {
-  display: grid;
-  grid-template-columns: 1.02fr 1fr;
-  gap: 25px;
-  align-items: center;
-  min-height: 680px;
-  padding-block: 44px 68px;
+  @apply grid grid-cols-[1.02fr_1fr] gap-[25px] items-center min-h-[680px] pt-[44px] pb-[68px];
 }
 .next-hero-copy {
-  position: relative;
-  z-index: 3;
-  pointer-events: none;
+  @apply relative z-[3] pointer-events-none;
 }
 .next-hero-copy a {
-  pointer-events: auto;
+  @apply pointer-events-auto;
 }
 .next-hero-copy h1 {
-  font-size: clamp(72px, 7.8vw, 125px);
-  letter-spacing: -0.066em;
-  line-height: 1.01;
+  @apply text-[clamp(72px,7.8vw,125px)] tracking-[-0.066em] leading-[1.01];
 }
 .next-hero-copy > p {
-  font-size: 17px;
-  color: #667083;
-  line-height: 1.7;
-  max-width: 375px;
-  margin-top: 31px;
+  @apply text-[17px] text-[#667083] leading-[1.7] max-w-[375px] mt-[31px];
 }
 .next-hero-copy .hero-actions {
-  gap: 24px;
-  margin-top: 30px;
+  @apply gap-6 mt-[30px];
 }
 .next-hero-copy .button {
-  border-radius: 999px;
-  gap: 22px;
-  padding: 16px 23px;
+  @apply rounded-full gap-[22px] px-[23px] py-4;
 }
 .next-hero-copy .text-link {
-  font-size: 13px;
-  gap: 13px;
+  @apply text-[13px] gap-[13px];
 }
 .hero-composition {
-  position: relative;
-  height: 585px;
-  width: 100%;
-  perspective: 1200px;
-  isolation: isolate;
+  @apply relative h-[585px] w-full [perspective:1200px] isolate;
 }
 .composition-grid {
-  position: absolute;
-  inset: 32px -35px 10px;
-  background-image:
-    linear-gradient(#173fff0a 1px, transparent 1px),
-    linear-gradient(90deg, #173fff0a 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse, black 35%, transparent 73%);
+  @apply absolute top-[32px] right-[-35px] bottom-[10px] left-[-35px] [background-image:linear-gradient(#173fff0a_1px,transparent_1px),linear-gradient(90deg,#173fff0a_1px,transparent_1px)] [background-size:64px_64px] [mask-image:radial-gradient(ellipse,black_35%,transparent_73%)];
 }
 .composition-coordinate {
-  position: absolute;
-  right: 0;
-  top: 4px;
-  font-size: 11px;
-  letter-spacing: 0.045em;
-  color: #7a8598;
+  @apply absolute right-0 top-[4px] text-[11px] tracking-[0.045em] text-[#7a8598];
 }
 .composition-project {
-  position: absolute;
-  overflow: hidden;
-  box-shadow: 0 24px 65px #28354b24;
-  border: 1px solid #ffffffd9;
-  background: #e7eaff;
-  will-change: transform;
+  @apply absolute overflow-hidden shadow-[0_24px_65px_#28354b24] border border-[#ffffffd9] bg-[#e7eaff] will-change-transform;
 }
 .composition-web {
-  left: -4%;
-  top: 132px;
-  width: 101%;
-  border-radius: 9px;
-  transform: rotate(-7deg);
-  z-index: 2;
+  @apply left-[-4%] top-[132px] w-[101%] rounded-[9px] rotate-[-7deg] z-[2];
 }
 .project-browser {
-  height: 32px;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 0 12px;
-  color: #aeb5c4;
+  @apply h-8 bg-white flex items-center gap-1 px-3 text-[#aeb5c4];
 }
 .project-browser > span {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #c8cdd5;
+  @apply w-1 h-1 rounded-full bg-[#c8cdd5];
 }
 .project-browser > p {
-  font-size: 9px;
-  letter-spacing: 0.015em;
-  margin: auto;
-  color: #7b8594;
+  @apply text-[9px] tracking-[0.015em] m-auto text-[#7b8594];
 }
 .cropped-screen {
-  position: relative;
-  overflow: hidden;
+  @apply relative overflow-hidden;
 }
 .eco-screen {
-  aspect-ratio: 870/566;
-  background: #344e38;
+  @apply aspect-[870/566] bg-[#344e38];
 }
 .eco-screen > img {
-  position: absolute;
-  width: 184%;
-  max-width: none;
-  height: auto;
-  left: -39%;
-  top: -59%;
+  @apply absolute w-[184%] max-w-none h-auto left-[-39%] top-[-59%];
 }
 .composition-space {
-  right: -5%;
-  top: 38px;
-  width: 43%;
-  height: 170px;
-  z-index: 1;
-  transform: rotate(8deg);
-  border-radius: 5px;
-  background: #10182a;
+  @apply right-[-5%] top-[38px] w-[43%] h-[170px] z-[1] rotate-[8deg] rounded-[5px] bg-[#10182a];
 }
 .composition-space > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  @apply w-full h-full object-cover;
 }
 .composition-space > span {
-  position: absolute;
-  left: 14px;
-  bottom: 12px;
-  font-size: 11px;
-  color: white;
-  text-shadow: 0 1px 8px #000;
+  @apply absolute left-[14px] bottom-3 text-[11px] text-white [text-shadow:0_1px_8px_#000];
 }
 .composition-space > svg {
-  position: absolute;
-  bottom: 14px;
-  right: 13px;
-  color: white;
+  @apply absolute bottom-[14px] right-[13px] text-white;
 }
 .composition-app {
-  width: 37%;
-  left: -9%;
-  bottom: 8px;
-  z-index: 4;
-  border-radius: 8px;
-  transform: rotate(8deg);
-  background: #eef1ff;
+  @apply w-[37%] left-[-9%] bottom-2 z-[4] rounded-lg rotate-[8deg] bg-[#eef1ff];
 }
 .mobile-screen {
-  aspect-ratio: 1/1.07;
+  @apply aspect-[1/1.07];
 }
 .mobile-screen > img {
-  position: absolute;
-  width: 286%;
-  max-width: none;
-  height: auto;
-  left: -92%;
-  top: -50%;
+  @apply absolute w-[286%] max-w-none h-auto left-[-92%] top-[-50%];
 }
 .composition-app > span {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 10px;
-  line-height: 1.5;
-  padding: 13px 12px;
-  background: #fff;
+  @apply flex justify-between items-center text-[10px] leading-[1.5] px-3 py-[13px] bg-white;
 }
 .composition-caption {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  right: 0;
-  bottom: -25px;
-  z-index: 4;
-  color: #647087;
+  @apply absolute flex items-center gap-[14px] right-0 bottom-[-25px] z-[4] text-[#647087];
 }
 .composition-caption p {
-  font-size: 12px;
-  line-height: 1.7;
+  @apply text-[12px] leading-[1.7];
 }
 .composition-caption strong {
-  font-weight: 500;
-  color: #22334d;
+  @apply font-medium text-[#22334d];
 }
 .composition-mark {
-  font-size: 52px;
-  line-height: 1;
-  font-weight: 400;
-  color: #173fff;
+  @apply text-[52px] leading-none font-normal text-brand;
 }
 .next-hero-bottom {
-  border-top: 1px solid #dce1e8;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  align-items: center;
-  padding-block: 20px;
-  font-size: 11px;
-  color: #6d7788;
+  @apply border-t border-[#dce1e8] flex justify-between gap-5 items-center py-5 text-[11px] text-[#6d7788];
 }
 .next-hero-bottom strong {
-  font-weight: 500;
-  color: #2a364a;
-  margin-right: 8px;
+  @apply font-medium text-[#2a364a] mr-2;
 }
 .next-hero-bottom a {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  color: #3c4a62;
-  font-size: 12px;
+  @apply flex items-center gap-[15px] text-[#3c4a62] text-[12px];
 }
 .next-hero-bottom > span {
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 10px;
+  @apply tracking-[0.08em] uppercase text-[10px];
 }
 .connection-story {
-  padding-block: 112px 40px;
-  background: #101722;
-  color: #f7f8fc;
-  position: relative;
+  @apply pt-[112px] pb-10 bg-[#101722] text-[#f7f8fc] relative;
 }
 .connection-intro {
-  padding-bottom: 90px;
-  border-bottom: 1px solid #ffffff25;
+  @apply pb-[90px] border-b border-[#ffffff25];
 }
 .connection-intro .eyebrow {
-  color: #a8baff;
+  @apply text-[#a8baff];
 }
 .connection-intro h2 {
-  font-size: clamp(38px, 4.5vw, 70px);
-  line-height: 1.14;
-  margin-top: 25px;
-  letter-spacing: -0.045em;
+  @apply text-[clamp(38px,4.5vw,70px)] leading-[1.14] mt-[25px] tracking-[-0.045em];
 }
 .connection-intro h2 > span {
-  color: #8292ad;
+  @apply text-[#8292ad];
 }
 .connection-intro > p:last-child {
-  max-width: 560px;
-  font-size: 16px;
-  color: #a4b1c5;
-  margin-top: 30px;
+  @apply max-w-[560px] text-[16px] text-[#a4b1c5] mt-[30px];
 }
 .connection-body {
-  display: grid;
-  grid-template-columns: 0.84fr 1fr;
-  gap: 100px;
-  align-items: start;
+  @apply grid grid-cols-[0.84fr_1fr] gap-[100px] items-start;
 }
 .connection-chapter {
-  min-height: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-block: 80px;
-  scroll-margin-top: 140px;
+  @apply min-h-[600px] flex flex-col justify-center py-20 scroll-mt-[140px];
 }
 .chapter-label {
-  display: flex;
-  gap: 19px;
-  align-items: center;
-  color: #94adff;
-  font-size: 13px;
+  @apply flex gap-[19px] items-center text-[#94adff] text-[13px];
 }
 .chapter-label > span {
-  border: 1px solid #ffffff25;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  font-size: 11px;
+  @apply border border-[#ffffff25] rounded-full w-9 h-9 grid place-items-center text-[11px];
 }
 .connection-chapter h3 {
-  font-size: clamp(34px, 3.2vw, 50px);
-  line-height: 1.14;
-  margin: 27px 0;
-  letter-spacing: -0.04em;
+  @apply text-[clamp(34px,3.2vw,50px)] leading-[1.14] my-[27px] tracking-[-0.04em];
 }
 .connection-chapter h3 > span {
-  display: block;
+  @apply block;
 }
 .connection-chapter > p:not(.chapter-label) {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #a4b1c5;
-  max-width: 430px;
+  @apply text-[16px] leading-[1.8] text-[#a4b1c5] max-w-[430px];
 }
 .chapter-links {
-  display: grid;
-  gap: 0;
-  margin-top: 31px;
-  max-width: 420px;
+  @apply grid gap-0 mt-[31px] max-w-[420px];
 }
 .chapter-links > a {
-  font-size: 13px;
-  border-bottom: 1px solid #ffffff1a;
-  padding-block: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  @apply text-[13px] border-b border-[#ffffff1a] py-3 flex items-center justify-between gap-4;
 }
 .chapter-links > a:hover {
-  color: #94adff;
+  @apply text-[#94adff];
 }
 .connection-stage {
-  position: sticky;
-  top: 150px;
-  align-self: start;
-  margin-block: 83px;
-  height: 500px;
+  @apply sticky top-[150px] self-start my-[83px] h-[500px];
 }
 .connection-stage-top {
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  color: #8797b0;
-  letter-spacing: 0.055em;
-  text-transform: uppercase;
-  margin-bottom: 22px;
+  @apply flex justify-between text-[11px] text-[#8797b0] tracking-[0.055em] uppercase mb-[22px];
 }
 .connection-frames {
-  position: relative;
-  height: 410px;
+  @apply relative h-[410px];
 }
 .connection-frame {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  visibility: hidden;
-  will-change: transform, opacity;
+  @apply absolute inset-0 opacity-0 invisible [will-change:transform,_opacity];
 }
 .connection-frame.first {
-  opacity: 1;
-  visibility: visible;
+  @apply opacity-100 visible;
 }
 .connection-frame-image {
-  height: 355px;
-  overflow: hidden;
-  position: relative;
-  border-radius: 6px;
-  background: #173fff;
+  @apply h-[355px] overflow-hidden relative rounded-md bg-brand;
 }
 .connection-frame-image > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  @apply w-full h-full object-cover;
 }
 .story-crop-eco .connection-frame-image > img {
-  position: absolute;
-  width: 184%;
-  max-width: none;
-  height: auto;
-  left: -39%;
-  top: -59%;
+  @apply absolute w-[184%] max-w-none h-auto left-[-39%] top-[-59%];
 }
 .story-crop-system .connection-frame-image > img {
-  width: 100%;
-  height: 155%;
-  object-position: center bottom;
-  position: absolute;
-  bottom: 0;
+  @apply w-full h-[155%] object-bottom absolute bottom-0;
 }
 .connection-frame figcaption {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 11px;
-  color: #a0aec3;
-  padding: 16px 0;
+  @apply flex justify-between gap-5 text-[11px] text-[#a0aec3] py-4;
 }
 .connection-progress {
-  display: flex;
-  gap: 20px;
-  margin-top: 4px;
+  @apply flex gap-5 mt-1;
 }
 .connection-progress > span {
-  width: 33.333%;
-  font-size: 11px;
-  color: #8d9db5;
-  padding-top: 13px;
-  position: relative;
-  border-top: 1px solid #ffffff30;
+  @apply w-[33.333%] text-[11px] text-[#8d9db5] pt-[13px] relative border-t border-[#ffffff30];
 }
 .connection-progress i {
-  position: absolute;
-  left: 0;
-  top: -1px;
-  height: 2px;
-  width: 100%;
-  background: #88a4ff;
-  transform: scaleX(0);
-  transform-origin: left;
+  @apply absolute left-0 top-[-1px] h-0.5 w-full bg-[#88a4ff] scale-x-0 origin-left;
 }
 .connection-progress > span:first-child i {
-  transform: scaleX(1);
+  @apply scale-x-100;
 }
 .chapter-mobile-image {
-  display: none;
+  @apply hidden;
 }
 .selected-section {
-  padding-block: 110px;
+  @apply py-[110px];
 }
 .selected-section .section-title {
-  margin-bottom: 65px;
+  @apply mb-[65px];
 }
 .work-track {
-  display: grid;
-  grid-template-columns: 1.14fr 0.86fr;
-  gap: 70px 34px;
-  width: min(1424px, calc(100% - 112px));
-  padding: 0;
-  margin: auto;
+  @apply grid grid-cols-[1.14fr_0.86fr] gap-x-[34px] gap-y-[70px] w-[min(1424px,calc(100%_-_112px))] p-0 m-auto;
 }
 .feature-project {
-  width: 100%;
-  max-width: none;
+  @apply w-full max-w-none;
 }
 .feature-project:nth-child(even) {
-  padding-top: 115px;
+  @apply pt-[115px];
 }
 .feature-image {
-  height: auto;
-  aspect-ratio: 1.05;
-  border-radius: 5px;
+  @apply h-auto aspect-[1.05] rounded-[5px];
 }
 .feature-project:nth-child(even) .feature-image {
-  aspect-ratio: 0.88;
+  @apply aspect-[0.88];
 }
 .feature-project-0 .feature-image > img {
-  width: 100%;
-  height: 132%;
-  position: absolute;
-  bottom: 0;
-  object-position: center bottom;
+  @apply w-full h-[132%] absolute bottom-0 object-bottom;
 }
 .feature-project-2 .feature-image > img {
-  width: 184%;
-  max-width: none;
-  height: auto;
-  position: absolute;
-  left: -39%;
-  top: -33%;
+  @apply w-[184%] max-w-none h-auto absolute left-[-39%] top-[-33%];
 }
 .feature-project-3 .feature-image > img {
-  width: 180%;
-  max-width: none;
-  height: auto;
-  position: absolute;
-  left: -45%;
-  bottom: 0;
+  @apply w-[180%] max-w-none h-auto absolute left-[-45%] bottom-0;
 }
 .feature-meta {
-  gap: 17px;
-  padding-top: 22px;
+  @apply gap-[17px] pt-[22px];
 }
 .feature-meta h3 {
-  font-size: 27px;
+  @apply text-[27px];
 }
 .feature-meta p {
-  font-size: 12px;
+  @apply text-[12px];
 }
 .feature-meta > svg {
-  width: 22px;
+  @apply w-[22px];
 }
 .project-view {
-  font-size: 12px;
-  padding: 10px 15px;
-  right: 18px;
-  bottom: 18px;
+  @apply text-[12px] px-[15px] py-[10px] right-[18px] bottom-[18px];
 }
 .section-end {
-  margin-top: 65px;
+  @apply mt-[65px];
 }
 .expertise-section {
-  background: #edf1f8;
+  @apply bg-[#edf1f8];
 }
 .expertise-image {
-  border-radius: 5px;
-  aspect-ratio: 0.98;
+  @apply rounded-[5px] aspect-[0.98];
 }
 .expertise-image {
-  position: relative;
-  overflow: hidden;
+  @apply relative overflow-hidden;
 }
 .expertise-image > img {
-  height: 138%;
-  position: absolute;
-  bottom: 0;
-  object-position: center bottom;
+  @apply h-[138%] absolute bottom-0 object-bottom;
 }
 .expertise-branding-identity {
-  background: #173fff;
-  display: flex;
-  align-items: center;
-  padding: 45px;
+  @apply bg-brand flex items-center p-[45px];
 }
 .expertise-branding-identity > img {
-  position: static;
-  height: auto;
-  width: 100%;
-  filter: brightness(0) invert(1);
+  @apply static h-auto w-full brightness-0 invert;
 }
 .expertise-architectural-visualisation > img {
-  height: 100%;
-  object-position: center;
+  @apply h-full object-center;
 }
 .expertise-website-design-development > img,
 .expertise-digital-marketing-sales-enablement > img {
-  width: 184%;
-  max-width: none;
-  height: auto;
-  left: -39%;
-  bottom: 0;
+  @apply w-[184%] max-w-none h-auto left-[-39%] bottom-0;
 }
 .expertise-mobile-application-development > img {
-  width: 170%;
-  max-width: none;
-  height: auto;
-  left: -35%;
-  bottom: 0;
+  @apply w-[170%] max-w-none h-auto left-[-35%] bottom-0;
 }
 .expertise-item {
-  padding: 22px 0;
+  @apply py-[22px] px-0;
 }
 .expertise-item h3 {
-  font-size: clamp(23px, 2.1vw, 34px);
+  @apply text-[clamp(23px,2.1vw,34px)];
 }
 .solutions-editorial .section-title {
-  margin-bottom: 55px;
+  @apply mb-[55px];
 }
 .solution-editorial-image {
-  border-radius: 5px;
-  aspect-ratio: 1.24;
+  @apply rounded-[5px] aspect-[1.24];
 }
 .solution-editorial-copy h3 {
-  font-size: clamp(34px, 3.5vw, 56px);
+  @apply text-[clamp(34px,3.5vw,56px)];
 }
 .solution-editorial-row {
-  gap: 95px;
-  padding-block: 55px;
+  @apply gap-[95px] py-[55px];
 }
 .architecture-statement .button {
-  border-radius: 999px;
+  @apply rounded-full;
 }
 .site-header {
-  background: #f7f8faf0;
+  @apply bg-[#f7f8faf0];
 }
 .nav-wrap {
-  height: 82px;
+  @apply h-[82px];
 }
 .brand {
-  width: 194px;
+  @apply w-[194px];
 }
 .mega-menu {
-  top: 82px;
+  @apply top-[82px];
 }
 .nav-cta {
-  background: #173fff;
-  color: white;
-  border-color: #173fff;
-  padding: 12px 20px;
+  @apply bg-brand text-white border-brand px-5 py-3;
 }
 .desktop-nav {
-  gap: 26px;
-  font-size: 13px;
+  @apply gap-[26px] text-[13px];
 }
 .detail-hero {
-  background: #f7f8fa;
-  width: 100%;
-  padding: 38px max(56px, calc((100vw - 1424px) / 2)) 58px;
+  @apply bg-[#f7f8fa] w-full pt-[38px] pb-[58px] px-[max(56px,calc((100vw_-_1424px)/2))];
 }
 .detail-hero-grid {
-  gap: 48px;
+  @apply gap-12;
 }
 .detail-copy h1 {
-  font-size: clamp(46px, 5.5vw, 86px);
-  letter-spacing: -0.055em;
+  @apply text-[clamp(46px,5.5vw,86px)] tracking-[-0.055em];
 }
 .detail-copy > .eyebrow {
-  color: #173fff;
+  @apply text-brand;
 }
 .detail-copy > .hero-actions {
-  align-items: flex-start;
+  @apply items-start;
 }
 .detail-copy .button {
-  border-radius: 999px;
+  @apply rounded-full;
 }
 .service-image {
-  border-radius: 6px;
-  aspect-ratio: 2.25;
+  @apply rounded-md aspect-[2.25];
 }
 .service-image figcaption {
-  border-radius: 999px;
-  padding: 10px 16px;
+  @apply rounded-full px-4 py-[10px];
 }
 .page-tabs {
-  margin-top: 0;
-  top: 82px;
-  background: #fff;
-  border-top: 1px solid #dce1e8;
+  @apply mt-0 top-[82px] bg-white border-t border-[#dce1e8];
 }
 .deliverable {
-  padding-block: 35px 42px;
+  @apply pt-[35px] pb-[42px];
 }
 .deliverable > span {
-  color: #173fff;
+  @apply text-brand;
 }
 .process-step > span {
-  color: #173fff;
+  @apply text-brand;
 }
 .inline-cta {
-  border-radius: 6px;
-  background: #173fff;
-  color: white;
-  border: 0;
-  padding: 60px;
+  @apply rounded-md bg-brand text-white border-0 p-[60px];
 }
 .inline-cta p {
-  color: #e0e8ff;
+  @apply text-[#e0e8ff];
 }
 .inline-cta .button {
-  background: white;
-  color: #173fff;
-  border-radius: 999px;
-  flex-shrink: 0;
+  @apply bg-white text-brand rounded-full shrink-0;
 }
 .inline-cta .button:hover {
-  background: #eaf0ff;
+  @apply bg-[#eaf0ff];
 }
 .footer {
-  background: #101722;
+  @apply bg-[#101722];
 }
 .footer-cta {
-  padding-block: 100px 75px;
+  @apply pt-[100px] pb-[75px];
 }
 .footer-headline {
-  font-size: clamp(68px, 12vw, 184px);
-  letter-spacing: -0.065em;
+  @apply text-[clamp(68px,12vw,184px)] tracking-[-0.065em];
 }
 .page-intro {
-  background: #f7f8fa;
-  width: 100%;
-  padding: 72px max(56px, calc((100vw - 1424px) / 2));
+  @apply bg-[#f7f8fa] w-full py-[72px] px-[max(56px,calc((100vw_-_1424px)/2))];
 }
 .page-intro > .eyebrow {
-  color: #173fff;
+  @apply text-brand;
 }
 .about-manifesto {
-  position: relative;
-  background: #173fff;
-  overflow: hidden;
+  @apply relative bg-brand overflow-hidden;
 }
 .about-manifesto h2 {
-  position: relative;
-  z-index: 2;
+  @apply relative z-[2];
 }
 .about-manifesto em {
-  color: #bfcfff;
+  @apply text-[#bfcfff];
 }
 .delivery-team article {
-  border-top: 1px solid #cdd5e2;
-  padding-top: 28px;
+  @apply border-t border-[#cdd5e2] pt-7;
 }
 .delivery-team article > .eyebrow {
-  color: #173fff;
+  @apply text-brand;
 }
 .campaign-hero {
-  background: #f7f8fa;
+  @apply bg-[#f7f8fa];
 }
 .campaign-card {
-  border-radius: 5px;
+  @apply rounded-[5px];
 }
 .campaign-card:nth-child(3n + 2) {
-  background: #173fff;
-  color: #fff;
+  @apply bg-brand text-white;
 }
 .campaign-card:nth-child(3n + 2) > p {
-  color: #e1e8ff;
+  @apply text-[#e1e8ff];
 }
 @media (min-width: 1600px) {
   .hero-composition {
-    height: 620px;
+    @apply h-[620px];
   }
   .composition-web {
-    top: 146px;
+    @apply top-[146px];
   }
   .composition-space {
-    height: 200px;
+    @apply h-[200px];
   }
   .composition-app {
-    bottom: -12px;
+    @apply bottom-[-12px];
   }
   .composition-caption {
-    bottom: -2px;
+    @apply bottom-[-2px];
   }
   .next-hero-layout {
-    padding-bottom: 70px;
+    @apply pb-[70px];
   }
 }
 @media (max-width: 1100px) and (min-width: 768px) {
   .next-hero-copy h1 {
-    font-size: 78px;
+    @apply text-[78px];
   }
   .next-hero-layout {
-    min-height: 600px;
-    grid-template-columns: 1fr 1fr;
+    @apply min-h-[600px] grid-cols-[1fr_1fr];
   }
   .hero-composition {
-    height: 490px;
+    @apply h-[490px];
   }
   .composition-web {
-    top: 120px;
+    @apply top-[120px];
   }
   .composition-space {
-    height: 140px;
-    top: 48px;
+    @apply h-[140px] top-[48px];
   }
   .composition-app {
-    bottom: 24px;
+    @apply bottom-6;
   }
   .composition-caption {
-    right: -5px;
-    bottom: -15px;
+    @apply right-[-5px] bottom-[-15px];
   }
   .next-hero-copy .hero-actions {
-    display: block;
+    @apply block;
   }
   .next-hero-copy .text-link {
-    margin-top: 20px;
+    @apply mt-5;
   }
   .connection-body {
-    gap: 50px;
+    @apply gap-[50px];
   }
   .connection-stage {
-    height: 440px;
-    top: 140px;
+    @apply h-[440px] top-[140px];
   }
   .connection-frames {
-    height: 355px;
+    @apply h-[355px];
   }
   .connection-frame-image {
-    height: 300px;
+    @apply h-[300px];
   }
   .connection-chapter {
-    min-height: 560px;
+    @apply min-h-[560px];
   }
   .connection-progress {
-    gap: 10px;
+    @apply gap-[10px];
   }
   .connection-progress > span {
-    font-size: 10px;
+    @apply text-[10px];
   }
   .work-track {
-    gap: 55px 28px;
+    @apply gap-y-[55px] gap-x-7;
   }
   .feature-project:nth-child(even) {
-    padding-top: 90px;
+    @apply pt-[90px];
   }
   .desktop-nav {
-    gap: 16px;
+    @apply gap-4;
   }
   .nav-wrap {
-    gap: 20px;
+    @apply gap-5;
   }
   .brand {
-    width: 174px;
+    @apply w-[174px];
   }
 }
 @media (max-width: 767px) {
   .next-hero {
-    padding-top: 24px;
+    @apply pt-6;
   }
   .next-hero-top > .eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.075em;
+    @apply text-[10px] tracking-[0.075em];
   }
   .next-hero-top > span {
-    display: none;
+    @apply hidden;
   }
   .next-hero-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    min-height: 0;
-    padding-block: 30px 17px;
-    align-items: stretch;
+    @apply flex flex-col gap-0 min-h-0 pt-[30px] pb-[17px] items-stretch;
   }
   .next-hero-copy h1 {
-    font-size: clamp(64px, 17.5vw, 100px);
-    line-height: 1.015;
-    letter-spacing: -0.064em;
+    @apply text-[clamp(64px,17.5vw,100px)] leading-[1.015] tracking-[-0.064em];
   }
   .next-hero-copy > p {
-    font-size: 16px;
-    max-width: 330px;
-    margin-top: 25px;
+    @apply text-[16px] max-w-[330px] mt-[25px];
   }
   .next-hero-copy .hero-actions {
-    gap: 21px;
-    margin-top: 25px;
+    @apply gap-[21px] mt-[25px];
   }
   .next-hero-copy .button {
-    padding: 13px 19px;
-    gap: 16px;
-    font-size: 13px;
-    min-height: 50px;
+    @apply px-[19px] py-[13px] gap-4 text-[13px] min-h-[50px];
   }
   .next-hero-copy .text-link {
-    font-size: 12px;
-    gap: 10px;
+    @apply text-[12px] gap-[10px];
   }
   .hero-composition {
-    height: 380px;
-    width: 100%;
-    margin: 25px 0 7px;
+    @apply h-[380px] w-full mt-[25px] mx-0 mb-[7px];
   }
   .composition-coordinate {
-    font-size: 9px;
-    top: 7px;
-    right: 0;
+    @apply text-[9px] top-[7px] right-0;
   }
   .composition-grid {
-    inset: 15px -25px 0;
-    background-size: 42px 42px;
+    @apply top-[15px] right-[-25px] bottom-0 left-[-25px] [background-size:42px_42px];
   }
   .composition-web {
-    top: 94px;
-    left: 4%;
-    width: 91%;
-    transform: rotate(-6deg);
+    @apply top-[94px] left-[4%] w-[91%] rotate-[-6deg];
   }
   .project-browser {
-    height: 24px;
-    padding: 0 9px;
+    @apply h-6 px-[9px] py-0;
   }
   .project-browser > p {
-    font-size: 7px;
+    @apply text-[7px];
   }
   .project-browser > span {
-    width: 3px;
-    height: 3px;
+    @apply w-[3px] h-[3px];
   }
   .composition-space {
-    top: 37px;
-    right: 0;
-    width: 42%;
-    height: 120px;
+    @apply top-[37px] right-0 w-[42%] h-[120px];
   }
   .composition-space > span {
-    font-size: 9px;
-    left: 10px;
-    bottom: 9px;
+    @apply text-[9px] left-[10px] bottom-[9px];
   }
   .composition-space > svg {
-    width: 11px;
-    bottom: 10px;
+    @apply w-[11px] bottom-[10px];
   }
   .composition-app {
-    width: 33%;
-    left: 0;
-    bottom: 13px;
-    transform: rotate(7deg);
+    @apply w-[33%] left-0 bottom-[13px] rotate-[7deg];
   }
   .composition-app > span {
-    font-size: 8px;
-    padding: 9px;
-    gap: 5px;
-    line-height: 1.5;
+    @apply text-[8px] p-[9px] gap-[5px] leading-[1.5];
   }
   .composition-app > span > svg {
-    width: 11px;
+    @apply w-[11px];
   }
   .composition-caption {
-    right: 3%;
-    bottom: 11px;
-    gap: 8px;
+    @apply right-[3%] bottom-[11px] gap-2;
   }
   .composition-caption p {
-    font-size: 10px;
+    @apply text-[10px];
   }
   .composition-mark {
-    font-size: 35px;
+    @apply text-[35px];
   }
   .next-hero-bottom {
-    padding-block: 19px;
-    gap: 15px;
+    @apply py-[19px] gap-[15px];
   }
   .next-hero-bottom > p {
-    font-size: 10px;
+    @apply text-[10px];
   }
   .next-hero-bottom > a {
-    font-size: 10px;
-    gap: 8px;
+    @apply text-[10px] gap-2;
   }
   .next-hero-bottom > span {
-    display: none;
+    @apply hidden;
   }
   .next-hero-bottom strong {
-    display: block;
-    margin: 0 0 3px;
+    @apply block mt-0 mx-0 mb-[3px];
   }
   .connection-story {
-    padding-block: 66px 10px;
+    @apply pt-[66px] pb-[10px];
   }
   .connection-intro {
-    padding-bottom: 40px;
+    @apply pb-10;
   }
   .connection-intro h2 {
-    font-size: 36px;
-    margin-top: 22px;
-    line-height: 1.16;
+    @apply text-[36px] mt-[22px] leading-[1.16];
   }
   .connection-intro > p:last-child {
-    font-size: 15px;
-    line-height: 1.8;
-    margin-top: 24px;
+    @apply text-[15px] leading-[1.8] mt-6;
   }
   .connection-body {
-    display: block;
+    @apply block;
   }
   .connection-stage {
-    display: none;
+    @apply hidden;
   }
   .connection-chapter {
-    min-height: 0;
-    padding-block: 43px 45px;
-    border-bottom: 1px solid #ffffff20;
+    @apply min-h-0 pt-[43px] pb-[45px] border-b border-[#ffffff20];
   }
   .connection-chapter:last-child {
-    border: 0;
+    @apply border-0;
   }
   .chapter-label {
-    font-size: 12px;
-    gap: 14px;
+    @apply text-[12px] gap-[14px];
   }
   .chapter-label > span {
-    width: 31px;
-    height: 31px;
-    font-size: 10px;
+    @apply w-[31px] h-[31px] text-[10px];
   }
   .connection-chapter h3 {
-    font-size: 31px;
-    margin: 23px 0;
+    @apply text-[31px] my-[23px];
   }
   .connection-chapter > p:not(.chapter-label) {
-    font-size: 15px;
+    @apply text-[15px];
   }
   .chapter-links {
-    margin-top: 22px;
+    @apply mt-[22px];
   }
   .chapter-links > a {
-    font-size: 12px;
-    padding-block: 13px;
+    @apply text-[12px] py-[13px];
   }
   .chapter-mobile-image {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    margin-top: 32px;
-    background: #173fff;
-    border-radius: 5px;
-    aspect-ratio: 1.22;
+    @apply block relative overflow-hidden mt-8 bg-brand rounded-[5px] aspect-[1.22];
   }
   .chapter-mobile-image > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    @apply w-full h-full object-cover;
   }
   .chapter-mobile-image.story-crop-eco > img {
-    width: 184%;
-    max-width: none;
-    height: auto;
-    position: absolute;
-    top: -35%;
-    left: -39%;
+    @apply w-[184%] max-w-none h-auto absolute top-[-35%] left-[-39%];
   }
   .chapter-mobile-image.story-crop-system > img {
-    position: absolute;
-    bottom: 0;
-    height: 140%;
-    object-position: bottom;
+    @apply absolute bottom-0 h-[140%] object-bottom;
   }
   .chapter-mobile-image figcaption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 30px 15px 13px;
-    background: linear-gradient(transparent, #000b);
-    font-size: 10px;
-    color: #fff;
+    @apply absolute bottom-0 left-0 right-0 pt-[30px] px-[15px] pb-[13px] [background:linear-gradient(transparent,#000b)] text-[10px] text-white;
   }
   .selected-section {
-    padding-block: 64px;
+    @apply py-16;
   }
   .selected-section .section-title {
-    margin-bottom: 35px;
+    @apply mb-[35px];
   }
   .work-track {
-    display: block;
-    width: calc(100% - 40px);
+    @apply block w-[calc(100%_-_40px)];
   }
   .feature-project {
-    margin-bottom: 38px;
+    @apply mb-[38px];
   }
   .feature-project:nth-child(even) {
-    padding-top: 0;
+    @apply pt-0;
   }
   .feature-image,
   .feature-project:nth-child(even) .feature-image {
-    aspect-ratio: 1.09;
+    @apply aspect-[1.09];
   }
   .feature-meta {
-    padding-top: 18px;
-    gap: 13px;
+    @apply pt-[18px] gap-[13px];
   }
   .feature-meta h3 {
-    font-size: 23px;
+    @apply text-[23px];
   }
   .feature-meta p {
-    font-size: 11px;
+    @apply text-[11px];
   }
   .feature-meta > svg {
-    width: 18px;
+    @apply w-[18px];
   }
   .project-index {
-    font-size: 11px;
+    @apply text-[11px];
   }
   .project-view {
-    font-size: 11px;
-    padding: 9px 12px;
-    right: 13px;
-    bottom: 13px;
+    @apply text-[11px] px-3 py-[9px] right-[13px] bottom-[13px];
   }
   .feature-project-2 .feature-image > img {
-    top: -39%;
+    @apply top-[-39%];
   }
   .feature-project-3 .feature-image > img {
-    bottom: -5%;
+    @apply bottom-[-5%];
   }
   .section-end {
-    margin-top: 15px;
+    @apply mt-[15px];
   }
   .expertise-index {
-    margin-top: 34px;
+    @apply mt-[34px];
   }
   .expertise-item {
-    padding: 23px 0;
+    @apply py-[23px] px-0;
   }
   .expertise-item h3 {
-    font-size: 26px;
+    @apply text-[26px];
   }
   .solutions-editorial .section-title {
-    margin-bottom: 30px;
+    @apply mb-[30px];
   }
   .solution-editorial-row {
-    padding-block: 32px;
-    gap: 26px;
+    @apply py-8 gap-[26px];
   }
   .solution-editorial-image {
-    aspect-ratio: 1.35;
+    @apply aspect-[1.35];
   }
   .solution-editorial-copy h3 {
-    font-size: 34px;
+    @apply text-[34px];
   }
   .nav-wrap {
-    height: 74px;
+    @apply h-[74px];
   }
   .brand {
-    width: 154px;
+    @apply w-[154px];
   }
   .nav-cta {
-    padding: 9px 14px;
-    font-size: 12px;
+    @apply px-[14px] py-[9px] text-[12px];
   }
   .detail-hero {
-    padding: 25px 20px 35px;
+    @apply pt-[25px] px-5 pb-[35px];
   }
   .detail-hero-grid {
-    gap: 34px;
+    @apply gap-[34px];
   }
   .detail-copy h1 {
-    font-size: 43px;
-    line-height: 1.11;
+    @apply text-[43px] leading-[1.11];
   }
   .detail-copy > .eyebrow {
-    font-size: 10px;
+    @apply text-[10px];
   }
   .detail-copy > p:not(.eyebrow) {
-    font-size: 16px;
+    @apply text-[16px];
   }
   .service-image {
-    aspect-ratio: 1.13;
+    @apply aspect-[1.13];
   }
   .service-image figcaption {
-    font-size: 10px;
-    left: 12px;
-    bottom: 12px;
-    max-width: calc(100% - 24px);
-    padding: 9px 12px;
+    @apply text-[10px] left-3 bottom-3 max-w-[calc(100%_-_24px)] px-3 py-[9px];
   }
   .page-tabs {
-    top: 74px;
+    @apply top-[74px];
   }
   .deliverable {
-    padding-block: 28px;
+    @apply py-7;
   }
   .inline-cta {
-    padding: 34px 25px;
+    @apply py-[34px] px-[25px];
   }
   .inline-cta h2 {
-    font-size: 35px;
+    @apply text-[35px];
   }
   .inline-cta p {
-    font-size: 15px;
+    @apply text-[15px];
   }
   .inline-cta .button {
-    margin-top: 28px;
+    @apply mt-7;
   }
   .footer-cta {
-    padding-block: 60px 45px;
+    @apply pt-[60px] pb-[45px];
   }
   .footer-headline {
-    font-size: clamp(50px, 12vw, 80px);
+    @apply text-[clamp(50px,12vw,80px)];
   }
   .page-intro {
-    padding: 45px 20px;
+    @apply py-[45px] px-5;
   }
   .page-intro h1 {
-    font-size: 46px;
-    line-height: 1.13;
+    @apply text-[46px] leading-[1.13];
   }
   .delivery-team article {
-    padding-top: 24px;
+    @apply pt-6;
   }
 }
 @media (max-width: 370px) {
   .next-hero-copy h1 {
-    font-size: 61px;
+    @apply text-[61px];
   }
   .next-hero-copy .hero-actions {
-    gap: 16px;
+    @apply gap-4;
   }
   .next-hero-copy .text-link {
-    font-size: 11px;
+    @apply text-[11px];
   }
   .next-hero-copy .button {
-    padding-inline: 16px;
-    font-size: 12px;
+    @apply px-4 text-[12px];
   }
   .hero-composition {
-    height: 345px;
+    @apply h-[345px];
   }
   .composition-space {
-    height: 105px;
+    @apply h-[105px];
   }
   .composition-web {
-    top: 87px;
+    @apply top-[87px];
   }
   .composition-app {
-    bottom: 12px;
+    @apply bottom-3;
   }
   .next-hero-top > .eyebrow {
-    font-size: 9px;
+    @apply text-[9px];
   }
   .connection-intro h2 {
-    font-size: 32px;
+    @apply text-[32px];
   }
   .connection-chapter h3 {
-    font-size: 29px;
+    @apply text-[29px];
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .composition-project {
-    will-change: auto;
+    @apply will-change-auto;
   }
   .connection-stage {
-    position: sticky;
+    @apply sticky;
   }
   .connection-frame {
-    will-change: auto;
+    @apply will-change-auto;
   }
 }
 
 .brand-canvas {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  min-height: 490px;
-  border-radius: 6px;
-  overflow: hidden;
-  background: #173fff;
-  color: #fff;
+  @apply grid grid-cols-[1.15fr_1fr] min-h-[490px] rounded-md overflow-hidden bg-brand text-white;
 }
 .marketing-focus {
-  margin-block: 0 20px;
-  background: #173fff;
-  color: white;
-  padding: 54px;
-  border-radius: 6px;
+  @apply mt-0 mb-5 bg-brand text-white p-[54px] rounded-md;
 }
 .marketing-focus-head {
-  display: grid;
-  grid-template-columns: 1fr 2.6fr;
-  gap: 70px;
-  align-items: start;
-  margin-bottom: 52px;
+  @apply grid grid-cols-[1fr_2.6fr] gap-[70px] items-start mb-[52px];
 }
 .marketing-focus-head > .eyebrow {
-  font-size: 11px;
-  color: #d0dcff;
-  padding-top: 9px;
+  @apply text-[11px] text-[#d0dcff] pt-[9px];
 }
 .marketing-focus-head h2 {
-  font-size: clamp(30px, 3.5vw, 55px);
-  letter-spacing: -0.045em;
-  line-height: 1.12;
-  max-width: 760px;
+  @apply text-[clamp(30px,3.5vw,55px)] tracking-[-0.045em] leading-[1.12] max-w-[760px];
 }
 .marketing-focus .marketing-path {
-  gap: 25px;
+  @apply gap-[25px];
 }
 .marketing-focus .marketing-path > li {
-  padding: 23px 0 0;
-  border-left: 0;
+  @apply pt-[23px] px-0 pb-0 border-l-0;
 }
 .marketing-focus .marketing-path h4 {
-  font-size: 27px;
+  @apply text-[27px];
 }
 .solutions-index {
-  padding-block: 30px 20px;
+  @apply pt-[30px] pb-5;
 }
 .project-hero img {
-  border-radius: 6px;
+  @apply rounded-md;
 }
 .project-overview {
-  border-bottom: 1px solid #d8dce3;
+  @apply border-b border-rule;
 }
 .project-facts {
-  border-left: 1px solid #d8dce3;
-  padding-left: 35px;
+  @apply border-l border-rule pl-[35px];
 }
 .project-facts h3 {
-  color: #173fff;
+  @apply text-brand;
 }
 .project-images figure {
-  overflow: hidden;
+  @apply overflow-hidden;
 }
 .project-images img {
-  border-radius: 5px;
+  @apply rounded-[5px];
 }
 .about-manifesto h2 > span,
 .about-manifesto h2 > em {
-  display: block;
+  @apply block;
 }
 @media (max-width: 767px) {
   .marketing-focus {
-    padding: 32px 25px;
-    margin-bottom: 0;
+    @apply py-8 px-[25px] mb-0;
   }
   .marketing-focus-head {
-    display: block;
-    margin-bottom: 32px;
+    @apply block mb-8;
   }
   .marketing-focus-head > .eyebrow {
-    font-size: 10px;
-    padding: 0;
+    @apply text-[10px] p-0;
   }
   .marketing-focus-head h2 {
-    font-size: 32px;
-    margin-top: 22px;
+    @apply text-[32px] mt-[22px];
   }
   .marketing-focus .marketing-path {
-    gap: 25px 15px;
+    @apply gap-y-[25px] gap-x-[15px];
   }
   .marketing-focus .marketing-path h4 {
-    font-size: 23px;
+    @apply text-[23px];
   }
   .marketing-focus .marketing-path > li {
-    padding-top: 18px;
+    @apply pt-[18px];
   }
   .solutions-index {
-    padding-block: 5px 0;
+    @apply pt-[5px] pb-0;
   }
   .project-facts {
-    border-left: 0;
-    padding-left: 0;
+    @apply border-l-0 pl-0;
   }
   .about-manifesto h2 {
-    font-size: 35px;
-    line-height: 1.28;
+    @apply text-[35px] leading-[1.28];
   }
   .about-manifesto h2 > span,
   .about-manifesto h2 > em {
-    margin-top: 22px;
+    @apply mt-[22px];
   }
   .about-manifesto h2 > span:first-child {
-    margin-top: 0;
+    @apply mt-0;
   }
 }
 .brand-canvas-primary {
-  padding: 42px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
+  @apply p-[42px] flex flex-col items-start justify-between;
 }
 .brand-canvas-primary > .eyebrow {
-  font-size: 11px;
-  color: #dce5ff;
+  @apply text-[11px] text-[#dce5ff];
 }
 .brand-canvas-primary > img {
-  width: 85%;
-  filter: brightness(0) invert(1);
-  margin-block: 45px;
+  @apply w-[85%] brightness-0 invert my-[45px];
 }
 .brand-canvas-primary > p:last-child {
-  font-family: Brutel;
-  font-size: 36px;
-  letter-spacing: -0.04em;
-  line-height: 1.2;
+  @apply font-display text-[36px] tracking-[-0.04em] leading-[1.2];
 }
 .brand-canvas-type {
-  padding: 30px 40px;
-  background: #edf1f9;
-  color: #173fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @apply py-[30px] px-10 bg-[#edf1f9] text-brand flex flex-col justify-center;
 }
 .brand-canvas-type > span {
-  font-family: Brutel;
-  font-size: 180px;
-  line-height: 1.1;
-  letter-spacing: -0.075em;
+  @apply font-display text-[180px] leading-[1.1] tracking-[-0.075em];
 }
 .brand-canvas-type > p {
-  font-size: 14px;
-  color: #63718a;
-  margin-top: 15px;
+  @apply text-[14px] text-[#63718a] mt-[15px];
 }
 .brand-canvas-type > div {
-  display: flex;
-  margin-top: 40px;
-  height: 60px;
+  @apply flex mt-10 h-[60px];
 }
 .brand-canvas-type > div > span {
-  width: 33.333%;
-  display: flex;
-  align-items: end;
-  padding: 10px;
-  font-size: 11px;
-  background: #173fff;
-  color: white;
+  @apply w-[33.333%] flex items-end p-[10px] text-[11px] bg-brand text-white;
 }
 .brand-canvas-type > div > span:nth-child(2) {
-  background: #101722;
+  @apply bg-[#101722];
 }
 .brand-canvas-type > div > span:nth-child(3) {
-  background: #d1d9e6;
-  color: #263854;
+  @apply bg-[#d1d9e6] text-[#263854];
 }
 .project-canvas {
-  background: #173fff;
-  color: white;
-  border-radius: 6px;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 0.65fr 1fr;
-  min-height: 500px;
-  position: relative;
+  @apply bg-brand text-white rounded-md overflow-hidden grid grid-cols-[0.65fr_1fr] min-h-[500px] relative;
 }
 .project-canvas-intro {
-  padding: 48px 38px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  z-index: 2;
+  @apply py-[48px] px-[38px] flex flex-col justify-center items-start z-[2];
 }
 .project-canvas-intro > .eyebrow {
-  color: #c6d4ff;
-  font-size: 11px;
+  @apply text-[#c6d4ff] text-[11px];
 }
 .project-canvas-intro h3 {
-  font-size: clamp(30px, 3.25vw, 52px);
-  line-height: 1.13;
-  margin: 24px 0;
-  letter-spacing: -0.05em;
+  @apply text-[clamp(30px,3.25vw,52px)] leading-[1.13] my-6 tracking-[-0.05em];
 }
 .project-canvas-intro > p:last-child {
-  font-size: 12px;
-  line-height: 1.7;
-  color: #c6d4ff;
-  max-width: 235px;
+  @apply text-[12px] leading-[1.7] text-[#c6d4ff] max-w-[235px];
 }
 .project-canvas-image {
-  position: relative;
-  overflow: hidden;
-  min-height: 500px;
-  background: #e4eafa;
+  @apply relative overflow-hidden min-h-[500px] bg-[#e4eafa];
 }
 .project-canvas-image > img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  @apply absolute w-full h-full object-cover;
 }
 .canvas-website-design-development {
-  background: #17372b;
+  @apply bg-[#17372b];
 }
 .canvas-website-design-development .project-canvas-intro > .eyebrow,
 .canvas-website-design-development .project-canvas-intro > p:last-child {
-  color: #aacaaf;
+  @apply text-[#aacaaf];
 }
 .canvas-website-design-development .project-canvas-image > img {
-  width: 185%;
-  height: auto;
-  max-width: none;
-  left: -39%;
-  top: -17%;
+  @apply w-[185%] h-auto max-w-none left-[-39%] top-[-17%];
 }
 .canvas-ui-ux-product-design .project-canvas-image > img {
-  height: 154%;
-  width: 148%;
-  max-width: none;
-  left: -2%;
-  bottom: 0;
-  object-position: left bottom;
+  @apply h-[154%] w-[148%] max-w-none left-[-2%] bottom-0 object-left-bottom;
 }
 .canvas-custom-software-development {
-  background: #182532;
+  @apply bg-[#182532];
 }
 .canvas-custom-software-development .project-canvas-image > img {
-  height: 125%;
-  bottom: 0;
-  object-position: 51% bottom;
+  @apply h-[125%] bottom-0 object-[51%_bottom];
 }
 .canvas-mobile-application-development .project-canvas-image > img {
-  height: auto;
-  width: 180%;
-  max-width: none;
-  left: -40%;
-  bottom: 0;
+  @apply h-auto w-[180%] max-w-none left-[-40%] bottom-0;
 }
 .workflow-canvas,
 .marketing-canvas,
 .consulting-canvas {
-  padding: 43px;
-  background: #102234;
-  color: #f5f8ff;
-  border-radius: 6px;
-  overflow: hidden;
-  min-height: 490px;
+  @apply p-[43px] bg-[#102234] text-[#f5f8ff] rounded-md overflow-hidden min-h-[490px];
 }
 .canvas-heading {
-  display: flex;
-  justify-content: space-between;
-  gap: 35px;
-  align-items: flex-end;
-  margin-bottom: 52px;
+  @apply flex justify-between gap-[35px] items-end mb-[52px];
 }
 .canvas-heading .eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: #a5bbda;
+  @apply text-[11px] tracking-[0.1em] text-[#a5bbda];
 }
 .canvas-heading h3 {
-  font-size: clamp(35px, 3.8vw, 59px);
-  letter-spacing: -0.045em;
-  line-height: 1.07;
-  margin-top: 20px;
+  @apply text-[clamp(35px,3.8vw,59px)] tracking-[-0.045em] leading-[1.07] mt-5;
 }
 .canvas-heading > p {
-  font-size: 14px;
-  line-height: 1.8;
-  color: #a5bbda;
+  @apply text-[14px] leading-[1.8] text-[#a5bbda];
 }
 .workflow-nodes {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-  padding: 0;
-  margin: 0;
+  @apply list-none grid grid-cols-4 gap-[22px] p-0 m-0;
 }
 .workflow-nodes li {
-  position: relative;
-  border-top: 2px solid #85a6e3;
-  padding-top: 20px;
+  @apply relative border-t-2 border-[#85a6e3] pt-5;
 }
 .workflow-nodes li > span {
-  font-size: 11px;
-  color: #88a9d6;
+  @apply text-[11px] text-[#88a9d6];
 }
 .workflow-nodes h4 {
-  font-size: 27px;
-  margin: 14px 0 12px;
+  @apply text-[27px] mt-[14px] mx-0 mb-3;
 }
 .workflow-nodes p {
-  font-size: 13px;
-  color: #a5bbda;
+  @apply text-[13px] text-[#a5bbda];
 }
 .workflow-nodes svg {
-  position: absolute;
-  right: 1px;
-  top: 20px;
-  color: #8ab0eb;
+  @apply absolute right-px top-5 text-[#8ab0eb];
 }
 .workflow-return {
-  display: flex;
-  gap: 30px;
-  font-size: 11px;
-  color: #93aed1;
-  border-top: 1px solid #ffffff20;
-  padding-top: 23px;
-  margin-top: 39px;
+  @apply flex gap-[30px] text-[11px] text-[#93aed1] border-t border-[#ffffff20] pt-[23px] mt-[39px];
 }
 .marketing-canvas {
-  background: #173fff;
+  @apply bg-brand;
 }
 .marketing-canvas .eyebrow,
 .marketing-canvas .canvas-heading > p {
-  color: #dce5ff;
+  @apply text-[#dce5ff];
 }
 .marketing-path {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  gap: 0;
+  @apply grid grid-cols-4 list-none p-0 m-0 gap-0;
 }
 .marketing-path > li {
-  padding: 22px 20px;
-  border-top: 1px solid #d0dcff70;
-  border-left: 1px solid #d0dcff35;
+  @apply py-[22px] px-5 border-t border-[#d0dcff70] border-l border-[#d0dcff35];
 }
 .marketing-path > li:first-child {
-  padding-left: 0;
-  border-left: 0;
+  @apply pl-0 border-l-0;
 }
 .marketing-path > li > span {
-  font-size: 11px;
-  color: #d0dcff;
+  @apply text-[11px] text-[#d0dcff];
 }
 .marketing-path h4 {
-  font-size: 29px;
-  margin: 18px 0 13px;
+  @apply text-[29px] mt-[18px] mx-0 mb-[13px];
 }
 .marketing-path p {
-  font-size: 13px;
-  color: #d0dcff;
+  @apply text-[13px] text-[#d0dcff];
 }
 .canvas-note {
-  font-size: 11px;
-  line-height: 1.8;
-  color: #b5c9ff;
-  margin-top: 30px;
+  @apply text-[11px] leading-[1.8] text-[#b5c9ff] mt-[30px];
 }
 .consulting-canvas {
-  background: #e6ecf7;
-  color: #1c3254;
+  @apply bg-[#e6ecf7] text-[#1c3254];
 }
 .consulting-canvas .eyebrow,
 .consulting-canvas .canvas-heading > p {
-  color: #647691;
+  @apply text-[#647691];
 }
 .assessment-map {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  @apply grid grid-cols-3 gap-[22px];
 }
 .assessment-map > div {
-  position: relative;
-  background: #fff;
-  padding: 24px;
-  border-radius: 4px;
+  @apply relative bg-white p-6 rounded-sm;
 }
 .assessment-map > div > span {
-  font-size: 11px;
-  color: #173fff;
+  @apply text-[11px] text-brand;
 }
 .assessment-map h4 {
-  font-size: 26px;
-  margin: 23px 0 15px;
+  @apply text-[26px] mt-[23px] mx-0 mb-[15px];
 }
 .assessment-map p {
-  font-size: 13px;
-  color: #62728a;
-  line-height: 1.7;
+  @apply text-[13px] text-[#62728a] leading-[1.7];
 }
 .assessment-map svg {
-  position: absolute;
-  right: 20px;
-  top: 23px;
-  color: #173fff;
+  @apply absolute right-5 top-[23px] text-brand;
 }
 .consulting-canvas .canvas-note {
-  color: #647691;
+  @apply text-[#647691];
 }
 .campaign-hero .project-canvas {
-  display: block;
-  min-height: 0;
+  @apply block min-h-0;
 }
 .campaign-hero .project-canvas-intro {
-  padding: 28px 30px;
+  @apply py-7 px-[30px];
 }
 .campaign-hero .project-canvas-intro h3 {
-  font-size: 32px;
-  margin-block: 18px;
+  @apply text-[32px] my-[18px];
 }
 .campaign-hero .project-canvas-intro > p:last-child {
-  max-width: none;
+  @apply max-w-none;
 }
 .campaign-hero .project-canvas-image {
-  min-height: 360px;
+  @apply min-h-[360px];
 }
 .campaign-hero .brand-canvas {
-  display: block;
-  min-height: 0;
+  @apply block min-h-0;
 }
 .campaign-hero .brand-canvas-primary {
-  padding: 30px;
+  @apply p-[30px];
 }
 .campaign-hero .brand-canvas-primary > img {
-  margin-block: 50px;
+  @apply my-[50px];
 }
 .campaign-hero .brand-canvas-type {
-  display: none;
+  @apply hidden;
 }
 .campaign-hero .canvas-heading {
-  display: block;
-  margin-bottom: 30px;
+  @apply block mb-[30px];
 }
 .campaign-hero .canvas-heading > p {
-  margin-top: 25px;
+  @apply mt-[25px];
 }
 .campaign-hero .workflow-nodes,
 .campaign-hero .marketing-path {
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  @apply grid-cols-2 gap-[25px];
 }
 .campaign-hero .assessment-map {
-  grid-template-columns: 1fr;
+  @apply grid-cols-1;
 }
 .campaign-hero .workflow-return {
-  flex-wrap: wrap;
-  gap: 14px;
+  @apply flex-wrap gap-[14px];
 }
 @media (max-width: 1023px) {
   .project-canvas {
-    min-height: 430px;
-    grid-template-columns: 0.75fr 1fr;
+    @apply min-h-[430px] grid-cols-[0.75fr_1fr];
   }
   .project-canvas-image {
-    min-height: 430px;
+    @apply min-h-[430px];
   }
   .project-canvas-intro {
-    padding: 30px;
+    @apply p-[30px];
   }
   .canvas-heading h3 {
-    font-size: 42px;
+    @apply text-[42px];
   }
   .brand-canvas-primary,
   .brand-canvas-type {
-    padding: 30px;
+    @apply p-[30px];
   }
   .brand-canvas-type > span {
-    font-size: 145px;
+    @apply text-[145px];
   }
   .canvas-heading > p {
-    font-size: 13px;
+    @apply text-[13px];
   }
   .workflow-canvas,
   .marketing-canvas,
   .consulting-canvas {
-    padding: 32px;
+    @apply p-8;
   }
   .workflow-nodes {
-    gap: 18px;
+    @apply gap-[18px];
   }
   .workflow-nodes h4 {
-    font-size: 23px;
+    @apply text-[23px];
   }
   .marketing-path h4 {
-    font-size: 25px;
+    @apply text-[25px];
   }
   .assessment-map {
-    gap: 15px;
+    @apply gap-[15px];
   }
   .assessment-map > div {
-    padding: 20px;
+    @apply p-5;
   }
   .assessment-map h4 {
-    font-size: 23px;
+    @apply text-[23px];
   }
 }
 @media (max-width: 767px) {
   .brand-canvas {
-    display: block;
-    min-height: 0;
+    @apply block min-h-0;
   }
   .brand-canvas-primary {
-    padding: 27px;
+    @apply p-[27px];
   }
   .brand-canvas-primary > .eyebrow {
-    font-size: 10px;
+    @apply text-[10px];
   }
   .brand-canvas-primary > img {
-    margin-block: 55px;
-    width: 95%;
+    @apply my-[55px] w-[95%];
   }
   .brand-canvas-primary > p:last-child {
-    font-size: 29px;
+    @apply text-[29px];
   }
   .brand-canvas-type {
-    padding: 27px;
+    @apply p-[27px];
   }
   .brand-canvas-type > span {
-    font-size: 135px;
+    @apply text-[135px];
   }
   .brand-canvas-type > p {
-    font-size: 13px;
+    @apply text-[13px];
   }
   .brand-canvas-type > div {
-    margin-top: 30px;
+    @apply mt-[30px];
   }
   .project-canvas {
-    display: block;
-    min-height: 0;
+    @apply block min-h-0;
   }
   .project-canvas-intro {
-    padding: 28px;
+    @apply p-7;
   }
   .project-canvas-intro > .eyebrow {
-    font-size: 10px;
+    @apply text-[10px];
   }
   .project-canvas-intro h3 {
-    font-size: 33px;
-    margin-block: 20px;
+    @apply text-[33px] my-5;
   }
   .project-canvas-intro > p:last-child {
-    font-size: 11px;
-    max-width: none;
+    @apply text-[11px] max-w-none;
   }
   .project-canvas-image {
-    min-height: 0;
-    height: 320px;
+    @apply min-h-0 h-[320px];
   }
   .canvas-website-design-development .project-canvas-image > img {
-    top: -8%;
+    @apply top-[-8%];
   }
   .canvas-mobile-application-development .project-canvas-image > img {
-    width: 200%;
-    left: -50%;
+    @apply w-[200%] left-[-50%];
   }
   .workflow-canvas,
   .marketing-canvas,
   .consulting-canvas {
-    padding: 28px 24px;
-    min-height: 0;
+    @apply py-7 px-6 min-h-0;
   }
   .canvas-heading {
-    display: block;
-    margin-bottom: 36px;
+    @apply block mb-9;
   }
   .canvas-heading .eyebrow {
-    font-size: 10px;
+    @apply text-[10px];
   }
   .canvas-heading h3 {
-    font-size: 38px;
-    margin-top: 20px;
+    @apply text-[38px] mt-5;
   }
   .canvas-heading > p {
-    font-size: 13px;
-    margin-top: 24px;
+    @apply text-[13px] mt-6;
   }
   .canvas-heading > p > br {
-    display: none;
+    @apply hidden;
   }
   .workflow-nodes {
-    grid-template-columns: 1fr 1fr;
-    gap: 31px 18px;
+    @apply grid-cols-2 gap-y-[31px] gap-x-[18px];
   }
   .workflow-nodes li {
-    padding-top: 16px;
+    @apply pt-4;
   }
   .workflow-nodes h4 {
-    font-size: 23px;
-    margin: 16px 0 12px;
+    @apply text-[23px] mt-4 mx-0 mb-3;
   }
   .workflow-nodes p {
-    font-size: 12px;
-    line-height: 1.7;
+    @apply text-[12px] leading-[1.7];
   }
   .workflow-nodes svg {
-    width: 15px;
-    top: 18px;
+    @apply w-[15px] top-[18px];
   }
   .workflow-return {
-    display: grid;
-    gap: 13px;
-    font-size: 11px;
-    margin-top: 30px;
+    @apply grid gap-[13px] text-[11px] mt-[30px];
   }
   .marketing-path {
-    grid-template-columns: 1fr 1fr;
-    gap: 22px 18px;
+    @apply grid-cols-2 gap-y-[22px] gap-x-[18px];
   }
   .marketing-path > li,
   .marketing-path > li:first-child {
-    padding: 18px 0;
-    border-left: 0;
+    @apply py-[18px] px-0 border-l-0;
   }
   .marketing-path h4 {
-    font-size: 24px;
-    margin-block: 14px 12px;
+    @apply text-[24px] mt-[14px] mb-3;
   }
   .marketing-path p {
-    font-size: 12px;
-    line-height: 1.7;
+    @apply text-[12px] leading-[1.7];
   }
   .canvas-note {
-    font-size: 10px;
-    margin-top: 25px;
+    @apply text-[10px] mt-[25px];
   }
   .assessment-map {
-    grid-template-columns: 1fr;
-    gap: 14px;
+    @apply grid-cols-1 gap-[14px];
   }
   .assessment-map > div {
-    padding: 20px;
+    @apply p-5;
   }
   .assessment-map h4 {
-    font-size: 25px;
-    margin-block: 17px 11px;
+    @apply text-[25px] mt-[17px] mb-[11px];
   }
   .assessment-map p {
-    font-size: 13px;
+    @apply text-[13px];
   }
   .campaign-hero .project-canvas-image {
-    min-height: 0;
-    height: 320px;
+    @apply min-h-0 h-[320px];
   }
   .campaign-hero .project-canvas-intro {
-    padding: 26px;
+    @apply p-[26px];
   }
   .campaign-hero .project-canvas-intro h3 {
-    font-size: 31px;
+    @apply text-[31px];
   }
 }
 
 /* Business-fit review: make the catalogue easy to reach and the scope explicit. */
 .service-finder {
-  padding-block: 78px 70px;
+  @apply pt-[78px] pb-[70px];
 }
 .finder-heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 55px;
-  margin-bottom: 36px;
+  @apply flex items-end justify-between gap-[55px] mb-9;
 }
 .finder-heading h2 {
-  font-size: clamp(35px, 3.5vw, 56px);
-  margin-top: 17px;
+  @apply text-[clamp(35px,3.5vw,56px)] mt-[17px];
 }
 .finder-heading > p {
-  font-size: 16px;
-  line-height: 1.75;
-  color: #647086;
-  max-width: 340px;
+  @apply text-[16px] leading-[1.75] text-[#647086] max-w-[340px];
 }
 .finder-links {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0 34px;
+  @apply grid grid-cols-3 gap-y-0 gap-x-[34px];
 }
 .finder-links > a {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  border-top: 1px solid #d8dfe9;
-  padding: 21px 0;
-  min-height: 100px;
+  @apply flex gap-[14px] items-center border-t border-[#d8dfe9] py-[21px] px-0 min-h-[100px];
 }
 .finder-links > a:hover {
-  color: #173fff;
+  @apply text-brand;
 }
 .finder-links > a > span {
-  font-size: 12px;
-  color: #75829a;
+  @apply text-[12px] text-[#75829a];
 }
 .finder-links h3 {
-  font-size: 23px;
-  line-height: 1.23;
-  letter-spacing: -0.025em;
-  font-weight: 400;
+  @apply text-[23px] leading-[1.23] tracking-[-0.025em] font-normal;
 }
 .finder-links svg {
-  margin-left: auto;
-  width: 17px;
+  @apply ml-auto w-[17px];
 }
 .finder-end {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  border-top: 1px solid #d8dfe9;
-  padding-top: 24px;
-  margin-top: 8px;
+  @apply flex justify-between gap-[30px] border-t border-[#d8dfe9] pt-6 mt-2;
 }
 .finder-end p {
-  font-size: 13px;
-  color: #647086;
+  @apply text-[13px] text-[#647086];
 }
 .finder-end .text-link {
-  font-size: 14px;
-  white-space: nowrap;
+  @apply text-[14px] whitespace-nowrap;
 }
 .connection-intro {
-  padding-bottom: 60px;
+  @apply pb-[60px];
 }
 .connection-chapter {
-  min-height: 660px;
-  padding-block: 70px;
+  @apply min-h-[660px] py-[70px];
 }
 .connection-chapter > .chapter-start {
-  font-size: 14px !important;
-  color: #d0dbef !important;
-  margin-top: 20px;
-  line-height: 1.75 !important;
+  @apply text-[14px]! text-[#d0dbef]! mt-5 leading-[1.75]!;
 }
 .chapter-solution-link {
-  display: inline-flex;
-  gap: 15px;
-  align-items: center;
-  font-size: 14px;
-  color: #c3d1ff;
-  margin-top: 23px;
-  align-self: start;
-  border-bottom: 1px solid #8ea8ef80;
-  padding-bottom: 9px;
+  @apply inline-flex gap-[15px] items-center text-[14px] text-[#c3d1ff] mt-[23px] self-start border-b border-[#8ea8ef80] pb-[9px];
 }
 .chapter-solution-link:hover {
-  color: #fff;
+  @apply text-white;
 }
 .chapter-links {
-  margin-top: 28px;
+  @apply mt-7;
 }
 .chapter-links > a {
-  font-size: 13px;
-  color: #b9c5d8;
+  @apply text-[13px] text-[#b9c5d8];
 }
 .connection-progress > span,
 .connection-stage-top,
 .connection-frame figcaption {
-  font-size: 12px;
+  @apply text-[12px];
 }
 .connection-frames .story-crop-integration .connection-frame-image > img {
-  object-fit: contain;
-  height: 100%;
-  width: 100%;
-  background: #e3e8ff;
+  @apply object-contain h-full w-full bg-[#e3e8ff];
 }
 .connection-frames .story-crop-product .connection-frame-image > img {
-  height: 143%;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  object-position: center bottom;
+  @apply h-[143%] w-full absolute bottom-0 object-bottom;
 }
 .work-track .project-glc-superadmin .feature-image > img {
-  width: 100%;
-  height: 128%;
-  position: absolute;
-  bottom: 0;
-  top: auto;
-  left: 0;
-  object-position: center bottom;
+  @apply w-full h-[128%] absolute bottom-0 top-auto left-0 object-bottom;
 }
 .work-track .project-quickbooks-integration .feature-image {
-  background: #edf0fa;
-  aspect-ratio: 1.06;
+  @apply bg-[#edf0fa] aspect-[1.06];
 }
 .work-track .project-quickbooks-integration .feature-image > img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  position: static;
+  @apply w-full h-full object-contain static;
 }
 .work-track .project-vasavi-atlantis .feature-image > img {
-  width: 100%;
-  height: 100%;
-  position: static;
-  object-fit: cover;
+  @apply w-full h-full static object-cover;
 }
 .work-track .project-eco-world .feature-image > img {
-  width: 184%;
-  height: auto;
-  max-width: none;
-  left: -39%;
-  top: -12%;
-  bottom: auto;
-  position: absolute;
+  @apply w-[184%] h-auto max-w-none left-[-39%] top-[-12%] bottom-auto absolute;
 }
 .feature-meta h3 {
-  font-size: clamp(24px, 2.1vw, 31px);
+  @apply text-[clamp(24px,2.1vw,31px)];
 }
 .feature-meta p {
-  font-size: 13px;
+  @apply text-[13px];
 }
 .engagement-start {
-  background: #eef2f9;
-  border-radius: 6px;
-  padding: 48px;
-  margin-block: 0 35px;
-  scroll-margin-top: 24px;
+  @apply bg-[#eef2f9] rounded-md p-12 mt-0 mb-[35px] scroll-mt-6;
 }
 .page-tabs ~ section[id],
 .page-tabs ~ div[id] {
-  scroll-margin-top: 24px;
+  @apply scroll-mt-6;
 }
 .engagement-heading {
-  display: grid;
-  grid-template-columns: 0.9fr 2fr;
-  gap: 50px;
-  align-items: start;
+  @apply grid grid-cols-[0.9fr_2fr] gap-[50px] items-start;
 }
 .engagement-heading > .eyebrow {
-  padding-top: 7px;
-  color: #173fff;
+  @apply pt-[7px] text-brand;
 }
 .engagement-heading h2 {
-  font-size: 38px;
-  line-height: 1.17;
-  letter-spacing: -0.035em;
-  max-width: 750px;
+  @apply text-[38px] leading-[1.17] tracking-[-0.035em] max-w-[750px];
 }
 .engagement-details {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 38px;
-  margin-top: 38px;
+  @apply grid grid-cols-3 gap-[38px] mt-[38px];
 }
 .engagement-details > div {
-  border-top: 1px solid #cbd5e6;
-  padding-top: 23px;
+  @apply border-t border-[#cbd5e6] pt-[23px];
 }
 .engagement-details h3 {
-  font-size: 23px;
-  letter-spacing: -0.025em;
+  @apply text-[23px] tracking-[-0.025em];
 }
 .engagement-details p {
-  font-size: 15px;
-  line-height: 1.85;
-  color: #5d6c83;
-  margin-top: 14px;
+  @apply text-[15px] leading-[1.85] text-[#5d6c83] mt-[14px];
 }
 .assessment-evidence {
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 95px;
-  align-items: start;
+  @apply grid grid-cols-[1fr_1.15fr] gap-[95px] items-start;
 }
 .assessment-evidence h2 {
-  font-size: clamp(36px, 3.9vw, 62px);
-  margin-block: 22px 25px;
+  @apply text-[clamp(36px,3.9vw,62px)] mt-[22px] mb-[25px];
 }
 .assessment-evidence > div > p:last-child {
-  font-size: 16px;
-  line-height: 1.85;
-  color: #647086;
-  max-width: 440px;
+  @apply text-[16px] leading-[1.85] text-[#647086] max-w-[440px];
 }
 .assessment-evidence ol {
-  padding: 0;
-  list-style: none;
-  margin: 0;
+  @apply p-0 list-none m-0;
 }
 .assessment-evidence li {
-  display: flex;
-  gap: 24px;
-  border-top: 1px solid #d8dfe9;
-  padding-block: 25px;
+  @apply flex gap-6 border-t border-[#d8dfe9] py-[25px];
 }
 .assessment-evidence li > span {
-  font-size: 12px;
-  color: #173fff;
-  padding-top: 7px;
+  @apply text-[12px] text-brand pt-[7px];
 }
 .assessment-evidence li h3 {
-  font-size: 26px;
-  letter-spacing: -0.025em;
+  @apply text-[26px] tracking-[-0.025em];
 }
 .assessment-evidence li p {
-  font-size: 15px;
-  color: #647086;
-  margin-top: 12px;
-  line-height: 1.8;
+  @apply text-[15px] text-[#647086] mt-3 leading-[1.8];
 }
 .page-tabs a[aria-current="location"] {
-  color: #173fff;
+  @apply text-brand;
 }
 .page-tabs a[aria-current="location"]::after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: -20px;
-  right: 0;
-  background: #173fff;
-  height: 2px;
+  @apply content-[''] block absolute left-0 bottom-[-20px] right-0 bg-brand h-0.5;
 }
 .page-tabs a {
-  position: relative;
+  @apply relative;
 }
 .desktop-nav {
-  font-size: 14px;
+  @apply text-[14px];
 }
 .hero-actions .text-link,
 .next-hero-copy .text-link {
-  font-size: 14px;
+  @apply text-[14px];
 }
 .form-note {
-  font-size: 13px !important;
+  @apply text-[13px]!;
 }
 .page-tabs a {
-  font-size: 14px;
+  @apply text-[14px];
 }
 .detail-copy h1 {
-  white-space: pre-line;
+  @apply whitespace-pre-line;
 }
 @media (max-width: 1023px) {
   .finder-links {
-    gap: 0 23px;
+    @apply gap-y-0 gap-x-[23px];
   }
   .finder-links h3 {
-    font-size: 21px;
+    @apply text-[21px];
   }
   .finder-links > a {
-    gap: 10px;
+    @apply gap-[10px];
   }
   .assessment-evidence {
-    gap: 45px;
+    @apply gap-[45px];
   }
   .engagement-start {
-    padding: 35px;
+    @apply p-[35px];
   }
   .engagement-details {
-    gap: 25px;
+    @apply gap-[25px];
   }
   .engagement-heading {
-    gap: 35px;
+    @apply gap-[35px];
   }
   .engagement-heading h2 {
-    font-size: 34px;
+    @apply text-[34px];
   }
 }
 @media (max-width: 767px) {
   .service-finder {
-    padding-block: 50px;
+    @apply py-[50px];
   }
   .finder-heading {
-    display: block;
-    margin-bottom: 30px;
+    @apply block mb-[30px];
   }
   .finder-heading h2 {
-    font-size: 36px;
-    margin-top: 15px;
+    @apply text-[36px] mt-[15px];
   }
   .finder-heading > p {
-    font-size: 15px;
-    margin-top: 20px;
-    max-width: 100%;
+    @apply text-[15px] mt-5 max-w-full;
   }
   .finder-links {
-    grid-template-columns: 1fr;
-    gap: 0;
+    @apply grid-cols-1 gap-0;
   }
   .finder-links > a {
-    min-height: 0;
-    padding-block: 19px;
-    gap: 17px;
+    @apply min-h-0 py-[19px] gap-[17px];
   }
   .finder-links h3 {
-    font-size: 23px;
+    @apply text-[23px];
   }
   .finder-links > a > span {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .finder-links svg {
-    width: 17px;
+    @apply w-[17px];
   }
   .finder-end {
-    display: block;
-    padding-top: 22px;
-    margin-top: 0;
+    @apply block pt-[22px] mt-0;
   }
   .finder-end p {
-    font-size: 13px;
-    line-height: 1.8;
+    @apply text-[13px] leading-[1.8];
   }
   .finder-end .text-link {
-    margin-top: 20px;
-    font-size: 14px;
+    @apply mt-5 text-[14px];
   }
   .connection-intro {
-    padding-bottom: 35px;
+    @apply pb-[35px];
   }
   .connection-chapter {
-    min-height: 0;
-    padding-block: 40px;
+    @apply min-h-0 py-10;
   }
   .connection-chapter h3 {
-    font-size: 32px;
+    @apply text-[32px];
   }
   .connection-chapter > .chapter-start {
-    font-size: 14px !important;
+    @apply text-[14px]!;
   }
   .chapter-links > a {
-    font-size: 13px;
+    @apply text-[13px];
   }
   .chapter-solution-link {
-    font-size: 14px;
-    margin-top: 23px;
+    @apply text-[14px] mt-[23px];
   }
   .chapter-mobile-image.story-crop-integration {
-    aspect-ratio: auto;
-    background: #e3e8ff;
+    @apply aspect-auto bg-[#e3e8ff];
   }
   .chapter-mobile-image.story-crop-integration > img {
-    height: auto;
-    aspect-ratio: 1.55;
-    object-fit: contain;
+    @apply h-auto aspect-[1.55] object-contain;
   }
   .chapter-mobile-image.story-crop-integration figcaption {
-    position: static;
-    background: #101722;
-    padding: 12px 15px;
+    @apply static bg-[#101722] py-3 px-[15px];
   }
   .chapter-mobile-image.story-crop-product > img {
-    height: 136%;
-    position: absolute;
-    bottom: 0;
-    object-position: center bottom;
+    @apply h-[136%] absolute bottom-0 object-bottom;
   }
   .work-track .project-quickbooks-integration .feature-image {
-    aspect-ratio: 1.09;
+    @apply aspect-[1.09];
   }
   .feature-meta h3 {
-    font-size: 24px;
+    @apply text-[24px];
   }
   .feature-meta p {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .engagement-start {
-    padding: 29px 25px;
-    margin-block: 0 20px;
+    @apply py-[29px] px-[25px] mt-0 mb-5;
   }
   .engagement-heading {
-    display: block;
+    @apply block;
   }
   .engagement-heading h2 {
-    font-size: 32px;
-    margin-top: 18px;
+    @apply text-[32px] mt-[18px];
   }
   .engagement-details {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    margin-top: 30px;
+    @apply grid-cols-1 gap-[25px] mt-[30px];
   }
   .engagement-details > div {
-    padding-top: 22px;
+    @apply pt-[22px];
   }
   .engagement-details h3 {
-    font-size: 24px;
+    @apply text-[24px];
   }
   .engagement-details p {
-    font-size: 15px;
-    margin-top: 12px;
+    @apply text-[15px] mt-3;
   }
   .assessment-evidence {
-    display: block;
+    @apply block;
   }
   .assessment-evidence h2 {
-    font-size: 37px;
+    @apply text-[37px];
   }
   .assessment-evidence > div > p:last-child {
-    font-size: 16px;
+    @apply text-[16px];
   }
   .assessment-evidence ol {
-    margin-top: 32px;
+    @apply mt-8;
   }
   .assessment-evidence li {
-    padding-block: 23px;
-    gap: 18px;
+    @apply py-[23px] gap-[18px];
   }
   .assessment-evidence li h3 {
-    font-size: 25px;
+    @apply text-[25px];
   }
   .assessment-evidence li p {
-    font-size: 15px;
+    @apply text-[15px];
   }
   .page-tabs a {
-    font-size: 13px;
+    @apply text-[13px];
   }
   .page-tabs a[aria-current="location"]::after {
-    bottom: -17px;
+    @apply bottom-[-17px];
   }
   .next-hero-copy .text-link {
-    font-size: 13px;
+    @apply text-[13px];
   }
   .chapter-mobile-image figcaption {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .next-hero-top > .eyebrow {
-    font-size: 11px;
+    @apply text-[11px];
   }
   .composition-coordinate {
-    font-size: 10px;
+    @apply text-[10px];
   }
   .next-hero-bottom > p,
   .next-hero-bottom > a {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .next-hero-bottom {
-    align-items: center;
+    @apply items-center;
   }
   .composition-app > span {
-    font-size: 10px;
+    @apply text-[10px];
   }
   .composition-caption p {
-    font-size: 11px;
+    @apply text-[11px];
   }
   .engagement-heading > .eyebrow {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .eyebrow {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .page-intro .eyebrow,
   .detail-copy > .eyebrow {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .hero-actions .button {
-    max-width: 100%;
+    @apply max-w-full;
   }
 }

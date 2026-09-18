@@ -1,967 +1,639 @@
-/* TechGy Link: the company and its collective strength. */
+@reference "./globals.css";
 .ambition-hero {
-  overflow: hidden;
-  background: #f6f7fa;
-  padding-top: 35px;
+  @apply overflow-hidden bg-[#f6f7fa] pt-[35px];
 }
 .ambition-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-  font-size: 14px;
-  color: #59677c;
+  @apply flex items-center justify-between gap-[30px] text-[14px] text-[#59677c];
 }
 .ambition-top > .eyebrow {
-  color: #173fff;
-  font-size: 13px;
+  @apply text-brand text-[13px];
 }
 .ambition-top > a {
-  border-bottom: 1px solid #cbd2de;
-  padding-bottom: 3px;
+  @apply border-b border-[#cbd2de] pb-[3px];
 }
 .ambition-title {
-  position: relative;
-  margin-top: 45px;
+  @apply relative mt-[45px];
 }
 .ambition-title h1 {
-  font-size: clamp(72px, 8.5vw, 132px);
-  font-weight: 400;
-  line-height: 1.04;
-  letter-spacing: -0.065em;
+  @apply text-[clamp(72px,8.5vw,132px)] font-normal leading-[1.04] tracking-[-0.065em];
 }
 .ambition-title h1 > span {
-  display: block;
-  transform-origin: left bottom;
+  @apply block origin-bottom-left;
 }
 .ambition-title h1 > span + span {
-  margin-left: 8%;
-  color: #173fff;
+  @apply ml-[8%] text-brand;
 }
 .ambition-side {
-  position: absolute;
-  right: 0;
-  top: 15px;
-  font-size: 15px;
-  line-height: 1.65;
-  color: #647187;
+  @apply absolute right-0 top-[15px] text-[15px] leading-[1.65] text-[#647187];
 }
 .ambition-side span {
-  color: #173fff;
+  @apply text-brand;
 }
 .ambition-intro {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 100px;
-  align-items: center;
-  margin-top: 38px;
-  margin-bottom: 45px;
+  @apply grid grid-cols-[1.05fr_1fr] gap-[100px] items-center mt-[38px] mb-[45px];
 }
 .ambition-intro > p {
-  font-size: 18px;
-  line-height: 1.75;
-  color: #536077;
-  max-width: 630px;
+  @apply text-lg leading-[1.75] text-[#536077] max-w-[630px];
 }
 .ambition-intro > div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 17px;
+  @apply flex flex-col items-end gap-[17px];
 }
 .ambition-intro .button {
-  border-radius: 999px;
-  padding-inline: 27px;
-  min-height: 58px;
+  @apply rounded-full px-[27px] min-h-[58px];
 }
 .ambition-intro .text-link {
-  font-size: 14px;
+  @apply text-[14px];
 }
 .ambition-work {
-  display: grid;
-  grid-template-columns: 1.1fr 0.8fr 1.18fr;
-  gap: 13px;
-  width: calc(100% - 48px);
-  margin-inline: auto;
+  @apply grid grid-cols-[1.1fr_0.8fr_1.18fr] gap-[13px] w-[calc(100%_-_48px)] mx-auto;
 }
 .ambition-project {
-  display: block;
-  min-width: 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 3px;
-  background: #dce7e2;
+  @apply block min-w-0 relative overflow-hidden rounded-[3px] bg-[#dce7e2];
 }
 .ambition-project-image {
-  height: clamp(250px, 26vw, 410px);
-  overflow: hidden;
-  position: relative;
+  @apply h-[clamp(250px,26vw,410px)] overflow-hidden relative;
 }
 .ambition-project-image > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  @apply w-full h-full object-cover;
 }
 .ambition-web .ambition-project-image > img {
-  width: 205%;
-  height: auto;
-  max-width: none;
-  position: absolute;
-  left: -52.5%;
-  top: -58%;
+  @apply w-[205%] h-auto max-w-none absolute left-[-52.5%] top-[-58%];
 }
 .ambition-mobile .ambition-project-image {
-  background: #e6eee9;
+  @apply bg-[#e6eee9];
 }
 .ambition-mobile .ambition-project-image > img {
-  height: 178%;
-  position: absolute;
-  bottom: 0;
-  object-position: 50% bottom;
+  @apply h-[178%] absolute bottom-0 object-[50%_bottom];
 }
 .ambition-space .ambition-project-image > img {
-  object-position: center 45%;
+  @apply object-[center_45%];
 }
 .ambition-project-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 70px 24px 22px;
-  background: linear-gradient(transparent, #0a1724e8);
-  color: white;
-  font-size: 16px;
-  line-height: 1.45;
+  @apply absolute bottom-0 left-0 right-0 flex items-center justify-between gap-[18px] pt-[70px] px-6 pb-[22px] bg-[linear-gradient(transparent,_#0a1724e8)] text-white text-base leading-[1.45];
 }
 .ambition-project-label small {
-  font-size: 12px;
-  display: block;
-  color: #dce4ed;
-  margin-top: 6px;
+  @apply text-[12px] block text-[#dce4ed] mt-1.5;
 }
 .ambition-project-label > svg {
-  width: 19px;
+  @apply w-[19px];
 }
 .ambition-foot {
-  padding-block: 25px 35px;
-  font-size: 14px;
-  color: #5c6a80;
-  display: flex;
-  justify-content: space-between;
-  gap: 25px;
+  @apply pt-[25px] pb-[35px] text-[14px] text-[#5c6a80] flex justify-between gap-[25px];
 }
 .ambition-foot > a {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  color: #173fff;
+  @apply flex gap-[18px] items-center text-brand;
 }
 .company-evolution {
-  background: #173fff;
-  color: #fff;
-  padding-block: 105px 60px;
+  @apply bg-brand text-white pt-[105px] pb-[60px];
 }
 .evolution-heading .eyebrow {
-  font-size: 14px;
-  color: #dce3ff;
+  @apply text-[14px] text-[#dce3ff];
 }
 .evolution-heading h2 {
-  font-size: clamp(42px, 4.5vw, 69px);
-  line-height: 1.14;
-  max-width: 1120px;
-  margin-top: 25px;
+  @apply text-[clamp(42px,4.5vw,69px)] leading-[1.14] max-w-[1120px] mt-[25px];
 }
 .evolution-heading h2 > span {
-  color: #c1ceff;
+  @apply text-[#c1ceff];
 }
 .evolution-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 115px;
-  align-items: start;
-  margin-top: 80px;
+  @apply grid grid-cols-[1fr_1fr] gap-[115px] items-start mt-20;
 }
 .evolution-stage {
-  position: sticky;
-  top: 125px;
-  padding: 35px 35px 25px;
-  background: #112ebe;
-  border: 1px solid #7791ff;
-  min-width: 0;
-  border-radius: 4px;
+  @apply sticky top-[125px] pt-[35px] px-[35px] pb-[25px] bg-[#112ebe] border border-[#7791ff] min-w-0 rounded;
 }
 .evolution-identity > span {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: #c5d1ff;
+  @apply text-[12px] uppercase tracking-[0.09em] text-[#c5d1ff];
 }
 .evolution-identity > p {
-  font-family: Brutel, Arial, sans-serif;
-  font-size: 54px;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  margin-top: 15px;
+  @apply font-display text-[54px] leading-[1.05] tracking-[-0.04em] mt-[15px];
 }
 .evolution-rule {
-  height: 1px;
-  background: #8095ed;
-  margin: 27px 0;
-  position: relative;
+  @apply h-px bg-[#8095ed] my-[27px] relative;
 }
 .evolution-rule i {
-  position: absolute;
-  inset: 0;
-  background: #fff;
-  transform-origin: left;
+  @apply absolute inset-0 bg-white origin-left;
 }
 .evolution-identity > .evolution-link {
-  font-size: 52px;
-  white-space: nowrap;
+  @apply text-[52px] whitespace-nowrap;
 }
 .evolution-link strong {
-  font-weight: 400;
+  @apply font-normal;
 }
 .evolution-strengths {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 7px;
-  margin-top: 28px;
+  @apply grid grid-cols-[repeat(3,_1fr)] gap-[7px] mt-7;
 }
 .evolution-strengths > span {
-  font-size: 12px;
-  border: 1px solid #9cafef;
-  padding: 9px 7px;
-  text-align: center;
-  border-radius: 2px;
-  color: white;
-  line-height: 1.5;
+  @apply text-xs border border-[#9cafef] py-[9px] px-[7px] text-center rounded-sm text-white leading-normal;
 }
 .evolution-caption {
-  font-size: 12px;
-  line-height: 1.6;
-  color: #ced9ff;
-  margin-top: 21px;
+  @apply text-xs leading-[1.6] text-[#ced9ff] mt-[21px];
 }
 .evolution-chapter {
-  min-height: 490px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding-block: 45px;
-  border-top: 1px solid #91a6ff7a;
-  scroll-margin-top: 30px;
+  @apply min-h-[490px] flex justify-center flex-col py-[45px] border-t border-[#91a6ff7a] scroll-mt-[30px];
 }
 .evolution-chapter > .eyebrow {
-  color: #d2dcff;
-  font-size: 13px;
+  @apply text-[#d2dcff] text-[13px];
 }
 .evolution-chapter h3 {
-  font-size: 48px;
-  line-height: 1.12;
-  max-width: 440px;
-  margin-block: 24px;
+  @apply text-5xl leading-[1.12] max-w-[440px] my-6;
 }
 .evolution-chapter > p:not(.eyebrow) {
-  font-size: 17px;
-  line-height: 1.85;
-  color: #e3e9ff;
-  max-width: 490px;
+  @apply text-[17px] leading-[1.85] text-[#e3e9ff] max-w-[490px];
 }
 .evolution-chapter > .evolution-detail {
-  font-size: 15px !important;
-  color: #c5d2ff !important;
-  margin-top: 22px;
-  line-height: 1.75 !important;
+  @apply text-[15px]! text-[#c5d2ff]! mt-[22px] leading-[1.75]!;
 }
 .evolution-chapter > .text-link {
-  align-self: start;
-  margin-top: 25px;
-  border-bottom: 1px solid #a1b4ff;
-  padding-bottom: 7px;
-  color: white;
+  @apply self-start mt-[25px] border-b border-[#a1b4ff] pb-[7px] text-white;
 }
 .collective-capabilities {
-  background: #fff;
+  @apply bg-white;
 }
 .collective-heading > .eyebrow {
-  color: #173fff;
-  font-size: 14px;
+  @apply text-brand text-[14px];
 }
 .collective-heading h2 {
-  font-size: clamp(40px, 4.8vw, 72px);
-  margin-block: 25px 30px;
-  line-height: 1.15;
+  @apply text-[clamp(40px,4.8vw,72px)] mt-[25px] mb-[30px] leading-[1.15];
 }
 .collective-heading > p:last-child {
-  max-width: 700px;
-  font-size: 18px;
-  line-height: 1.8;
-  color: #5c6980;
+  @apply max-w-[700px] text-lg leading-[1.8] text-[#5c6980];
 }
 .capability-columns {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 65px;
+  @apply grid grid-cols-[repeat(3,_1fr)] gap-10 mt-[65px];
 }
 .capability-column {
-  padding-top: 23px;
-  border-top: 1px solid #c8d0de;
+  @apply pt-[23px] border-t border-[#c8d0de];
 }
 .capability-number {
-  font-family: Brutel;
-  font-size: 54px;
-  color: #adb8cc;
-  letter-spacing: -0.04em;
+  @apply font-display text-[54px] text-[#adb8cc] tracking-[-0.04em];
 }
 .capability-column h3 {
-  font-size: 33px;
-  line-height: 1.18;
-  margin-block: 25px 20px;
-  max-width: 340px;
+  @apply text-[33px] leading-[1.18] mt-[25px] mb-5 max-w-[340px];
 }
 .capability-column > p {
-  font-size: 16px;
-  color: #647086;
-  line-height: 1.75;
-  min-height: 115px;
-  max-width: 370px;
+  @apply text-base text-[#647086] leading-[1.75] min-h-[115px] max-w-[370px];
 }
 .capability-column > div {
-  margin-top: 25px;
+  @apply mt-[25px];
 }
 .capability-column a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px 0;
-  border-top: 1px solid #dce1e9;
-  font-size: 17px;
-  line-height: 1.5;
+  @apply flex items-center justify-between gap-5 py-5 border-t border-[#dce1e9] text-[17px] leading-normal;
 }
 .capability-column a:hover {
-  color: #173fff;
+  @apply text-brand;
 }
 .collective-note {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-  padding-top: 30px;
-  margin-top: 30px;
-  border-top: 1px solid #d1d9e4;
-  color: #637089;
-  font-size: 14px;
+  @apply flex justify-between items-center gap-[30px] pt-[30px] mt-[30px] border-t border-[#d1d9e4] text-[#637089] text-[14px];
 }
 .collective-note .text-link {
-  color: #173fff;
-  white-space: nowrap;
+  @apply text-brand whitespace-nowrap;
 }
 .connected-proof {
-  background: #0e1923;
-  color: white;
-  overflow: hidden;
+  @apply bg-[#0e1923] text-white overflow-hidden;
 }
 .connected-proof-heading {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  column-gap: 95px;
-  align-items: end;
+  @apply grid grid-cols-[1.2fr_0.8fr] gap-x-[95px] items-end;
 }
 .connected-proof-heading > .eyebrow {
-  grid-column: 1/-1;
-  margin-bottom: 30px;
-  color: #b9c9db;
-  font-size: 14px;
+  @apply col-span-full mb-[30px] text-[#b9c9db] text-[14px];
 }
 .connected-proof-heading h2 {
-  font-size: clamp(43px, 4.6vw, 70px);
-  line-height: 1.1;
+  @apply text-[clamp(43px,4.6vw,70px)] leading-[1.1];
 }
 .connected-proof-heading h2 > span {
-  color: #afc4fa;
+  @apply text-[#afc4fa];
 }
 .connected-proof-heading h3 {
-  font-size: 31px;
-  margin-bottom: 22px;
+  @apply text-[31px] mb-[22px];
 }
 .connected-proof-heading > div > p {
-  color: #c2ceda;
-  font-size: 17px;
-  line-height: 1.85;
+  @apply text-[#c2ceda] text-[17px] leading-[1.85];
 }
 .connected-proof-heading .proof-context {
-  font-size: 13px;
-  margin-top: 20px;
-  color: #a0b2c7;
+  @apply text-[13px] mt-5 text-[#a0b2c7];
 }
 .glc-ensemble {
-  margin-top: 70px;
-  display: grid;
-  grid-template-columns: 1.18fr 0.82fr;
-  gap: 28px;
-  align-items: start;
+  @apply mt-[70px] grid grid-cols-[1.18fr_0.82fr] gap-7 items-start;
 }
 .glc-ensemble > a {
-  display: block;
-  min-width: 0;
+  @apply block min-w-0;
 }
 .glc-ensemble > a > div {
-  position: relative;
-  overflow: hidden;
-  background: #d9e5dc;
-  border-radius: 4px;
+  @apply relative overflow-hidden bg-[#d9e5dc] rounded;
 }
 .glc-ensemble img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  @apply w-full h-full object-cover;
 }
 .ensemble-web {
-  grid-column: 1;
-  grid-row: 1/3;
+  @apply col-start-1 row-start-1 row-end-3;
 }
 .ensemble-web > div {
-  height: 650px;
+  @apply h-[650px];
 }
 .ensemble-web img {
-  height: 145%;
-  position: absolute;
-  bottom: 0;
-  object-position: center bottom;
+  @apply h-[145%] absolute bottom-0 object-bottom;
 }
 .ensemble-app > div,
 .ensemble-ops > div {
-  height: 270px;
+  @apply h-[270px];
 }
 .ensemble-app img {
-  object-position: center 80%;
-  height: 170%;
-  position: absolute;
-  bottom: -2%;
+  @apply object-[center_80%] h-[170%] absolute bottom-[-2%];
 }
 .ensemble-ops img {
-  height: 138%;
-  position: absolute;
-  bottom: 0;
-  object-position: center bottom;
+  @apply h-[138%] absolute bottom-0 object-bottom;
 }
 .glc-ensemble > a > span {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 5px 20px;
-  font-size: 17px;
-  padding-top: 18px;
+  @apply grid grid-cols-[1fr_auto] gap-y-[5px] gap-x-5 text-[17px] pt-[18px];
 }
 .glc-ensemble small {
-  grid-column: 1;
-  color: #a6b8ca;
-  font-size: 13px;
+  @apply col-start-1 text-[#a6b8ca] text-[13px];
 }
 .glc-ensemble svg {
-  grid-column: 2;
-  grid-row: 1/3;
-  width: 20px;
-  align-self: center;
+  @apply col-start-2 row-start-1 row-end-3 w-5 self-center;
 }
 .proof-all {
-  margin-top: 45px;
-  color: #c5d3ff;
+  @apply mt-[45px] text-[#c5d3ff];
 }
 .growth-starts {
-  display: grid;
-  grid-template-columns: 0.85fr 1.4fr;
-  gap: 90px;
-  align-items: start;
+  @apply grid grid-cols-[0.85fr_1.4fr] gap-[90px] items-start;
 }
 .growth-starts-intro {
-  position: sticky;
-  top: 150px;
+  @apply sticky top-[150px];
 }
 .growth-starts-intro .eyebrow {
-  color: #173fff;
-  font-size: 13px;
+  @apply text-brand text-[13px];
 }
 .growth-starts-intro h2 {
-  font-size: 55px;
-  line-height: 1.15;
-  margin-block: 25px;
+  @apply text-[55px] leading-[1.15] my-[25px];
 }
 .growth-starts-intro > p:last-child {
-  font-size: 17px;
-  color: #647187;
-  line-height: 1.8;
-  max-width: 330px;
+  @apply text-[17px] text-[#647187] leading-[1.8] max-w-[330px];
 }
 .growth-start {
-  display: grid;
-  grid-template-columns: 30px 1fr 30px;
-  gap: 25px;
-  align-items: start;
-  padding: 35px 0 42px;
-  border-top: 1px solid #cad3e2;
+  @apply grid grid-cols-[30px_1fr_30px] gap-[25px] items-start pt-[35px] pb-[42px] border-t border-[#cad3e2];
 }
 .growth-start > span {
-  color: #7588a5;
-  font-size: 13px;
-  padding-top: 3px;
+  @apply text-[#7588a5] text-[13px] pt-[3px];
 }
 .growth-start .eyebrow {
-  font-size: 12px;
-  color: #687a96;
+  @apply text-[12px] text-[#687a96];
 }
 .growth-start h3 {
-  font-size: 37px;
-  line-height: 1.15;
-  margin-block: 20px;
+  @apply text-[37px] leading-[1.15] my-5;
 }
 .growth-start > div > p:last-child {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #5c6c82;
+  @apply text-base leading-[1.8] text-[#5c6c82];
 }
 .growth-start > svg {
-  width: 24px;
-  color: #173fff;
+  @apply w-6 text-brand;
 }
 .growth-start:hover h3 {
-  color: #173fff;
+  @apply text-brand;
 }
 .partner-promise {
-  background: #edf1f8;
+  @apply bg-[#edf1f8];
 }
 .partner-promise-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
+  @apply grid grid-cols-[1fr_1fr] gap-[100px];
 }
 .partner-promise .eyebrow {
-  font-size: 13px;
-  color: #173fff;
+  @apply text-[13px] text-brand;
 }
 .partner-promise h2 {
-  font-size: 49px;
-  line-height: 1.17;
-  margin-block: 26px;
+  @apply text-[49px] leading-[1.17] my-[26px];
 }
 .partner-promise h2 span {
-  color: #173fff;
+  @apply text-brand;
 }
 .partner-promise-grid > div > p:not(.eyebrow) {
-  font-size: 17px;
-  line-height: 1.85;
-  color: #5f6f87;
-  max-width: 510px;
+  @apply text-[17px] leading-[1.85] text-[#5f6f87] max-w-[510px];
 }
 .partner-promise .text-link {
-  margin-top: 30px;
-  font-size: 14px;
+  @apply mt-[30px] text-[14px];
 }
 .partner-promises article {
-  display: flex;
-  gap: 25px;
-  padding-block: 28px;
-  border-top: 1px solid #c3cfe1;
+  @apply flex gap-[25px] py-7 border-t border-[#c3cfe1];
 }
 .partner-promises article > span {
-  font-size: 13px;
-  color: #173fff;
-  padding-top: 6px;
+  @apply text-[13px] text-brand pt-1.5;
 }
 .partner-promises h3 {
-  font-size: 29px;
-  line-height: 1.2;
-  margin-bottom: 18px;
+  @apply text-[29px] leading-[1.2] mb-[18px];
 }
 .partner-promises p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #61718a;
+  @apply text-base leading-[1.8] text-[#61718a];
 }
 @media (max-width: 1100px) {
   .ambition-side {
-    display: none;
+    @apply hidden;
   }
   .ambition-intro {
-    gap: 50px;
+    @apply gap-[50px];
   }
   .ambition-project-label {
-    font-size: 14px;
-    padding-inline: 18px;
+    @apply text-[14px] px-[18px];
   }
   .evolution-grid {
-    gap: 55px;
+    @apply gap-[55px];
   }
   .evolution-stage {
-    padding: 27px;
+    @apply p-[27px];
   }
   .evolution-identity > p,
   .evolution-identity > .evolution-link {
-    font-size: 44px;
+    @apply text-[44px];
   }
   .evolution-strengths {
-    grid-template-columns: repeat(2, 1fr);
+    @apply grid-cols-[repeat(2,_1fr)];
   }
   .evolution-chapter h3 {
-    font-size: 40px;
+    @apply text-[40px];
   }
   .capability-columns {
-    gap: 27px;
+    @apply gap-[27px];
   }
   .capability-column h3 {
-    font-size: 29px;
+    @apply text-[29px];
   }
   .capability-column > p {
-    min-height: 140px;
+    @apply min-h-[140px];
   }
   .connected-proof-heading {
-    gap: 50px;
+    @apply gap-[50px];
   }
   .ensemble-web > div {
-    height: 610px;
+    @apply h-[610px];
   }
   .growth-starts {
-    gap: 45px;
-    grid-template-columns: 0.8fr 1.2fr;
+    @apply gap-[45px] grid-cols-[0.8fr_1.2fr];
   }
   .growth-starts-intro h2 {
-    font-size: 43px;
+    @apply text-[43px];
   }
   .growth-start h3 {
-    font-size: 31px;
+    @apply text-[31px];
   }
   .partner-promise-grid {
-    gap: 50px;
+    @apply gap-[50px];
   }
   .partner-promise h2 {
-    font-size: 42px;
+    @apply text-[42px];
   }
 }
 @media (max-width: 767px) {
   .ambition-hero {
-    padding-top: 25px;
+    @apply pt-[25px];
   }
   .ambition-top > a {
-    display: none;
+    @apply hidden;
   }
   .ambition-top > .eyebrow {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .ambition-title {
-    margin-top: 30px;
+    @apply mt-[30px];
   }
   .ambition-title h1 {
-    font-size: clamp(46px, 12.1vw, 79px);
-    line-height: 1.08;
-    letter-spacing: -0.06em;
+    @apply text-[clamp(46px,12.1vw,79px)] leading-[1.08] tracking-[-0.06em];
   }
   .ambition-title h1 > span + span {
-    margin-left: 0;
-    margin-top: 6px;
+    @apply ml-0 mt-1.5;
   }
   .ambition-intro {
-    display: block;
-    margin-top: 27px;
-    margin-bottom: 32px;
+    @apply block mt-[27px] mb-8;
   }
   .ambition-intro > p {
-    font-size: 16px;
-    line-height: 1.8;
+    @apply text-base leading-[1.8];
   }
   .ambition-intro > div {
-    align-items: flex-start;
-    margin-top: 27px;
-    gap: 21px;
+    @apply items-start mt-[27px] gap-[21px];
   }
   .ambition-intro .button {
-    font-size: 14px;
-    min-height: 54px;
-    padding-inline: 22px;
+    @apply text-[14px] min-h-[54px] px-[22px];
   }
   .ambition-intro .text-link {
-    font-size: 14px;
+    @apply text-[14px];
   }
   .ambition-work {
-    width: calc(100% - 24px);
-    grid-template-columns: 1fr 0.85fr;
-    gap: 8px;
+    @apply w-[calc(100%_-_24px)] grid-cols-[1fr_0.85fr] gap-2;
   }
   .ambition-project-image {
-    height: 260px;
+    @apply h-[260px];
   }
   .ambition-web {
-    grid-column: 1/-1;
+    @apply col-span-full;
   }
   .ambition-web .ambition-project-image {
-    height: 225px;
+    @apply h-[225px];
   }
   .ambition-web .ambition-project-image > img {
-    top: -67%;
-    width: 205%;
-    left: -52.5%;
+    @apply top-[-67%] w-[205%] left-[-52.5%];
   }
   .ambition-mobile .ambition-project-image > img {
-    width: 180%;
-    max-width: none;
-    left: -40%;
-    height: 165%;
-    bottom: 0;
+    @apply w-[180%] max-w-none left-[-40%] h-[165%] bottom-0;
   }
   .ambition-project-label {
-    padding: 60px 15px 17px;
-    font-size: 15px;
+    @apply pt-[60px] px-[15px] pb-[17px] text-[15px];
   }
   .ambition-project-label small {
-    font-size: 12px;
-    margin-top: 6px;
+    @apply text-[12px] mt-1.5;
   }
   .ambition-mobile .ambition-project-label > svg,
   .ambition-space .ambition-project-label > svg {
-    display: none;
+    @apply hidden;
   }
   .ambition-foot {
-    padding-block: 25px 30px;
-    display: block;
-    font-size: 13px;
+    @apply pt-[25px] pb-[30px] block text-[13px];
   }
   .ambition-foot > a {
-    margin-top: 18px;
-    font-size: 14px;
+    @apply mt-[18px] text-[14px];
   }
   .company-evolution {
-    padding-block: 65px 35px;
+    @apply pt-[65px] pb-[35px];
   }
   .evolution-heading h2 {
-    font-size: 36px;
-    line-height: 1.2;
-    margin-top: 22px;
+    @apply text-[36px] leading-[1.2] mt-[22px];
   }
   .evolution-heading h2 br {
-    display: none;
+    @apply hidden;
   }
   .evolution-heading h2 > span {
-    display: block;
-    margin-top: 5px;
+    @apply block mt-[5px];
   }
   .evolution-heading .eyebrow {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .evolution-grid {
-    display: block;
-    margin-top: 40px;
+    @apply block mt-10;
   }
   .evolution-stage {
-    position: relative;
-    top: 0;
-    padding: 26px;
-    max-width: 520px;
-    min-height: 0;
-    margin-bottom: 40px;
+    @apply relative top-0 p-[26px] max-w-[520px] min-h-0 mb-10;
   }
   .evolution-identity > p {
-    font-size: 43px;
-    line-height: 1.08;
+    @apply text-[43px] leading-[1.08];
   }
   .evolution-identity > .evolution-link {
-    font-size: 40px;
+    @apply text-[40px];
   }
   .evolution-strengths {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-    margin-top: 24px;
+    @apply grid-cols-[repeat(3,_1fr)] gap-1.5 mt-6;
   }
   .evolution-strengths > span {
-    font-size: 12px;
-    padding: 8px 5px;
+    @apply text-[12px] py-2 px-[5px];
   }
   .evolution-caption {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .evolution-chapter {
-    min-height: 0;
-    padding-block: 35px 38px;
+    @apply min-h-0 pt-[35px] pb-[38px];
   }
   .evolution-chapter h3 {
-    font-size: 34px;
-    margin-block: 20px;
+    @apply text-[34px] my-5;
   }
   .evolution-chapter > .eyebrow {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .evolution-chapter > p:not(.eyebrow) {
-    font-size: 16px;
-    line-height: 1.85;
+    @apply text-base leading-[1.85];
   }
   .evolution-chapter > .evolution-detail {
-    font-size: 15px !important;
-    margin-top: 20px;
+    @apply text-[15px]! mt-5;
   }
   .evolution-chapter > .text-link {
-    font-size: 14px;
+    @apply text-[14px];
   }
   .collective-heading > .eyebrow {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .collective-heading h2 {
-    font-size: 37px;
-    line-height: 1.18;
-    margin-block: 22px 25px;
+    @apply text-[37px] leading-[1.18] mt-[22px] mb-[25px];
   }
   .collective-heading > p:last-child {
-    font-size: 16px;
-    line-height: 1.85;
+    @apply text-base leading-[1.85];
   }
   .capability-columns {
-    display: block;
-    margin-top: 42px;
+    @apply block mt-[42px];
   }
   .capability-column {
-    padding-top: 24px;
-    margin-top: 30px;
+    @apply pt-6 mt-[30px];
   }
   .capability-number {
-    font-size: 41px;
+    @apply text-[41px];
   }
   .capability-column h3 {
-    font-size: 31px;
-    max-width: 100%;
-    margin-block: 20px 16px;
+    @apply text-[31px] max-w-full mt-5 mb-4;
   }
   .capability-column > p {
-    min-height: 0;
-    max-width: 100%;
-    font-size: 16px;
+    @apply min-h-0 max-w-full text-[16px];
   }
   .capability-column > div {
-    margin-top: 24px;
+    @apply mt-6;
   }
   .capability-column a {
-    font-size: 16px;
-    padding-block: 18px;
+    @apply text-[16px] py-[18px];
   }
   .collective-note {
-    display: block;
-    font-size: 14px;
-    line-height: 1.8;
-    padding-top: 24px;
+    @apply block text-sm leading-[1.8] pt-6;
   }
   .collective-note .text-link {
-    margin-top: 22px;
+    @apply mt-[22px];
   }
   .connected-proof-heading {
-    display: block;
+    @apply block;
   }
   .connected-proof-heading > .eyebrow {
-    font-size: 12px;
-    margin-bottom: 24px;
+    @apply text-[12px] mb-6;
   }
   .connected-proof-heading h2 {
-    font-size: 38px;
-    line-height: 1.16;
+    @apply text-[38px] leading-[1.16];
   }
   .connected-proof-heading > div {
-    margin-top: 32px;
+    @apply mt-8;
   }
   .connected-proof-heading h3 {
-    font-size: 28px;
-    margin-bottom: 18px;
+    @apply text-[28px] mb-[18px];
   }
   .connected-proof-heading > div > p {
-    font-size: 16px;
+    @apply text-[16px];
   }
   .glc-ensemble {
-    display: block;
-    margin-top: 35px;
+    @apply block mt-[35px];
   }
   .glc-ensemble > a {
-    margin-bottom: 30px;
+    @apply mb-[30px];
   }
   .ensemble-web > div {
-    height: 320px;
+    @apply h-[320px];
   }
   .ensemble-app > div,
   .ensemble-ops > div {
-    height: 260px;
+    @apply h-[260px];
   }
   .glc-ensemble > a > span {
-    font-size: 16px;
+    @apply text-[16px];
   }
   .glc-ensemble small {
-    font-size: 13px;
+    @apply text-[13px];
   }
   .proof-all {
-    margin-top: 6px;
-    font-size: 14px;
+    @apply mt-1.5 text-[14px];
   }
   .growth-starts {
-    display: block;
+    @apply block;
   }
   .growth-starts-intro {
-    position: static;
+    @apply static;
   }
   .growth-starts-intro h2 {
-    font-size: 40px;
-    margin-block: 22px;
+    @apply text-[40px] my-[22px];
   }
   .growth-starts-intro > p:last-child {
-    font-size: 16px;
-    max-width: 100%;
+    @apply text-[16px] max-w-full;
   }
   .growth-start-rows {
-    margin-top: 38px;
+    @apply mt-[38px];
   }
   .growth-start {
-    grid-template-columns: 22px 1fr 20px;
-    gap: 13px;
-    padding-block: 28px 32px;
+    @apply grid-cols-[22px_1fr_20px] gap-[13px] pt-7 pb-8;
   }
   .growth-start > svg {
-    width: 20px;
+    @apply w-5;
   }
   .growth-start h3 {
-    font-size: 29px;
-    margin-block: 18px;
+    @apply text-[29px] my-[18px];
   }
   .growth-start .eyebrow {
-    font-size: 12px;
-    line-height: 1.7;
+    @apply text-xs leading-[1.7];
   }
   .growth-start > div > p:last-child {
-    font-size: 16px;
+    @apply text-[16px];
   }
   .partner-promise-grid {
-    display: block;
+    @apply block;
   }
   .partner-promise h2 {
-    font-size: 36px;
-    line-height: 1.2;
+    @apply text-[36px] leading-[1.2];
   }
   .partner-promise-grid > div > p:not(.eyebrow) {
-    font-size: 16px;
+    @apply text-[16px];
   }
   .partner-promise .eyebrow {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .partner-promises {
-    margin-top: 40px;
+    @apply mt-10;
   }
   .partner-promises article {
-    gap: 18px;
-    padding-block: 26px;
+    @apply gap-[18px] py-[26px];
   }
   .partner-promises h3 {
-    font-size: 28px;
+    @apply text-[28px];
   }
   .partner-promises p {
-    font-size: 16px;
+    @apply text-[16px];
   }
   .partner-promise .text-link {
-    font-size: 14px;
+    @apply text-[14px];
   }
 }

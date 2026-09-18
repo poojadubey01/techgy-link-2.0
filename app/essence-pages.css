@@ -1,627 +1,450 @@
+@reference "./globals.css";
 .service-contribution {
-  background: #eef2fa;
-  padding-block: 75px;
-  margin-block: 0;
+  @apply bg-[#eef2fa] py-[75px] my-0;
 }
 .service-contribution .eyebrow,
 .solution-collaboration .eyebrow {
-  color: #173fff;
-  font-size: 13px;
+  @apply text-brand text-[13px];
 }
 .contribution-intro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 90px;
-  align-items: start;
-  margin-top: 26px;
+  @apply grid grid-cols-[1fr_1fr] gap-[90px] items-start mt-[26px];
 }
 .contribution-intro h2 {
-  font-size: clamp(35px, 3.3vw, 51px);
-  line-height: 1.15;
+  @apply text-[clamp(35px,3.3vw,51px)] leading-[1.15];
 }
 .contribution-intro p {
-  font-size: 17px;
-  color: #5c6e87;
-  line-height: 1.85;
+  @apply text-[17px] text-[#5c6e87] leading-[1.85];
 }
 .contribution-intro .contribution-team {
-  font-size: 13px;
-  margin-top: 22px;
-  color: #173fff;
+  @apply text-[13px] mt-[22px] text-brand;
 }
 .contribution-connections {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 45px;
+  @apply grid grid-cols-3 gap-10 mt-[45px];
 }
 .service-contribution-link {
-  border-top: 1px solid #bbc9e0;
-  padding-top: 22px;
+  @apply border-t border-[#bbc9e0] pt-[22px];
 }
 .service-contribution-link > span {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  font-size: 19px;
-  line-height: 1.45;
-  color: #1d365f;
+  @apply flex justify-between items-center gap-5 text-[19px] leading-[1.45] text-[#1d365f];
 }
 .service-contribution-link > p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #63758e;
-  margin-top: 18px;
+  @apply text-[16px] leading-[1.8] text-[#63758e] mt-[18px];
 }
 .service-contribution-link:hover > span {
-  color: #173fff;
+  @apply text-brand;
 }
 .contribution-note {
-  font-size: 14px;
-  color: #64758f;
-  margin-top: 35px;
+  @apply text-[14px] text-[#64758f] mt-[35px];
 }
 .solution-collaboration {
-  background: #edf2fa;
-  margin-top: 70px;
+  @apply bg-[#edf2fa] mt-[70px];
 }
 .solution-collaboration .contribution-intro {
-  margin: 0;
-  align-items: end;
+  @apply m-0 items-end;
 }
 .solution-collaboration h2 {
-  margin-top: 25px;
+  @apply mt-[25px];
 }
 .collaboration-handoffs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 60px;
+  @apply grid grid-cols-3 gap-10 mt-[60px];
 }
 .collaboration-handoffs article {
-  border-top: 1px solid #b9c8df;
-  padding-top: 26px;
+  @apply border-t border-[#b9c8df] pt-[26px];
 }
 .collaboration-handoffs h3 {
-  font-size: 30px;
-  line-height: 1.2;
-  margin-block: 24px 18px;
+  @apply text-[30px] leading-[1.2] mt-6 mb-[18px];
 }
 .collaboration-handoffs p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #5f708a;
+  @apply text-[16px] leading-[1.8] text-[#5f708a];
 }
 .partner-signature {
-  border-top: 1px solid #c8d3e3;
-  padding-block: 40px 65px;
-  display: grid;
-  grid-template-columns: 0.55fr 1.2fr 0.55fr;
-  gap: 45px;
-  align-items: start;
+  @apply border-t border-[#c8d3e3] pt-10 pb-[65px] grid grid-cols-[0.55fr_1.2fr_0.55fr] gap-[45px] items-start;
 }
 .partner-signature .eyebrow {
-  font-size: 12px;
-  color: #173fff;
+  @apply text-[12px] text-brand;
 }
 .partner-signature > p:not(.eyebrow) {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #64738a;
+  @apply text-[16px] leading-[1.8] text-[#64738a];
 }
 .partner-signature .text-link {
-  font-size: 14px;
-  line-height: 1.7;
+  @apply text-[14px] leading-[1.7];
 }
 .story-hero {
-  padding-block: 65px 80px;
+  @apply pt-[65px] pb-20;
 }
 .story-hero > .eyebrow {
-  font-size: 13px;
-  color: #173fff;
+  @apply text-[13px] text-brand;
 }
 .story-hero h1 {
-  font-size: clamp(59px, 7.8vw, 117px);
-  line-height: 1.08;
-  letter-spacing: -0.06em;
-  margin-block: 33px 50px;
+  @apply text-[clamp(59px,7.8vw,117px)] leading-[1.08] tracking-[-0.06em] mt-[33px] mb-[50px];
 }
 .story-hero h1 > span {
-  color: #173fff;
+  @apply text-brand;
 }
 .story-hero-bottom {
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 100px;
+  @apply grid grid-cols-[1.25fr_0.75fr] gap-[100px];
 }
 .story-hero-bottom > p {
-  font-size: 21px;
-  line-height: 1.8;
-  color: #566780;
+  @apply text-[21px] leading-[1.8] text-[#566780];
 }
 .story-hero-bottom > div {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  font-size: 14px;
-  color: #738098;
-  padding-top: 6px;
+  @apply flex flex-col gap-[15px] text-[14px] text-[#738098] pt-1.5;
 }
 .rebrand-statement {
-  background: #173fff;
-  color: white;
-  padding-block: 90px 100px;
-  overflow: hidden;
+  @apply bg-brand text-white pt-[90px] pb-[100px] overflow-hidden;
 }
 .rebrand-statement .eyebrow {
-  font-size: 13px;
-  color: #dbe2ff;
+  @apply text-[13px] text-[#dbe2ff];
 }
 .rebrand-statement h2 {
-  font-size: clamp(43px, 5.8vw, 87px);
-  line-height: 1.13;
-  max-width: 1160px;
-  margin-block: 35px 40px;
+  @apply text-[clamp(43px,5.8vw,87px)] leading-[1.13] max-w-[1160px] mt-[35px] mb-10;
 }
 .rebrand-statement h2 > span {
-  color: #bbcaff;
+  @apply text-[#bbcaff];
 }
 .rebrand-statement .wrap > p:last-child {
-  font-size: 19px;
-  line-height: 1.85;
-  color: #e0e7ff;
-  max-width: 770px;
-  margin-left: auto;
+  @apply text-[19px] leading-[1.85] text-[#e0e7ff] max-w-[770px] ml-auto;
 }
 .company-journey {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 110px;
+  @apply grid grid-cols-[1fr_1fr] gap-[110px];
 }
 .company-journey > div:first-child {
-  position: sticky;
-  top: 140px;
-  align-self: start;
+  @apply sticky top-[140px] self-start;
 }
 .company-journey .eyebrow {
-  font-size: 13px;
-  color: #173fff;
+  @apply text-[13px] text-brand;
 }
 .company-journey h2 {
-  font-size: 52px;
-  line-height: 1.2;
-  margin-top: 26px;
+  @apply text-[52px] leading-[1.2] mt-[26px];
 }
 .journey-entries article {
-  border-top: 1px solid #c8d3e4;
-  padding-block: 32px 42px;
+  @apply border-t border-[#c8d3e4] pt-8 pb-[42px];
 }
 .journey-entries article > span {
-  font-size: 15px;
-  color: #173fff;
+  @apply text-[15px] text-brand;
 }
 .journey-entries h3 {
-  font-size: 34px;
-  line-height: 1.2;
-  margin-block: 22px 20px;
+  @apply text-[34px] leading-[1.2] mt-[22px] mb-5;
 }
 .journey-entries p {
-  font-size: 17px;
-  line-height: 1.85;
-  color: #63718a;
+  @apply text-[17px] leading-[1.85] text-[#63718a];
 }
 .team-practice {
-  background: #f2f5f9;
+  @apply bg-[#f2f5f9];
 }
 .team-intro .eyebrow {
-  font-size: 13px;
-  color: #173fff;
+  @apply text-[13px] text-brand;
 }
 .team-intro h2 {
-  font-size: clamp(41px, 4.7vw, 71px);
-  line-height: 1.12;
-  margin-block: 25px;
+  @apply text-[clamp(41px,4.7vw,71px)] leading-[1.12] my-[25px];
 }
 .team-intro h2 > span {
-  color: #173fff;
+  @apply text-brand;
 }
 .team-intro > p:last-child {
-  font-size: 18px;
-  line-height: 1.85;
-  max-width: 730px;
-  color: #65748b;
+  @apply text-[18px] leading-[1.85] max-w-[730px] text-[#65748b];
 }
 .team-disciplines {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px 75px;
-  margin-top: 60px;
+  @apply grid grid-cols-[1fr_1fr] gap-y-10 gap-x-[75px] mt-[60px];
 }
 .team-discipline {
-  display: flex;
-  gap: 23px;
-  border-top: 1px solid #c4d0e2;
-  padding-top: 30px;
+  @apply flex gap-[23px] border-t border-[#c4d0e2] pt-[30px];
 }
 .team-discipline > span {
-  font-size: 13px;
-  color: #173fff;
-  padding-top: 7px;
+  @apply text-[13px] text-brand pt-[7px];
 }
 .team-discipline h3 {
-  font-size: 33px;
-  line-height: 1.18;
-  margin-bottom: 24px;
+  @apply text-[33px] leading-[1.18] mb-6;
 }
 .team-discipline p {
-  font-size: 16px;
-  line-height: 1.85;
-  color: #526580;
+  @apply text-[16px] leading-[1.85] text-[#526580];
 }
 .team-discipline .team-people {
-  color: #253f65;
-  margin-bottom: 15px;
+  @apply text-[#253f65] mb-[15px];
 }
 .team-discipline > div > div {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 25px;
+  @apply flex flex-col gap-3.5 mt-[25px];
 }
 .team-discipline a {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 14px;
-  color: #173fff;
-  line-height: 1.6;
+  @apply flex items-center gap-[15px] text-[14px] text-brand leading-[1.6];
 }
 .company-belief > .eyebrow {
-  color: #173fff;
-  font-size: 13px;
+  @apply text-brand text-[13px];
 }
 .company-belief h2 {
-  font-size: clamp(43px, 5.2vw, 79px);
-  margin-block: 27px 35px;
-  line-height: 1.12;
+  @apply text-[clamp(43px,5.2vw,79px)] mt-[27px] mb-[35px] leading-[1.12];
 }
 .company-belief > p:not(.eyebrow) {
-  font-size: 19px;
-  line-height: 1.8;
-  max-width: 730px;
-  color: #63718a;
+  @apply text-[19px] leading-[1.8] max-w-[730px] text-[#63718a];
 }
 .company-belief .button {
-  margin-top: 35px;
-  border-radius: 999px;
+  @apply mt-[35px] rounded-full;
 }
 .collective-footer {
-  background: #101a2a;
-  color: white;
+  @apply bg-[#101a2a] text-white;
 }
 .collective-footer .footer-cta {
-  padding-block: 85px 70px;
+  @apply pt-[85px] pb-[70px];
 }
 .collective-footer .footer-cta > .eyebrow {
-  color: #b8c8e6;
-  font-size: 13px;
+  @apply text-[#b8c8e6] text-[13px];
 }
 .collective-footer .footer-headline {
-  font-size: clamp(70px, 8vw, 120px);
-  line-height: 1.03;
-  padding-block: 30px;
-  align-items: center;
-  letter-spacing: -0.05em;
+  @apply text-[clamp(70px,8vw,120px)] leading-[1.03] py-[30px] items-center tracking-[-0.05em];
 }
 .collective-footer .footer-headline > span:first-child {
-  max-width: 900px;
+  @apply max-w-[900px];
 }
 .collective-footer .footer-headline em {
-  display: block;
-  color: #a4baff;
+  @apply block text-[#a4baff];
 }
 .collective-footer .footer-arrow {
-  background: #173fff;
-  color: #fff;
-  border: 0;
+  @apply bg-brand text-white border-0;
 }
 .collective-footer .footer-cta > p:last-child {
-  font-size: 18px;
-  line-height: 1.8;
-  color: #bbc9de;
-  max-width: 630px;
+  @apply text-[18px] leading-[1.8] text-[#bbc9de] max-w-[630px];
 }
 .collective-footer .footer-grid {
-  border-color: #4a5a7180;
+  @apply border-[#4a5a7180];
 }
 .collective-footer .footer-contact > p,
 .collective-footer .footer-grid > div > p {
-  color: #abbcd5;
+  @apply text-[#abbcd5];
 }
 .collective-footer .footer-grid a {
-  color: #dce5f3;
+  @apply text-[#dce5f3];
 }
 .collective-footer .footer-grid a:hover {
-  color: #a2baff;
+  @apply text-[#a2baff];
 }
 .collective-footer .footer-contact > .footer-origin {
-  font-size: 14px;
-  margin-top: 27px;
-  line-height: 1.8;
-  color: #9aaecb;
+  @apply text-[14px] mt-[27px] leading-[1.8] text-[#9aaecb];
 }
 .collective-footer .footer-bottom {
-  border-color: #4a5a7180;
-  color: #a8bbd6;
+  @apply border-[#4a5a7180] text-[#a8bbd6];
 }
 .collective-footer .footer-bottom > img {
-  filter: brightness(0) invert(1);
+  @apply brightness-0 invert;
 }
 .collective-footer .footer-bottom a {
-  color: #dce5f3;
+  @apply text-[#dce5f3];
 }
 @media (max-width: 1100px) {
   .contribution-intro {
-    gap: 45px;
+    @apply gap-[45px];
   }
   .contribution-connections {
-    gap: 28px;
+    @apply gap-7;
   }
   .partner-signature {
-    grid-template-columns: 1fr 2fr;
-    gap: 30px;
+    @apply grid-cols-[1fr_2fr] gap-[30px];
   }
   .partner-signature .text-link {
-    grid-column: 2;
+    @apply col-start-2;
   }
   .story-hero-bottom {
-    gap: 50px;
+    @apply gap-[50px];
   }
   .company-journey {
-    gap: 60px;
+    @apply gap-[60px];
   }
   .team-disciplines {
-    gap: 38px 40px;
+    @apply gap-y-[38px] gap-x-10;
   }
   .company-journey h2 {
-    font-size: 44px;
+    @apply text-[44px];
   }
   .collective-footer .footer-headline {
-    font-size: 80px;
+    @apply text-[80px];
   }
 }
 @media (max-width: 767px) {
   .service-contribution {
-    padding-block: 55px;
+    @apply py-[55px];
   }
   .service-contribution .eyebrow {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .contribution-intro {
-    display: block;
-    margin-top: 23px;
+    @apply block mt-[23px];
   }
   .contribution-intro h2 {
-    font-size: 34px;
-    line-height: 1.18;
+    @apply text-[34px] leading-[1.18];
   }
   .contribution-intro > div:last-child {
-    margin-top: 25px;
+    @apply mt-[25px];
   }
   .contribution-intro p {
-    font-size: 16px;
+    @apply text-[16px];
   }
   .contribution-intro .contribution-team {
-    font-size: 13px;
-    line-height: 1.8;
+    @apply text-[13px] leading-[1.8];
   }
   .contribution-connections {
-    display: block;
-    margin-top: 30px;
+    @apply block mt-[30px];
   }
   .service-contribution-link {
-    display: block;
-    padding-top: 23px;
-    margin-top: 25px;
+    @apply block pt-[23px] mt-[25px];
   }
   .service-contribution-link > span {
-    font-size: 19px;
+    @apply text-[19px];
   }
   .service-contribution-link > p {
-    font-size: 16px;
-    margin-top: 14px;
+    @apply text-[16px] mt-3.5;
   }
   .contribution-note {
-    font-size: 14px;
-    line-height: 1.8;
-    margin-top: 27px;
+    @apply text-[14px] leading-[1.8] mt-[27px];
   }
   .solution-collaboration {
-    margin-top: 40px;
+    @apply mt-10;
   }
   .solution-collaboration h2 {
-    font-size: 34px;
-    margin-top: 23px;
+    @apply text-[34px] mt-[23px];
   }
   .solution-collaboration .contribution-intro > p {
-    margin-top: 25px;
+    @apply mt-[25px];
   }
   .collaboration-handoffs {
-    display: block;
-    margin-top: 35px;
+    @apply block mt-[35px];
   }
   .collaboration-handoffs article {
-    padding-top: 25px;
-    margin-top: 30px;
+    @apply pt-[25px] mt-[30px];
   }
   .collaboration-handoffs h3 {
-    font-size: 29px;
-    margin-block: 20px 15px;
+    @apply text-[29px] mt-5 mb-[15px];
   }
   .collaboration-handoffs p {
-    font-size: 16px;
+    @apply text-[16px];
   }
   .partner-signature {
-    display: block;
-    padding-block: 32px 50px;
+    @apply block pt-8 pb-[50px];
   }
   .partner-signature > p:not(.eyebrow) {
-    margin-top: 20px;
+    @apply mt-5;
   }
   .partner-signature .text-link {
-    margin-top: 25px;
+    @apply mt-[25px];
   }
   .story-hero {
-    padding-block: 35px 50px;
+    @apply pt-[35px] pb-[50px];
   }
   .story-hero > .eyebrow {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .story-hero h1 {
-    font-size: 48px;
-    line-height: 1.1;
-    margin-block: 26px 30px;
+    @apply text-[48px] leading-[1.1] mt-[26px] mb-[30px];
   }
   .story-hero-bottom {
-    display: block;
+    @apply block;
   }
   .story-hero-bottom > p {
-    font-size: 17px;
-    line-height: 1.85;
+    @apply text-[17px] leading-[1.85];
   }
   .story-hero-bottom > div {
-    font-size: 14px;
-    margin-top: 28px;
-    gap: 12px;
+    @apply text-[14px] mt-7 gap-3;
   }
   .rebrand-statement {
-    padding-block: 55px 65px;
+    @apply pt-[55px] pb-[65px];
   }
   .rebrand-statement h2 {
-    font-size: 39px;
-    line-height: 1.2;
-    margin-block: 26px 30px;
+    @apply text-[39px] leading-[1.2] mt-[26px] mb-[30px];
   }
   .rebrand-statement .wrap > p:last-child {
-    font-size: 17px;
+    @apply text-[17px];
   }
   .rebrand-statement .eyebrow {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .company-journey {
-    display: block;
+    @apply block;
   }
   .company-journey > div:first-child {
-    position: static;
+    @apply static;
   }
   .company-journey h2 {
-    font-size: 39px;
-    line-height: 1.2;
-    margin-top: 22px;
+    @apply text-[39px] leading-[1.2] mt-[22px];
   }
   .journey-entries {
-    margin-top: 40px;
+    @apply mt-10;
   }
   .journey-entries article {
-    padding-block: 25px 32px;
+    @apply pt-[25px] pb-8;
   }
   .journey-entries article > span {
-    font-size: 14px;
+    @apply text-[14px];
   }
   .journey-entries h3 {
-    font-size: 30px;
-    margin-block: 20px 17px;
+    @apply text-[30px] mt-5 mb-[17px];
   }
   .journey-entries p {
-    font-size: 16px;
+    @apply text-[16px];
   }
   .team-intro h2 {
-    font-size: 37px;
-    line-height: 1.2;
-    margin-block: 23px;
+    @apply text-[37px] leading-[1.2] my-[23px];
   }
   .team-intro .eyebrow {
-    font-size: 12px;
+    @apply text-[12px];
   }
   .team-intro > p:last-child {
-    font-size: 16px;
+    @apply text-[16px];
   }
   .team-disciplines {
-    display: block;
-    margin-top: 35px;
+    @apply block mt-[35px];
   }
   .team-discipline {
-    padding-top: 25px;
-    margin-top: 32px;
-    gap: 15px;
+    @apply pt-[25px] mt-8 gap-[15px];
   }
   .team-discipline h3 {
-    font-size: 29px;
-    margin-bottom: 20px;
+    @apply text-[29px] mb-5;
   }
   .team-discipline p {
-    font-size: 16px;
+    @apply text-[16px];
   }
   .team-discipline a {
-    font-size: 14px;
+    @apply text-[14px];
   }
   .company-belief h2 {
-    font-size: 39px;
-    line-height: 1.2;
-    margin-block: 23px 28px;
+    @apply text-[39px] leading-[1.2] mt-[23px] mb-7;
   }
   .company-belief > p:not(.eyebrow) {
-    font-size: 17px;
+    @apply text-[17px];
   }
   .company-belief .button {
-    font-size: 14px;
+    @apply text-[14px];
   }
   .collective-footer .footer-cta {
-    padding-block: 55px 40px;
+    @apply pt-[55px] pb-10;
   }
   .collective-footer .footer-headline {
-    font-size: 52px;
-    line-height: 1.1;
-    padding-block: 25px;
-    gap: 20px;
+    @apply text-[52px] leading-[1.1] py-[25px] gap-5;
   }
   .collective-footer .footer-headline .footer-arrow {
-    width: 52px;
-    height: 52px;
-    flex-basis: 52px;
+    @apply w-[52px] h-[52px] basis-[52px];
   }
   .collective-footer .footer-headline .footer-arrow svg {
-    width: 27px;
-    height: 27px;
+    @apply w-[27px] h-[27px];
   }
   .collective-footer .footer-cta > p:last-child {
-    font-size: 16px;
+    @apply text-[16px];
   }
   .collective-footer .footer-cta > .eyebrow {
-    font-size: 12px;
+    @apply text-[12px];
   }
 }
 
 .hero-teamline {
-  flex-basis: 100%;
-  font-size: 14px;
-  line-height: 1.8;
-  color: #173fff;
-  max-width: 480px;
-  margin-top: 2px;
+  @apply basis-full text-[14px] leading-[1.8] text-brand max-w-[480px] mt-0.5;
 }
 .detail-copy .hero-actions {
-  align-content: start;
+  @apply content-start;
 }
 
 .collective-footer .footer-grid a {
-  font-size: 14px;
-  line-height: 1.75;
+  @apply text-[14px] leading-[1.75];
 }
 .collective-footer .footer-bottom {
-  font-size: 12px;
+  @apply text-[12px];
 }
 .collective-footer .footer-bottom > a {
-  font-size: 13px;
+  @apply text-[13px];
 }
