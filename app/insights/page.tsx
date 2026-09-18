@@ -8,7 +8,7 @@ export const metadata = {
 };
 export default function Insights() {
   return (
-    <main id="main">
+    <main id="main" className="insights-page">
       <section className="page-intro wrap">
         <p className="eyebrow">Ideas from the work</p>
         <h1>

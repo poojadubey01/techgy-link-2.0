@@ -217,6 +217,9 @@
 .connected-proof {
   @apply bg-[#111625] text-white overflow-hidden;
 }
+.connected-proof .text-link {
+  @apply text-[#f8f9fa];
+}
 .connected-proof-heading {
   @apply grid grid-cols-[1.2fr_0.8fr] gap-x-[95px] items-end;
 }
@@ -306,7 +309,7 @@
   @apply text-[#000000] text-[13px] pt-[3px];
 }
 .growth-start .eyebrow {
-  @apply text-[12px] text-[#000000];
+  @apply text-[12px] text-brand;
 }
 .growth-start h3 {
   @apply text-[37px] leading-[1.15] my-5;

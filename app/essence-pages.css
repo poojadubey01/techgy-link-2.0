@@ -72,6 +72,9 @@
 .story-hero {
   @apply pt-[65px] pb-20;
 }
+.about-page {
+  @apply bg-[#f8f9fa];
+}
 .story-hero > .eyebrow {
   @apply text-[13px] text-brand;
 }
@@ -101,6 +104,12 @@
 }
 .rebrand-statement h2 > span {
   @apply text-[#f8f9fa];
+}
+.rebrand-line {
+  @apply block;
+}
+[data-rebrand-word] {
+  @apply inline-block will-change-transform;
 }
 .rebrand-statement .wrap > p:last-child {
   @apply text-[19px] leading-[1.85] text-[#f8f9fa] max-w-[770px] ml-auto;
@@ -168,13 +177,16 @@
 .team-discipline a {
   @apply flex items-center gap-[15px] text-[14px] text-brand leading-[1.6];
 }
-.company-belief > .eyebrow {
+.company-belief {
+  @apply bg-[#e2e8f0];
+}
+.company-belief > .wrap > .eyebrow {
   @apply text-brand text-[13px];
 }
 .company-belief h2 {
   @apply text-[clamp(43px,5.2vw,79px)] mt-[27px] mb-[35px] leading-[1.12];
 }
-.company-belief > p:not(.eyebrow) {
+.company-belief > .wrap > p:not(.eyebrow) {
   @apply text-[19px] leading-[1.8] max-w-[730px] text-[#000000];
 }
 .company-belief .button {
@@ -406,7 +418,7 @@
   .company-belief h2 {
     @apply text-[39px] leading-[1.2] mt-[23px] mb-7;
   }
-  .company-belief > p:not(.eyebrow) {
+  .company-belief > .wrap > p:not(.eyebrow) {
     @apply text-[17px];
   }
   .company-belief .button {

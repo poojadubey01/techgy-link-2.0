@@ -7,7 +7,7 @@
   @apply flex justify-between items-center text-[#000000];
 }
 .next-hero-top > .eyebrow {
-  @apply text-[#000000] text-[12px] tracking-[0.09em];
+  @apply text-brand text-[12px] tracking-[0.09em];
 }
 .next-hero-top > span {
   @apply text-[12px];
@@ -385,6 +385,15 @@
 .page-intro {
   @apply bg-[#f8f9fa] w-full py-[72px] px-[max(56px,calc((100vw_-_1424px)/2))];
 }
+.insights-page {
+  @apply flow-root bg-[#f8f9fa];
+}
+main.insights-page .eyebrow {
+  @apply text-[#111625];
+}
+.insights-page .inline-cta .eyebrow {
+  @apply text-[#f8f9fa];
+}
 .page-intro > .eyebrow {
   @apply text-brand;
 }
@@ -414,6 +423,9 @@
 }
 .campaign-card:nth-child(3n + 2) > p {
   @apply text-[#000000];
+}
+.campaign-card:nth-child(3n + 2) .text-link {
+  @apply text-white;
 }
 @media (min-width: 1600px) {
   .hero-composition {
@@ -851,7 +863,10 @@
   @apply text-[27px];
 }
 .solutions-index {
-  @apply pt-[30px] pb-5;
+  @apply bg-[#f8f9fa] pt-[30px] pb-5;
+}
+.solutions-cta-band {
+  @apply flow-root bg-[#f8f9fa];
 }
 .project-hero img {
   @apply rounded-md;
@@ -1059,9 +1074,11 @@
 .consulting-canvas {
   @apply bg-[#e2e8f0] text-[#000000];
 }
-.consulting-canvas .eyebrow,
 .consulting-canvas .canvas-heading > p {
   @apply text-[#000000];
+}
+.consulting-canvas .eyebrow {
+  @apply text-brand;
 }
 .assessment-map {
   @apply grid grid-cols-3 gap-[22px];

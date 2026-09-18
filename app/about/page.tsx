@@ -84,9 +84,15 @@ const teams = [
     ],
   },
 ];
+const manifestoLines = [
+  "The brand.",
+  "The experience.",
+  "The business behind it.",
+  "They belong in the same conversation.",
+];
 export default function About() {
   return (
-    <main id="main">
+    <main id="main" className="about-page">
       <section className="story-hero wrap">
         <p className="eyebrow">Our story / A company growing into its name</p>
         <h1>
@@ -114,14 +120,23 @@ export default function About() {
       <section className="rebrand-statement">
         <div className="wrap">
           <p className="eyebrow">Why Link?</p>
-          <h2>
-            The brand.
-            <br />
-            The experience.
-            <br />
-            The business behind it.
-            <br />
-            <span>They belong in the same conversation.</span>
+          <h2
+            className="rebrand-message"
+            aria-label={manifestoLines.join(" ")}
+          >
+            {manifestoLines.map((line, lineIndex) => (
+              <span className="rebrand-line" key={line} aria-hidden="true">
+                {line.split(" ").map((word, wordIndex) => (
+                  <span
+                    data-rebrand-word
+                    key={`${lineIndex}-${wordIndex}`}
+                  >
+                    {word}
+                    {wordIndex < line.split(" ").length - 1 ? "\u00a0" : ""}
+                  </span>
+                ))}
+              </span>
+            ))}
           </h2>
           <p>
             Our capabilities grew one discipline at a time. The rebrand brings
@@ -171,34 +186,36 @@ export default function About() {
           ))}
         </div>
       </section>
-      <section className="wrap portfolio-team">
-        <div className="team-photo-intro">
-          <div>
-            <p className="eyebrow">The people who make the work possible</p>
-            <h2>
-              Behind the systems,
-              <br />a team that cares.
-            </h2>
+      <section className="portfolio-team">
+        <div className="wrap">
+          <div className="team-photo-intro">
+            <div>
+              <p className="eyebrow">The people who make the work possible</p>
+              <h2>
+                Behind the systems,
+                <br />a team that cares.
+              </h2>
+            </div>
+            <p>
+              Business analysts, designers, engineers and project owners bring
+              different perspectives to the same challenge. That shared
+              understanding is the foundation we continue to build on.
+            </p>
           </div>
-          <p>
-            Business analysts, designers, engineers and project owners bring
-            different perspectives to the same challenge. That shared
-            understanding is the foundation we continue to build on.
-          </p>
+          <figure>
+            <img
+              src="/portfolio/techgy-team.webp"
+              alt="TechGy team group photograph from the company portfolio"
+              width="1280"
+              height="341"
+              loading="lazy"
+            />
+            <figcaption>
+              From the TechGy Innovations chapter.
+              <span>Different disciplines, a shared commitment to the work.</span>
+            </figcaption>
+          </figure>
         </div>
-        <figure>
-          <img
-            src="/portfolio/techgy-team.webp"
-            alt="TechGy team group photograph from the company portfolio"
-            width="1280"
-            height="341"
-            loading="lazy"
-          />
-          <figcaption>
-            From the TechGy Innovations chapter.
-            <span>Different disciplines, a shared commitment to the work.</span>
-          </figcaption>
-        </figure>
       </section>
       <section className="team-practice section" id="our-teams">
         <div className="wrap">
@@ -237,24 +254,26 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section className="section wrap company-belief">
-        <p className="eyebrow">The company we are building</p>
-        <h2>
-          Start with one challenge.
-          <br />
-          Stay with a partner who
-          <br />
-          <span className="text-brand">sees what comes next.</span>
-        </h2>
-        <p>
-          That is our ambition for TechGy Link. To understand enough of your
-          business that each piece of work can contribute to the next—whether
-          you need one specialist service today or a connected team for a larger
-          chapter.
-        </p>
-        <Link href="/contact" className="button blue">
-          Let’s build your next chapter <ArrowUpRight />
-        </Link>
+      <section className="section company-belief">
+        <div className="wrap">
+          <p className="eyebrow">The company we are building</p>
+          <h2>
+            Start with one challenge.
+            <br />
+            Stay with a partner who
+            <br />
+            <span className="text-brand">sees what comes next.</span>
+          </h2>
+          <p>
+            That is our ambition for TechGy Link. To understand enough of your
+            business that each piece of work can contribute to the next—whether
+            you need one specialist service today or a connected team for a
+            larger chapter.
+          </p>
+          <Link href="/contact" className="button blue">
+            Let’s build your next chapter <ArrowUpRight />
+          </Link>
+        </div>
       </section>
       <PartnerPromise />
     </main>

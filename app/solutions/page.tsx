@@ -22,39 +22,43 @@ export default function Solutions() {
           so the work moves toward the same business goal.
         </p>
       </section>
-      <section className="wrap solutions-index">
-        {solutions.map((s, i) => (
-          <Link
-            key={s.id}
-            className="solution-editorial-row reveal"
-            href={"/solutions/" + s.id}
-          >
-            <div className="solution-editorial-image">
-              <img
-                src={s.image}
-                alt={s.short + " — related project presentation"}
-                width="1600"
-                height="1000"
-                loading={i === 0 ? "eager" : "lazy"}
-              />
-            </div>
-            <div className="solution-editorial-copy">
-              <p className="eyebrow">
-                0{i + 1} / {s.kicker}
-              </p>
-              <h3>{s.short}</h3>
-              <p>{s.description}</p>
-              <span className="text-link">
-                Explore the solution <Arrow />
-              </span>
-            </div>
-          </Link>
-        ))}
+      <section className="solutions-index">
+        <div className="wrap">
+          {solutions.map((s, i) => (
+            <Link
+              key={s.id}
+              className="solution-editorial-row reveal"
+              href={"/solutions/" + s.id}
+            >
+              <div className="solution-editorial-image">
+                <img
+                  src={s.image}
+                  alt={s.short + " — related project presentation"}
+                  width="1600"
+                  height="1000"
+                  loading={i === 0 ? "eager" : "lazy"}
+                />
+              </div>
+              <div className="solution-editorial-copy">
+                <p className="eyebrow">
+                  0{i + 1} / {s.kicker}
+                </p>
+                <h3>{s.short}</h3>
+                <p>{s.description}</p>
+                <span className="text-link">
+                  Explore the solution <Arrow />
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
       </section>
-      <CTA
-        title="One service can be enough."
-        text="These are flexible combinations. You can begin with a visualisation brief, a website or one workflow. Expand the scope only when the need is clear."
-      />
+      <div className="solutions-cta-band">
+        <CTA
+          title="One service can be enough."
+          text="These are flexible combinations. You can begin with a visualisation brief, a website or one workflow. Expand the scope only when the need is clear."
+        />
+      </div>
     </main>
   );
 }

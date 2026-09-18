@@ -44,6 +44,24 @@ export function EssenceMotion() {
               clearProps: "all",
             },
           );
+        const rebrandWords = document.querySelectorAll("[data-rebrand-word]");
+        if (rebrandWords.length)
+          gsap.fromTo(
+            rebrandWords,
+            { y: 16, opacity: 0.18 },
+            {
+              y: 0,
+              opacity: 1,
+              stagger: 0.08,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".rebrand-statement",
+                start: "top 72%",
+                end: "bottom 42%",
+                scrub: 0.65,
+              },
+            },
+          );
         gsap.utils
           .toArray<Element>(
             ".capability-column,.growth-start,.partner-promises article,.team-discipline,.service-contribution-link,.case-decision,.portfolio-card",

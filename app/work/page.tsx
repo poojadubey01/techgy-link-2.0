@@ -7,7 +7,7 @@ export const metadata = {
 };
 export default function Work() {
   return (
-    <main id="main">
+    <main id="main" className="work-page">
       <section className="page-intro wrap portfolio-work-intro">
         <p className="eyebrow">Selected work</p>
         <h1>

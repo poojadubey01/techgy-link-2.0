@@ -227,13 +227,17 @@
   @apply min-h-0 aspect-auto h-[88%] w-auto object-contain;
 }
 .portfolio-team {
-  @apply mt-0 mb-[60px];
+  @apply mt-0 mb-0 bg-[#0f1a34] py-20 text-white;
 }
 .portfolio-team img {
   @apply block w-full h-auto rounded-[5px];
 }
 .portfolio-team figcaption {
-  @apply flex justify-between gap-5 text-xs leading-[1.6] mt-4 text-[#000000];
+  @apply flex justify-between gap-5 text-xs leading-[1.6] mt-4 text-[#f8f9fa];
+}
+.portfolio-team .eyebrow,
+.portfolio-team .team-photo-intro p:not(.eyebrow) {
+  @apply text-[#f8f9fa];
 }
 .team-photo-intro {
   @apply grid grid-cols-2 gap-[10%] items-end mb-[30px];
@@ -252,6 +256,36 @@
 }
 .portfolio-work-intro .work-context {
   @apply text-sm text-[#000000] mt-5 max-w-[780px] leading-[1.8];
+}
+.work-page {
+  @apply bg-[#f8f9fa];
+}
+.work-page .work-tabs {
+  @apply mt-[10px];
+}
+.work-page .work-grid .portfolio-card {
+  @apply flex flex-col items-start p-0;
+}
+.work-page .portfolio-card .work-image {
+  @apply w-full aspect-[1.25] bg-[#eef0f4] isolate;
+}
+.work-page .portfolio-card .image-link {
+  @apply right-5 bottom-5 w-[46px] h-[46px];
+}
+.work-page .portfolio-card .work-meta {
+  @apply flex w-full items-center justify-between gap-5 mt-0 pt-[22px];
+}
+.work-page .portfolio-card .work-meta h3 {
+  @apply text-[29px] leading-9 tracking-[-0.04em] text-[#151922];
+}
+.work-page .portfolio-card .work-meta p {
+  @apply m-0 max-w-[178px] pt-0 text-right text-[12px] leading-5 text-[#858e9d];
+}
+.work-page .portfolio-card .story-card-line {
+  @apply mt-[18px] max-w-none whitespace-nowrap text-[18px] leading-[27px] tracking-[-0.02em] text-[#151922];
+}
+.work-page .portfolio-card .story-card-footer {
+  @apply mt-5 w-full border-t-[#d8dee6] pt-[15px] text-[12px] leading-5 text-[#606b79];
 }
 @media (min-width: 768px) {
   .case-challenge > div:first-child,
@@ -420,6 +454,9 @@
   .story-card-line {
     @apply text-[18px] mt-4;
   }
+  .work-page .portfolio-card .story-card-line {
+    @apply whitespace-normal;
+  }
   .story-card-footer {
     @apply text-[12px];
   }
@@ -433,7 +470,7 @@
     @apply h-[365px];
   }
   .portfolio-team {
-    @apply mb-10;
+    @apply mb-0 py-[55px];
   }
   .team-photo-intro {
     @apply block;
