@@ -163,7 +163,7 @@
   @apply text-[12px] text-[#000000] mb-[50px];
 }
 .case-status {
-  @apply inline-block text-[13px] text-brand border border-[#e2e8f0] rounded-[3px] py-[7px] px-2.5;
+  @apply inline-block text-[13px] text-brand bg-[#f8f9fa] border border-[#e2e8f0] rounded-full py-[7px] px-[14px];
 }
 .component-context {
   @apply mt-7;

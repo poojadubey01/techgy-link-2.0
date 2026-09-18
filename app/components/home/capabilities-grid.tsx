@@ -1,6 +1,30 @@
 import Link from "@/app/components/ui/internal-link";
 import { services } from "@/data/catalogue";
 import { ArrowUpRight } from "@/app/components/ui/icons";
+import {
+  Palette,
+  PenTool,
+  Globe,
+  Code2,
+  Smartphone,
+  Bot,
+  Megaphone,
+  Building2,
+  Settings2,
+  type LucideIcon,
+} from "lucide-react";
+
+const serviceIcons: Record<string, LucideIcon> = {
+  "branding-identity": Palette,
+  "ui-ux-product-design": PenTool,
+  "website-design-development": Globe,
+  "custom-software-development": Code2,
+  "mobile-application-development": Smartphone,
+  "ai-automation-system-integration": Bot,
+  "digital-marketing-sales-enablement": Megaphone,
+  "architectural-visualisation": Building2,
+  "technology-consulting-modernisation": Settings2,
+};
 const groups = [
   {
     title: "Shape how you’re seen.",
@@ -43,9 +67,15 @@ export function CollectiveCapabilities() {
               <div>
                 {g.ids.map((index) => {
                   const s = services[index];
+                  const ServiceIcon = serviceIcons[s.id];
                   return (
                     <Link key={s.id} href={"/services/" + s.id}>
-                      <span>{s.name}</span>
+                      <span className="capability-link-label">
+                        {ServiceIcon && (
+                          <ServiceIcon className="capability-icon" size={20} />
+                        )}
+                        <span>{s.name}</span>
+                      </span>
                       <ArrowUpRight size={19} />
                     </Link>
                   );
@@ -55,10 +85,6 @@ export function CollectiveCapabilities() {
           ))}
         </div>
         <div className="collective-note">
-          <span>
-            Engage one discipline. Connect a wider team when the ambition calls
-            for it.
-          </span>
           <Link href="/services" className="text-link">
             Explore all services <ArrowUpRight size={19} />
           </Link>

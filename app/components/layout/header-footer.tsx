@@ -172,7 +172,6 @@ export function Footer() {
     <footer className="footer collective-footer">
       {path !== "/contact/" && path !== "/contact" && (
         <div className="wrap footer-cta">
-          <p className="eyebrow">A company for your next chapter.</p>
           <Link href="/contact" className="footer-headline">
             <span>
               Let’s build<em>what’s next.</em>

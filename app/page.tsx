@@ -37,35 +37,37 @@ export default function Home() {
       <CollectiveCapabilities />
       <ConnectedProof />
       <PortfolioBreadth />
-      <section className="growth-starts section wrap">
-        <div className="growth-starts-intro">
-          <p className="eyebrow">Where your next chapter can begin</p>
-          <h2>
-            What are you
-            <br />
-            <span className="text-brand">moving toward?</span>
-          </h2>
-          <p>
-            Start with the business ambition. We’ll bring the relevant
-            capabilities into one plan.
-          </p>
-        </div>
-        <div className="growth-start-rows">
-          {starts.map((s) => (
-            <Link
-              className="growth-start"
-              key={s.path}
-              href={"/solutions/" + s.path}
-            >
-              <span>{s.n}</span>
-              <div>
-                <p className="eyebrow">{s.name}</p>
-                <h3>{s.title}</h3>
-                <p>{s.body}</p>
-              </div>
-              <ArrowUpRight size={30} />
-            </Link>
-          ))}
+      <section className="growth-starts-section">
+        <div className="growth-starts section wrap">
+          <div className="growth-starts-intro">
+            <p className="eyebrow">Where your next chapter can begin</p>
+            <h2>
+              What are you
+              <br />
+              <span className="text-brand">moving toward?</span>
+            </h2>
+            <p>
+              Start with the business ambition. We’ll bring the relevant
+              capabilities into one plan.
+            </p>
+          </div>
+          <div className="growth-start-rows">
+            {starts.map((s) => (
+              <Link
+                className="growth-start"
+                key={s.path}
+                href={"/solutions/" + s.path}
+              >
+                <span>{s.n}</span>
+                <div>
+                  <p className="eyebrow">{s.name}</p>
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+                </div>
+                <ArrowUpRight size={30} />
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
       <PartnerPromise />

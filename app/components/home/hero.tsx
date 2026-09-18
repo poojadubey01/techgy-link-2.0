@@ -13,13 +13,13 @@ export function HomeHero() {
           <span data-ambition-line>All our strengths.</span>
         </h1>
         <p className="ambition-side">
-          Design.
+          <span className="ambition-side-blink">Design.</span>
           <br />
-          Technology.
+          <span className="ambition-side-blink">Technology.</span>
           <br />
-          Growth.
+          <span className="ambition-side-blink">Growth.</span>
           <br />
-          <span>Together.</span>
+          <span className="ambition-side-blink">Together.</span>
         </p>
       </div>
       <div className="wrap ambition-intro">
@@ -32,9 +32,6 @@ export function HomeHero() {
           <Link href="/contact" className="button blue">
             Build your next chapter <ArrowUpRight size={20} />
           </Link>
-          <a href="#why-link" className="text-link">
-            Why we became TechGy Link <ArrowDown size={18} />
-          </a>
         </div>
       </div>
       <div
@@ -60,9 +57,8 @@ export function HomeHero() {
         </div>
       </div>
       <div className="wrap ambition-foot">
-        <span>Independent specialists. A shared view of your business.</span>
-        <a href="#expertise">
-          Meet the capabilities <ArrowDown size={17} />
+        <a href="#why-link" className="text-link">
+          Why we became TechGy Link <ArrowDown size={18} />
         </a>
       </div>
     </section>

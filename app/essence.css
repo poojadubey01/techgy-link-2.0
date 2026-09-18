@@ -26,8 +26,36 @@
 .ambition-side {
   @apply absolute right-0 top-[15px] text-[15px] leading-[1.65] text-[#000000];
 }
-.ambition-side span {
-  @apply text-brand;
+.ambition-side-blink {
+  @apply inline-block [animation:ambition-blink_2.4s_ease-in-out_infinite];
+}
+.ambition-side-blink:nth-of-type(1) {
+  @apply [animation-delay:0s];
+}
+.ambition-side-blink:nth-of-type(2) {
+  @apply [animation-delay:0.6s];
+}
+.ambition-side-blink:nth-of-type(3) {
+  @apply [animation-delay:1.2s];
+}
+.ambition-side-blink:nth-of-type(4) {
+  @apply [animation-delay:1.8s];
+}
+@keyframes ambition-blink {
+  0%,
+  100% {
+    color: #000000;
+  }
+  15%,
+  35% {
+    color: #0022ff;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ambition-side-blink {
+    animation: none;
+    color: #000000;
+  }
 }
 .ambition-intro {
   @apply grid grid-cols-[1.05fr_1fr] gap-[100px] items-center mt-[38px] mb-[45px];
@@ -45,7 +73,7 @@
   @apply text-[14px];
 }
 .ambition-banner {
-  @apply relative overflow-hidden rounded-[3px] h-[clamp(250px,26vw,410px)] w-full bg-[#e2e8f0];
+  @apply relative overflow-hidden rounded-[3px] h-[clamp(120px,12vw,200px)] w-full bg-[#e2e8f0];
 }
 .ambition-banner-track {
   @apply flex h-full w-max [animation:ambition-pan_60s_linear_infinite];
@@ -154,7 +182,7 @@
   @apply pt-[23px] border-t border-[#e2e8f0];
 }
 .capability-number {
-  @apply font-display text-[54px] text-[#000000] tracking-[-0.04em];
+  @apply font-display text-[54px] text-[#e2e8f0] tracking-[-0.04em];
 }
 .capability-column h3 {
   @apply text-[33px] leading-[1.18] mt-[25px] mb-5 max-w-[340px];
@@ -170,6 +198,15 @@
 }
 .capability-column a:hover {
   @apply text-brand;
+}
+.capability-link-label {
+  @apply flex items-center gap-[14px];
+}
+.capability-icon {
+  @apply shrink-0 text-[#000000] transition-[transform,color] duration-300 ease-out;
+}
+.capability-column a:hover .capability-icon {
+  @apply scale-110 rotate-6 text-brand;
 }
 .collective-note {
   @apply flex justify-between items-center gap-[30px] pt-[30px] mt-[30px] border-t border-[#e2e8f0] text-[#000000] text-[14px];
@@ -243,6 +280,9 @@
 }
 .proof-all {
   @apply mt-[45px] text-[#f8f9fa];
+}
+.growth-starts-section {
+  @apply bg-[#e2e8f0];
 }
 .growth-starts {
   @apply grid grid-cols-[0.85fr_1.4fr] gap-[90px] items-start;
@@ -402,7 +442,7 @@
     @apply text-[14px];
   }
   .ambition-banner {
-    @apply w-full h-[260px];
+    @apply w-full h-[130px];
   }
   .ambition-foot {
     @apply pt-[25px] pb-[30px] block text-[13px];
