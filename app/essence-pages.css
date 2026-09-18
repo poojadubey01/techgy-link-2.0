@@ -1,0 +1,627 @@
+.service-contribution {
+  background: #eef2fa;
+  padding-block: 75px;
+  margin-block: 0;
+}
+.service-contribution .eyebrow,
+.solution-collaboration .eyebrow {
+  color: #173fff;
+  font-size: 13px;
+}
+.contribution-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: start;
+  margin-top: 26px;
+}
+.contribution-intro h2 {
+  font-size: clamp(35px, 3.3vw, 51px);
+  line-height: 1.15;
+}
+.contribution-intro p {
+  font-size: 17px;
+  color: #5c6e87;
+  line-height: 1.85;
+}
+.contribution-intro .contribution-team {
+  font-size: 13px;
+  margin-top: 22px;
+  color: #173fff;
+}
+.contribution-connections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 45px;
+}
+.service-contribution-link {
+  border-top: 1px solid #bbc9e0;
+  padding-top: 22px;
+}
+.service-contribution-link > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 19px;
+  line-height: 1.45;
+  color: #1d365f;
+}
+.service-contribution-link > p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #63758e;
+  margin-top: 18px;
+}
+.service-contribution-link:hover > span {
+  color: #173fff;
+}
+.contribution-note {
+  font-size: 14px;
+  color: #64758f;
+  margin-top: 35px;
+}
+.solution-collaboration {
+  background: #edf2fa;
+  margin-top: 70px;
+}
+.solution-collaboration .contribution-intro {
+  margin: 0;
+  align-items: end;
+}
+.solution-collaboration h2 {
+  margin-top: 25px;
+}
+.collaboration-handoffs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+}
+.collaboration-handoffs article {
+  border-top: 1px solid #b9c8df;
+  padding-top: 26px;
+}
+.collaboration-handoffs h3 {
+  font-size: 30px;
+  line-height: 1.2;
+  margin-block: 24px 18px;
+}
+.collaboration-handoffs p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #5f708a;
+}
+.partner-signature {
+  border-top: 1px solid #c8d3e3;
+  padding-block: 40px 65px;
+  display: grid;
+  grid-template-columns: 0.55fr 1.2fr 0.55fr;
+  gap: 45px;
+  align-items: start;
+}
+.partner-signature .eyebrow {
+  font-size: 12px;
+  color: #173fff;
+}
+.partner-signature > p:not(.eyebrow) {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #64738a;
+}
+.partner-signature .text-link {
+  font-size: 14px;
+  line-height: 1.7;
+}
+.story-hero {
+  padding-block: 65px 80px;
+}
+.story-hero > .eyebrow {
+  font-size: 13px;
+  color: #173fff;
+}
+.story-hero h1 {
+  font-size: clamp(59px, 7.8vw, 117px);
+  line-height: 1.08;
+  letter-spacing: -0.06em;
+  margin-block: 33px 50px;
+}
+.story-hero h1 > span {
+  color: #173fff;
+}
+.story-hero-bottom {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 100px;
+}
+.story-hero-bottom > p {
+  font-size: 21px;
+  line-height: 1.8;
+  color: #566780;
+}
+.story-hero-bottom > div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 14px;
+  color: #738098;
+  padding-top: 6px;
+}
+.rebrand-statement {
+  background: #173fff;
+  color: white;
+  padding-block: 90px 100px;
+  overflow: hidden;
+}
+.rebrand-statement .eyebrow {
+  font-size: 13px;
+  color: #dbe2ff;
+}
+.rebrand-statement h2 {
+  font-size: clamp(43px, 5.8vw, 87px);
+  line-height: 1.13;
+  max-width: 1160px;
+  margin-block: 35px 40px;
+}
+.rebrand-statement h2 > span {
+  color: #bbcaff;
+}
+.rebrand-statement .wrap > p:last-child {
+  font-size: 19px;
+  line-height: 1.85;
+  color: #e0e7ff;
+  max-width: 770px;
+  margin-left: auto;
+}
+.company-journey {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 110px;
+}
+.company-journey > div:first-child {
+  position: sticky;
+  top: 140px;
+  align-self: start;
+}
+.company-journey .eyebrow {
+  font-size: 13px;
+  color: #173fff;
+}
+.company-journey h2 {
+  font-size: 52px;
+  line-height: 1.2;
+  margin-top: 26px;
+}
+.journey-entries article {
+  border-top: 1px solid #c8d3e4;
+  padding-block: 32px 42px;
+}
+.journey-entries article > span {
+  font-size: 15px;
+  color: #173fff;
+}
+.journey-entries h3 {
+  font-size: 34px;
+  line-height: 1.2;
+  margin-block: 22px 20px;
+}
+.journey-entries p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #63718a;
+}
+.team-practice {
+  background: #f2f5f9;
+}
+.team-intro .eyebrow {
+  font-size: 13px;
+  color: #173fff;
+}
+.team-intro h2 {
+  font-size: clamp(41px, 4.7vw, 71px);
+  line-height: 1.12;
+  margin-block: 25px;
+}
+.team-intro h2 > span {
+  color: #173fff;
+}
+.team-intro > p:last-child {
+  font-size: 18px;
+  line-height: 1.85;
+  max-width: 730px;
+  color: #65748b;
+}
+.team-disciplines {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 75px;
+  margin-top: 60px;
+}
+.team-discipline {
+  display: flex;
+  gap: 23px;
+  border-top: 1px solid #c4d0e2;
+  padding-top: 30px;
+}
+.team-discipline > span {
+  font-size: 13px;
+  color: #173fff;
+  padding-top: 7px;
+}
+.team-discipline h3 {
+  font-size: 33px;
+  line-height: 1.18;
+  margin-bottom: 24px;
+}
+.team-discipline p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #526580;
+}
+.team-discipline .team-people {
+  color: #253f65;
+  margin-bottom: 15px;
+}
+.team-discipline > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 25px;
+}
+.team-discipline a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+  color: #173fff;
+  line-height: 1.6;
+}
+.company-belief > .eyebrow {
+  color: #173fff;
+  font-size: 13px;
+}
+.company-belief h2 {
+  font-size: clamp(43px, 5.2vw, 79px);
+  margin-block: 27px 35px;
+  line-height: 1.12;
+}
+.company-belief > p:not(.eyebrow) {
+  font-size: 19px;
+  line-height: 1.8;
+  max-width: 730px;
+  color: #63718a;
+}
+.company-belief .button {
+  margin-top: 35px;
+  border-radius: 999px;
+}
+.collective-footer {
+  background: #101a2a;
+  color: white;
+}
+.collective-footer .footer-cta {
+  padding-block: 85px 70px;
+}
+.collective-footer .footer-cta > .eyebrow {
+  color: #b8c8e6;
+  font-size: 13px;
+}
+.collective-footer .footer-headline {
+  font-size: clamp(70px, 8vw, 120px);
+  line-height: 1.03;
+  padding-block: 30px;
+  align-items: center;
+  letter-spacing: -0.05em;
+}
+.collective-footer .footer-headline > span:first-child {
+  max-width: 900px;
+}
+.collective-footer .footer-headline em {
+  display: block;
+  color: #a4baff;
+}
+.collective-footer .footer-arrow {
+  background: #173fff;
+  color: #fff;
+  border: 0;
+}
+.collective-footer .footer-cta > p:last-child {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #bbc9de;
+  max-width: 630px;
+}
+.collective-footer .footer-grid {
+  border-color: #4a5a7180;
+}
+.collective-footer .footer-contact > p,
+.collective-footer .footer-grid > div > p {
+  color: #abbcd5;
+}
+.collective-footer .footer-grid a {
+  color: #dce5f3;
+}
+.collective-footer .footer-grid a:hover {
+  color: #a2baff;
+}
+.collective-footer .footer-contact > .footer-origin {
+  font-size: 14px;
+  margin-top: 27px;
+  line-height: 1.8;
+  color: #9aaecb;
+}
+.collective-footer .footer-bottom {
+  border-color: #4a5a7180;
+  color: #a8bbd6;
+}
+.collective-footer .footer-bottom > img {
+  filter: brightness(0) invert(1);
+}
+.collective-footer .footer-bottom a {
+  color: #dce5f3;
+}
+@media (max-width: 1100px) {
+  .contribution-intro {
+    gap: 45px;
+  }
+  .contribution-connections {
+    gap: 28px;
+  }
+  .partner-signature {
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+  }
+  .partner-signature .text-link {
+    grid-column: 2;
+  }
+  .story-hero-bottom {
+    gap: 50px;
+  }
+  .company-journey {
+    gap: 60px;
+  }
+  .team-disciplines {
+    gap: 38px 40px;
+  }
+  .company-journey h2 {
+    font-size: 44px;
+  }
+  .collective-footer .footer-headline {
+    font-size: 80px;
+  }
+}
+@media (max-width: 767px) {
+  .service-contribution {
+    padding-block: 55px;
+  }
+  .service-contribution .eyebrow {
+    font-size: 12px;
+  }
+  .contribution-intro {
+    display: block;
+    margin-top: 23px;
+  }
+  .contribution-intro h2 {
+    font-size: 34px;
+    line-height: 1.18;
+  }
+  .contribution-intro > div:last-child {
+    margin-top: 25px;
+  }
+  .contribution-intro p {
+    font-size: 16px;
+  }
+  .contribution-intro .contribution-team {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .contribution-connections {
+    display: block;
+    margin-top: 30px;
+  }
+  .service-contribution-link {
+    display: block;
+    padding-top: 23px;
+    margin-top: 25px;
+  }
+  .service-contribution-link > span {
+    font-size: 19px;
+  }
+  .service-contribution-link > p {
+    font-size: 16px;
+    margin-top: 14px;
+  }
+  .contribution-note {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-top: 27px;
+  }
+  .solution-collaboration {
+    margin-top: 40px;
+  }
+  .solution-collaboration h2 {
+    font-size: 34px;
+    margin-top: 23px;
+  }
+  .solution-collaboration .contribution-intro > p {
+    margin-top: 25px;
+  }
+  .collaboration-handoffs {
+    display: block;
+    margin-top: 35px;
+  }
+  .collaboration-handoffs article {
+    padding-top: 25px;
+    margin-top: 30px;
+  }
+  .collaboration-handoffs h3 {
+    font-size: 29px;
+    margin-block: 20px 15px;
+  }
+  .collaboration-handoffs p {
+    font-size: 16px;
+  }
+  .partner-signature {
+    display: block;
+    padding-block: 32px 50px;
+  }
+  .partner-signature > p:not(.eyebrow) {
+    margin-top: 20px;
+  }
+  .partner-signature .text-link {
+    margin-top: 25px;
+  }
+  .story-hero {
+    padding-block: 35px 50px;
+  }
+  .story-hero > .eyebrow {
+    font-size: 12px;
+  }
+  .story-hero h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-block: 26px 30px;
+  }
+  .story-hero-bottom {
+    display: block;
+  }
+  .story-hero-bottom > p {
+    font-size: 17px;
+    line-height: 1.85;
+  }
+  .story-hero-bottom > div {
+    font-size: 14px;
+    margin-top: 28px;
+    gap: 12px;
+  }
+  .rebrand-statement {
+    padding-block: 55px 65px;
+  }
+  .rebrand-statement h2 {
+    font-size: 39px;
+    line-height: 1.2;
+    margin-block: 26px 30px;
+  }
+  .rebrand-statement .wrap > p:last-child {
+    font-size: 17px;
+  }
+  .rebrand-statement .eyebrow {
+    font-size: 12px;
+  }
+  .company-journey {
+    display: block;
+  }
+  .company-journey > div:first-child {
+    position: static;
+  }
+  .company-journey h2 {
+    font-size: 39px;
+    line-height: 1.2;
+    margin-top: 22px;
+  }
+  .journey-entries {
+    margin-top: 40px;
+  }
+  .journey-entries article {
+    padding-block: 25px 32px;
+  }
+  .journey-entries article > span {
+    font-size: 14px;
+  }
+  .journey-entries h3 {
+    font-size: 30px;
+    margin-block: 20px 17px;
+  }
+  .journey-entries p {
+    font-size: 16px;
+  }
+  .team-intro h2 {
+    font-size: 37px;
+    line-height: 1.2;
+    margin-block: 23px;
+  }
+  .team-intro .eyebrow {
+    font-size: 12px;
+  }
+  .team-intro > p:last-child {
+    font-size: 16px;
+  }
+  .team-disciplines {
+    display: block;
+    margin-top: 35px;
+  }
+  .team-discipline {
+    padding-top: 25px;
+    margin-top: 32px;
+    gap: 15px;
+  }
+  .team-discipline h3 {
+    font-size: 29px;
+    margin-bottom: 20px;
+  }
+  .team-discipline p {
+    font-size: 16px;
+  }
+  .team-discipline a {
+    font-size: 14px;
+  }
+  .company-belief h2 {
+    font-size: 39px;
+    line-height: 1.2;
+    margin-block: 23px 28px;
+  }
+  .company-belief > p:not(.eyebrow) {
+    font-size: 17px;
+  }
+  .company-belief .button {
+    font-size: 14px;
+  }
+  .collective-footer .footer-cta {
+    padding-block: 55px 40px;
+  }
+  .collective-footer .footer-headline {
+    font-size: 52px;
+    line-height: 1.1;
+    padding-block: 25px;
+    gap: 20px;
+  }
+  .collective-footer .footer-headline .footer-arrow {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+  }
+  .collective-footer .footer-headline .footer-arrow svg {
+    width: 27px;
+    height: 27px;
+  }
+  .collective-footer .footer-cta > p:last-child {
+    font-size: 16px;
+  }
+  .collective-footer .footer-cta > .eyebrow {
+    font-size: 12px;
+  }
+}
+
+.hero-teamline {
+  flex-basis: 100%;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #173fff;
+  max-width: 480px;
+  margin-top: 2px;
+}
+.detail-copy .hero-actions {
+  align-content: start;
+}
+
+.collective-footer .footer-grid a {
+  font-size: 14px;
+  line-height: 1.75;
+}
+.collective-footer .footer-bottom {
+  font-size: 12px;
+}
+.collective-footer .footer-bottom > a {
+  font-size: 13px;
+}
