@@ -37,66 +37,27 @@ export function HomeHero() {
           </a>
         </div>
       </div>
-      <div className="ambition-work" aria-label="Work across our disciplines">
-        <Link href="/work/eco-world" className="ambition-project ambition-web">
-          <div className="ambition-project-image">
-            <img
-              src="/work/eco-world.webp"
-              alt="Eco World property website"
-              width="1600"
-              height="898"
-              fetchPriority="high"
-            />
-          </div>
-          <div className="ambition-project-label">
-            <span>
-              Make the brand an experience.<small>Eco World / Website</small>
-            </span>
-            <ArrowUpRight />
-          </div>
-        </Link>
-        <Link
-          href="/work/glc-user-mobile"
-          className="ambition-project ambition-mobile"
-        >
-          <div className="ambition-project-image">
-            <img
-              src="/work/glc-mobile.webp"
-              alt="Greenland Capital mobile application project"
-              width="1600"
-              height="898"
-              fetchPriority="high"
-            />
-          </div>
-          <div className="ambition-project-label">
-            <span>
-              Put the business in their hands.
-              <small>Greenland Capital / Mobile</small>
-            </span>
-            <ArrowUpRight />
-          </div>
-        </Link>
-        <Link
-          href="/work/vasavi-atlantis"
-          className="ambition-project ambition-space"
-        >
-          <div className="ambition-project-image">
-            <img
-              src="/architecture/vasavi-atlantis/Aerial_Night.webp"
-              alt="Vasavi Atlantis architectural visualisation at dusk"
-              width="1200"
-              height="900"
-              fetchPriority="high"
-            />
-          </div>
-          <div className="ambition-project-label">
-            <span>
-              Make the future visible.
-              <small>Vasavi Atlantis / Visualisation</small>
-            </span>
-            <ArrowUpRight />
-          </div>
-        </Link>
+      <div
+        className="ambition-banner"
+        aria-label="Our capabilities, in motion"
+        data-image-reveal
+      >
+        <div className="ambition-banner-track">
+          <img
+            src="/source/optimized/banner.webp"
+            alt=""
+            width="13277"
+            height="675"
+            fetchPriority="high"
+          />
+          <img
+            src="/source/optimized/banner.webp"
+            alt=""
+            width="13277"
+            height="675"
+            aria-hidden="true"
+          />
+        </div>
       </div>
       <div className="wrap ambition-foot">
         <span>Independent specialists. A shared view of your business.</span>

@@ -1,13 +1,13 @@
 @reference "./globals.css";
 /* TechGy Link: real work, deliberate scale and connected motion. */
 .next-hero {
-  @apply relative overflow-clip bg-[#f7f8fa] pt-8;
+  @apply relative overflow-clip bg-[#f8f9fa] pt-8;
 }
 .next-hero-top {
-  @apply flex justify-between items-center text-[#596273];
+  @apply flex justify-between items-center text-[#000000];
 }
 .next-hero-top > .eyebrow {
-  @apply text-[#263854] text-[12px] tracking-[0.09em];
+  @apply text-[#000000] text-[12px] tracking-[0.09em];
 }
 .next-hero-top > span {
   @apply text-[12px];
@@ -25,13 +25,13 @@
   @apply text-[clamp(72px,7.8vw,125px)] tracking-[-0.066em] leading-[1.01];
 }
 .next-hero-copy > p {
-  @apply text-[17px] text-[#667083] leading-[1.7] max-w-[375px] mt-[31px];
+  @apply text-[17px] text-[#000000] leading-[1.7] max-w-[375px] mt-[31px];
 }
 .next-hero-copy .hero-actions {
   @apply gap-6 mt-[30px];
 }
 .next-hero-copy .button {
-  @apply rounded-full gap-[22px] px-[23px] py-4;
+  @apply gap-[22px] px-[23px] py-4;
 }
 .next-hero-copy .text-link {
   @apply text-[13px] gap-[13px];
@@ -43,46 +43,46 @@
   @apply absolute top-[32px] right-[-35px] bottom-[10px] left-[-35px] [background-image:linear-gradient(#173fff0a_1px,transparent_1px),linear-gradient(90deg,#173fff0a_1px,transparent_1px)] [background-size:64px_64px] [mask-image:radial-gradient(ellipse,black_35%,transparent_73%)];
 }
 .composition-coordinate {
-  @apply absolute right-0 top-[4px] text-[11px] tracking-[0.045em] text-[#7a8598];
+  @apply absolute right-0 top-[4px] text-[11px] tracking-[0.045em] text-[#000000];
 }
 .composition-project {
-  @apply absolute overflow-hidden shadow-[0_24px_65px_#28354b24] border border-[#ffffffd9] bg-[#e7eaff] will-change-transform;
+  @apply absolute overflow-hidden shadow-[0_24px_65px_#0f1a3424] border border-[#f8f9fad9] bg-[#e2e8f0] will-change-transform;
 }
 .composition-web {
   @apply left-[-4%] top-[132px] w-[101%] rounded-[9px] rotate-[-7deg] z-[2];
 }
 .project-browser {
-  @apply h-8 bg-white flex items-center gap-1 px-3 text-[#aeb5c4];
+  @apply h-8 bg-white flex items-center gap-1 px-3 text-[#000000];
 }
 .project-browser > span {
-  @apply w-1 h-1 rounded-full bg-[#c8cdd5];
+  @apply w-1 h-1 rounded-full bg-[#e2e8f0];
 }
 .project-browser > p {
-  @apply text-[9px] tracking-[0.015em] m-auto text-[#7b8594];
+  @apply text-[9px] tracking-[0.015em] m-auto text-[#000000];
 }
 .cropped-screen {
   @apply relative overflow-hidden;
 }
 .eco-screen {
-  @apply aspect-[870/566] bg-[#344e38];
+  @apply aspect-[870/566] bg-[#0f1a34];
 }
 .eco-screen > img {
   @apply absolute w-[184%] max-w-none h-auto left-[-39%] top-[-59%];
 }
 .composition-space {
-  @apply right-[-5%] top-[38px] w-[43%] h-[170px] z-[1] rotate-[8deg] rounded-[5px] bg-[#10182a];
+  @apply right-[-5%] top-[38px] w-[43%] h-[170px] z-[1] rotate-[8deg] rounded-[5px] bg-[#111625];
 }
 .composition-space > img {
   @apply w-full h-full object-cover;
 }
 .composition-space > span {
-  @apply absolute left-[14px] bottom-3 text-[11px] text-white [text-shadow:0_1px_8px_#000];
+  @apply absolute left-[14px] bottom-3 text-[11px] text-white [text-shadow:0_1px_8px_#111625];
 }
 .composition-space > svg {
   @apply absolute bottom-[14px] right-[13px] text-white;
 }
 .composition-app {
-  @apply w-[37%] left-[-9%] bottom-2 z-[4] rounded-lg rotate-[8deg] bg-[#eef1ff];
+  @apply w-[37%] left-[-9%] bottom-2 z-[4] rounded-lg rotate-[8deg] bg-[#f8f9fa];
 }
 .mobile-screen {
   @apply aspect-[1/1.07];
@@ -94,46 +94,46 @@
   @apply flex justify-between items-center text-[10px] leading-[1.5] px-3 py-[13px] bg-white;
 }
 .composition-caption {
-  @apply absolute flex items-center gap-[14px] right-0 bottom-[-25px] z-[4] text-[#647087];
+  @apply absolute flex items-center gap-[14px] right-0 bottom-[-25px] z-[4] text-[#000000];
 }
 .composition-caption p {
   @apply text-[12px] leading-[1.7];
 }
 .composition-caption strong {
-  @apply font-medium text-[#22334d];
+  @apply font-medium text-[#000000];
 }
 .composition-mark {
   @apply text-[52px] leading-none font-normal text-brand;
 }
 .next-hero-bottom {
-  @apply border-t border-[#dce1e8] flex justify-between gap-5 items-center py-5 text-[11px] text-[#6d7788];
+  @apply border-t border-[#e2e8f0] flex justify-between gap-5 items-center py-5 text-[11px] text-[#000000];
 }
 .next-hero-bottom strong {
-  @apply font-medium text-[#2a364a] mr-2;
+  @apply font-medium text-[#000000] mr-2;
 }
 .next-hero-bottom a {
-  @apply flex items-center gap-[15px] text-[#3c4a62] text-[12px];
+  @apply flex items-center gap-[15px] text-[#000000] text-[12px];
 }
 .next-hero-bottom > span {
   @apply tracking-[0.08em] uppercase text-[10px];
 }
 .connection-story {
-  @apply pt-[112px] pb-10 bg-[#101722] text-[#f7f8fc] relative;
+  @apply pt-[112px] pb-10 bg-[#111625] text-[#000000] relative;
 }
 .connection-intro {
-  @apply pb-[90px] border-b border-[#ffffff25];
+  @apply pb-[90px] border-b border-[#f8f9fa25];
 }
 .connection-intro .eyebrow {
-  @apply text-[#a8baff];
+  @apply text-[#000000];
 }
 .connection-intro h2 {
   @apply text-[clamp(38px,4.5vw,70px)] leading-[1.14] mt-[25px] tracking-[-0.045em];
 }
 .connection-intro h2 > span {
-  @apply text-[#8292ad];
+  @apply text-[#000000];
 }
 .connection-intro > p:last-child {
-  @apply max-w-[560px] text-[16px] text-[#a4b1c5] mt-[30px];
+  @apply max-w-[560px] text-[16px] text-[#000000] mt-[30px];
 }
 .connection-body {
   @apply grid grid-cols-[0.84fr_1fr] gap-[100px] items-start;
@@ -142,10 +142,10 @@
   @apply min-h-[600px] flex flex-col justify-center py-20 scroll-mt-[140px];
 }
 .chapter-label {
-  @apply flex gap-[19px] items-center text-[#94adff] text-[13px];
+  @apply flex gap-[19px] items-center text-[#000000] text-[13px];
 }
 .chapter-label > span {
-  @apply border border-[#ffffff25] rounded-full w-9 h-9 grid place-items-center text-[11px];
+  @apply border border-[#f8f9fa25] rounded-full w-9 h-9 grid place-items-center text-[11px];
 }
 .connection-chapter h3 {
   @apply text-[clamp(34px,3.2vw,50px)] leading-[1.14] my-[27px] tracking-[-0.04em];
@@ -154,22 +154,22 @@
   @apply block;
 }
 .connection-chapter > p:not(.chapter-label) {
-  @apply text-[16px] leading-[1.8] text-[#a4b1c5] max-w-[430px];
+  @apply text-[16px] leading-[1.8] text-[#000000] max-w-[430px];
 }
 .chapter-links {
   @apply grid gap-0 mt-[31px] max-w-[420px];
 }
 .chapter-links > a {
-  @apply text-[13px] border-b border-[#ffffff1a] py-3 flex items-center justify-between gap-4;
+  @apply text-[13px] border-b border-[#f8f9fa1a] py-3 flex items-center justify-between gap-4;
 }
 .chapter-links > a:hover {
-  @apply text-[#94adff];
+  @apply text-[#000000];
 }
 .connection-stage {
   @apply sticky top-[150px] self-start my-[83px] h-[500px];
 }
 .connection-stage-top {
-  @apply flex justify-between text-[11px] text-[#8797b0] tracking-[0.055em] uppercase mb-[22px];
+  @apply flex justify-between text-[11px] text-[#000000] tracking-[0.055em] uppercase mb-[22px];
 }
 .connection-frames {
   @apply relative h-[410px];
@@ -193,16 +193,16 @@
   @apply w-full h-[155%] object-bottom absolute bottom-0;
 }
 .connection-frame figcaption {
-  @apply flex justify-between gap-5 text-[11px] text-[#a0aec3] py-4;
+  @apply flex justify-between gap-5 text-[11px] text-[#000000] py-4;
 }
 .connection-progress {
   @apply flex gap-5 mt-1;
 }
 .connection-progress > span {
-  @apply w-[33.333%] text-[11px] text-[#8d9db5] pt-[13px] relative border-t border-[#ffffff30];
+  @apply w-[33.333%] text-[11px] text-[#000000] pt-[13px] relative border-t border-[#f8f9fa30];
 }
 .connection-progress i {
-  @apply absolute left-0 top-[-1px] h-0.5 w-full bg-[#88a4ff] scale-x-0 origin-left;
+  @apply absolute left-0 top-[-1px] h-0.5 w-full bg-[#e2e8f0] scale-x-0 origin-left;
 }
 .connection-progress > span:first-child i {
   @apply scale-x-100;
@@ -259,7 +259,7 @@
   @apply mt-[65px];
 }
 .expertise-section {
-  @apply bg-[#edf1f8];
+  @apply bg-[#f8f9fa];
 }
 .expertise-image {
   @apply rounded-[5px] aspect-[0.98];
@@ -308,7 +308,7 @@
   @apply rounded-full;
 }
 .site-header {
-  @apply bg-[#f7f8faf0];
+  @apply bg-[#f8f9faf0];
 }
 .nav-wrap {
   @apply h-[82px];
@@ -326,7 +326,7 @@
   @apply gap-[26px] text-[13px];
 }
 .detail-hero {
-  @apply bg-[#f7f8fa] w-full pt-[38px] pb-[58px] px-[max(56px,calc((100vw_-_1424px)/2))];
+  @apply bg-[#f8f9fa] w-full pt-[38px] pb-[58px] px-[max(56px,calc((100vw_-_1424px)/2))];
 }
 .detail-hero-grid {
   @apply gap-12;
@@ -350,7 +350,7 @@
   @apply rounded-full px-4 py-[10px];
 }
 .page-tabs {
-  @apply mt-0 top-[82px] bg-white border-t border-[#dce1e8];
+  @apply mt-0 top-[82px] bg-white border-t border-[#e2e8f0];
 }
 .deliverable {
   @apply pt-[35px] pb-[42px];
@@ -365,16 +365,16 @@
   @apply rounded-md bg-brand text-white border-0 p-[60px];
 }
 .inline-cta p {
-  @apply text-[#e0e8ff];
+  @apply text-[#f8f9fa];
 }
 .inline-cta .button {
   @apply bg-white text-brand rounded-full shrink-0;
 }
 .inline-cta .button:hover {
-  @apply bg-[#eaf0ff];
+  @apply bg-[#f8f9fa];
 }
 .footer {
-  @apply bg-[#101722];
+  @apply bg-[#111625];
 }
 .footer-cta {
   @apply pt-[100px] pb-[75px];
@@ -383,7 +383,7 @@
   @apply text-[clamp(68px,12vw,184px)] tracking-[-0.065em];
 }
 .page-intro {
-  @apply bg-[#f7f8fa] w-full py-[72px] px-[max(56px,calc((100vw_-_1424px)/2))];
+  @apply bg-[#f8f9fa] w-full py-[72px] px-[max(56px,calc((100vw_-_1424px)/2))];
 }
 .page-intro > .eyebrow {
   @apply text-brand;
@@ -395,16 +395,16 @@
   @apply relative z-[2];
 }
 .about-manifesto em {
-  @apply text-[#bfcfff];
+  @apply text-[#000000];
 }
 .delivery-team article {
-  @apply border-t border-[#cdd5e2] pt-7;
+  @apply border-t border-[#e2e8f0] pt-7;
 }
 .delivery-team article > .eyebrow {
   @apply text-brand;
 }
 .campaign-hero {
-  @apply bg-[#f7f8fa];
+  @apply bg-[#f8f9fa];
 }
 .campaign-card {
   @apply rounded-[5px];
@@ -413,7 +413,7 @@
   @apply bg-brand text-white;
 }
 .campaign-card:nth-child(3n + 2) > p {
-  @apply text-[#e1e8ff];
+  @apply text-[#000000];
 }
 @media (min-width: 1600px) {
   .hero-composition {
@@ -610,7 +610,7 @@
     @apply hidden;
   }
   .connection-chapter {
-    @apply min-h-0 pt-[43px] pb-[45px] border-b border-[#ffffff20];
+    @apply min-h-0 pt-[43px] pb-[45px] border-b border-[#f8f9fa20];
   }
   .connection-chapter:last-child {
     @apply border-0;
@@ -646,7 +646,7 @@
     @apply absolute bottom-0 h-[140%] object-bottom;
   }
   .chapter-mobile-image figcaption {
-    @apply absolute bottom-0 left-0 right-0 pt-[30px] px-[15px] pb-[13px] [background:linear-gradient(transparent,#000b)] text-[10px] text-white;
+    @apply absolute bottom-0 left-0 right-0 pt-[30px] px-[15px] pb-[13px] [background:linear-gradient(transparent,#111625bb)] text-[10px] text-white;
   }
   .selected-section {
     @apply py-16;
@@ -836,7 +836,7 @@
   @apply grid grid-cols-[1fr_2.6fr] gap-[70px] items-start mb-[52px];
 }
 .marketing-focus-head > .eyebrow {
-  @apply text-[11px] text-[#d0dcff] pt-[9px];
+  @apply text-[11px] text-[#f8f9fa] pt-[9px];
 }
 .marketing-focus-head h2 {
   @apply text-[clamp(30px,3.5vw,55px)] tracking-[-0.045em] leading-[1.12] max-w-[760px];
@@ -918,7 +918,7 @@
   @apply p-[42px] flex flex-col items-start justify-between;
 }
 .brand-canvas-primary > .eyebrow {
-  @apply text-[11px] text-[#dce5ff];
+  @apply text-[11px] text-[#f8f9fa];
 }
 .brand-canvas-primary > img {
   @apply w-[85%] brightness-0 invert my-[45px];
@@ -927,13 +927,13 @@
   @apply font-display text-[36px] tracking-[-0.04em] leading-[1.2];
 }
 .brand-canvas-type {
-  @apply py-[30px] px-10 bg-[#edf1f9] text-brand flex flex-col justify-center;
+  @apply py-[30px] px-10 bg-[#f8f9fa] text-brand flex flex-col justify-center;
 }
 .brand-canvas-type > span {
   @apply font-display text-[180px] leading-[1.1] tracking-[-0.075em];
 }
 .brand-canvas-type > p {
-  @apply text-[14px] text-[#63718a] mt-[15px];
+  @apply text-[14px] text-[#f8f9fa] mt-[15px];
 }
 .brand-canvas-type > div {
   @apply flex mt-10 h-[60px];
@@ -942,10 +942,10 @@
   @apply w-[33.333%] flex items-end p-[10px] text-[11px] bg-brand text-white;
 }
 .brand-canvas-type > div > span:nth-child(2) {
-  @apply bg-[#101722];
+  @apply bg-[#111625];
 }
 .brand-canvas-type > div > span:nth-child(3) {
-  @apply bg-[#d1d9e6] text-[#263854];
+  @apply bg-[#e2e8f0] text-[#f8f9fa];
 }
 .project-canvas {
   @apply bg-brand text-white rounded-md overflow-hidden grid grid-cols-[0.65fr_1fr] min-h-[500px] relative;
@@ -954,26 +954,26 @@
   @apply py-[48px] px-[38px] flex flex-col justify-center items-start z-[2];
 }
 .project-canvas-intro > .eyebrow {
-  @apply text-[#c6d4ff] text-[11px];
+  @apply text-[#f8f9fa] text-[11px];
 }
 .project-canvas-intro h3 {
   @apply text-[clamp(30px,3.25vw,52px)] leading-[1.13] my-6 tracking-[-0.05em];
 }
 .project-canvas-intro > p:last-child {
-  @apply text-[12px] leading-[1.7] text-[#c6d4ff] max-w-[235px];
+  @apply text-[12px] leading-[1.7] text-[#f8f9fa] max-w-[235px];
 }
 .project-canvas-image {
-  @apply relative overflow-hidden min-h-[500px] bg-[#e4eafa];
+  @apply relative overflow-hidden min-h-[500px] bg-[#e2e8f0];
 }
 .project-canvas-image > img {
   @apply absolute w-full h-full object-cover;
 }
 .canvas-website-design-development {
-  @apply bg-[#17372b];
+  @apply bg-[#0f1a34];
 }
 .canvas-website-design-development .project-canvas-intro > .eyebrow,
 .canvas-website-design-development .project-canvas-intro > p:last-child {
-  @apply text-[#aacaaf];
+  @apply text-[#f8f9fa];
 }
 .canvas-website-design-development .project-canvas-image > img {
   @apply w-[185%] h-auto max-w-none left-[-39%] top-[-17%];
@@ -982,7 +982,7 @@
   @apply h-[154%] w-[148%] max-w-none left-[-2%] bottom-0 object-left-bottom;
 }
 .canvas-custom-software-development {
-  @apply bg-[#182532];
+  @apply bg-[#0f1a34];
 }
 .canvas-custom-software-development .project-canvas-image > img {
   @apply h-[125%] bottom-0 object-[51%_bottom];
@@ -993,75 +993,75 @@
 .workflow-canvas,
 .marketing-canvas,
 .consulting-canvas {
-  @apply p-[43px] bg-[#102234] text-[#f5f8ff] rounded-md overflow-hidden min-h-[490px];
+  @apply p-[43px] bg-[#0f1a34] text-[#f8f9fa] rounded-md overflow-hidden min-h-[490px];
 }
 .canvas-heading {
   @apply flex justify-between gap-[35px] items-end mb-[52px];
 }
 .canvas-heading .eyebrow {
-  @apply text-[11px] tracking-[0.1em] text-[#a5bbda];
+  @apply text-[11px] tracking-[0.1em] text-[#f8f9fa];
 }
 .canvas-heading h3 {
   @apply text-[clamp(35px,3.8vw,59px)] tracking-[-0.045em] leading-[1.07] mt-5;
 }
 .canvas-heading > p {
-  @apply text-[14px] leading-[1.8] text-[#a5bbda];
+  @apply text-[14px] leading-[1.8] text-[#f8f9fa];
 }
 .workflow-nodes {
   @apply list-none grid grid-cols-4 gap-[22px] p-0 m-0;
 }
 .workflow-nodes li {
-  @apply relative border-t-2 border-[#85a6e3] pt-5;
+  @apply relative border-t-2 border-[#e2e8f0] pt-5;
 }
 .workflow-nodes li > span {
-  @apply text-[11px] text-[#88a9d6];
+  @apply text-[11px] text-[#f8f9fa];
 }
 .workflow-nodes h4 {
   @apply text-[27px] mt-[14px] mx-0 mb-3;
 }
 .workflow-nodes p {
-  @apply text-[13px] text-[#a5bbda];
+  @apply text-[13px] text-[#f8f9fa];
 }
 .workflow-nodes svg {
-  @apply absolute right-px top-5 text-[#8ab0eb];
+  @apply absolute right-px top-5 text-[#f8f9fa];
 }
 .workflow-return {
-  @apply flex gap-[30px] text-[11px] text-[#93aed1] border-t border-[#ffffff20] pt-[23px] mt-[39px];
+  @apply flex gap-[30px] text-[11px] text-[#f8f9fa] border-t border-[#f8f9fa20] pt-[23px] mt-[39px];
 }
 .marketing-canvas {
   @apply bg-brand;
 }
 .marketing-canvas .eyebrow,
 .marketing-canvas .canvas-heading > p {
-  @apply text-[#dce5ff];
+  @apply text-[#f8f9fa];
 }
 .marketing-path {
   @apply grid grid-cols-4 list-none p-0 m-0 gap-0;
 }
 .marketing-path > li {
-  @apply py-[22px] px-5 border-t border-[#d0dcff70] border-l border-[#d0dcff35];
+  @apply py-[22px] px-5 border-t border-[#e2e8f070] border-l border-[#e2e8f035];
 }
 .marketing-path > li:first-child {
   @apply pl-0 border-l-0;
 }
 .marketing-path > li > span {
-  @apply text-[11px] text-[#d0dcff];
+  @apply text-[11px] text-[#f8f9fa];
 }
 .marketing-path h4 {
   @apply text-[29px] mt-[18px] mx-0 mb-[13px];
 }
 .marketing-path p {
-  @apply text-[13px] text-[#d0dcff];
+  @apply text-[13px] text-[#f8f9fa];
 }
 .canvas-note {
-  @apply text-[11px] leading-[1.8] text-[#b5c9ff] mt-[30px];
+  @apply text-[11px] leading-[1.8] text-[#f8f9fa] mt-[30px];
 }
 .consulting-canvas {
-  @apply bg-[#e6ecf7] text-[#1c3254];
+  @apply bg-[#e2e8f0] text-[#000000];
 }
 .consulting-canvas .eyebrow,
 .consulting-canvas .canvas-heading > p {
-  @apply text-[#647691];
+  @apply text-[#000000];
 }
 .assessment-map {
   @apply grid grid-cols-3 gap-[22px];
@@ -1076,13 +1076,13 @@
   @apply text-[26px] mt-[23px] mx-0 mb-[15px];
 }
 .assessment-map p {
-  @apply text-[13px] text-[#62728a] leading-[1.7];
+  @apply text-[13px] text-[#000000] leading-[1.7];
 }
 .assessment-map svg {
   @apply absolute right-5 top-[23px] text-brand;
 }
 .consulting-canvas .canvas-note {
-  @apply text-[#647691];
+  @apply text-[#000000];
 }
 .campaign-hero .project-canvas {
   @apply block min-h-0;
@@ -1314,19 +1314,19 @@
   @apply text-[clamp(35px,3.5vw,56px)] mt-[17px];
 }
 .finder-heading > p {
-  @apply text-[16px] leading-[1.75] text-[#647086] max-w-[340px];
+  @apply text-[16px] leading-[1.75] text-[#000000] max-w-[340px];
 }
 .finder-links {
   @apply grid grid-cols-3 gap-y-0 gap-x-[34px];
 }
 .finder-links > a {
-  @apply flex gap-[14px] items-center border-t border-[#d8dfe9] py-[21px] px-0 min-h-[100px];
+  @apply flex gap-[14px] items-center border-t border-[#e2e8f0] py-[21px] px-0 min-h-[100px];
 }
 .finder-links > a:hover {
   @apply text-brand;
 }
 .finder-links > a > span {
-  @apply text-[12px] text-[#75829a];
+  @apply text-[12px] text-[#000000];
 }
 .finder-links h3 {
   @apply text-[23px] leading-[1.23] tracking-[-0.025em] font-normal;
@@ -1335,10 +1335,10 @@
   @apply ml-auto w-[17px];
 }
 .finder-end {
-  @apply flex justify-between gap-[30px] border-t border-[#d8dfe9] pt-6 mt-2;
+  @apply flex justify-between gap-[30px] border-t border-[#e2e8f0] pt-6 mt-2;
 }
 .finder-end p {
-  @apply text-[13px] text-[#647086];
+  @apply text-[13px] text-[#000000];
 }
 .finder-end .text-link {
   @apply text-[14px] whitespace-nowrap;
@@ -1350,10 +1350,10 @@
   @apply min-h-[660px] py-[70px];
 }
 .connection-chapter > .chapter-start {
-  @apply text-[14px]! text-[#d0dbef]! mt-5 leading-[1.75]!;
+  @apply text-[14px]! text-[#000000]! mt-5 leading-[1.75]!;
 }
 .chapter-solution-link {
-  @apply inline-flex gap-[15px] items-center text-[14px] text-[#c3d1ff] mt-[23px] self-start border-b border-[#8ea8ef80] pb-[9px];
+  @apply inline-flex gap-[15px] items-center text-[14px] text-[#000000] mt-[23px] self-start border-b border-[#e2e8f080] pb-[9px];
 }
 .chapter-solution-link:hover {
   @apply text-white;
@@ -1362,7 +1362,7 @@
   @apply mt-7;
 }
 .chapter-links > a {
-  @apply text-[13px] text-[#b9c5d8];
+  @apply text-[13px] text-[#000000];
 }
 .connection-progress > span,
 .connection-stage-top,
@@ -1370,7 +1370,7 @@
   @apply text-[12px];
 }
 .connection-frames .story-crop-integration .connection-frame-image > img {
-  @apply object-contain h-full w-full bg-[#e3e8ff];
+  @apply object-contain h-full w-full bg-[#e2e8f0];
 }
 .connection-frames .story-crop-product .connection-frame-image > img {
   @apply h-[143%] w-full absolute bottom-0 object-bottom;
@@ -1379,7 +1379,7 @@
   @apply w-full h-[128%] absolute bottom-0 top-auto left-0 object-bottom;
 }
 .work-track .project-quickbooks-integration .feature-image {
-  @apply bg-[#edf0fa] aspect-[1.06];
+  @apply bg-[#f8f9fa] aspect-[1.06];
 }
 .work-track .project-quickbooks-integration .feature-image > img {
   @apply w-full h-full object-contain static;
@@ -1397,7 +1397,7 @@
   @apply text-[13px];
 }
 .engagement-start {
-  @apply bg-[#eef2f9] rounded-md p-12 mt-0 mb-[35px] scroll-mt-6;
+  @apply bg-[#f8f9fa] rounded-md p-12 mt-0 mb-[35px] scroll-mt-6;
 }
 .page-tabs ~ section[id],
 .page-tabs ~ div[id] {
@@ -1416,13 +1416,13 @@
   @apply grid grid-cols-3 gap-[38px] mt-[38px];
 }
 .engagement-details > div {
-  @apply border-t border-[#cbd5e6] pt-[23px];
+  @apply border-t border-[#e2e8f0] pt-[23px];
 }
 .engagement-details h3 {
   @apply text-[23px] tracking-[-0.025em];
 }
 .engagement-details p {
-  @apply text-[15px] leading-[1.85] text-[#5d6c83] mt-[14px];
+  @apply text-[15px] leading-[1.85] text-[#000000] mt-[14px];
 }
 .assessment-evidence {
   @apply grid grid-cols-[1fr_1.15fr] gap-[95px] items-start;
@@ -1431,13 +1431,13 @@
   @apply text-[clamp(36px,3.9vw,62px)] mt-[22px] mb-[25px];
 }
 .assessment-evidence > div > p:last-child {
-  @apply text-[16px] leading-[1.85] text-[#647086] max-w-[440px];
+  @apply text-[16px] leading-[1.85] text-[#000000] max-w-[440px];
 }
 .assessment-evidence ol {
   @apply p-0 list-none m-0;
 }
 .assessment-evidence li {
-  @apply flex gap-6 border-t border-[#d8dfe9] py-[25px];
+  @apply flex gap-6 border-t border-[#e2e8f0] py-[25px];
 }
 .assessment-evidence li > span {
   @apply text-[12px] text-brand pt-[7px];
@@ -1446,7 +1446,7 @@
   @apply text-[26px] tracking-[-0.025em];
 }
 .assessment-evidence li p {
-  @apply text-[15px] text-[#647086] mt-3 leading-[1.8];
+  @apply text-[15px] text-[#000000] mt-3 leading-[1.8];
 }
 .page-tabs a[aria-current="location"] {
   @apply text-brand;
@@ -1555,13 +1555,13 @@
     @apply text-[14px] mt-[23px];
   }
   .chapter-mobile-image.story-crop-integration {
-    @apply aspect-auto bg-[#e3e8ff];
+    @apply aspect-auto bg-[#e2e8f0];
   }
   .chapter-mobile-image.story-crop-integration > img {
     @apply h-auto aspect-[1.55] object-contain;
   }
   .chapter-mobile-image.story-crop-integration figcaption {
-    @apply static bg-[#101722] py-3 px-[15px];
+    @apply static bg-[#111625] py-3 px-[15px];
   }
   .chapter-mobile-image.story-crop-product > img {
     @apply h-[136%] absolute bottom-0 object-bottom;
