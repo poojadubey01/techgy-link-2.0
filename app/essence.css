@@ -248,29 +248,13 @@
   @apply block min-w-0;
 }
 .glc-ensemble > a > div {
-  @apply relative overflow-hidden bg-[#e2e8f0] rounded;
+  @apply relative overflow-hidden bg-brand rounded;
 }
 .glc-ensemble img {
-  @apply w-full h-full object-cover;
+  @apply w-full h-auto block;
 }
 .ensemble-web {
   @apply col-start-1 row-start-1 row-end-3;
-}
-.ensemble-web > div {
-  @apply h-[650px];
-}
-.ensemble-web img {
-  @apply h-[145%] absolute bottom-0 object-bottom;
-}
-.ensemble-app > div,
-.ensemble-ops > div {
-  @apply h-[270px];
-}
-.ensemble-app img {
-  @apply object-[center_80%] h-[170%] absolute bottom-[-2%];
-}
-.ensemble-ops img {
-  @apply h-[138%] absolute bottom-0 object-bottom;
 }
 .glc-ensemble > a > span {
   @apply grid grid-cols-[1fr_auto] gap-y-[5px] gap-x-5 text-[17px] pt-[18px];
@@ -390,9 +374,6 @@
   }
   .connected-proof-heading {
     @apply gap-[50px];
-  }
-  .ensemble-web > div {
-    @apply h-[610px];
   }
   .growth-starts {
     @apply gap-[45px] grid-cols-[0.8fr_1.2fr];
@@ -566,13 +547,6 @@
   }
   .glc-ensemble > a {
     @apply mb-[30px];
-  }
-  .ensemble-web > div {
-    @apply h-[320px];
-  }
-  .ensemble-app > div,
-  .ensemble-ops > div {
-    @apply h-[260px];
   }
   .glc-ensemble > a > span {
     @apply text-[16px];

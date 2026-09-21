@@ -938,6 +938,12 @@ main.insights-page .eyebrow {
 .brand-canvas-primary > img {
   @apply w-[85%] brightness-0 invert my-[45px];
 }
+.brand-canvas-primary > video {
+  @apply w-[85%] my-[45px];
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, black 55%, transparent 100%);
+}
 .brand-canvas-primary > p:last-child {
   @apply font-display text-[36px] tracking-[-0.04em] leading-[1.2];
 }
@@ -1122,7 +1128,8 @@ main.insights-page .eyebrow {
 .campaign-hero .brand-canvas-primary {
   @apply p-[30px];
 }
-.campaign-hero .brand-canvas-primary > img {
+.campaign-hero .brand-canvas-primary > img,
+.campaign-hero .brand-canvas-primary > video {
   @apply my-[50px];
 }
 .campaign-hero .brand-canvas-type {
@@ -1201,7 +1208,8 @@ main.insights-page .eyebrow {
   .brand-canvas-primary > .eyebrow {
     @apply text-[10px];
   }
-  .brand-canvas-primary > img {
+  .brand-canvas-primary > img,
+  .brand-canvas-primary > video {
     @apply my-[55px] w-[95%];
   }
   .brand-canvas-primary > p:last-child {

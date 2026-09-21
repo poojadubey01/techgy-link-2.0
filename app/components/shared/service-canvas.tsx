@@ -44,11 +44,15 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
       <div className="brand-canvas" data-image-reveal>
         <div className="brand-canvas-primary">
           <p className="eyebrow">Our own identity / TechGy Link</p>
-          <img
-            src="/brand/logo.png"
+          <video
+            src="/brand/Union%20Logo%20Reveal.mp4"
             width="541"
             height="111"
-            alt="TechGy Link visual identity"
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-label="TechGy Link visual identity"
           />
           <p>
             A clear idea.
