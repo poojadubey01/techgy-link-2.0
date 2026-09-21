@@ -8,7 +8,7 @@ export const metadata = {
 };
 export default function Campaigns() {
   return (
-    <main id="main">
+    <main id="main" className="campaigns-page">
       <section className="page-intro wrap">
         <p className="eyebrow">Focused engagements</p>
         <h1>

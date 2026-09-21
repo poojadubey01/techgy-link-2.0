@@ -427,6 +427,32 @@ main.insights-page .eyebrow {
 .campaign-card:nth-child(3n + 2) .text-link {
   @apply text-white;
 }
+.campaigns-page {
+  background: #f8f9fa;
+}
+.campaigns-page .campaign-card,
+.campaigns-page .campaign-card:nth-child(3n + 2) {
+  background: #e2e8f0;
+  border-color: #e2e8f0;
+  color: #000000;
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+.campaigns-page .campaign-card:nth-child(3n + 2) > .eyebrow,
+.campaigns-page .campaign-card:nth-child(3n + 2) .text-link {
+  color: #0022ff;
+}
+.campaigns-page .campaign-card:hover {
+  background: #0022ff;
+  border-color: #0022ff;
+  color: #ffffff;
+}
+.campaigns-page .campaign-card:hover > .eyebrow,
+.campaigns-page .campaign-card:hover .text-link {
+  color: #ffffff;
+}
 @media (min-width: 1600px) {
   .hero-composition {
     @apply h-[620px];

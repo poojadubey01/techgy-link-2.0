@@ -50,9 +50,8 @@ export default async function Service({
   if (!s) notFound();
   const architecture = s.id === "architectural-visualisation";
   const isMarketing = s.id === "digital-marketing-sales-enablement";
-  const consulting = s.id === "technology-consulting-modernisation";
   return (
-    <main id="main">
+    <main id="main" className="service-page">
       <section className="detail-hero wrap">
         <nav className="breadcrumb" aria-label="Breadcrumb">
           <Link href="/services">Services</Link>
@@ -79,19 +78,6 @@ export default async function Service({
           <ServiceVisual service={s} />
         </div>
       </section>
-      <nav className="page-tabs" aria-label="On this page">
-        <div className="wrap">
-          <a href="#overview">Overview</a>
-          <a href="#connected-expertise">The wider team</a>
-          <a href="#deliverables">What we deliver</a>
-          <a href="#proof">
-            {consulting ? "Assessment outputs" : "Relevant work"}
-          </a>
-          <a href="#process">Our process</a>
-          <a href="#starting-scope">Starting scope</a>
-          <a href="#questions">Questions</a>
-        </div>
-      </nav>
       <section className="section wrap split-section" id="overview">
         <div>
           <p className="eyebrow">The starting point</p>
@@ -152,7 +138,7 @@ export default async function Service({
         </section>
       )}
       {architecture ? (
-        <div id="proof">
+        <div className="architecture-proof" id="proof">
           <ArchitectureGallery />
           <div className="wrap architecture-film">
             <video

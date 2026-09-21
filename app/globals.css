@@ -1211,6 +1211,15 @@
   .product-grid {
     @apply grid grid-cols-[1fr_1fr] gap-[45px];
   }
+  .products-page {
+    @apply bg-paper;
+  }
+  .products-coming-soon {
+    @apply min-h-[calc(100svh_-_82px)] flex items-center;
+  }
+  .products-coming-soon h1 {
+    @apply text-brand text-[clamp(72px,13vw,200px)] leading-[0.95] tracking-[-0.065em];
+  }
   .product-card {
     @apply py-[25px] px-0 border-t border-t-[#e2e8f0];
   }

@@ -36,6 +36,51 @@
 .contribution-note {
   @apply text-[14px] text-[#000000] mt-[35px];
 }
+
+/* Shared service-detail palette and section rhythm. */
+.service-page {
+  background: #f8f9fa;
+}
+.service-page .brand-canvas,
+.service-page .project-canvas,
+.service-page .workflow-canvas,
+.service-page .marketing-canvas,
+.service-page .consulting-canvas {
+  background: #173fff;
+}
+.service-page .consulting-canvas .canvas-heading h3,
+.service-page .consulting-canvas .canvas-heading > p,
+.service-page .consulting-canvas .eyebrow,
+.service-page .consulting-canvas .canvas-note {
+  color: #ffffff;
+}
+.service-page .service-contribution {
+  background: #0f1a34;
+  color: #ffffff;
+}
+.service-page .service-contribution .eyebrow,
+.service-page .service-contribution .contribution-intro p,
+.service-page .service-contribution .contribution-team,
+.service-page .service-contribution-link > span,
+.service-page .service-contribution-link > p,
+.service-page .service-contribution .contribution-note {
+  color: #ffffff;
+}
+.service-page .service-contribution-link {
+  border-color: rgb(255 255 255 / 24%);
+}
+.service-page .service-contribution-link:hover > span {
+  color: #ffffff;
+  opacity: 0.76;
+}
+.service-page .wash {
+  background: transparent;
+}
+.service-page .proof-section,
+.service-page .architecture-proof,
+.service-page .engagement-start {
+  background: #e2e8f0;
+}
 .solution-collaboration {
   @apply bg-[#f8f9fa] mt-[70px];
 }
@@ -68,6 +113,55 @@
 }
 .partner-signature .text-link {
   @apply text-[14px] leading-[1.7];
+}
+.campaign-detail-page {
+  background: #f8f9fa;
+}
+.campaign-detail-page > .wash {
+  background: #e2e8f0;
+}
+.campaign-detail-page .campaign-form-section {
+  background: #0f1a34;
+  color: #ffffff;
+}
+.campaign-detail-page .campaign-form-layout > div > .eyebrow,
+.campaign-detail-page
+  .campaign-form-layout
+  > div
+  > p:not(.eyebrow),
+.campaign-detail-page .campaign-form-layout .outcomes li {
+  color: #ffffff;
+}
+.campaign-detail-page .campaign-form-layout .outcomes li {
+  border-color: rgb(255 255 255 / 24%);
+}
+.campaign-detail-page .campaign-form-layout .outcomes li::before {
+  color: #ffffff;
+}
+.campaign-detail-page .partner-signature {
+  background: #0022ff;
+  color: #ffffff;
+  border: 0;
+  border-radius: 0.375rem;
+  padding: 60px;
+  margin-bottom: 35px;
+}
+.campaign-detail-page .partner-signature .eyebrow,
+.campaign-detail-page .partner-signature > p:not(.eyebrow) {
+  color: #ffffff;
+}
+.campaign-detail-page .partner-signature .text-link {
+  min-height: 56px;
+  padding: 16px 28px;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #0022ff;
+  justify-content: center;
+  white-space: nowrap;
+}
+.campaign-detail-page .partner-signature .text-link:hover {
+  background: #f8f9fa;
+  color: #0022ff;
 }
 .story-hero {
   @apply pt-[65px] pb-20;
@@ -336,6 +430,14 @@
   }
   .partner-signature .text-link {
     @apply mt-[25px];
+  }
+  .campaign-detail-page .partner-signature {
+    padding: 29px 25px;
+    margin-bottom: 20px;
+  }
+  .campaign-detail-page .partner-signature .text-link {
+    width: 100%;
+    padding: 14px 20px;
   }
   .story-hero {
     @apply pt-[35px] pb-[50px];

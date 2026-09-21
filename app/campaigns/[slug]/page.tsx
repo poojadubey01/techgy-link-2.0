@@ -28,7 +28,7 @@ export default async function Campaign({
   if (!c) notFound();
   const s = c.service;
   return (
-    <main id="main">
+    <main id="main" className="campaign-detail-page">
       <section className="campaign-hero wrap">
         <div className="detail-hero-grid">
           <div className="detail-copy">
