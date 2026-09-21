@@ -9,12 +9,14 @@ export const metadata = {
 export default function Solutions() {
   return (
     <main id="main">
-      <section className="page-intro wrap">
-        <p className="eyebrow">Connected solutions</p>
+      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto">
+        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]">
+          Connected solutions
+        </p>
         <h1>
           Your bigger ambition.
           <br />
-          <span className="blue-text">Our collective strength.</span>
+          <span className="text-brand">Our collective strength.</span>
         </h1>
         <p>
           A property launch. A more connected operation. A new digital
@@ -22,16 +24,22 @@ export default function Solutions() {
           so the work moves toward the same business goal.
         </p>
       </section>
-      <section className="solutions-index">
-        <div className="wrap">
+      <section className="bg-paper pt-[30px] pb-5 max-[767px]:pt-[5px] max-[767px]:pb-0">
+        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto">
           {solutions.map((s, i) => (
             <Link
               key={s.id}
-              className="solution-editorial-row reveal"
+              className="solution-editorial-row reveal grid grid-cols-[1fr_1fr] gap-[95px] items-center py-[55px] border-t border-rule max-[1023px]:gap-[35px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[26px] max-[767px]:py-8"
               href={"/solutions/" + s.id}
             >
-              <div className="solution-editorial-image">
+              <div
+                className={
+                  "overflow-hidden bg-[#e2e8f0] flex items-center rounded-[5px]" +
+                  (i % 2 === 1 ? " md:order-2" : "")
+                }
+              >
                 <img
+                  className="w-full h-auto object-contain"
                   src={s.image}
                   alt={s.short + " — related project presentation"}
                   width="1600"
@@ -39,13 +47,17 @@ export default function Solutions() {
                   loading={i === 0 ? "eager" : "lazy"}
                 />
               </div>
-              <div className="solution-editorial-copy">
-                <p className="eyebrow">
+              <div className="max-w-[480px] px-[15px] max-[1023px]:px-0">
+                <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]">
                   0{i + 1} / {s.kicker}
                 </p>
-                <h3>{s.short}</h3>
-                <p>{s.description}</p>
-                <span className="text-link">
+                <h3 className="text-[clamp(34px,3.5vw,56px)] my-[25px] mx-0 max-[1023px]:text-[36px] max-[767px]:text-[34px] max-[767px]:my-[18px] max-[767px]:mx-0">
+                  {s.short}
+                </h3>
+                <p className="text-[#000000] text-[16px] max-[767px]:text-[15px]">
+                  {s.description}
+                </p>
+                <span className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-8 max-[767px]:mt-[23px]">
                   Explore the solution <Arrow />
                 </span>
               </div>
@@ -53,7 +65,7 @@ export default function Solutions() {
           ))}
         </div>
       </section>
-      <div className="solutions-cta-band">
+      <div className="flow-root bg-paper">
         <CTA
           title="One service can be enough."
           text="These are flexible combinations. You can begin with a visualisation brief, a website or one workflow. Expand the scope only when the need is clear."

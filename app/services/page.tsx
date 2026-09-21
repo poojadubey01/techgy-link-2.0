@@ -7,20 +7,22 @@ export const metadata = {
 export default function Services() {
   return (
     <main id="main">
-      <section className="page-intro wrap">
-        <p className="eyebrow">Our expertise</p>
-        <h1>
+      <section className="page-intro w-full mx-auto bg-[#f8f9fa] py-[72px] px-[max(56px,calc((100vw_-_1424px)/2))] max-[767px]:py-[45px] max-[767px]:px-5">
+        <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+          Our expertise
+        </p>
+        <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[46px] max-[767px]:leading-[1.13] max-[767px]:mt-[22px]">
           Specialists at the craft.
           <br />
-          <span className="blue-text">Partners in your growth.</span>
+          <span className="blue-text text-brand">Partners in your growth.</span>
         </h1>
-        <p>
+        <p className="text-[20px] leading-[1.7] text-[#000000] max-w-[770px] mt-[30px] max-[767px]:text-[17px] max-[767px]:leading-[1.8] max-[767px]:mt-[25px]">
           Brand builders, product thinkers, engineers, marketers and
           visualisation artists. Nine distinct services, connected by a shared
           understanding of the business you want to build.
         </p>
       </section>
-      <section className="wrap">
+      <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)]">
         <ServiceDirectory />
       </section>
       <CTA

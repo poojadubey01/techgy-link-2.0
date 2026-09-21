@@ -24,21 +24,36 @@ export default async function Article({
   if (!a) notFound();
   return (
     <main id="main">
-      <section className="page-intro wrap">
-        <nav className="breadcrumb" aria-label="Breadcrumb">
-          <Link href="/insights">Insights</Link>
+      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
+        <nav
+          className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
+          aria-label="Breadcrumb"
+        >
+          <Link href="/insights" className="hover:text-brand">
+            Insights
+          </Link>
           <span>/</span>
           <span>{a.category}</span>
         </nav>
-        <p className="eyebrow">{a.category} / TechGy Link perspective</p>
-        <h1>{a.title}</h1>
-        <p>{a.summary}</p>
+        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+          {a.category} / TechGy Link perspective
+        </p>
+        <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[48px] max-[767px]:leading-[1.12] max-[767px]:mt-[22px]">
+          {a.title}
+        </h1>
+        <p className="text-[20px] leading-[1.7] text-[#000000] max-w-[770px] mt-[30px] max-[767px]:text-[17px] max-[767px]:leading-[1.8] max-[767px]:mt-[25px]">
+          {a.summary}
+        </p>
       </section>
-      <article className="article-body wrap">
+      <article className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-w-[820px] pb-[110px] max-[767px]:pb-[70px]">
         {a.sections.map(([t, d]) => (
-          <section key={t}>
-            <h2>{t}</h2>
-            <p>{d}</p>
+          <section key={t} className="mb-[45px]">
+            <h2 className="text-[34px] mb-[25px] max-[767px]:text-[30px]">
+              {t}
+            </h2>
+            <p className="text-[18px] leading-[1.95] text-[#000000] max-[767px]:text-[17px] max-[767px]:leading-[1.9]">
+              {d}
+            </p>
           </section>
         ))}
       </article>

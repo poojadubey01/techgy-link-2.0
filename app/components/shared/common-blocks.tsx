@@ -19,13 +19,22 @@ export function CTA({
   label?: string;
 }) {
   return (
-    <section className="inline-cta wrap reveal">
+    <section className="reveal flex items-center justify-between gap-[50px] bg-paper py-[55px] px-[60px] my-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:p-10 max-[767px]:block max-[767px]:py-[30px] max-[767px]:px-[25px] max-[767px]:my-[55px]">
       <div>
-        <p className="eyebrow">Let’s make it happen</p>
-        <h2>{title}</h2>
-        <p>{text}</p>
+        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-paper max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+          Let’s make it happen
+        </p>
+        <h2 className="text-[46px] max-w-[800px] my-5 mx-0 max-[1200px]:text-[39px] max-[767px]:text-[34px] max-[767px]:my-[18px] max-[767px]:mx-0">
+          {title}
+        </h2>
+        <p className="text-[16px] text-paper max-w-[750px] max-[767px]:text-[15px]">
+          {text}
+        </p>
       </div>
-      <Link className="button blue" href={enquiry(service)}>
+      <Link
+        className="inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-transparent rounded-full bg-brand text-white hover:brightness-90 shrink-0 max-[767px]:text-[13px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5 max-[767px]:mt-[27px]"
+        href={enquiry(service)}
+      >
         {label}
         <Arrow />
       </Link>
@@ -42,31 +51,47 @@ export function SectionTitle({
   description?: string;
 }) {
   return (
-    <div className="section-title reveal">
+    <div className="section-title reveal flex items-end justify-between gap-[60px] mb-14 max-[1023px]:gap-[30px] max-[767px]:block max-[767px]:mb-[35px]">
       <div>
-        <p className="eyebrow">{label}</p>
-        <h2>{title}</h2>
+        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+          {label}
+        </p>
+        <h2 className="max-w-[800px] mt-[22px] text-[clamp(38px,4.25vw,66px)] max-[1023px]:text-[46px] max-[767px]:text-[38px] max-[767px]:leading-[1.12] max-[767px]:mt-[18px] max-[767px]:max-w-[550px]">
+          {title}
+        </h2>
       </div>
-      {description && <p>{description}</p>}
+      {description && (
+        <p className="text-[#000000] text-[16px] max-w-[295px] leading-[1.75] shrink-0 max-[1023px]:max-w-[240px] max-[1023px]:text-[15px] max-[767px]:max-w-[450px] max-[767px]:mt-[22px]">
+          {description}
+        </p>
+      )}
     </div>
   );
 }
 export function ServiceDirectory({ compact = false }: { compact?: boolean }) {
   return (
-    <div className={"service-directory " + (compact ? "compact" : "")}>
+    <div className="mt-[35px]">
       {services.map((s) => (
         <Link
           href={"/services/" + s.id}
           key={s.id}
-          className="service-row reveal"
+          className="reveal group grid grid-cols-[45px_1fr_120px_48px] gap-5 items-center border-t border-t-rule py-[34px] px-0 last:border-b last:border-b-rule max-[767px]:grid-cols-[24px_1fr_35px] max-[767px]:gap-[13px] max-[767px]:py-[25px]"
         >
-          <span className="service-number">{s.num}</span>
+          <span className="text-[12px] text-[#000000] self-start pt-2 max-[767px]:text-[11px]">
+            {s.num}
+          </span>
           <div>
-            <h3>{s.name}</h3>
-            <p>{s.tagline}</p>
+            <h3 className="text-[39px] font-normal group-hover:text-brand max-[1023px]:text-[33px] max-[767px]:text-[28px] max-[767px]:leading-[1.18]">
+              {s.name}
+            </h3>
+            <p className="text-[15px] text-[#000000] mt-[15px] max-w-[690px] max-[767px]:text-[14px] max-[767px]:leading-[1.8] max-[767px]:mt-3">
+              {s.tagline}
+            </p>
           </div>
-          <span className="service-group">{s.group}</span>
-          <span className="circle-arrow">
+          <span className="text-[13px] text-[#000000] max-[767px]:hidden">
+            {s.group}
+          </span>
+          <span className="border border-rule rounded-full h-[47px] w-[47px] grid place-items-center group-hover:bg-brand group-hover:text-white group-hover:border-brand max-[767px]:w-[34px] max-[767px]:h-[34px] max-[767px]:self-start max-[767px]:mt-[3px] [&>svg]:max-[767px]:w-[17px]">
             <Arrow />
           </span>
         </Link>
@@ -77,30 +102,37 @@ export function ServiceDirectory({ compact = false }: { compact?: boolean }) {
 export function WorkCard({
   project,
   large = false,
+  className = "",
 }: {
   project: Project;
   large?: boolean;
+  className?: string;
 }) {
   return (
     <Link
       href={"/work/" + project.slug}
-      className={"work-card reveal " + (large ? "large" : "")}
+      className={"work-card reveal" + (className ? " " + className : "")}
     >
-      <div className="work-image">
+      <div className="aspect-[1.34] bg-paper relative overflow-hidden">
         <img
           src={project.image}
           alt={project.name + " — project presentation"}
           width="1600"
           height="1000"
           loading="lazy"
+          className="w-full h-full object-contain"
         />
-        <span className="image-link">
+        <span className="absolute bottom-5 right-5 rounded-full bg-white w-[46px] h-[46px] grid place-items-center">
           <Arrow />
         </span>
       </div>
-      <div className="work-meta">
-        <h3>{project.name}</h3>
-        <p>{project.category}</p>
+      <div className="flex justify-between items-start gap-5 mt-[22px] max-[767px]:mt-[18px] max-[767px]:gap-[15px]">
+        <h3 className="text-[27px] leading-[1.25] max-[767px]:text-[25px]">
+          {project.name}
+        </h3>
+        <p className="text-[12px] text-[#000000] max-w-[160px] text-right pt-[5px] max-[767px]:text-[11px] max-[767px]:max-w-[130px]">
+          {project.category}
+        </p>
       </div>
     </Link>
   );
@@ -116,12 +148,19 @@ export function Process({
   details: string[];
 }) {
   return (
-    <div className="process-list">
+    <div className="grid grid-cols-[repeat(4,1fr)] gap-[35px] max-[1023px]:grid-cols-[1fr_1fr] max-[1023px]:gap-10 max-[767px]:gap-y-8 max-[767px]:gap-x-[25px] max-[370px]:grid-cols-[1fr]">
       {steps.map((step, i) => (
-        <div className="process-step reveal" key={step}>
-          <span>0{i + 1}</span>
-          <h3>{step}</h3>
-          <p>{details[i]}</p>
+        <div
+          className="reveal border-t border-t-rule pt-[22px] max-[767px]:pt-[19px]"
+          key={step}
+        >
+          <span className="text-[14px] text-brand">0{i + 1}</span>
+          <h3 className="text-[27px] mt-[45px] mx-0 mb-5 font-normal leading-[1.2] max-[767px]:text-[24px] max-[767px]:mt-6 max-[767px]:mb-4">
+            {step}
+          </h3>
+          <p className="text-[15px] text-[#000000] leading-[1.85] max-[767px]:text-[14px] max-[767px]:leading-[1.8]">
+            {details[i]}
+          </p>
         </div>
       ))}
     </div>

@@ -44,22 +44,33 @@ export function Header() {
   }, []);
   return (
     <>
-      <a className="skip-link" href="#main">
+      <a
+        className="fixed left-5 -top-[100px] focus:top-3 z-[1000] bg-brand text-white p-3"
+        href="#main"
+      >
         Skip to content
       </a>
-      <header className="site-header">
-        <div className="nav-wrap">
-          <Link href="/" className="brand" aria-label="TechGy Link home">
+      <header className="sticky top-0 z-50 bg-[#f8f9faf0] backdrop-blur-lg border-b border-b-[#e2e8f0]">
+        <div className="flex items-center gap-8 max-[1200px]:gap-[25px] max-[1100px]:min-[768px]:gap-5 max-[767px]:gap-[13px] max-[370px]:gap-2.5 mx-auto h-[82px] max-[1023px]:h-20 max-[767px]:h-[74px] w-[calc(100%_-_112px)] max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] max-w-[1424px]">
+          <Link
+            href="/"
+            className="w-[194px] max-[1200px]:w-[170px] max-[1100px]:min-[768px]:w-[174px] max-[767px]:w-[154px] max-[370px]:w-[135px] shrink-0"
+            aria-label="TechGy Link home"
+          >
             <img
               src="/brand/logo.png"
               width="541"
               height="111"
               alt="TechGy Link"
+              className="w-full h-auto"
             />
           </Link>
-          <nav className="desktop-nav" aria-label="Main navigation">
+          <nav
+            className="flex items-center gap-[26px] max-[1200px]:gap-[22px] max-[1100px]:min-[768px]:gap-4 ml-auto text-[14px] max-[1023px]:hidden"
+            aria-label="Main navigation"
+          >
             <details
-              className="service-menu"
+              className="group"
               ref={details}
               onKeyDown={(e) => {
                 if (e.key === "Escape" && details.current) {
@@ -68,27 +79,38 @@ export function Header() {
                 }
               }}
             >
-              <summary>
+              <summary className="flex cursor-pointer items-center gap-2 list-none min-h-11 [&::-webkit-details-marker]:hidden group-open:text-brand">
                 Services <ChevronDown size={14} />
               </summary>
-              <div className="mega-menu">
-                <div className="mega-intro">
-                  <p className="eyebrow">Our expertise</p>
-                  <h2>
+              <div className="absolute left-0 right-0 bg-white border-b border-rule grid top-[82px] py-12 px-14 grid-cols-[1fr_2fr] gap-14 shadow-[0_35px_40px_#1116250d]">
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-[0.105em] max-[767px]:text-[11px] max-[767px]:tracking-[0.085em] leading-[1.6] text-brand">
+                    Our expertise
+                  </p>
+                  <h2 className="text-[38px] mt-[22px] mx-0 mb-8">
                     The right minds.
                     <br />
                     Around your brief.
                   </h2>
-                  <Link href="/services" className="text-link">
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand hover:text-brand"
+                  >
                     All services <ArrowUpRight size={18} />
                   </Link>
                 </div>
-                <div className="mega-list">
+                <div className="grid grid-cols-2 gap-x-8">
                   {services.map((s) => (
-                    <Link key={s.id} href={"/services/" + s.id}>
-                      <span>{s.num}</span>
+                    <Link
+                      key={s.id}
+                      href={"/services/" + s.id}
+                      className="flex items-center gap-3 py-4 border-b border-rule text-sm leading-normal hover:text-brand"
+                    >
+                      <span className="text-[#000000] text-[12px]">
+                        {s.num}
+                      </span>
                       {s.name}
-                      <ArrowUpRight size={17} />
+                      <ArrowUpRight size={17} className="ml-auto" />
                     </Link>
                   ))}
                 </div>
@@ -99,16 +121,20 @@ export function Header() {
                 key={href}
                 href={href}
                 aria-current={path.startsWith(href) ? "page" : undefined}
+                className="hover:text-brand aria-[current=page]:text-brand"
               >
                 {label}
               </Link>
             ))}
           </nav>
-          <Link href="/contact" className="nav-cta">
-            Let’s talk <ArrowUpRight size={18} />
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-6 max-[767px]:gap-2.5 px-5 py-3 max-[767px]:px-[14px] max-[767px]:py-[9px] max-[370px]:px-[11px] max-[370px]:py-2 text-sm max-[767px]:text-[12px] rounded-full bg-brand text-white border border-brand max-[1023px]:ml-auto"
+          >
+            Let’s talk <ArrowUpRight size={18} className="max-[767px]:w-[15px]" />
           </Link>
           <button
-            className="menu-button"
+            className="hidden max-[1023px]:block p-2 max-[767px]:p-[7px]"
             onClick={() => setOpen(true)}
             aria-label="Open navigation"
             aria-expanded={open}
@@ -116,25 +142,29 @@ export function Header() {
             <Menu />
           </button>
         </div>
-        <div className="reading-progress" />
+        <div className="reading-progress absolute -bottom-px left-0 h-0.5 w-full bg-brand origin-left scale-x-0" />
       </header>
       <dialog
         ref={mobile}
-        className="mobile-nav-dialog"
+        className="w-full max-w-[520px] h-[100svh] max-h-[100svh] mt-0 mr-0 mb-0 ml-auto border-0 p-6 bg-white text-ink overflow-auto"
         aria-label="Website navigation"
         onCancel={() => setOpen(false)}
         onClick={(e) => {
           if (e.target === e.currentTarget) setOpen(false);
         }}
       >
-        <div className="mobile-nav-top">
+        <div className="flex justify-between items-center mb-9">
           <img
             src="/brand/logo.png"
             alt="TechGy Link"
             width="190"
             height="39"
           />
-          <button onClick={() => setOpen(false)} aria-label="Close navigation">
+          <button
+            className="p-3"
+            onClick={() => setOpen(false)}
+            aria-label="Close navigation"
+          >
             <X />
           </button>
         </div>
@@ -145,13 +175,18 @@ export function Header() {
             ...nav,
             ["Contact", "/contact"],
           ].map(([label, href]) => (
-            <Link onClick={() => setOpen(false)} key={href} href={href}>
+            <Link
+              onClick={() => setOpen(false)}
+              key={href}
+              href={href}
+              className="flex justify-between items-center py-3 border-b border-rule font-display text-[29px]"
+            >
               {label}
               <ArrowUpRight />
             </Link>
           ))}
         </nav>
-        <div className="mobile-service-links">
+        <div className="grid gap-4 mt-9 text-sm text-[#000000]">
           {services.map((s) => (
             <Link
               onClick={() => setOpen(false)}
@@ -168,28 +203,53 @@ export function Header() {
 }
 export function Footer() {
   const path = usePathname();
+  const wrap =
+    "w-[min(1424px,calc(100%_-_112px))] max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] mx-auto";
+  const footerEyebrow =
+    "text-xs font-medium uppercase tracking-[0.105em] max-[767px]:text-[11px] max-[767px]:tracking-[0.085em] leading-[1.6] text-[#f8f9fa] mb-[22px] max-[767px]:mb-[19px]";
+  const footerNavLink =
+    "block text-[14px] leading-[1.75] mb-2.5 text-[#f8f9fa]";
   return (
-    <footer className="footer collective-footer">
+    <footer className="bg-[#111625] text-white">
       {path !== "/contact/" && path !== "/contact" && (
-        <div className="wrap footer-cta">
-          <Link href="/contact" className="footer-headline">
-            <span>
-              Let’s build<em>what’s next.</em>
+        <div
+          className={
+            wrap +
+            " pt-[85px] pb-[70px] max-[767px]:pt-[55px] max-[767px]:pb-10 border-b border-b-[#f8f9fa26]"
+          }
+        >
+          <Link
+            href="/contact"
+            className="flex items-center justify-between max-[767px]:gap-5 gap-[30px] font-display my-[30px] mx-0 py-[30px] max-[767px]:py-[25px] text-[clamp(70px,8vw,120px)] max-[767px]:text-[52px] leading-[1.03] max-[767px]:leading-[1.1] tracking-[-0.05em]"
+          >
+            <span className="max-w-[900px]">
+              Let’s build<em className="block text-[#f8f9fa]">what’s next.</em>
             </span>
-            <span className="footer-arrow">
-              <ArrowUpRight strokeWidth={1} />
+            <span className="grid place-items-center bg-brand rounded-full h-[120px] w-[120px] max-[1023px]:h-[90px] max-[1023px]:w-[90px] max-[767px]:w-[52px] max-[767px]:h-[52px] max-[767px]:basis-[52px] shrink-0 text-white border-0">
+              <ArrowUpRight
+                strokeWidth={1}
+                className="w-[68px] h-[68px] max-[1023px]:w-[52px] max-[1023px]:h-[52px] max-[767px]:w-[27px] max-[767px]:h-[27px]"
+              />
             </span>
           </Link>
-          <p>
+          <p className="text-[18px] leading-[1.8] text-[#f8f9fa] max-w-[630px]">
             Bring us the ambition. We’ll connect the thinking, the people and
             the work to take it forward.
           </p>
         </div>
       )}
-      <div className="wrap footer-grid">
-        <div className="footer-contact">
-          <p className="eyebrow">Connect with TechGy Link</p>
-          <a className="footer-email" href="mailto:sales@techgylink.com">
+      <div
+        className={
+          wrap +
+          " grid grid-cols-[1.7fr_0.75fr_1.35fr] max-[1200px]:gap-10 max-[1023px]:grid-cols-[1.2fr_0.8fr_1.3fr] max-[1023px]:gap-[25px] max-[767px]:grid-cols-[1fr_1.5fr] max-[767px]:gap-y-[34px] max-[767px]:gap-x-5 max-[767px]:py-10 gap-[65px] pt-[62px] pb-[72px] border-[#0f1a3480]"
+        }
+      >
+        <div className="max-[767px]:col-span-full">
+          <p className={footerEyebrow}>Connect with TechGy Link</p>
+          <a
+            className="font-display text-[30px] max-[1023px]:text-[24px] max-[767px]:text-[27px] mt-[26px] max-[767px]:mt-[17px] mx-0 mb-3.5 tracking-[-0.03em]"
+            href="mailto:sales@techgylink.com"
+          >
             sales@techgylink.com
           </a>
           <a href="tel:+919100043542">+91 91000 43542</a>
@@ -198,14 +258,14 @@ export function Footer() {
             <br />
             Design, Technology & Growth Partner
           </p>
-          <p className="footer-origin">
+          <p className="text-[14px] mt-[27px] leading-[1.8] text-[#f8f9fa]">
             From TechGy Innovations to TechGy Link.
             <br />
             Our capabilities grew. Our name grew with them.
           </p>
         </div>
         <div>
-          <p className="eyebrow">Explore</p>
+          <p className={footerEyebrow}>Explore</p>
           {[
             ...nav,
             ["Services", "/services"],
@@ -213,32 +273,58 @@ export function Footer() {
             ["Business platforms", "/products"],
             ["Contact", "/contact"],
           ].map(([name, href]) => (
-            <Link href={href} key={href}>
+            <Link href={href} key={href} className={footerNavLink}>
               {name}
             </Link>
           ))}
         </div>
-        <div className="footer-services">
-          <p className="eyebrow">Expertise</p>
+        <div>
+          <p className={footerEyebrow}>Expertise</p>
           {services.map((s) => (
-            <Link key={s.id} href={"/services/" + s.id}>
+            <Link
+              key={s.id}
+              href={"/services/" + s.id}
+              className={footerNavLink}
+            >
               {s.name}
             </Link>
           ))}
         </div>
       </div>
-      <div className="wrap footer-bottom">
-        <img src="/brand/logo.png" alt="TechGy Link" width="180" height="37" />
-        <p>© {new Date().getFullYear()} TechGy Link</p>
-        <Link href="/privacy">Privacy</Link>
+      <div
+        className={
+          wrap +
+          " flex items-center gap-7 max-[1023px]:gap-5 max-[767px]:flex-wrap max-[767px]:gap-y-5 max-[767px]:gap-x-[18px] border-t border-t-[#0f1a3480] py-[26px] max-[767px]:py-7 text-[#f8f9fa] text-[12px] max-[767px]:text-[11px]"
+        }
+      >
+        <img
+          src="/brand/logo.png"
+          alt="TechGy Link"
+          width="180"
+          height="37"
+          className="brightness-0 invert w-[155px] max-[767px]:w-[145px] h-auto mr-auto"
+        />
+        <p className="max-[767px]:ml-auto">
+          © {new Date().getFullYear()} TechGy Link
+        </p>
+        <Link
+          href="/privacy"
+          className="inline-flex items-center gap-2 max-[767px]:gap-1.5 text-[13px]"
+        >
+          Privacy
+        </Link>
         <a
           href="https://in.linkedin.com/company/techgy-link"
           target="_blank"
           rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 max-[767px]:gap-1.5 text-[13px]"
         >
           LinkedIn <ArrowUpRight size={14} />
         </a>
-        <a href="#main">
+        <a
+          href="#main"
+          className="inline-flex items-center gap-2 max-[767px]:gap-1.5 text-[13px]"
+        >
           Back to top <ArrowUp size={14} />
         </a>
       </div>

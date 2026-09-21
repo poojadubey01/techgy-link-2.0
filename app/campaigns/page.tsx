@@ -8,29 +8,35 @@ export const metadata = {
 };
 export default function Campaigns() {
   return (
-    <main id="main" className="campaigns-page">
-      <section className="page-intro wrap">
-        <p className="eyebrow">Focused engagements</p>
-        <h1>
+    <main id="main" className="bg-[#f8f9fa]">
+      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
+        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+          Focused engagements
+        </p>
+        <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[48px] max-[767px]:leading-[1.12] max-[767px]:mt-[22px]">
           One clear challenge.
           <br />
-          <span className="blue-text">A useful first step.</span>
+          <span className="text-brand">A useful first step.</span>
         </h1>
-        <p>
+        <p className="text-[20px] leading-[1.7] text-[#000000] max-w-[770px] mt-[30px] max-[767px]:text-[17px] max-[767px]:leading-[1.8] max-[767px]:mt-[25px]">
           Find the starting point that matches what your business needs right
           now.
         </p>
       </section>
-      <section className="wrap campaign-list">
+      <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-3 gap-[35px] max-[1023px]:grid-cols-2 max-[767px]:grid-cols-1 max-[767px]:gap-[25px]">
         {campaigns.map((c) => (
           <Link
-            className="campaign-card"
+            className="p-8 border border-[#e2e8f0] bg-[#f8f9fa] min-h-[340px] flex items-start flex-col rounded-[5px] hover:bg-[#f8f9fa] max-[767px]:min-h-[300px] max-[767px]:p-7"
             key={c.slug}
             href={"/campaigns/" + c.slug}
           >
-            <p className="eyebrow">{c.service.short}</p>
-            <h3>{c.headline}</h3>
-            <span className="text-link">
+            <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand">
+              {c.service.short}
+            </p>
+            <h3 className="text-[33px] my-[35px] mx-0 max-[767px]:text-[32px] max-[767px]:my-[25px]">
+              {c.headline}
+            </h3>
+            <span className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-auto max-[767px]:text-[14px]">
               {c.cta}
               <Arrow />
             </span>

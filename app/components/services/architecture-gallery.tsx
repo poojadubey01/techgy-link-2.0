@@ -27,53 +27,66 @@ export function ArchitectureGallery() {
       );
   };
   return (
-    <section className="architecture-section wrap" id="selected-work">
-      <div className="section-heading">
+    <section
+      className="architecture-section py-[85px] max-[767px]:py-[55px] w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)]"
+      id="selected-work"
+    >
+      <div className="section-heading flex justify-between items-end gap-10 mb-[45px] max-[767px]:block max-[767px]:mb-[33px]">
         <div>
-          <p className="eyebrow">Architectural visualisation / Selected work</p>
-          <h2>
+          <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+            Architectural visualisation / Selected work
+          </p>
+          <h2 className="mt-[25px] max-[767px]:text-[38px] max-[767px]:mt-5">
             In every frame,
             <br />a point of view.
           </h2>
         </div>
-        <p>
+        <p className="text-[15px] text-[#000000] max-[767px]:text-[14px] max-[767px]:mt-5">
           Nine project collections.
           <br />
           149 original renders.
         </p>
       </div>
-      <div className="architecture-grid">
+      <div className="architecture-grid grid grid-cols-[repeat(3,1fr)] gap-y-[45px] gap-x-6 max-[1023px]:grid-cols-[1fr_1fr] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[35px]">
         {galleries.map((g, i) => (
           <button
             key={g.slug}
-            className="architecture-card reveal"
+            className="architecture-card reveal p-0 bg-none border-0 text-left"
             onClick={() => {
               setGroup(i);
               setIndex(0);
             }}
             aria-label={`Explore ${g.title}, ${g.images.length} renders`}
           >
-            <div className="architecture-image">
+            <div className="architecture-image aspect-[1.12] relative overflow-hidden max-[767px]:aspect-[1.3]">
               <img
                 src={g.coverImage}
                 alt={`${g.title} architectural visualisation`}
                 width="1300"
                 height="900"
                 loading="lazy"
+                className="w-full h-full object-cover"
               />
-              <span className="project-open">
+              <span className="project-open absolute right-4 bottom-4 bg-white rounded-full w-10 h-10 grid place-items-center">
                 <ArrowUpRight size={20} />
               </span>
-              <span className="render-count">{g.images.length} frames</span>
+              <span className="render-count absolute top-4 left-4 bg-[#f8f9faeb] text-[#000000] py-1.5 px-2.5 text-[12px]">
+                {g.images.length} frames
+              </span>
             </div>
             <div className="architecture-meta">
-              <h3>{g.title}</h3>
-              <span>
+              <h3 className="text-[25px] mt-[23px] mx-0 mb-3 max-[767px]:text-[28px]">{g.title}</h3>
+              <span className="text-[13px] text-[#000000]">
                 {g.location} · {g.sector}
               </span>
-              <div className="tag-list">
+              <div className="tag-list flex gap-2 flex-wrap mt-4">
                 {g.tags.map((t) => (
-                  <span key={t}>{t}</span>
+                  <span
+                    key={t}
+                    className="text-[12px] text-[#000000] last:after:content-none after:content-['_/'] after:ml-[7px] after:text-[#000000]"
+                  >
+                    {t}
+                  </span>
                 ))}
               </div>
             </div>
@@ -82,7 +95,7 @@ export function ArchitectureGallery() {
       </div>
       <dialog
         ref={dialog}
-        className="gallery-dialog"
+        className="gallery-dialog p-0 border-0 bg-transparent w-[min(1300px,calc(100vw_-_48px))] max-w-none max-h-[94svh] m-auto text-white overflow-auto max-[767px]:w-[calc(100vw_-_16px)] max-[767px]:max-h-[95svh]"
         aria-labelledby="gallery-title"
         onCancel={() => setGroup(null)}
         onClick={(e) => {
@@ -100,14 +113,21 @@ export function ArchitectureGallery() {
         }}
       >
         {selected && (
-          <div className="gallery-inner">
-            <div className="gallery-top">
+          <div className="gallery-inner p-6 bg-[#111625] max-[767px]:p-[15px]">
+            <div className="gallery-top flex justify-between gap-5 items-center">
               <div>
-                <h2 id="gallery-title">{selected.title}</h2>
-                <p>{selected.tags.join(" · ")}</p>
+                <h2
+                  id="gallery-title"
+                  className="text-[27px] tracking-[-0.025em] max-[767px]:text-[23px]"
+                >
+                  {selected.title}
+                </h2>
+                <p className="text-[13px] text-[#000000] mt-2 max-[767px]:text-[11px] max-[767px]:max-w-[230px]">
+                  {selected.tags.join(" · ")}
+                </p>
               </div>
               <button
-                className="gallery-close"
+                className="gallery-close grid place-items-center border border-[#f8f9fa30] rounded-full h-11 w-11 shrink-0"
                 onClick={() => setGroup(null)}
                 aria-label="Close gallery"
               >
@@ -120,27 +140,46 @@ export function ArchitectureGallery() {
                 alt={`${selected.title} — ${selected.images[index].caption}`}
                 width={selected.images[index].width}
                 height={selected.images[index].height}
+                className="h-[61svh] w-full object-contain my-[15px] max-[767px]:h-[48svh]"
               />
             </div>
-            <div className="gallery-controls">
+            <div className="gallery-controls flex justify-between items-center gap-[15px] text-[13px]">
               <p aria-live="polite">
                 {String(index + 1).padStart(2, "0")} / {selected.images.length}
-                <span>{selected.images[index].caption}</span>
+                <span className="ml-[25px] text-[#000000] max-[767px]:hidden">
+                  {selected.images[index].caption}
+                </span>
               </p>
-              <div>
-                <button onClick={() => move(-1)} aria-label="Previous render">
+              <div className="flex gap-2">
+                <button
+                  onClick={() => move(-1)}
+                  aria-label="Previous render"
+                  className="w-11 h-11 grid place-items-center border border-[#f8f9fa30]"
+                >
                   <ArrowLeft />
                 </button>
-                <button onClick={() => move(1)} aria-label="Next render">
+                <button
+                  onClick={() => move(1)}
+                  aria-label="Next render"
+                  className="w-11 h-11 grid place-items-center border border-[#f8f9fa30]"
+                >
                   <ArrowRight />
                 </button>
               </div>
             </div>
-            <div className="gallery-thumbs" aria-label="Choose a render">
+            <div
+              className="gallery-thumbs flex gap-2 overflow-auto mt-4"
+              aria-label="Choose a render"
+            >
               {selected.images.map((im, i) => (
                 <button
                   key={im.url}
-                  className={i === index ? "selected" : ""}
+                  className={
+                    "border-2 flex-[0_0_85px] p-0 max-[767px]:basis-[65px] " +
+                    (i === index
+                      ? "selected border-[#e2e8f0] opacity-100"
+                      : "border-transparent opacity-65")
+                  }
                   onClick={() => setIndex(i)}
                   aria-label={`View render ${i + 1}: ${im.caption}`}
                   aria-current={i === index ? "true" : undefined}
@@ -151,6 +190,7 @@ export function ArchitectureGallery() {
                     loading="lazy"
                     width="110"
                     height="70"
+                    className="w-[85px] h-[52px] object-cover max-[767px]:w-[65px] max-[767px]:h-[44px]"
                   />
                 </button>
               ))}

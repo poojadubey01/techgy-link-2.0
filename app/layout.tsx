@@ -1,10 +1,6 @@
 import type { ReactNode } from "react";
 import { siteUrl, allowIndexing } from "../lib/site";
 import "./globals.css";
-import "./visual-system.css";
-import "./essence.css";
-import "./essence-pages.css";
-import "./portfolio.css";
 import { EssenceMotion } from "@/app/components/layout/scroll-animations";
 import { Header, Footer, Motion } from "@/app/components/layout/header-footer";
 export const metadata = {

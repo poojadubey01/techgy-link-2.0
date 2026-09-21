@@ -25,33 +25,47 @@ const chapters = [
 ];
 export function CompanyEvolution() {
   return (
-    <section className="company-evolution" id="why-link">
-      <div className="wrap evolution-heading">
-        <p className="eyebrow">The reason behind the rebrand</p>
-        <h2>
+    <section
+      className="bg-brand text-white pt-[105px] pb-[60px] max-[767px]:pt-[65px] max-[767px]:pb-[35px]"
+      id="why-link"
+    >
+      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)]">
+        <p className="text-[14px] text-[#f8f9fa] max-[767px]:text-[12px]">
+          The reason behind the rebrand
+        </p>
+        <h2 className="text-[clamp(42px,4.5vw,69px)] leading-[1.14] max-w-[1120px] mt-[25px] max-[767px]:text-[36px] max-[767px]:leading-[1.2] max-[767px]:mt-[22px]">
           We kept adding the people
-          <br />
-          <span>our clients needed next.</span>
+          <br className="max-[767px]:hidden" />
+          <span className="max-[767px]:block max-[767px]:mt-[5px]">
+            our clients needed next.
+          </span>
         </h2>
       </div>
-      <div className="wrap evolution-grid">
-        <div className="evolution-stage" aria-hidden="true">
-          <div className="evolution-identity">
-            <span>Our foundation</span>
-            <p>
+      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] grid grid-cols-[1fr_1fr] gap-[115px] items-start mt-20 max-[1100px]:gap-[55px] max-[767px]:block max-[767px]:mt-10">
+        <div
+          className="sticky top-[125px] pt-[35px] px-[35px] pb-[25px] bg-[#0022ff] border border-[#e2e8f0] min-w-0 rounded max-[1100px]:p-[27px] max-[767px]:relative max-[767px]:top-0 max-[767px]:p-[26px] max-[767px]:max-w-[520px] max-[767px]:min-h-0 max-[767px]:mb-10"
+          aria-hidden="true"
+        >
+          <div>
+            <span className="text-[12px] uppercase tracking-[0.09em] text-[#f8f9fa]">
+              Our foundation
+            </span>
+            <p className="font-display text-[54px] leading-[1.05] tracking-[-0.04em] mt-[15px] max-[1100px]:text-[44px] max-[767px]:text-[43px] max-[767px]:leading-[1.08]">
               TechGy
               <br />
               Innovations.
             </p>
-            <div className="evolution-rule">
-              <i />
+            <div className="evolution-rule h-px bg-[#e2e8f0] my-[27px] relative">
+              <i className="absolute inset-0 bg-white origin-left" />
             </div>
-            <span>Our collective future</span>
-            <p className="evolution-link">
-              TechGy <strong>Link.</strong>
+            <span className="text-[12px] uppercase tracking-[0.09em] text-[#f8f9fa]">
+              Our collective future
+            </span>
+            <p className="text-[52px] whitespace-nowrap max-[1100px]:text-[44px] max-[767px]:text-[40px]">
+              TechGy <strong className="font-normal">Link.</strong>
             </p>
           </div>
-          <div className="evolution-strengths">
+          <div className="grid grid-cols-[repeat(3,_1fr)] gap-[7px] mt-7 max-[1100px]:grid-cols-[repeat(2,_1fr)] max-[767px]:grid-cols-[repeat(3,_1fr)] max-[767px]:gap-1.5 max-[767px]:mt-6">
             {[
               "Brand",
               "Product design",
@@ -63,30 +77,43 @@ export function CompanyEvolution() {
               "Visualisation",
               "Advisory",
             ].map((s, i) => (
-              <span key={s} data-strength={i}>
+              <span
+                key={s}
+                data-strength={i}
+                className="text-xs border border-[#e2e8f0] py-[9px] px-[7px] text-center rounded-sm text-white leading-normal max-[767px]:text-[12px] max-[767px]:py-2 max-[767px]:px-[5px]"
+              >
                 {s}
               </span>
             ))}
           </div>
-          <p className="evolution-caption">
+          <p className="text-xs leading-[1.6] text-[#f8f9fa] mt-[21px] max-[767px]:text-[12px]">
             More capabilities. One connected company.
           </p>
         </div>
-        <div className="evolution-chapters">
+        <div>
           {chapters.map((c, i) => (
             <article
               key={c.label}
-              className="evolution-chapter"
+              className="evolution-chapter min-h-[490px] flex justify-center flex-col py-[45px] border-t border-[#e2e8f07a] scroll-mt-[30px] max-[767px]:min-h-0 max-[767px]:pt-[35px] max-[767px]:pb-[38px]"
               data-evolution-step={i}
             >
-              <p className="eyebrow">
+              <p className="text-[#f8f9fa] text-[13px] max-[767px]:text-[12px]">
                 0{i + 1} / {c.label}
               </p>
-              <h3>{c.title}</h3>
-              <p>{c.body}</p>
-              <p className="evolution-detail">{c.detail}</p>
+              <h3 className="text-5xl leading-[1.12] max-w-[440px] my-6 max-[1100px]:text-[40px] max-[767px]:text-[34px] max-[767px]:my-5">
+                {c.title}
+              </h3>
+              <p className="text-[17px] leading-[1.85] text-[#f8f9fa] max-w-[490px] max-[767px]:text-base">
+                {c.body}
+              </p>
+              <p className="text-[15px]! text-[#f8f9fa]! mt-[22px] leading-[1.75]! max-[767px]:mt-5">
+                {c.detail}
+              </p>
               {i === 2 && (
-                <Link href="/about" className="text-link">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand self-start mt-[25px] border-b border-[#e2e8f0] pb-[7px] text-white max-[767px]:text-[14px]"
+                >
                   The story behind TechGy Link <ArrowUpRight size={20} />
                 </Link>
               )}

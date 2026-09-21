@@ -10,18 +10,34 @@ type ProjectLike = {
   image: string;
 };
 
+const caseArtVariants = {
+  default: "h-[550px] rounded-[5px] max-[1023px]:h-[470px] max-[767px]:h-[400px]",
+  portfolio: "h-full rounded-none",
+  proof: "h-[480px] max-[767px]:h-[365px]",
+};
+const casePhoneImgVariants = {
+  default:
+    "absolute h-[88%] w-auto max-w-[80%] left-1/2 top-[7%] -translate-x-1/2 object-contain [filter:drop-shadow(0_15px_18px_#0f1a341c)]",
+  portfolio:
+    "absolute h-[92%] w-auto max-w-[65%] left-1/2 top-[10%] -translate-x-1/2 object-contain [filter:drop-shadow(0_15px_18px_#0f1a341c)] max-[767px]:h-[93%] max-[767px]:top-[9%] max-[767px]:max-w-[60%]",
+  proof:
+    "absolute h-[88%] w-auto max-w-[80%] left-1/2 top-[7%] -translate-x-1/2 object-contain min-h-0 aspect-auto [filter:drop-shadow(0_15px_18px_#0f1a341c)]",
+};
 export function CaseArtwork({
   story: p,
   compact = false,
   priority = false,
+  variant = "default",
 }: {
   story: Story;
   compact?: boolean;
   priority?: boolean;
+  variant?: "default" | "portfolio" | "proof";
 }) {
+  const toneBg = p.tone === "spur" ? "bg-navy" : "bg-rule";
   return (
     <div
-      className={`case-art art-${p.art} tone-${p.tone}${compact ? " art-compact" : ""}`}
+      className={`relative overflow-hidden ${toneBg} ${caseArtVariants[variant]}`}
     >
       <img
         src={p.image}
@@ -30,9 +46,14 @@ export function CaseArtwork({
         height={p.art === "phone" ? 1800 : 1000}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : undefined}
+        className={
+          p.art === "phone"
+            ? casePhoneImgVariants[variant]
+            : "h-full w-full object-contain"
+        }
       />
       {!compact && (
-        <div className="case-art-note">
+        <div className="absolute left-[25px] right-[25px] bottom-[17px] flex justify-between gap-2.5 text-[12px] text-[#000000] max-[767px]:left-[15px] max-[767px]:right-[15px] max-[767px]:bottom-[13px]">
           <span>{p.name}</span>
           <span>Project presentation</span>
         </div>
@@ -43,13 +64,10 @@ export function CaseArtwork({
 export function StoryCard({ project: p }: { project: ProjectLike }) {
   const story = storyFor(p.slug);
   return (
-    <Link
-      className={`work-card portfolio-card${story ? " has-story" : ""}`}
-      href={"/work/" + p.slug}
-    >
-      <div className="work-image">
+    <Link className="work-card portfolio-card" href={"/work/" + p.slug}>
+      <div className="relative overflow-hidden bg-paper aspect-[1.25] max-[767px]:aspect-[1.15]">
         {story ? (
-          <CaseArtwork story={story} compact />
+          <CaseArtwork story={story} compact variant="portfolio" />
         ) : (
           <img
             src={p.image}
@@ -57,20 +75,27 @@ export function StoryCard({ project: p }: { project: ProjectLike }) {
             width="1600"
             height="1000"
             loading="lazy"
+            className="w-full h-full object-contain"
           />
         )}
-        <span className="image-link">
+        <span className="absolute bottom-5 right-5 rounded-full bg-white w-[46px] h-[46px] grid place-items-center">
           <ArrowUpRight size={22} />
         </span>
       </div>
-      <div className="work-meta">
-        <h3>{p.name}</h3>
-        <p>{p.category}</p>
+      <div className="block mt-[22px]">
+        <h3 className="text-[29px] leading-tight tracking-[-0.04em] max-[767px]:text-[27px]">
+          {p.name}
+        </h3>
+        <p className="text-[12px] text-[#000000] max-w-none text-right pt-[5px] mt-2">
+          {p.category}
+        </p>
       </div>
       {story && (
         <>
-          <p className="story-card-line">{story.headline}</p>
-          <div className="story-card-footer">
+          <p className="text-lg leading-normal mt-[18px] tracking-[-0.02em] max-w-[450px] max-[767px]:text-[18px] max-[767px]:mt-4">
+            {story.headline}
+          </p>
+          <div className="flex justify-between gap-[15px] border-t border-t-rule mt-5 pt-[15px] text-[12px] text-[#000000]">
             <span>{story.market}</span>
             <span>{story.status}</span>
           </div>
@@ -81,28 +106,33 @@ export function StoryCard({ project: p }: { project: ProjectLike }) {
 }
 export function PortfolioBreadth() {
   return (
-    <section className="portfolio-breadth section wrap">
-      <div className="portfolio-section-heading">
+    <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto py-[120px] border-b border-b-rule max-[1023px]:py-[90px] max-[767px]:py-[70px]">
+      <div className="grid grid-cols-[1.4fr_1fr] gap-[10%] items-end mb-[42px] max-[1023px]:gap-10 max-[767px]:block max-[767px]:mb-8">
         <div>
-          <p className="eyebrow">The work behind our perspective</p>
-          <h2>
+          <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+            The work behind our perspective
+          </p>
+          <h2 className="text-[clamp(36px,4.6vw,65px)] leading-[1.1] tracking-tighter mt-[23px] max-[767px]:text-[39px]">
             Every business has
             <br />
             its own <span className="text-brand">moving parts.</span>
           </h2>
         </div>
-        <p>
+        <p className="text-[17px] leading-[1.85] text-[#000000] max-w-[430px] max-[767px]:text-[16px] max-[767px]:mt-6">
           A lender’s decision process. A sales team’s next conversation. A
           workout in motion. We get close to the task, then connect the
           expertise it needs.
         </p>
       </div>
-      <div className="portfolio-three">
+      <div className="grid grid-cols-3 gap-[30px] max-[1023px]:gap-[22px] max-[767px]:grid-cols-1 max-[767px]:gap-[38px]">
         {["lending-bridge", "planet-green-crm", "spur-fit"].map((slug) => (
           <StoryCard key={slug} project={storyFor(slug)!} />
         ))}
       </div>
-      <Link href="/work" className="text-link">
+      <Link
+        href="/work"
+        className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-10 max-[767px]:text-[14px]"
+      >
         Explore the client stories <ArrowUpRight size={20} />
       </Link>
     </section>
@@ -116,22 +146,24 @@ const solutionProof = {
 export function SolutionEvidence({ id }: { id: string }) {
   const selected = solutionProof[id as keyof typeof solutionProof] || [];
   return (
-    <section className="section wrap solution-project-proof">
-      <div className="portfolio-section-heading">
+    <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
+      <div className="grid grid-cols-[1.4fr_1fr] gap-[10%] items-end mb-[42px] max-[1023px]:gap-10 max-[767px]:block max-[767px]:mb-8">
         <div>
-          <p className="eyebrow">Relevant project experience</p>
-          <h2>
+          <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+            Relevant project experience
+          </p>
+          <h2 className="text-[clamp(36px,4.6vw,65px)] leading-[1.1] tracking-tighter mt-[23px] max-[767px]:text-[39px]">
             See the thinking
             <br />
             in the work.
           </h2>
         </div>
-        <p>
+        <p className="text-[17px] leading-[1.85] text-[#000000] max-w-[430px] max-[767px]:text-[16px] max-[767px]:mt-6">
           These engagements show relevant parts of the journey. Each story makes
           its contribution and delivery stage clear.
         </p>
       </div>
-      <div className="portfolio-two">
+      <div className="grid grid-cols-2 gap-[45px] max-[767px]:grid-cols-1 max-[767px]:gap-[38px]">
         {selected.map((slug) => (
           <StoryCard
             key={slug}

@@ -66,17 +66,23 @@ export function ContactForm({ initialService = "", campaign = "" }) {
       );
     }
   }
+  const eyebrowClass =
+    "text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]";
+  const buttonOutlineClass =
+    "inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-rule bg-transparent rounded-full max-[767px]:text-[13px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5";
+  const textLinkClass =
+    "inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand max-[767px]:text-[14px]";
   if (status === "preview")
     return (
-      <div className="enquiry-success" role="status">
-        <p className="eyebrow">Local preview</p>
-        <h2>Your form is working.</h2>
-        <p>
+      <div className="bg-paper p-[45px]" role="status">
+        <p className={eyebrowClass}>Local preview</p>
+        <h2 className="my-[25px] mx-0 text-[47px]">Your form is working.</h2>
+        <p className="mb-[25px]">
           Your brief passed validation. This is a preview: no enquiry was sent
           or stored.
         </p>
         <button
-          className="button outline"
+          className={buttonOutlineClass}
           style={{ marginTop: 25 }}
           onClick={() => setStatus("idle")}
         >
@@ -86,30 +92,44 @@ export function ContactForm({ initialService = "", campaign = "" }) {
     );
   if (status === "sent")
     return (
-      <div className="enquiry-success" role="status">
-        <p className="eyebrow">Thank you for your brief</p>
-        <h2>
+      <div className="bg-paper p-[45px]" role="status">
+        <p className={eyebrowClass}>Thank you for your brief</p>
+        <h2 className="my-[25px] mx-0 text-[47px]">
           Your next chapter
           <br />
           starts here.
         </h2>
-        <p>
+        <p className="mb-[25px]">
           Your brief has been submitted. We’ll use the details you shared to
           continue the conversation.
         </p>
-        <a className="text-link" href="tel:+919100043542">
+        <a className={textLinkClass} href="tel:+919100043542">
           Call +91 91000 43542 <ArrowUpRight size={18} />
         </a>
         <div style={{ marginTop: 25 }}>
-          <button className="button outline" onClick={() => setStatus("idle")}>
+          <button className={buttonOutlineClass} onClick={() => setStatus("idle")}>
             Start another enquiry
           </button>
         </div>
       </div>
     );
+  const labelClass = "block text-[13px] mb-[9px] text-[#000000]";
+  const optionalClass = "text-[#000000] text-[12px] ml-1";
+  const fieldClass = "mb-[25px] min-w-0 max-[1023px]:mb-[22px]";
+  const rowClass = "grid grid-cols-[1fr_1fr] gap-5 max-[1023px]:grid-cols-[1fr]";
+  const inputClass =
+    "w-full min-h-[52px] bg-white border border-rule rounded-[2px] py-3 px-[13px] text-[16px] leading-normal text-[#000000] placeholder:text-[#000000] placeholder:text-[14px]";
+  const buttonBlueClass =
+    "inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-transparent rounded-full bg-brand text-white hover:brightness-90 disabled:opacity-65 disabled:cursor-wait max-[767px]:text-[13px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5";
   return (
-    <form className="contact-form" onSubmit={submit}>
-      <div className="form-trap" aria-hidden="true">
+    <form
+      className="bg-paper border border-rule p-9 max-[1023px]:p-[25px] max-[370px]:py-[25px] max-[370px]:px-5"
+      onSubmit={submit}
+    >
+      <div
+        className="absolute left-[-10000px] w-px h-px overflow-hidden"
+        aria-hidden="true"
+      >
         <label htmlFor={"website-" + campaign}>Website</label>
         <input
           name="website"
@@ -118,10 +138,13 @@ export function ContactForm({ initialService = "", campaign = "" }) {
           autoComplete="off"
         />
       </div>
-      <div className="form-row">
-        <div className="form-field">
-          <label htmlFor="name">Your name *</label>
+      <div className={rowClass}>
+        <div className={fieldClass}>
+          <label className={labelClass} htmlFor="name">
+            Your name *
+          </label>
           <input
+            className={inputClass}
             name="name"
             id="name"
             autoComplete="name"
@@ -130,11 +153,12 @@ export function ContactForm({ initialService = "", campaign = "" }) {
             placeholder="Your full name"
           />
         </div>
-        <div className="form-field">
-          <label htmlFor="company">
-            Company <span>Optional</span>
+        <div className={fieldClass}>
+          <label className={labelClass} htmlFor="company">
+            Company <span className={optionalClass}>Optional</span>
           </label>
           <input
+            className={inputClass}
             name="company"
             id="company"
             autoComplete="organization"
@@ -143,10 +167,13 @@ export function ContactForm({ initialService = "", campaign = "" }) {
           />
         </div>
       </div>
-      <div className="form-row">
-        <div className="form-field">
-          <label htmlFor="email">Email *</label>
+      <div className={rowClass}>
+        <div className={fieldClass}>
+          <label className={labelClass} htmlFor="email">
+            Email *
+          </label>
           <input
+            className={inputClass}
             type="email"
             name="email"
             id="email"
@@ -156,9 +183,12 @@ export function ContactForm({ initialService = "", campaign = "" }) {
             placeholder="you@company.com"
           />
         </div>
-        <div className="form-field">
-          <label htmlFor="phone">Phone *</label>
+        <div className={fieldClass}>
+          <label className={labelClass} htmlFor="phone">
+            Phone *
+          </label>
           <input
+            className={inputClass}
             type="tel"
             name="phone"
             id="phone"
@@ -169,11 +199,12 @@ export function ContactForm({ initialService = "", campaign = "" }) {
           />
         </div>
       </div>
-      <div className="form-field">
-        <label id="service-label" htmlFor="service">
+      <div className={fieldClass}>
+        <label className={labelClass} id="service-label" htmlFor="service">
           What can we help with?
         </label>
         <select
+          className={inputClass}
           id="service"
           value={service || "Help me choose"}
           onChange={(e) => setService(e.target.value)}
@@ -193,9 +224,12 @@ export function ContactForm({ initialService = "", campaign = "" }) {
           ))}
         </select>
       </div>
-      <div className="form-field">
-        <label htmlFor="message">Tell us about the project *</label>
+      <div className={fieldClass}>
+        <label className={labelClass} htmlFor="message">
+          Tell us about the project *
+        </label>
         <textarea
+          className={inputClass + " min-h-[145px] resize-y"}
           name="message"
           id="message"
           required
@@ -204,23 +238,25 @@ export function ContactForm({ initialService = "", campaign = "" }) {
           placeholder="What would you like to build or improve? Tell us what exists today and what needs to change."
         />
       </div>
-      <div className="form-row">
-        <div className="form-field">
-          <label htmlFor="timing">
-            Expected timing <span>Optional</span>
+      <div className={rowClass}>
+        <div className={fieldClass}>
+          <label className={labelClass} htmlFor="timing">
+            Expected timing <span className={optionalClass}>Optional</span>
           </label>
           <input
+            className={inputClass}
             id="timing"
             name="timing"
             maxLength={120}
             placeholder="For example, this quarter"
           />
         </div>
-        <div className="form-field">
-          <label htmlFor="budget">
-            Budget range <span>Optional</span>
+        <div className={fieldClass}>
+          <label className={labelClass} htmlFor="budget">
+            Budget range <span className={optionalClass}>Optional</span>
           </label>
           <input
+            className={inputClass}
             id="budget"
             name="budget"
             maxLength={100}
@@ -228,24 +264,27 @@ export function ContactForm({ initialService = "", campaign = "" }) {
           />
         </div>
       </div>
-      <button
-        className="button blue"
-        type="submit"
-        disabled={status === "sending"}
-      >
+      <button className={buttonBlueClass} type="submit" disabled={status === "sending"}>
         {status === "sending" ? "Sending your brief…" : "Send project enquiry"}
         <ArrowUpRight size={19} />
       </button>
-      <p className="form-note">
+      <p className="text-[13px] text-[#000000] mt-5">
         We use these details to respond to your enquiry. Read our{" "}
-        <a href="/privacy">privacy notice</a>.
+        <a className="underline" href="/privacy">
+          privacy notice
+        </a>
+        .
       </p>
       {status === "error" && (
-        <div className="contact-error" role="alert">
+        <div
+          className="mt-[25px] bg-paper border border-rule p-5 text-[14px]"
+          role="alert"
+        >
           <p>{error}</p>
           <p>Your brief is still here. You can send it directly:</p>
-          <div>
+          <div className="flex gap-5 flex-wrap mt-3.5">
             <a
+              className="underline text-[#000000]"
               href={
                 "mailto:sales@techgylink.com?subject=" +
                 encodeURIComponent(
@@ -257,7 +296,9 @@ export function ContactForm({ initialService = "", campaign = "" }) {
             >
               Open email draft
             </a>
-            <a href="tel:+919100043542">Call the sales team</a>
+            <a className="underline text-[#000000]" href="tel:+919100043542">
+              Call the sales team
+            </a>
           </div>
         </div>
       )}

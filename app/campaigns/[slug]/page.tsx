@@ -28,42 +28,62 @@ export default async function Campaign({
   if (!c) notFound();
   const s = c.service;
   return (
-    <main id="main" className="campaign-detail-page">
-      <section className="campaign-hero wrap">
-        <div className="detail-hero-grid">
-          <div className="detail-copy">
-            <p className="eyebrow">TechGy Link / {s.name}</p>
-            <h1>{c.headline}</h1>
-            <p>{s.tagline}</p>
-            <div className="hero-actions">
-              <a className="button blue" href="#start">
+    <main id="main" className="bg-[#f8f9fa]">
+      <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto bg-[#f8f9fa] py-[65px] max-[767px]:py-10">
+        <div className="grid grid-cols-[1.05fr_1fr] gap-[60px] items-center max-[1023px]:gap-[30px] max-[767px]:grid-cols-1 max-[767px]:gap-8">
+          <div className="block">
+            <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[1023px]:text-[12px]">
+              TechGy Link / {s.name}
+            </p>
+            <h1 className="text-[clamp(42px,4.8vw,72px)] max-[1023px]:text-[46px] max-[767px]:text-[43px]">
+              {c.headline}
+            </h1>
+            <p className="text-[#000000] text-[17px] mt-[25px]">{s.tagline}</p>
+            <div className="flex flex-wrap items-center gap-6 mt-8 content-start">
+              <a
+                className="inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-transparent rounded-full bg-brand text-white hover:brightness-90 max-[767px]:text-[13px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5"
+                href="#start"
+              >
                 {c.cta}
                 <Arrow />
               </a>
             </div>
-            <div className="campaign-benefits">
-              <span>Defined scope</span>
-              <span>Named delivery owner</span>
-              <span>Visible review points</span>
+            <div className="flex gap-2.5 flex-wrap mt-[25px]">
+              <span className="border border-[#e2e8f0] rounded-full text-[12px] py-1.5 px-[11px]">
+                Defined scope
+              </span>
+              <span className="border border-[#e2e8f0] rounded-full text-[12px] py-1.5 px-[11px]">
+                Named delivery owner
+              </span>
+              <span className="border border-[#e2e8f0] rounded-full text-[12px] py-1.5 px-[11px]">
+                Visible review points
+              </span>
             </div>
           </div>
           <ServiceVisual service={s} />
         </div>
       </section>
-      <section className="section wash">
-        <div className="wrap">
+      <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] bg-[#e2e8f0]">
+        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto">
           <SectionTitle
             label="A focused engagement"
             title={s.problem}
             description=""
           />
-          <div className="deliverable-grid">
+          <div className="grid grid-cols-[1fr_1fr] gap-y-0 gap-x-[70px] max-[1023px]:gap-x-[45px] max-[767px]:grid-cols-1 max-[767px]:gap-0">
             {s.deliverables.slice(0, 4).map(([t, d], i) => (
-              <article className="deliverable" key={t}>
-                <span>0{i + 1}</span>
+              <article
+                className="grid grid-cols-[32px_1fr] gap-[22px] px-0 pt-[35px] pb-[42px] border-t border-t-[#e2e8f0] max-[767px]:grid-cols-[24px_1fr] max-[767px]:gap-[15px] max-[767px]:py-7"
+                key={t}
+              >
+                <span className="text-brand text-[12px] pt-[7px]">0{i + 1}</span>
                 <div>
-                  <h3>{t}</h3>
-                  <p>{d}</p>
+                  <h3 className="text-[30px] font-normal leading-[1.2] max-[1023px]:text-[27px] max-[767px]:text-[29px]">
+                    {t}
+                  </h3>
+                  <p className="text-[#000000] leading-[1.85] mt-[17px] text-[16px] max-[767px]:text-[15px] max-[767px]:leading-[1.8] max-[767px]:mt-3.5">
+                    {d}
+                  </p>
                 </div>
               </article>
             ))}
@@ -71,18 +91,30 @@ export default async function Campaign({
         </div>
       </section>
       <ServiceEvidence service={s} campaign />
-      <section className="section campaign-form-section" id="start">
-        <div className="wrap campaign-form-layout">
+      <section
+        className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] bg-[#0f1a34] text-white"
+        id="start"
+      >
+        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[1fr_1fr] gap-[95px] max-[1023px]:gap-[50px] max-[767px]:grid-cols-1 max-[767px]:gap-[35px]">
           <div>
-            <p className="eyebrow">Your first step</p>
-            <h2>{c.cta}.</h2>
-            <p>{s.description}</p>
-            <ul className="outcomes">
+            <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-white">
+              Your first step
+            </p>
+            <h2 className="my-[25px] mx-0 max-[767px]:text-[38px]">{c.cta}.</h2>
+            <p className="text-[17px] text-white max-[767px]:text-[16px]">
+              {s.description}
+            </p>
+            <ul className="my-8 mx-0 max-[767px]:my-[25px]">
               {s.outcomes.map((o) => (
-                <li key={o}>{o}</li>
+                <li
+                  key={o}
+                  className="relative pt-[18px] pr-0 pb-[18px] pl-[25px] border-t border-t-white/24 text-[16px] text-white before:content-['—'] before:absolute before:left-0 before:text-white max-[767px]:text-[15px] max-[767px]:py-[15px]"
+                >
+                  {o}
+                </li>
               ))}
             </ul>
-            <p>
+            <p className="text-[17px] text-white max-[767px]:text-[16px]">
               {engagements[s.id as keyof typeof engagements].start}{" "}
               {engagements[s.id as keyof typeof engagements].output}
             </p>
@@ -93,10 +125,14 @@ export default async function Campaign({
           />
         </div>
       </section>
-      <section className="section wrap split-section">
+      <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] grid grid-cols-[1fr_1fr] gap-[100px] max-[1023px]:gap-[50px] max-[767px]:grid-cols-1 max-[767px]:gap-[30px]">
         <div>
-          <p className="eyebrow">Before we start</p>
-          <h2>Useful answers.</h2>
+          <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand">
+            Before we start
+          </p>
+          <h2 className="mt-6 max-[767px]:text-[37px] max-[767px]:mt-5">
+            Useful answers.
+          </h2>
         </div>
         <FAQs items={s.faqs} />
       </section>

@@ -5,9 +5,11 @@ export const metadata = {
 };
 export default function Products() {
   return (
-    <main id="main" className="products-page">
-      <section className="products-coming-soon wrap">
-        <h1>Coming soon</h1>
+    <main id="main" className="bg-paper">
+      <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto min-h-[calc(100svh_-_82px)] flex items-center">
+        <h1 className="text-brand text-[clamp(72px,13vw,200px)] leading-[0.95] tracking-[-0.065em]">
+          Coming soon
+        </h1>
       </section>
     </main>
   );
