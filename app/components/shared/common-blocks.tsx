@@ -19,20 +19,20 @@ export function CTA({
   label?: string;
 }) {
   return (
-    <section className="reveal flex items-center justify-between gap-[50px] bg-paper py-[55px] px-[60px] my-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:p-10 max-[767px]:block max-[767px]:py-[30px] max-[767px]:px-[25px] max-[767px]:my-[55px]">
-      <div>
-        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-paper max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+    <section className="reveal flex items-center justify-between gap-[50px] bg-[#0022ff] text-white rounded-md py-[55px] px-[60px] my-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:p-10 max-[767px]:flex-col max-[767px]:items-start max-[767px]:py-[35px] max-[767px]:px-[25px] max-[767px]:my-[55px]">
+      <div className="max-w-[800px]">
+        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-white/80 max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
           Let’s make it happen
         </p>
-        <h2 className="text-[46px] max-w-[800px] my-5 mx-0 max-[1200px]:text-[39px] max-[767px]:text-[34px] max-[767px]:my-[18px] max-[767px]:mx-0">
+        <h2 className="text-[46px] text-white max-w-[800px] my-5 mx-0 max-[1200px]:text-[39px] max-[767px]:text-[34px] max-[767px]:my-[18px] max-[767px]:mx-0">
           {title}
         </h2>
-        <p className="text-[16px] text-paper max-w-[750px] max-[767px]:text-[15px]">
+        <p className="text-[16px] text-white/90 max-w-[750px] max-[767px]:text-[15px]">
           {text}
         </p>
       </div>
       <Link
-        className="inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-transparent rounded-full bg-brand text-white hover:brightness-90 shrink-0 max-[767px]:text-[13px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5 max-[767px]:mt-[27px]"
+        className="inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-transparent rounded-full bg-white text-[#0022ff] hover:bg-[#f8f9fa] shrink-0 max-[767px]:text-[13px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5 max-[767px]:mt-[27px]"
         href={enquiry(service)}
       >
         {label}

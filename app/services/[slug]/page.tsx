@@ -63,9 +63,6 @@ export default async function Service({
         </nav>
         <div className="detail-hero-grid grid grid-cols-[1fr] gap-12 max-[767px]:gap-8">
           <div className="detail-copy grid grid-cols-[1.3fr_1fr] gap-x-[85px] max-[767px]:block">
-            <p className="eyebrow col-span-full mb-[26px] text-brand max-[1100px]:text-[10px] max-[767px]:mb-5">
-              {s.num} / {s.name}
-            </p>
             <h1 className="text-[clamp(46px,5.5vw,86px)] tracking-[-0.055em] max-[1100px]:text-[43px] max-[1100px]:leading-[1.11] max-[370px]:text-[40px]">
               {s.headline}
             </h1>

@@ -37,9 +37,6 @@ export default async function MarketingDetail({
           <span>/</span>
           <span>{m.name}</span>
         </nav>
-        <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
-          {m.name}
-        </p>
         <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[46px] max-[767px]:leading-[1.13] max-[767px]:mt-[22px]">
           {m.headline}
         </h1>
