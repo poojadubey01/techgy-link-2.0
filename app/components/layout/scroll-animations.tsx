@@ -88,20 +88,23 @@ export function EssenceMotion() {
           const chapters = gsap.utils.toArray<Element>("[data-evolution-step]");
           if (strength.length && chapters.length) {
             const show = (index: number) => {
-              strength.forEach((el, i) =>
+              const bg =
+                index === 2 ? "#ffffff" : index === 1 ? "#4865ec" : "#112ebe";
+              const fg = index === 2 ? "#173fff" : "#ffffff";
+              strength.forEach((el, i) => {
+                const group = Math.floor(i / 3);
+                const revealed = group <= index;
                 gsap.to(el, {
-                  backgroundColor:
-                    index === 2
-                      ? "#ffffff"
-                      : index === 1
-                        ? "#4865ec"
-                        : "#112ebe",
-                  color: index === 2 ? "#173fff" : "#ffffff",
-                  opacity: index === 0 && ![1, 2, 3, 4].includes(i) ? 0.42 : 1,
+                  backgroundColor: revealed ? bg : "#112ebe",
+                  color: revealed ? fg : "#ffffff",
+                  opacity: revealed ? 1 : 0,
+                  y: revealed ? 0 : 16,
                   duration: 0.6,
+                  delay: group === index ? (i % 3) * 0.08 : 0,
+                  ease: "power2.out",
                   overwrite: true,
-                }),
-              );
+                });
+              });
               gsap.to(".evolution-link", {
                 x: index === 2 ? 10 : 0,
                 duration: 0.7,
@@ -113,6 +116,7 @@ export function EssenceMotion() {
                 ease: "power3.out",
               });
             };
+            gsap.set(strength, { opacity: 0, y: 16 });
             show(0);
             chapters.forEach((el, i) =>
               ScrollTrigger.create({
