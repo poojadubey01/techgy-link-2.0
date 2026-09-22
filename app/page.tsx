@@ -1,3 +1,5 @@
+import { Testimonials } from "@/app/components/home/testimonials";
+import { GrowthPartners } from "@/app/components/home/growth-partners";
 import { PortfolioBreadth } from "@/app/components/shared/portfolio-highlights";
 import Link from "@/app/components/ui/internal-link";
 import { ArrowUpRight } from "@/app/components/ui/icons";
@@ -34,6 +36,7 @@ export default function Home() {
     <main id="main" className="bg-[#f8f9fa]">
       <HomeHero />
       <CompanyEvolution />
+      <GrowthPartners />
       <CollectiveCapabilities />
       <ConnectedProof />
       <PortfolioBreadth />
@@ -81,6 +84,7 @@ export default function Home() {
         </div>
       </section>
       <PartnerPromise />
+      <Testimonials />
     </main>
   );
 }

@@ -64,7 +64,7 @@ export function EssenceMotion() {
           );
         gsap.utils
           .toArray<Element>(
-            ".capability-column,.growth-start,.partner-promises article,.team-discipline,.service-contribution-link,.case-decision,.portfolio-card",
+            ".capability-column,.growth-start,.partner-promises article,.team-discipline,.service-contribution-link,.case-decision",
           )
           .forEach((el) =>
             gsap.fromTo(

@@ -7,12 +7,12 @@ export const services = serviceData.map((s, i) => ({
   ...s,
   image: [
     "/brand/logo.png",
-    "/work/glc-web.webp",
-    "/work/eco-world.webp",
+    "/work/greenland-capital.png",
+    "/work/eco-world.jpg",
     "/work/glc-admin.webp",
     "/work/glc-mobile.webp",
-    "/work/quickbooks.webp",
-    "/work/eco-world.webp",
+    "/work/quickbooks.png",
+    "/work/eco-world.jpg",
     "/architecture/vasavi-atlantis/Aerial_Night.webp",
     "/work/glc-ccs.webp",
   ][i],
@@ -32,8 +32,8 @@ export const solutions = solutionData.map((s, i) => ({
   ...s,
   image: [
     "/architecture/dates-county/Aerial_view_-Dates_County.webp",
-    "/work/quickbooks.webp",
-    "/work/glc-web.webp",
+    "/work/quickbooks.png",
+    "/work/greenland-capital.png",
   ][i],
 }));
 export { articles, architecture };
@@ -41,8 +41,9 @@ export const digitalProjects = oldProjects.map((p) => ({
   ...p,
   kind: "Digital",
 }));
+const excludedWorkSlugs = new Set(["spur-fit", "nex2u"]);
 export const work = [
-  ...digitalProjects,
+  ...digitalProjects.filter((p) => !excludedWorkSlugs.has(p.slug)),
   ...architecture.map((p) => ({
     slug: p.slug,
     name: p.title,
@@ -52,7 +53,7 @@ export const work = [
     description:
       "Architectural visualisation exploring the project through composition, light, materials and its surrounding landscape.",
     scope: p.tags,
-  })),
+  })).filter((p) => !excludedWorkSlugs.has(p.slug)),
 ];
 export const portfolioWork = work.filter((p) => !p.slug.startsWith("glc-"));
 export const oldServiceRoutes = {

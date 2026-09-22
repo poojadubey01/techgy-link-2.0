@@ -1,0 +1,56 @@
+[
+    {
+        "name":  "Sudeepth Reddy",
+        "company":  "Valyouu | Agency",
+        "quote":  "TechGy Link brought a structured and practical approach to our requirements. Their team understood our objectives quickly, communicated clearly, and focused on building solutions that align with real business needs.",
+        "logo":  "/testimonials/Valyouu.svg"
+    },
+    {
+        "name":  "Anudeep Reddy",
+        "company":  "Hirize | Architecture \u0026 Visualization",
+        "quote":  "Working with TechGy Link has been a smooth and professional experience. Their ability to understand requirements and translate them into practical digital solutions made the overall process efficient and well-structured.",
+        "logo":  "/testimonials/Hirize.webp"
+    },
+    {
+        "name":  "V Venkata Kiran",
+        "company":  "Reliance Builders | Architecture \u0026 Visualization",
+        "quote":  "TechGy Link demonstrated a strong understanding of our business requirements and approached the solution with clarity and professionalism. Their responsiveness and attention to detail gave us confidence throughout the engagement.",
+        "logo":  "/testimonials/Reliance%20builders.webp"
+    },
+    {
+        "name":  "Vivek Chadda",
+        "company":  "Vijetha Group / IJM | Architecture \u0026 Visualization",
+        "quote":  "What stood out about TechGy Link was their consultative approach. Rather than simply proposing technology, they focused on understanding our workflow and identifying solutions that could genuinely improve efficiency and visibility.",
+        "logo":  "/testimonials/ijmindia.png"
+    },
+    {
+        "name":  "Satish Gangam",
+        "company":  "QuickBooks | Finance",
+        "quote":  "TechGy Link\u0027s team was professional, responsive, and focused on understanding the business requirement before recommending a solution. Their structured approach and clear communication made the engagement easy to work through.",
+        "logo":  "/testimonials/Quick%20books.svg"
+    },
+    {
+        "name":  "Sim Singh",
+        "company":  "Lending Bridge | Finance",
+        "quote":  "Our experience with TechGy Link was defined by clear communication and a solution-oriented approach. The team took the time to understand our requirements and provided practical recommendations aligned with our business objectives.",
+        "logo":  "/testimonials/Lending%20Bridge.png"
+    },
+    {
+        "name":  "E Prasanna",
+        "company":  "Eco World | Real Estate",
+        "quote":  "TechGy Link understood the importance of having a streamlined digital process across customer interactions and business operations. Their team brought a professional approach and practical ideas that could help improve visibility, efficiency, and overall execution.",
+        "logo":  "/testimonials/Datescounty.svg"
+    },
+    {
+        "name":  "Bal Raj",
+        "company":  "Lending Bridge | Finance",
+        "quote":  "TechGy Link combines technical understanding with a strong business perspective. Their approach was collaborative, transparent, and focused on creating solutions that can support both operational efficiency and future growth.",
+        "logo":  "/testimonials/Lending%20Bridge.png"
+    },
+    {
+        "name":  "Vinay Ram",
+        "company":  "Green Land Capital \u0026 Veda Bharat | Real Estate",
+        "quote":  "TechGy Link approached our requirements with a clear understanding of both technology and business processes. Their ability to identify gaps and recommend scalable solutions made the discussions valuable and productive.",
+        "logo":  "/testimonials/Veda%20bharat.png"
+    }
+]

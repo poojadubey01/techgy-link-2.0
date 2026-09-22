@@ -1,7 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { portfolioWork as work } from "@/data/catalogue";
 import { StoryCard } from "@/app/components/shared/portfolio-highlights";
+
 export function FAQs({ items }: { items: string[][] }) {
   return (
     <div>
@@ -28,8 +30,64 @@ export function FAQs({ items }: { items: string[][] }) {
     </div>
   );
 }
+
 export function WorkExplorer() {
-  const [filter, setFilter] = useState("All");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const filterParam = searchParams.get("filter") || searchParams.get("tab");
+  const initialFilter =
+    filterParam && ["Digital", "Visualisation"].includes(filterParam)
+      ? filterParam
+      : "All";
+
+  const [filter, setFilter] = useState(initialFilter);
+
+  useEffect(() => {
+    if (filterParam && ["Digital", "Visualisation", "All"].includes(filterParam)) {
+      setFilter(filterParam);
+    } else if (!filterParam) {
+      setFilter("All");
+    }
+  }, [filterParam]);
+
+  useEffect(() => {
+    const saved = sessionStorage.getItem("work_scroll_pos");
+    if (saved) {
+      const top = parseInt(saved, 10);
+      if (!isNaN(top) && top > 0) {
+        requestAnimationFrame(() => {
+          window.scrollTo({ top, behavior: "instant" });
+        });
+        const t1 = setTimeout(() => {
+          window.scrollTo({ top, behavior: "instant" });
+        }, 50);
+        const t2 = setTimeout(() => {
+          window.scrollTo({ top, behavior: "instant" });
+        }, 150);
+        return () => {
+          clearTimeout(t1);
+          clearTimeout(t2);
+        };
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        sessionStorage.setItem("work_scroll_pos", window.scrollY.toString());
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleFilterChange = (t: string) => {
+    setFilter(t);
+    const newUrl = t === "All" ? "/work" : `/work?filter=${t}`;
+    router.replace(newUrl, { scroll: false });
+  };
+
   return (
     <div>
       <div
@@ -42,7 +100,7 @@ export function WorkExplorer() {
             key={t}
             className="flex items-center gap-[22px] border border-rule rounded-full py-[13px] px-[23px] text-[14px] aria-[pressed=true]:bg-ink aria-[pressed=true]:text-white aria-[pressed=true]:border-ink max-[767px]:gap-[13px] max-[767px]:py-2.5 max-[767px]:px-3.5 max-[767px]:text-[12px]"
             aria-pressed={filter === t}
-            onClick={() => setFilter(t)}
+            onClick={() => handleFilterChange(t)}
           >
             {t}
             <span className="text-[11px] opacity-50">
@@ -60,7 +118,7 @@ export function WorkExplorer() {
         {work
           .filter((p) => filter === "All" || p.kind === filter)
           .map((p) => (
-            <StoryCard key={p.slug} project={p} />
+            <StoryCard key={p.slug} project={p} from={filter} />
           ))}
       </div>
     </div>

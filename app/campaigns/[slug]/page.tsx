@@ -41,7 +41,7 @@ export default async function Campaign({
             <p className="text-[#000000] text-[17px] mt-[25px]">{s.tagline}</p>
             <div className="flex flex-wrap items-center gap-6 mt-8 content-start">
               <a
-                className="inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-transparent rounded-full bg-brand text-white hover:brightness-90 max-[767px]:text-[13px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5"
+                className="cta-button inline-flex items-center justify-center font-medium border border-transparent rounded-full bg-brand text-white hover:brightness-90"
                 href="#start"
               >
                 {c.cta}

@@ -1,6 +1,7 @@
 import Link from "@/app/components/ui/internal-link";
 import { ArrowUpRight } from "@/app/components/ui/icons";
 import { storyFor, portfolioStories } from "@/data/portfolio-stories";
+import { StoryCard } from "@/app/components/shared/story-card";
 
 type Story = (typeof portfolioStories)[number];
 type ProjectLike = {
@@ -28,28 +29,34 @@ export function CaseArtwork({
   compact = false,
   priority = false,
   variant = "default",
+  fitImage = false,
 }: {
   story: Story;
   compact?: boolean;
   priority?: boolean;
   variant?: "default" | "portfolio" | "proof";
+  fitImage?: boolean;
 }) {
+  const naturalSize = fitImage || p.image.endsWith(".svg");
   const toneBg = p.tone === "spur" ? "bg-navy" : "bg-[#e2e8f0]";
   return (
     <div
-      className={`relative overflow-hidden ${toneBg} ${caseArtVariants[variant]}`}
+      className={`relative overflow-hidden ${toneBg} ${naturalSize ? "h-auto" : caseArtVariants[variant]}`}
     >
       <img
+        key={p.image + (naturalSize ? "-natural" : "-framed")}
+        style={naturalSize ? { display: "block", position: "static", width: "100%", height: "auto", maxWidth: "100%", transform: "none", translate: "none", scale: "none" } : undefined}
+        data-preserve-image-bounds={naturalSize ? "" : undefined}
         src={p.image}
         alt={`${p.name} — ${p.art === "phone" ? "supplied mobile presentation" : "project presentation"}`}
-        width={p.art === "phone" ? 918 : 1600}
-        height={p.art === "phone" ? 1800 : 1000}
+        width={p.image.endsWith(".svg") ? 761 : p.art === "phone" ? 918 : 1600}
+        height={p.image.endsWith(".svg") ? 427 : p.art === "phone" ? 1800 : 1000}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : undefined}
         className={
-          p.art === "phone"
+          naturalSize ? "block w-full h-auto object-contain" : p.art === "phone"
             ? casePhoneImgVariants[variant]
-            : "h-full w-full object-contain"
+            : "h-full w-full object-cover"
         }
       />
       {!compact && (
@@ -61,59 +68,7 @@ export function CaseArtwork({
     </div>
   );
 }
-export function StoryCard({
-  project: p,
-  showMetadata = true,
-  compact = false,
-}: {
-  project: ProjectLike;
-  showMetadata?: boolean;
-  compact?: boolean;
-}) {
-  const story = storyFor(p.slug);
-  return (
-    <Link className="work-card portfolio-card" href={"/work/" + p.slug}>
-      <div className={`relative overflow-hidden bg-[#e2e8f0] ${compact ? "aspect-[1.7] max-[767px]:aspect-[1.5]" : "aspect-[1.25] max-[767px]:aspect-[1.15]"}`}>
-        {story ? (
-          <CaseArtwork story={story} compact variant="portfolio" />
-        ) : (
-          <img
-            src={p.image}
-            alt={p.name + " project presentation"}
-            width="1600"
-            height="1000"
-            loading="lazy"
-            className="w-full h-full object-contain"
-          />
-        )}
-        <span className="absolute bottom-5 right-5 rounded-full bg-white w-[46px] h-[46px] grid place-items-center">
-          <ArrowUpRight size={22} />
-        </span>
-      </div>
-      <div className="flex items-baseline justify-between gap-4 mt-[22px]">
-        <h3 className="min-w-0 text-[29px] leading-tight tracking-[-0.04em] max-[767px]:text-[24px]">
-          {p.name}
-        </h3>
-        <p className="min-w-0 max-w-[45%] shrink-0 text-[13px] leading-[1.6] text-[#000000]/70 text-right m-0">
-          {p.category}
-        </p>
-      </div>
-      {story && (
-        <>
-          <p className="text-[17px] leading-normal mt-4 tracking-[-0.02em] text-[#000000] truncate max-[767px]:text-[15px] max-[767px]:mt-2.5">
-            {story.headline}
-          </p>
-          {showMetadata && (
-            <div className="flex justify-between gap-[15px] border-t border-t-rule mt-5 pt-[15px] text-[12px] text-[#000000]">
-              <span>{story.market}</span>
-              <span>{story.status}</span>
-            </div>
-          )}
-        </>
-      )}
-    </Link>
-  );
-}
+export { StoryCard } from "@/app/components/shared/story-card";
 export function PortfolioBreadth() {
   return (
     <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto py-[85px] border-b border-b-rule max-[1023px]:py-[70px] max-[767px]:py-[55px]">
@@ -141,7 +96,7 @@ export function PortfolioBreadth() {
       </div>
       <Link
         href="/work"
-        className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-8 max-[767px]:text-[14px]"
+        className="cta-link inline-flex items-center font-medium text-brand mt-8"
       >
         Explore the client stories <ArrowUpRight size={20} />
       </Link>

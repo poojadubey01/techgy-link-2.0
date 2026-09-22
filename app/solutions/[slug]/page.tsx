@@ -35,7 +35,7 @@ export default async function Solution({
   const selected = s.services.map((i) => services[i]);
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto">
+      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[75px] pb-[60px] max-[767px]:pt-[50px] max-[767px]:pb-[40px]">
         <nav
           className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
           aria-label="Breadcrumb"
@@ -46,27 +46,29 @@ export default async function Solution({
           <span>/</span>
           <span>{s.title}</span>
         </nav>
-        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]">
+        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
           {s.kicker}
         </p>
-        <h1>
+        <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[48px] max-[767px]:leading-[1.12] max-[767px]:mt-[22px]">
           {s.short}
           <br />
           <span className="text-brand">Connect what comes next.</span>
         </h1>
-        <p>{s.description}</p>
-        <div className="flex flex-wrap items-center gap-6 mt-8">
+        <p className="text-[20px] leading-[1.7] text-[#000000] max-w-[770px] mt-[30px] max-[767px]:text-[17px] max-[767px]:leading-[1.8] max-[767px]:mt-[25px]">
+          {s.description}
+        </p>
+        <div className="flex flex-wrap items-center gap-6 mt-[35px] max-[767px]:mt-[25px]">
           <Link
             href={enquiry(s.title)}
-            className="inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-transparent rounded-full bg-brand text-white hover:brightness-90 max-[767px]:text-[13px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5 max-[767px]:max-w-full"
+            className="cta-button inline-flex items-center justify-center font-medium border border-transparent rounded-full bg-brand text-white hover:brightness-90 max-[767px]:max-w-full"
           >
             Discuss this solution <Arrow />
           </Link>
         </div>
       </section>
-      <figure className="w-[min(1424px,calc(100%_-_112px))] mx-auto mb-[60px] bg-[#f8f9fa] rounded-[5px] overflow-hidden max-[767px]:mb-[35px]">
+      <figure className="w-[min(1424px,calc(100%_-_112px))] mx-auto mb-[60px] bg-[#e2e8f0] rounded-md overflow-hidden max-[767px]:mb-[35px]">
         <img
-          className="w-full h-auto object-contain"
+          className="w-full h-auto max-h-[820px] object-cover rounded-md max-[767px]:max-h-none"
           src={s.image}
           alt={
             s.id === "property-launch-sales"
@@ -77,6 +79,7 @@ export default async function Solution({
           }
           width="1600"
           height="900"
+          fetchPriority="high"
         />
       </figure>
       <SolutionCollaboration id={s.id} />

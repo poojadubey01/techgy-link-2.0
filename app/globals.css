@@ -155,3 +155,52 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+@keyframes growth-partners-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.growth-partners-track { animation: growth-partners-scroll 45s linear infinite; }
+.growth-partners-window:hover .growth-partners-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .growth-partners-track { animation: none; }
+  .growth-partners-window { overflow-x: auto; }
+  .growth-partners-track img[aria-hidden="true"] { display: none; }
+}
+@keyframes ambition-pan {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.growth-partners-window {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+@keyframes ambition-blink {
+  0%, 40%, 100% { color: #000000; }
+  15%, 25% { color: #0022ff; }
+}
+/* Shared sizing for primary, secondary, and text CTAs. */
+.cta-button,
+.cta-link {
+  gap: 0.5rem;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.cta-button {
+  min-height: 46px;
+  padding: 12px 20px;
+  justify-content: center;
+}
+.cta-button > svg,
+.cta-link > svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+@media (max-width: 767px) {
+  .cta-button {
+    min-height: 42px;
+    padding: 10px 16px;
+  }
+}

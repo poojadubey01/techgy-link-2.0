@@ -36,7 +36,7 @@ export default function Campaigns() {
             <h3 className="text-[33px] my-[35px] mx-0 max-[767px]:text-[32px] max-[767px]:my-[25px] text-ink group-hover:text-white transition-colors duration-300">
               {c.headline}
             </h3>
-            <span className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand group-hover:text-white mt-auto max-[767px]:text-[14px] transition-colors duration-300">
+            <span className="cta-link inline-flex items-center font-medium text-brand group-hover:text-white mt-auto transition-colors duration-300">
               {c.cta}
               <Arrow />
             </span>

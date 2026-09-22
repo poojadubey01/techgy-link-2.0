@@ -18,7 +18,7 @@ const componentProjects = [
     slug: "glc-user-website",
     name: "Greenland Capital website",
     category: "PropTech / Web",
-    image: "/work/glc-web.webp",
+    image: "/work/greenland-capital.png",
     description:
       "A property-discovery experience connecting farmland information, customer journeys and enquiry routes.",
     scope: [
@@ -60,7 +60,7 @@ const componentProjects = [
     slug: "eco-world",
     name: "Eco World",
     category: "Property / Digital experience",
-    image: "/work/eco-world.webp",
+    image: "/work/eco-world.jpg",
     description:
       "A property website connecting the project story, visual presentation and customer enquiry journey.",
     scope: [

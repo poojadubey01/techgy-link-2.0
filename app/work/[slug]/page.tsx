@@ -18,16 +18,20 @@ export async function generateMetadata({
 }
 export default async function Project({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ from?: string }>;
 }) {
   const { slug } = await params;
+  const sp = searchParams ? await searchParams : {};
+  const from = sp.from;
   if (slug === "architectural-portfolio")
     permanentRedirect("/services/architectural-visualisation");
   const p = work.find((p) => p.slug === slug);
   if (!p) notFound();
   const story = storyFor(slug);
-  if (story) return <CaseStudy story={story} />;
+  if (story) return <CaseStudy story={story} from={from} />;
   const gallery = architecture.find((p) => p.slug === slug);
   const relatedServices = services.filter(
     (s) =>
@@ -35,26 +39,40 @@ export default async function Project({
   );
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto">
+      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[75px] pb-[60px] max-[767px]:pt-[50px] max-[767px]:pb-[40px]">
         <nav
           className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
           aria-label="Breadcrumb"
         >
-          <Link href="/work" className="hover:text-brand">
+          <Link
+            href={
+              from === "Visualisation"
+                ? "/work?filter=Visualisation"
+                : from === "Digital"
+                  ? "/work?filter=Digital"
+                  : "/work"
+            }
+            scroll={false}
+            className="hover:text-brand"
+          >
             Our work
           </Link>
           <span>/</span>
           <span>{p.name}</span>
         </nav>
-        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]">
+        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
           {p.category}
         </p>
-        <h1>{p.name}</h1>
-        <p>{p.description}</p>
+        <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[48px] max-[767px]:leading-[1.12] max-[767px]:mt-[22px]">
+          {p.name}
+        </h1>
+        <p className="text-[20px] leading-[1.7] text-[#000000] max-w-[770px] mt-[30px] max-[767px]:text-[17px] max-[767px]:leading-[1.8] max-[767px]:mt-[25px]">
+          {p.description}
+        </p>
       </section>
-      <figure className="w-[min(1424px,calc(100%_-_112px))] mx-auto bg-[#f8f9fa]">
+      <figure className="w-[min(1424px,calc(100%_-_112px))] mx-auto mb-[60px] bg-[#e2e8f0] rounded-md overflow-hidden max-[767px]:mb-[35px]">
         <img
-          className="w-full h-auto max-h-[760px] object-contain rounded-md"
+          className="w-full h-auto object-contain rounded-md"
           src={p.image}
           alt={p.name + " project presentation"}
           width="1600"
@@ -98,7 +116,7 @@ export default async function Project({
               </p>
               <Link
                 href="/work/greenland-capital"
-                className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand text-[14px]"
+                className="cta-link inline-flex items-center font-medium text-brand"
               >
                 The Greenland Capital story <Arrow />
               </Link>
@@ -132,7 +150,7 @@ export default async function Project({
                 <p key={s.id} className="text-[14px] text-[#000000] mb-3">
                   <Link
                     href={"/services/" + s.id}
-                    className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand"
+                    className="cta-link inline-flex items-center font-medium text-brand"
                   >
                     {s.name}
                     <Arrow />

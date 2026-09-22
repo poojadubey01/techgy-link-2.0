@@ -37,7 +37,7 @@ export default function Insights() {
             </h3>
             <p className="text-[#000000] text-[16px]">{a.summary}</p>
             <Link
-              className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-[30px]"
+              className="cta-link inline-flex items-center font-medium text-brand mt-[30px]"
               href={"/insights/" + a.id}
             >
               Read the perspective <Arrow />

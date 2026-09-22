@@ -35,7 +35,7 @@ export function ConnectedProof() {
             </p>
             <Link
               href="/work/greenland-capital"
-              className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-white mt-[27px] max-[767px]:mt-5"
+              className="cta-link inline-flex items-center font-medium text-white mt-[27px] max-[767px]:mt-5"
             >
               Read the connected project story <ArrowUpRight size={18} />
             </Link>
@@ -48,7 +48,7 @@ export function ConnectedProof() {
           >
             <div className="relative overflow-hidden bg-brand rounded">
               <img
-                src="/work/glc-web.webp"
+                src="/work/greenland-capital.png"
                 alt="Greenland Capital website project presentation"
                 width="1600"
                 height="900"
@@ -110,7 +110,7 @@ export function ConnectedProof() {
           </Link>
           <Link
             href="/work"
-            className="inline-flex items-center gap-6 max-[767px]:gap-2.5 px-5 py-3 max-[767px]:px-[14px] max-[767px]:py-[9px] max-[370px]:px-[11px] max-[370px]:py-2 text-sm max-[767px]:text-[12px] rounded-full bg-white text-brand border border-white col-start-1 row-start-2 self-end justify-self-start mb-[25px] max-[767px]:mb-0 max-[767px]:mt-1.5"
+            className="cta-button inline-flex items-center rounded-full bg-white text-brand border border-white col-start-1 row-start-2 self-end justify-self-start mb-[25px] max-[767px]:mb-0 max-[767px]:mt-1.5"
           >
             Explore more of our work <ArrowUpRight size={18} className="max-[767px]:w-[15px]" />
           </Link>

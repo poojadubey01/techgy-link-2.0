@@ -34,12 +34,12 @@ export default function Solutions() {
             >
               <div
                 className={
-                  "overflow-hidden bg-[#e2e8f0] flex items-center rounded-[5px]" +
+                  "overflow-hidden bg-[#e2e8f0] aspect-[1.45] w-full rounded-md relative flex items-center justify-center max-[767px]:aspect-[1.35]" +
                   (i % 2 === 1 ? " md:order-2" : "")
                 }
               >
                 <img
-                  className="w-full h-auto object-contain"
+                  className="w-full h-full object-cover rounded-md"
                   src={s.image}
                   alt={s.short + " — related project presentation"}
                   width="1600"
@@ -57,7 +57,7 @@ export default function Solutions() {
                 <p className="text-[#000000] text-[16px] max-[767px]:text-[15px]">
                   {s.description}
                 </p>
-                <span className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-8 max-[767px]:mt-[23px]">
+                <span className="cta-link inline-flex items-center font-medium text-brand mt-8 max-[767px]:mt-[23px]">
                   Explore the solution <Arrow />
                 </span>
               </div>
