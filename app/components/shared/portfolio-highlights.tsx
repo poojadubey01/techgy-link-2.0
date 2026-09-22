@@ -61,11 +61,19 @@ export function CaseArtwork({
     </div>
   );
 }
-export function StoryCard({ project: p }: { project: ProjectLike }) {
+export function StoryCard({
+  project: p,
+  showMetadata = true,
+  compact = false,
+}: {
+  project: ProjectLike;
+  showMetadata?: boolean;
+  compact?: boolean;
+}) {
   const story = storyFor(p.slug);
   return (
     <Link className="work-card portfolio-card" href={"/work/" + p.slug}>
-      <div className="relative overflow-hidden bg-[#e2e8f0] aspect-[1.25] max-[767px]:aspect-[1.15]">
+      <div className={`relative overflow-hidden bg-[#e2e8f0] ${compact ? "aspect-[1.7] max-[767px]:aspect-[1.5]" : "aspect-[1.25] max-[767px]:aspect-[1.15]"}`}>
         {story ? (
           <CaseArtwork story={story} compact variant="portfolio" />
         ) : (
@@ -83,10 +91,10 @@ export function StoryCard({ project: p }: { project: ProjectLike }) {
         </span>
       </div>
       <div className="flex items-baseline justify-between gap-4 mt-[22px]">
-        <h3 className="text-[29px] leading-tight tracking-[-0.04em] max-[767px]:text-[24px]">
+        <h3 className="min-w-0 text-[29px] leading-tight tracking-[-0.04em] max-[767px]:text-[24px]">
           {p.name}
         </h3>
-        <p className="text-[13px] text-[#000000]/70 shrink-0 text-right m-0">
+        <p className="min-w-0 max-w-[45%] shrink-0 text-[13px] leading-[1.6] text-[#000000]/70 text-right m-0">
           {p.category}
         </p>
       </div>
@@ -95,10 +103,12 @@ export function StoryCard({ project: p }: { project: ProjectLike }) {
           <p className="text-[17px] leading-normal mt-4 tracking-[-0.02em] text-[#000000] truncate max-[767px]:text-[15px] max-[767px]:mt-2.5">
             {story.headline}
           </p>
-          <div className="flex justify-between gap-[15px] border-t border-t-rule mt-5 pt-[15px] text-[12px] text-[#000000]">
-            <span>{story.market}</span>
-            <span>{story.status}</span>
-          </div>
+          {showMetadata && (
+            <div className="flex justify-between gap-[15px] border-t border-t-rule mt-5 pt-[15px] text-[12px] text-[#000000]">
+              <span>{story.market}</span>
+              <span>{story.status}</span>
+            </div>
+          )}
         </>
       )}
     </Link>
@@ -106,13 +116,13 @@ export function StoryCard({ project: p }: { project: ProjectLike }) {
 }
 export function PortfolioBreadth() {
   return (
-    <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto py-[120px] border-b border-b-rule max-[1023px]:py-[90px] max-[767px]:py-[70px]">
-      <div className="grid grid-cols-[1.4fr_1fr] gap-[10%] items-end mb-[42px] max-[1023px]:gap-10 max-[767px]:block max-[767px]:mb-8">
+    <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto py-[85px] border-b border-b-rule max-[1023px]:py-[70px] max-[767px]:py-[55px]">
+      <div className="grid grid-cols-[1.4fr_1fr] gap-[10%] items-end mb-8 max-[1023px]:gap-10 max-[767px]:block max-[767px]:mb-6">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
             The work behind our perspective
           </p>
-          <h2 className="text-[clamp(36px,4.6vw,65px)] leading-[1.1] tracking-tighter mt-[23px] max-[767px]:text-[39px]">
+          <h2 className="text-[clamp(34px,4vw,55px)] leading-[1.1] tracking-tighter mt-[23px] max-[767px]:text-[34px]">
             Every business has
             <br />
             its own <span className="text-brand">moving parts.</span>
@@ -124,14 +134,14 @@ export function PortfolioBreadth() {
           expertise it needs.
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-[30px] max-[1023px]:gap-[22px] max-[767px]:grid-cols-1 max-[767px]:gap-[38px]">
-        {["lending-bridge", "planet-green-crm", "spur-fit"].map((slug) => (
-          <StoryCard key={slug} project={storyFor(slug)!} />
+      <div className="grid grid-cols-2 gap-[30px] max-[1023px]:gap-[22px] max-[767px]:grid-cols-1 max-[767px]:gap-[38px]">
+        {["lending-bridge", "planet-green-crm"].map((slug) => (
+          <StoryCard key={slug} project={storyFor(slug)!} showMetadata={false} compact />
         ))}
       </div>
       <Link
         href="/work"
-        className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-10 max-[767px]:text-[14px]"
+        className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-8 max-[767px]:text-[14px]"
       >
         Explore the client stories <ArrowUpRight size={20} />
       </Link>

@@ -47,17 +47,25 @@ export function PartnerPromise({ compact = false }) {
           ].map(([t, d], i) => (
             <article
               key={t}
-              className="flex gap-[25px] py-7 border-t border-t-rule max-[767px]:gap-[18px] max-[767px]:py-[26px]"
+              className="border-t border-t-rule last:border-b last:border-b-rule"
             >
-              <span className="text-[13px] text-brand pt-1.5">0{i + 1}</span>
-              <div>
-                <h3 className="text-[29px] leading-[1.2] mb-[18px] max-[767px]:text-[28px]">
-                  {t}
-                </h3>
-                <p className="text-base leading-[1.8] text-[#000000] max-[767px]:text-[16px]">
+              <details name="partner-promises" className="group">
+                <summary className="flex items-start gap-[25px] py-7 cursor-pointer list-none [&::-webkit-details-marker]:hidden max-[767px]:gap-[18px] max-[767px]:py-[26px]">
+                  <span className="text-[13px] text-brand pt-1.5 shrink-0">0{i + 1}</span>
+                  <span className="flex-1 font-display text-[29px] leading-[1.2] max-[767px]:text-[28px]">
+                    {t}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 font-sans text-[25px] font-light text-[#000000] transition-transform group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="pl-[42px] pr-[30px] pb-7 text-base leading-[1.8] text-[#000000] max-[767px]:pl-[35px] max-[767px]:pr-[15px] max-[767px]:pb-[26px] max-[767px]:text-[16px]">
                   {d}
                 </p>
-              </div>
+              </details>
             </article>
           ))}
         </div>
