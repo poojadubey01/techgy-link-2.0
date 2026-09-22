@@ -100,6 +100,7 @@ export function Chatbot() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const typingIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const warmedRef = useRef(false);
 
   useEffect(() => {
     if (open && panelRef.current)
@@ -108,6 +109,13 @@ export function Chatbot() {
         { opacity: 0, y: 18, scale: 0.98 },
         { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "power3.out" },
       );
+    // The assistant's Lambda has a slow cold start. Ping it as soon as the
+    // panel opens, so it's warm by the time the visitor finishes the
+    // registration gate and sends a real message.
+    if (open && !warmedRef.current) {
+      warmedRef.current = true;
+      fetch("/api/chat-warmup").catch(() => {});
+    }
   }, [open]);
 
   useEffect(() => {
@@ -187,8 +195,8 @@ export function Chatbot() {
     setMessages((prev) => [...prev, { id: nextId(), role: "user", content: text }]);
     setInput("");
     setLoading(true);
-    try {
-      const res = await fetch(CHAT_API_URL, {
+    const requestChat = () =>
+      fetch(CHAT_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -200,6 +208,13 @@ export function Chatbot() {
           history,
         }),
       });
+    try {
+      // A cold Lambda can blow past API Gateway's ~29s timeout on the first
+      // request even after warming up. By the time that fails, the container
+      // is usually already up, so one immediate retry succeeds in a couple
+      // of seconds instead of showing the visitor a dead end.
+      let res = await requestChat();
+      if (!res.ok) res = await requestChat();
       if (!res.ok) throw new Error(`Request failed with ${res.status}`);
       const data: { reply: string; suggestions?: string[] } = await res.json();
       const hasEnded = data.reply.includes(CHAT_END_MARKER);
