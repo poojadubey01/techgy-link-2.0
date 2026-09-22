@@ -7,12 +7,12 @@ export const services = serviceData.map((s, i) => ({
   ...s,
   image: [
     "/brand/logo.png",
-    "/work/greenland-capital.png",
-    "/work/eco-world.jpg",
+    "/work/optimized/greenland-capital.png",
+    "/work/optimized/eco-world.jpg",
     "/work/glc-admin.webp",
     "/work/glc-mobile.webp",
-    "/work/quickbooks.png",
-    "/work/eco-world.jpg",
+    "/work/optimized/quickbooks.png",
+    "/work/optimized/eco-world.jpg",
     "/architecture/vasavi-atlantis/Aerial_Night.webp",
     "/work/glc-ccs.webp",
   ][i],
@@ -32,8 +32,8 @@ export const solutions = solutionData.map((s, i) => ({
   ...s,
   image: [
     "/architecture/dates-county/Aerial_view_-Dates_County.webp",
-    "/work/quickbooks.png",
-    "/work/greenland-capital.png",
+    "/work/optimized/quickbooks.png",
+    "/work/optimized/greenland-capital.png",
   ][i],
 }));
 export { articles, architecture };

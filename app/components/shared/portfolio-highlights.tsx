@@ -24,12 +24,12 @@ const casePhoneImgVariants = {
   proof:
     "absolute h-[88%] w-auto max-w-[80%] left-1/2 top-[7%] -translate-x-1/2 object-contain min-h-0 aspect-auto [filter:drop-shadow(0_15px_18px_#0f1a341c)]",
 };
+
 export function CaseArtwork({
   story: p,
   compact = false,
   priority = false,
   variant = "default",
-  fitImage = false,
 }: {
   story: Story;
   compact?: boolean;
@@ -37,24 +37,20 @@ export function CaseArtwork({
   variant?: "default" | "portfolio" | "proof";
   fitImage?: boolean;
 }) {
-  const naturalSize = fitImage || p.image.endsWith(".svg");
   const toneBg = p.tone === "spur" ? "bg-navy" : "bg-[#e2e8f0]";
   return (
     <div
-      className={`relative overflow-hidden ${toneBg} ${naturalSize ? "h-auto" : caseArtVariants[variant]}`}
+      className={`relative overflow-hidden ${toneBg} ${caseArtVariants[variant]}`}
     >
       <img
-        key={p.image + (naturalSize ? "-natural" : "-framed")}
-        style={naturalSize ? { display: "block", position: "static", width: "100%", height: "auto", maxWidth: "100%", transform: "none", translate: "none", scale: "none" } : undefined}
-        data-preserve-image-bounds={naturalSize ? "" : undefined}
         src={p.image}
         alt={`${p.name} — ${p.art === "phone" ? "supplied mobile presentation" : "project presentation"}`}
-        width={p.image.endsWith(".svg") ? 761 : p.art === "phone" ? 918 : 1600}
-        height={p.image.endsWith(".svg") ? 427 : p.art === "phone" ? 1800 : 1000}
+        width={p.art === "phone" ? 918 : 1600}
+        height={p.art === "phone" ? 1800 : 1000}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : undefined}
         className={
-          naturalSize ? "block w-full h-auto object-contain" : p.art === "phone"
+          p.art === "phone"
             ? casePhoneImgVariants[variant]
             : "h-full w-full object-cover"
         }
@@ -68,7 +64,9 @@ export function CaseArtwork({
     </div>
   );
 }
+
 export { StoryCard } from "@/app/components/shared/story-card";
+
 export function PortfolioBreadth() {
   return (
     <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto py-[85px] border-b border-b-rule max-[1023px]:py-[70px] max-[767px]:py-[55px]">
@@ -103,11 +101,13 @@ export function PortfolioBreadth() {
     </section>
   );
 }
+
 const solutionProof = {
   "property-launch-sales": ["greenland-capital", "planet-green-crm"],
   "connected-sales-operations": ["planet-green-crm", "quickbooks-integration"],
   "digital-experience-product": ["lending-bridge", "nex2u"],
 };
+
 export function SolutionEvidence({ id }: { id: string }) {
   const selected = solutionProof[id as keyof typeof solutionProof] || [];
   return (
