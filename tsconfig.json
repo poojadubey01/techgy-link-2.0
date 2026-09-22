@@ -22,7 +22,7 @@
         "name": "next"
       }
     ],
-    "baseUrl": "TechgyLink.com",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./*"

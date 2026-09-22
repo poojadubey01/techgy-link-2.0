@@ -247,12 +247,12 @@ export function Footer() {
         <div className="max-[767px]:col-span-full">
           <p className={footerEyebrow}>Connect with TechGy Link</p>
           <a
-            className="font-display text-[30px] max-[1023px]:text-[24px] max-[767px]:text-[27px] mt-[26px] max-[767px]:mt-[17px] mx-0 mb-3.5 tracking-[-0.03em]"
+            className="block text-[15px] leading-[1.75] mb-2.5 text-[#f8f9fa]"
             href="mailto:sales@techgylink.com"
           >
             sales@techgylink.com
           </a>
-          <a href="tel:+919100043542">+91 91000 43542</a>
+          <a className={footerNavLink} href="tel:+919100043542">+91 91000 43542</a>
           <p>
             Hyderabad, India
             <br />

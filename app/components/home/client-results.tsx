@@ -35,7 +35,7 @@ export function ConnectedProof() {
             </p>
             <Link
               href="/work/greenland-capital"
-              className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-[27px] max-[767px]:mt-5"
+              className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-white mt-[27px] max-[767px]:mt-5"
             >
               Read the connected project story <ArrowUpRight size={18} />
             </Link>
@@ -111,7 +111,7 @@ export function ConnectedProof() {
         </div>
         <Link
           href="/work"
-          className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-[45px] text-[#f8f9fa] max-[767px]:mt-1.5 max-[767px]:text-[14px]"
+          className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-white mt-[45px] max-[767px]:mt-1.5 max-[767px]:text-[14px]"
         >
           Explore more of our work <ArrowUpRight />
         </Link>

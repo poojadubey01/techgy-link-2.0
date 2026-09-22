@@ -48,10 +48,6 @@ export function ServiceContribution({ service }: { service: Service }) {
             </Link>
           ))}
         </div>
-        <p className="text-[14px] text-[#000000] mt-[35px] max-[767px]:leading-[1.8] max-[767px]:mt-[27px]">
-          Available as a standalone service, with connected expertise when your
-          brief needs it.
-        </p>
       </div>
     </section>
   );

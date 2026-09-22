@@ -30,11 +30,11 @@ export default function Contact() {
           </p>
           <a
             href="mailto:sales@techgylink.com"
-            className="flex items-center gap-5 font-display text-[28px] tracking-[-0.03em] max-[767px]:text-[25px]"
+            className="flex items-center gap-5 text-[17px] leading-[1.75]"
           >
             sales@techgylink.com <Arrow />
           </a>
-          <a href="tel:+919100043542" className="flex items-center gap-5">
+          <a href="tel:+919100043542" className="flex items-center gap-5 text-[16px] leading-[1.75]">
             +91 91000 43542
           </a>
         </div>
