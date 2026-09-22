@@ -1,6 +1,36 @@
+"use client";
+import { useState } from "react";
 import Link from "@/app/components/ui/internal-link";
 import { ArrowUpRight } from "@/app/components/ui/icons";
-export function PartnerPromise({ compact = false }) {
+
+export function PartnerPromise({ compact = false }: { compact?: boolean }) {
+  const [openIndexes, setOpenIndexes] = useState<number[]>([0]);
+
+  const toggle = (index: number) => {
+    setOpenIndexes((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
+  };
+
+  const promises = [
+    [
+      "A shared understanding",
+      "Your business context stays in the brief as work moves from strategy to design, engineering and marketing.",
+    ],
+    [
+      "Specialists who work together",
+      "An in-house team, experienced advisors and consultants are brought together for the engagement.",
+    ],
+    [
+      "Someone connecting the work",
+      "A named delivery lead, shared reviews and visible decisions keep the different disciplines moving in the same direction.",
+    ],
+    [
+      "Continuity as you grow",
+      "Carry the context, assets and decisions into the next agreed phase, with a team that understands what has already been built.",
+    ],
+  ];
+
   return (
     <section className="bg-paper py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
       <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1100px]:gap-[50px] max-[767px]:block">
@@ -26,48 +56,46 @@ export function PartnerPromise({ compact = false }) {
             Meet the company behind the work <ArrowUpRight />
           </Link>
         </div>
-        <div className="partner-promises max-[767px]:mt-10">
-          {[
-            [
-              "A shared understanding",
-              "Your business context stays in the brief as work moves from strategy to design, engineering and marketing.",
-            ],
-            [
-              "Specialists who work together",
-              "An in-house team, experienced advisors and consultants are brought together for the engagement.",
-            ],
-            [
-              "Someone connecting the work",
-              "A named delivery lead, shared reviews and visible decisions keep the different disciplines moving in the same direction.",
-            ],
-            [
-              "Continuity as you grow",
-              "Carry the context, assets and decisions into the next agreed phase, with a team that understands what has already been built.",
-            ],
-          ].map(([t, d], i) => (
-            <article
-              key={t}
-              className="border-t border-t-rule last:border-b last:border-b-rule"
-            >
-              <details name="partner-promises" className="group">
-                <summary className="flex items-start gap-[25px] py-7 cursor-pointer list-none [&::-webkit-details-marker]:hidden max-[767px]:gap-[18px] max-[767px]:py-[26px]">
-                  <span className="text-[13px] text-brand pt-1.5 shrink-0">0{i + 1}</span>
-                  <span className="flex-1 font-display text-[29px] leading-[1.2] max-[767px]:text-[28px]">
+        <div className="partner-promises divide-y divide-rule border-y border-rule max-[767px]:mt-10">
+          {promises.map(([t, d], i) => {
+            const isOpen = openIndexes.includes(i);
+            return (
+              <article key={t} className="group">
+                <button
+                  type="button"
+                  onClick={() => toggle(i)}
+                  aria-expanded={isOpen}
+                  className="w-full flex items-start gap-[25px] py-7 text-left bg-transparent border-0 cursor-pointer transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-brand max-[767px]:gap-[18px] max-[767px]:py-[24px]"
+                >
+                  <span className="text-[13px] text-brand pt-1.5 shrink-0 font-medium">
+                    0{i + 1}
+                  </span>
+                  <span className="flex-1 font-display text-[29px] leading-[1.2] text-ink group-hover:text-brand transition-colors duration-200 max-[767px]:text-[24px]">
                     {t}
                   </span>
                   <span
                     aria-hidden="true"
-                    className="shrink-0 font-sans text-[25px] font-light text-[#000000] transition-transform group-open:rotate-45"
+                    className={`shrink-0 w-[36px] h-[36px] rounded-full border border-rule flex items-center justify-center text-[24px] font-light text-ink/80 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-brand group-hover:text-brand ${
+                      isOpen ? "rotate-45 bg-brand text-white border-brand shadow-sm" : "bg-white"
+                    }`}
                   >
                     +
                   </span>
-                </summary>
-                <p className="pl-[42px] pr-[30px] pb-7 text-base leading-[1.8] text-[#000000] max-[767px]:pl-[35px] max-[767px]:pr-[15px] max-[767px]:pb-[26px] max-[767px]:text-[16px]">
-                  {d}
-                </p>
-              </details>
-            </article>
-          ))}
+                </button>
+                <div
+                  className={`grid transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="pl-[42px] pr-[30px] pb-7 text-base leading-[1.8] text-[#000000]/80 max-[767px]:pl-[32px] max-[767px]:pr-[10px] max-[767px]:pb-[24px] max-[767px]:text-[15px]">
+                      {d}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

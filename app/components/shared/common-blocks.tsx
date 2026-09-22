@@ -111,26 +111,26 @@ export function WorkCard({
   return (
     <Link
       href={"/work/" + project.slug}
-      className={"work-card reveal" + (className ? " " + className : "")}
+      className={"work-card block" + (className ? " " + className : "")}
     >
-      <div className="aspect-[1.34] bg-paper relative overflow-hidden">
+      <div className="aspect-[1.34] bg-[#e2e8f0] relative overflow-hidden rounded-md">
         <img
           src={project.image}
           alt={project.name + " — project presentation"}
           width="1600"
           height="1000"
           loading="lazy"
-          className="w-full h-full object-contain"
+          className="w-full h-full object-cover"
         />
         <span className="absolute bottom-5 right-5 rounded-full bg-white w-[46px] h-[46px] grid place-items-center">
           <Arrow />
         </span>
       </div>
-      <div className="flex justify-between items-start gap-5 mt-[22px] max-[767px]:mt-[18px] max-[767px]:gap-[15px]">
+      <div className="flex justify-between items-baseline gap-5 mt-[22px] max-[767px]:mt-[18px] max-[767px]:gap-[15px]">
         <h3 className="text-[27px] leading-[1.25] max-[767px]:text-[25px]">
           {project.name}
         </h3>
-        <p className="text-[12px] text-[#000000] max-w-[160px] text-right pt-[5px] max-[767px]:text-[11px] max-[767px]:max-w-[130px]">
+        <p className="text-[12px] text-[#000000]/70 shrink-0 text-right max-[767px]:text-[11px]">
           {project.category}
         </p>
       </div>

@@ -187,16 +187,13 @@ export function CaseStudy({
               individual parts of the wider platform.
             </p>
           </div>
-          <div className="grid grid-cols-[1fr_1fr] gap-y-[60px] gap-x-8 max-[767px]:grid-cols-[1fr] max-[767px]:gap-[35px]">
+          <div className="grid grid-cols-2 gap-y-[60px] gap-x-8 max-[767px]:grid-cols-1 max-[767px]:gap-[35px]">
             {digitalProjects
               .filter((x) => x.slug.startsWith("glc-"))
-              .map((x, i) => (
+              .map((x) => (
                 <WorkCard
                   key={x.slug}
                   project={x}
-                  className={
-                    i % 4 === 1 ? "pt-[85px] max-[767px]:pt-0" : undefined
-                  }
                 />
               ))}
           </div>
