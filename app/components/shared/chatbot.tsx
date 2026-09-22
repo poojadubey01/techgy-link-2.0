@@ -124,7 +124,6 @@ export function Chatbot() {
         );
         return;
       }
-      setLeadNotice(result.preview ? "preview" : "sent");
       await deliver(
         [
           result.preview
