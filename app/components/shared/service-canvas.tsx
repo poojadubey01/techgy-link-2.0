@@ -6,6 +6,7 @@ import { AiAutomationCanvas } from "@/app/components/services/ai-automation-canv
 import { MarketingCanvas } from "@/app/components/services/marketing-canvas";
 import { ArchitectureCanvas } from "@/app/components/services/architecture-canvas";
 import { ConsultingCanvas } from "@/app/components/services/consulting-canvas";
+import { BrandingCanvas } from "@/app/components/services/branding-canvas";
 import { services } from "@/data/catalogue";
 
 type Service = (typeof services)[number];
@@ -58,52 +59,7 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
     return <ConsultingCanvas />;
 
   if (s.id === "branding-identity")
-    return (
-      <div
-        className="grid grid-cols-[1.15fr_1fr] rounded-md overflow-hidden text-white max-[767px]:block max-[767px]:min-h-0"
-        data-image-reveal
-      >
-        <div className="relative overflow-hidden aspect-square self-start w-full p-[42px] flex flex-col items-start justify-between bg-[#111625] max-[1023px]:p-[30px] max-[767px]:p-[27px] max-[767px]:min-h-[300px] after:content-[''] after:absolute after:inset-0 after:z-[1] after:pointer-events-none after:[background:radial-gradient(ellipse_at_center,transparent_40%,#0022ff_115%)] after:opacity-50">
-          <p className="relative z-10 text-[11px] text-paper max-[767px]:text-[10px]">
-            Our own identity / TechGy Link
-          </p>
-          <video
-            src="/brand/Union%20Logo%20Reveal.mp4"
-            width="541"
-            height="111"
-            autoPlay
-            loop
-            muted
-            playsInline
-            aria-label="TechGy Link visual identity"
-            className="absolute inset-0 w-full h-full object-cover z-0 border-0 outline-none [filter:brightness(1.35)_saturate(1.15)_contrast(1.05)]"
-          />
-          <p className="relative z-10 font-display text-[36px] tracking-[-0.04em] leading-[1.2] [text-shadow:0_2px_18px_rgba(0,0,0,0.55)] max-[767px]:text-[29px]">
-            A clear idea.
-            <br />A consistent expression.
-          </p>
-        </div>
-        <div className="py-[30px] px-10 bg-paper text-brand flex flex-col justify-center max-[1023px]:p-[30px] max-[767px]:p-[27px]">
-          <span className="font-display text-[180px] leading-[1.1] tracking-[-0.075em] max-[1023px]:text-[145px] max-[767px]:text-[135px]">
-            Aa
-          </span>
-          <p className="text-[14px] text-paper mt-[15px] max-[767px]:text-[13px]">
-            Character in every detail.
-          </p>
-          <div className="flex mt-10 h-[60px] max-[767px]:mt-[30px]">
-            <span className="w-[33.333%] flex items-end p-[10px] text-[11px] bg-brand text-white">
-              Blue
-            </span>
-            <span className="w-[33.333%] flex items-end p-[10px] text-[11px] bg-[#111625] text-white">
-              Ink
-            </span>
-            <span className="w-[33.333%] flex items-end p-[10px] text-[11px] bg-rule text-paper">
-              Silver
-            </span>
-          </div>
-        </div>
-      </div>
-    );
+    return <BrandingCanvas />;
 
   const [label, title, caption] = meta[s.id as keyof typeof meta] || [
     "Selected work",
