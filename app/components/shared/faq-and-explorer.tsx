@@ -33,7 +33,7 @@ export function WorkExplorer() {
   return (
     <div>
       <div
-        className="flex gap-[15px] mt-6 mb-12 max-[767px]:gap-2.5 max-[767px]:mt-3 max-[767px]:mb-8"
+        className="flex gap-[15px] mt-0 mb-12 max-[767px]:gap-2.5 max-[767px]:mt-3 max-[767px]:mb-8"
         role="group"
         aria-label="Filter portfolio"
       >

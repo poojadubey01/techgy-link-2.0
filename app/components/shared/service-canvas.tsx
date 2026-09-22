@@ -25,10 +25,7 @@ const meta = {
     "Greenland Capital / Mobile application presentation",
   ],
 };
-const projectCanvasBg: Record<string, string> = {
-  "website-design-development": "bg-[#0f1a34]",
-  "custom-software-development": "bg-[#0f1a34]",
-};
+const projectCanvasBg: Record<string, string> = {};
 const projectCanvasImg: Record<string, string> = {
   "website-design-development":
     "absolute h-auto w-[185%] max-w-none left-[-39%] top-[-17%] object-cover max-[767px]:top-[-8%]",
@@ -115,7 +112,7 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
   if (s.id === "ai-automation-system-integration")
     return (
       <div
-        className="p-[43px] bg-[#0f1a34] text-paper rounded-md overflow-hidden min-h-[490px] max-[1023px]:p-8 max-[767px]:py-7 max-[767px]:px-6 max-[767px]:min-h-0"
+        className="p-[43px] bg-brand text-paper rounded-md overflow-hidden min-h-[490px] max-[1023px]:p-8 max-[767px]:py-7 max-[767px]:px-6 max-[767px]:min-h-0"
         data-diagram
       >
         <div className={canvasHeadingWrap}>
@@ -219,12 +216,12 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
   if (s.id === "technology-consulting-modernisation")
     return (
       <div
-        className="p-[43px] bg-rule text-[#000000] rounded-md overflow-hidden min-h-[490px] max-[1023px]:p-8 max-[767px]:py-7 max-[767px]:px-6 max-[767px]:min-h-0"
+        className="p-[43px] bg-brand text-white rounded-md overflow-hidden min-h-[490px] max-[1023px]:p-8 max-[767px]:py-7 max-[767px]:px-6 max-[767px]:min-h-0"
         data-diagram
       >
         <div className={canvasHeadingWrap}>
           <div>
-            <p className="text-[11px] tracking-[0.1em] text-brand max-[767px]:text-[10px]">
+            <p className="text-[11px] tracking-[0.1em] text-white/80 max-[767px]:text-[10px]">
               The assessment framework
             </p>
             <h3 className={canvasHeadingH3}>
@@ -233,7 +230,7 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
               Plan the change.
             </h3>
           </div>
-          <p className="text-[14px] leading-[1.8] text-[#000000] max-[1023px]:text-[13px] max-[767px]:text-[13px] max-[767px]:mt-6">
+          <p className="text-[14px] leading-[1.8] text-white/90 max-[1023px]:text-[13px] max-[767px]:text-[13px] max-[767px]:mt-6">
             Senior technical review, connected <br />
             to practical implementation.
           </p>
@@ -260,7 +257,7 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
             </div>
           ))}
         </div>
-        <p className="text-[11px] leading-[1.8] text-[#000000] mt-[30px] max-[767px]:text-[10px] max-[767px]:mt-[25px]">
+        <p className="text-[11px] leading-[1.8] text-white/80 mt-[30px] max-[767px]:text-[10px] max-[767px]:mt-[25px]">
           Assessment → Architecture decisions → Phased roadmap
         </p>
       </div>
@@ -275,16 +272,18 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
       className={`${projectCanvasBg[s.id] || "bg-brand"} text-white rounded-md overflow-hidden grid grid-cols-[0.65fr_1fr] min-h-[500px] relative max-[1023px]:min-h-[430px] max-[1023px]:grid-cols-[0.75fr_1fr] max-[767px]:block max-[767px]:min-h-0`}
       data-image-reveal
     >
-      <div className="py-[48px] px-[38px] flex flex-col justify-center items-start z-[2] max-[1023px]:p-[30px] max-[767px]:p-7">
+      <div className="py-[48px] px-[38px] flex flex-col justify-between items-start z-[2] max-[1023px]:p-[30px] max-[767px]:p-7">
         <p className="text-paper text-[11px] max-[767px]:text-[10px]">
           {label}
         </p>
-        <h3 className="text-[clamp(30px,3.25vw,52px)] leading-[1.13] my-6 tracking-[-0.05em] max-[767px]:text-[33px] max-[767px]:my-5">
-          {title}
-        </h3>
-        <p className="text-[12px] leading-[1.7] text-paper max-w-[235px] max-[767px]:text-[11px] max-[767px]:max-w-none">
-          {caption}
-        </p>
+        <div>
+          <h3 className="text-[clamp(30px,3.25vw,52px)] leading-[1.13] mb-4 mt-0 tracking-[-0.05em] max-[767px]:text-[33px] max-[767px]:mb-3">
+            {title}
+          </h3>
+          <p className="text-[12px] leading-[1.7] text-paper max-w-[235px] max-[767px]:text-[11px] max-[767px]:max-w-none">
+            {caption}
+          </p>
+        </div>
       </div>
       <div className="relative overflow-hidden min-h-[500px] bg-rule max-[1023px]:min-h-[430px] max-[767px]:min-h-0 max-[767px]:h-[320px]">
         <img

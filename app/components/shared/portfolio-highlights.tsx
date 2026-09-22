@@ -34,7 +34,7 @@ export function CaseArtwork({
   priority?: boolean;
   variant?: "default" | "portfolio" | "proof";
 }) {
-  const toneBg = p.tone === "spur" ? "bg-navy" : "bg-rule";
+  const toneBg = p.tone === "spur" ? "bg-navy" : "bg-[#e2e8f0]";
   return (
     <div
       className={`relative overflow-hidden ${toneBg} ${caseArtVariants[variant]}`}
@@ -65,7 +65,7 @@ export function StoryCard({ project: p }: { project: ProjectLike }) {
   const story = storyFor(p.slug);
   return (
     <Link className="work-card portfolio-card" href={"/work/" + p.slug}>
-      <div className="relative overflow-hidden bg-paper aspect-[1.25] max-[767px]:aspect-[1.15]">
+      <div className="relative overflow-hidden bg-[#e2e8f0] aspect-[1.25] max-[767px]:aspect-[1.15]">
         {story ? (
           <CaseArtwork story={story} compact variant="portfolio" />
         ) : (
@@ -82,17 +82,17 @@ export function StoryCard({ project: p }: { project: ProjectLike }) {
           <ArrowUpRight size={22} />
         </span>
       </div>
-      <div className="block mt-[22px]">
-        <h3 className="text-[29px] leading-tight tracking-[-0.04em] max-[767px]:text-[27px]">
+      <div className="flex items-baseline justify-between gap-4 mt-[22px]">
+        <h3 className="text-[29px] leading-tight tracking-[-0.04em] max-[767px]:text-[24px]">
           {p.name}
         </h3>
-        <p className="text-[12px] text-[#000000] max-w-none text-right pt-[5px] mt-2">
+        <p className="text-[13px] text-[#000000]/70 shrink-0 text-right m-0">
           {p.category}
         </p>
       </div>
       {story && (
         <>
-          <p className="text-lg leading-normal mt-[18px] tracking-[-0.02em] max-w-[450px] max-[767px]:text-[18px] max-[767px]:mt-4">
+          <p className="text-[17px] leading-normal mt-4 tracking-[-0.02em] text-[#000000] truncate max-[767px]:text-[15px] max-[767px]:mt-2.5">
             {story.headline}
           </p>
           <div className="flex justify-between gap-[15px] border-t border-t-rule mt-5 pt-[15px] text-[12px] text-[#000000]">

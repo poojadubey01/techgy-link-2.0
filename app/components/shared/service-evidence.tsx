@@ -112,7 +112,7 @@ export function ServiceEvidence({
       <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[1.4fr_1fr] gap-[85px] items-center max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
         <Link
           href={"/work/" + p.slug}
-          className="overflow-hidden bg-rule block"
+          className="overflow-hidden bg-[#e2e8f0] block"
         >
           {story ? (
             <CaseArtwork story={story} compact variant="proof" />

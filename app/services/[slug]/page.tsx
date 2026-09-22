@@ -69,15 +69,15 @@ export default async function Service({
             <p className="text-[#000000] text-[17px] leading-[1.8] pt-[7px] max-[767px]:text-[16px] max-[767px]:mt-[25px]">
               {s.description}
             </p>
-            <div className="hero-actions flex flex-wrap items-start gap-6 mt-[30px] max-[767px]:mt-[25px]">
+            <div className="hero-actions col-span-full flex items-center gap-6 mt-[30px] max-[1100px]:flex-wrap max-[767px]:mt-[25px]">
               <Link
                 href={enquiry(s.name)}
-                className="inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-transparent rounded-full bg-brand text-white hover:brightness-90 max-[767px]:text-[13px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5 max-[370px]:max-w-full"
+                className="inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-transparent rounded-full bg-brand text-white hover:brightness-90 shrink-0 max-[767px]:text-[13px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5 max-[370px]:max-w-full"
               >
                 {s.cta}
                 <Arrow />
               </Link>
-              <p className="hero-teamline basis-full text-[14px] leading-[1.8] text-brand max-w-[480px] mt-0.5">
+              <p className="hero-teamline text-[14px] leading-[1.6] text-brand max-w-[480px]">
                 {contributions[s.id as keyof typeof contributions].team}
               </p>
             </div>
