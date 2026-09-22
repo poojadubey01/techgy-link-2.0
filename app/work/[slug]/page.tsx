@@ -115,7 +115,7 @@ export default async function Project({
               </p>
               <Link
                 href="/work/greenland-capital"
-                className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand text-[14px]"
+                className="cta-link inline-flex items-center font-medium text-brand"
               >
                 The Greenland Capital story <Arrow />
               </Link>
@@ -149,7 +149,7 @@ export default async function Project({
                 <p key={s.id} className="text-[14px] text-[#000000] mb-3">
                   <Link
                     href={"/services/" + s.id}
-                    className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand"
+                    className="cta-link inline-flex items-center font-medium text-brand"
                   >
                     {s.name}
                     <Arrow />

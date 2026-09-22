@@ -1,3 +1,4 @@
+import { Phone } from "@/app/components/ui/icons";
 import { ContactForm } from "@/app/components/shared/contact-form";
 import { Arrow } from "@/app/components/shared/common-blocks";
 export const metadata = {
@@ -34,8 +35,8 @@ export default function Contact() {
           >
             sales@techgylink.com <Arrow />
           </a>
-          <a href="tel:+919100043542" className="flex items-center gap-5 text-[16px] leading-[1.75]">
-            +91 91000 43542
+          <a href="tel:+919989858282" className="flex items-center gap-2 text-[16px] leading-[1.75]">
+            <Phone size={16} className="shrink-0" /> +91 99898 58282
           </a>
         </div>
         <div className="text-[#000000] text-[14px] mt-[30px]">

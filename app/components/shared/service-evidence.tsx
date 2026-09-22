@@ -11,7 +11,7 @@ const sectionClass =
 const eyebrowClass =
   "text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]";
 const textLinkClass =
-  "inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand max-[767px]:text-[14px]";
+  "cta-link inline-flex items-center font-medium text-brand";
 
 export function ServiceEvidence({
   service: s,

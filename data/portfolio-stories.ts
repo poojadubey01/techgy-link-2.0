@@ -228,8 +228,8 @@ export const portfolioStories = [
     category: "Property / Sales operations",
     market: "India",
     status: "Ongoing project",
-    image: "/portfolio/planet-green-mobile.webp",
-    art: "phone",
+    image: "/source/optimized/TECHGY%20CRMS.svg",
+    art: "standard",
     tone: "planet",
     headline: "Keep the conversation moving after the enquiry arrives.",
     description:

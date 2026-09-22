@@ -45,7 +45,7 @@ export default async function MarketingDetail({
         </p>
         <div className="hero-actions flex flex-wrap items-center gap-6 mt-8">
           <Link
-            className="inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-transparent rounded-full bg-brand text-white hover:brightness-90 max-[767px]:text-[13px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5 max-[370px]:max-w-full"
+            className="cta-button inline-flex items-center justify-center font-medium border border-transparent rounded-full bg-brand text-white hover:brightness-90 max-[370px]:max-w-full"
             href={enquiry(m.name)}
           >
             Discuss {m.name.toLowerCase()}
@@ -130,7 +130,7 @@ export default async function MarketingDetail({
       <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
         <Link
           href="/services/digital-marketing-sales-enablement"
-          className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand hover:text-brand max-[767px]:text-[14px]"
+          className="cta-link inline-flex items-center font-medium text-brand hover:text-brand"
         >
           Explore all marketing capabilities <Arrow />
         </Link>

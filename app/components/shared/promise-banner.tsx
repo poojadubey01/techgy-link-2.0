@@ -21,7 +21,7 @@ export function PartnerPromise({ compact = false }) {
           </p>
           <Link
             href="/about"
-            className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-[30px] text-[14px]"
+            className="cta-link inline-flex items-center font-medium text-brand mt-[30px]"
           >
             Meet the company behind the work <ArrowUpRight />
           </Link>

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, type FormEvent } from "react";
-import { ArrowUpRight } from "@/app/components/ui/icons";
+import { ArrowUpRight, Phone } from "@/app/components/ui/icons";
 import { services } from "@/data/catalogue";
 export function ContactForm({ initialService = "", campaign = "" }) {
   const [service, setService] = useState(initialService);
@@ -69,9 +69,9 @@ export function ContactForm({ initialService = "", campaign = "" }) {
   const eyebrowClass =
     "text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]";
   const buttonOutlineClass =
-    "inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-rule bg-transparent rounded-full max-[767px]:text-[13px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5";
+    "cta-button inline-flex items-center justify-center font-medium border border-rule bg-transparent rounded-full";
   const textLinkClass =
-    "inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand max-[767px]:text-[14px]";
+    "cta-link inline-flex items-center font-medium text-brand";
   if (status === "preview")
     return (
       <div className="bg-paper p-[45px]" role="status">
@@ -103,8 +103,8 @@ export function ContactForm({ initialService = "", campaign = "" }) {
           Your brief has been submitted. We’ll use the details you shared to
           continue the conversation.
         </p>
-        <a className={textLinkClass} href="tel:+919100043542">
-          Call +91 91000 43542 <ArrowUpRight size={18} />
+        <a className={textLinkClass} href="tel:+919989858282">
+          <Phone size={16} className="shrink-0" /> Call +91 99898 58282
         </a>
         <div style={{ marginTop: 25 }}>
           <button className={buttonOutlineClass} onClick={() => setStatus("idle")}>
@@ -113,17 +113,17 @@ export function ContactForm({ initialService = "", campaign = "" }) {
         </div>
       </div>
     );
-  const labelClass = "block text-[13px] mb-[9px] text-[#000000]";
-  const optionalClass = "text-[#000000] text-[12px] ml-1";
+  const labelClass = "block text-[13px] mb-[9px] text-black";
+  const optionalClass = "text-black text-[12px] ml-1";
   const fieldClass = "mb-[25px] min-w-0 max-[1023px]:mb-[22px]";
   const rowClass = "grid grid-cols-[1fr_1fr] gap-5 max-[1023px]:grid-cols-[1fr]";
   const inputClass =
-    "w-full min-h-[52px] bg-white border border-rule rounded-[2px] py-3 px-[13px] text-[16px] leading-normal text-[#000000] placeholder:text-[#000000] placeholder:text-[14px]";
+    "w-full min-h-[52px] bg-white border border-white rounded-[2px] py-3 px-[13px] text-[16px] leading-normal text-black placeholder:text-black/60 focus-visible:outline-brand placeholder:text-[14px]";
   const buttonBlueClass =
-    "inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-transparent rounded-full bg-brand text-white hover:brightness-90 disabled:opacity-65 disabled:cursor-wait max-[767px]:text-[13px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5";
+    "cta-button inline-flex items-center justify-center font-medium border border-transparent rounded-full bg-white text-brand hover:brightness-90 disabled:opacity-65 disabled:cursor-wait";
   return (
     <form
-      className="bg-paper border border-rule p-9 max-[1023px]:p-[25px] max-[370px]:py-[25px] max-[370px]:px-5"
+      className="bg-[#e2e8f0] text-black border border-brand p-9 [&_a:focus-visible]:outline-brand [&_button:focus-visible]:outline-brand max-[1023px]:p-[25px] max-[370px]:py-[25px] max-[370px]:px-5"
       onSubmit={submit}
     >
       <div
@@ -218,7 +218,7 @@ export function ContactForm({ initialService = "", campaign = "" }) {
               ? [service]
               : []),
           ].map((s) => (
-            <option key={s} value={s}>
+            <option key={s} value={s} className="bg-white text-black">
               {s}
             </option>
           ))}
@@ -264,11 +264,20 @@ export function ContactForm({ initialService = "", campaign = "" }) {
           />
         </div>
       </div>
+      <label className="flex items-start gap-3 mb-6 cursor-pointer text-[13px] leading-[1.6] text-black">
+        <input
+          type="checkbox"
+          name="communicationConsent"
+          required
+          className="mt-0.5 h-4 w-4 shrink-0 accent-brand focus-visible:outline-brand"
+        />
+        <span>Yes, I&apos;m OK to receive further communication over the details shared here.</span>
+      </label>
       <button className={buttonBlueClass} type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Sending your brief…" : "Send project enquiry"}
+        {status === "sending" ? "Sending your brief…" : "Submit"}
         <ArrowUpRight size={19} />
       </button>
-      <p className="text-[13px] text-[#000000] mt-5">
+      <p className="text-[13px] text-black mt-5">
         We use these details to respond to your enquiry. Read our{" "}
         <a className="underline" href="/privacy">
           privacy notice
@@ -277,14 +286,14 @@ export function ContactForm({ initialService = "", campaign = "" }) {
       </p>
       {status === "error" && (
         <div
-          className="mt-[25px] bg-paper border border-rule p-5 text-[14px]"
+          className="mt-[25px] bg-white/10 border border-white/60 p-5 text-[14px]"
           role="alert"
         >
           <p>{error}</p>
           <p>Your brief is still here. You can send it directly:</p>
           <div className="flex gap-5 flex-wrap mt-3.5">
             <a
-              className="underline text-[#000000]"
+              className="underline text-black"
               href={
                 "mailto:sales@techgylink.com?subject=" +
                 encodeURIComponent(
@@ -296,8 +305,8 @@ export function ContactForm({ initialService = "", campaign = "" }) {
             >
               Open email draft
             </a>
-            <a className="underline text-[#000000]" href="tel:+919100043542">
-              Call the sales team
+            <a className="inline-flex items-center gap-2 underline text-black" href="tel:+919989858282">
+              <Phone size={16} className="shrink-0" /> Call the sales team
             </a>
           </div>
         </div>

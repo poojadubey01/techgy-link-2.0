@@ -115,7 +115,7 @@ export default function About() {
             <span>Client relationships in India, the UK and the USA</span>
             <a
               href="#our-teams"
-              className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand max-[767px]:text-[14px]"
+              className="cta-link inline-flex items-center font-medium text-brand"
             >
               Meet the capabilities <ArrowUpRight size={18} />
             </a>
@@ -318,7 +318,7 @@ export default function About() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-7 px-7 py-4 text-sm font-medium min-h-14 border border-transparent rounded-full bg-brand text-white hover:brightness-90 mt-[35px] max-[767px]:text-[14px] max-[767px]:min-h-[51px] max-[767px]:py-[14px] max-[767px]:px-[18px] max-[767px]:gap-5"
+            className="cta-button inline-flex items-center justify-center font-medium border border-transparent rounded-full bg-brand text-white hover:brightness-90 mt-[35px]"
           >
             Let’s build your next chapter <ArrowUpRight />
           </Link>

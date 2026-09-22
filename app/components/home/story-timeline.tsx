@@ -112,7 +112,7 @@ export function CompanyEvolution() {
               {i === 2 && (
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand self-start mt-[25px] border-b border-[#e2e8f0] pb-[7px] text-white max-[767px]:text-[14px]"
+                  className="cta-link inline-flex items-center font-medium text-brand self-start mt-[25px] border-b border-[#e2e8f0] pb-[7px] text-white"
                 >
                   The story behind TechGy Link <ArrowUpRight size={20} />
                 </Link>

@@ -59,7 +59,7 @@ export function HomeHero() {
         <div className="flex flex-col items-end gap-[17px] max-[767px]:items-start max-[767px]:mt-[27px] max-[767px]:gap-[21px]">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-7 px-[27px] py-4 text-sm font-medium min-h-[58px] border border-transparent rounded-full bg-brand text-white hover:brightness-90 max-[767px]:text-[14px] max-[767px]:min-h-[54px] max-[767px]:px-[22px]"
+            className="cta-button inline-flex items-center justify-center font-medium border border-transparent rounded-full bg-brand text-white hover:brightness-90"
           >
             Build your next chapter <ArrowUpRight size={20} />
           </Link>
@@ -92,7 +92,7 @@ export function HomeHero() {
       <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] pt-[25px] pb-[35px] text-[14px] text-[#000000] flex justify-between gap-[25px] max-[767px]:pb-[30px] max-[767px]:block max-[767px]:text-[13px]">
         <a
           href="#why-link"
-          className="inline-flex items-center gap-[18px] text-sm font-medium leading-[1.6] text-brand max-[767px]:mt-[18px] max-[767px]:text-[14px]"
+          className="cta-link inline-flex items-center font-medium text-brand max-[767px]:mt-[18px]"
         >
           Why we became TechGy Link <ArrowDown size={18} />
         </a>

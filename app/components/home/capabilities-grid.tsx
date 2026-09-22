@@ -108,7 +108,7 @@ export function CollectiveCapabilities() {
         <div className="flex justify-between items-center gap-[30px] pt-[30px] mt-[30px] border-t border-[#e2e8f0] text-[#000000] text-[14px] max-[767px]:block max-[767px]:text-sm max-[767px]:leading-[1.8] max-[767px]:pt-6">
           <Link
             href="/services"
-            className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand whitespace-nowrap max-[767px]:mt-[22px] max-[767px]:text-[14px]"
+            className="cta-link inline-flex items-center font-medium text-brand whitespace-nowrap max-[767px]:mt-[22px]"
           >
             Explore all services <ArrowUpRight size={19} />
           </Link>

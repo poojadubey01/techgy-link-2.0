@@ -57,7 +57,7 @@ export default function Solutions() {
                 <p className="text-[#000000] text-[16px] max-[767px]:text-[15px]">
                   {s.description}
                 </p>
-                <span className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-8 max-[767px]:mt-[23px]">
+                <span className="cta-link inline-flex items-center font-medium text-brand mt-8 max-[767px]:mt-[23px]">
                   Explore the solution <Arrow />
                 </span>
               </div>

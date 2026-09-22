@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUpRight, ArrowUp, Menu, X, ChevronDown } from "@/app/components/ui/icons";
+import { ArrowUpRight, ArrowUp, Menu, X, ChevronDown, Phone } from "@/app/components/ui/icons";
 const nav = [
   ["Solutions", "/solutions"],
   ["Work", "/work"],
@@ -82,7 +82,7 @@ export function Header() {
               <summary className="flex cursor-pointer items-center gap-2 list-none min-h-11 [&::-webkit-details-marker]:hidden group-open:text-brand">
                 Services <ChevronDown size={14} />
               </summary>
-              <div className="absolute left-0 right-0 bg-white border-b border-rule grid top-[82px] py-12 px-14 grid-cols-[1fr_2fr] gap-14 shadow-[0_35px_40px_#1116250d]">
+              <div className="absolute left-0 right-0 bg-white border-b border-rule grid top-full py-12 px-14 grid-cols-[1fr_2fr] gap-14 shadow-[0_35px_40px_#1116250d]">
                 <div>
                   <p className="text-xs font-medium uppercase tracking-[0.105em] max-[767px]:text-[11px] max-[767px]:tracking-[0.085em] leading-[1.6] text-brand">
                     Our expertise
@@ -94,7 +94,7 @@ export function Header() {
                   </h2>
                   <Link
                     href="/services"
-                    className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand hover:text-brand"
+                    className="cta-link inline-flex items-center font-medium text-brand hover:text-brand"
                   >
                     All services <ArrowUpRight size={18} />
                   </Link>
@@ -129,7 +129,7 @@ export function Header() {
           </nav>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-6 max-[767px]:gap-2.5 px-5 py-3 max-[767px]:px-[14px] max-[767px]:py-[9px] max-[370px]:px-[11px] max-[370px]:py-2 text-sm max-[767px]:text-[12px] rounded-full bg-brand text-white border border-brand max-[1023px]:ml-auto"
+            className="cta-button inline-flex items-center rounded-full bg-brand text-white border border-brand max-[1023px]:ml-auto"
           >
             Let’s talk <ArrowUpRight size={18} className="max-[767px]:w-[15px]" />
           </Link>
@@ -252,7 +252,7 @@ export function Footer() {
           >
             sales@techgylink.com
           </a>
-          <a className={footerNavLink} href="tel:+919100043542">+91 91000 43542</a>
+          <a className={footerNavLink} href="tel:+919989858282"><span className="inline-flex items-center gap-2"><Phone size={16} className="shrink-0" /> +91 99898 58282</span></a>
           <p>
             Hyderabad, India
             <br />
@@ -476,7 +476,7 @@ export function Motion() {
           )
           .forEach((el) => {
             const img = el.querySelector("img");
-            if (!img) return;
+            if (!img || img.hasAttribute("data-preserve-image-bounds")) return;
             const enter = () =>
               gsap.to(img, {
                 scale: 1.035,

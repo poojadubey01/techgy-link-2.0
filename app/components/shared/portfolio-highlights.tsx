@@ -28,26 +28,32 @@ export function CaseArtwork({
   compact = false,
   priority = false,
   variant = "default",
+  fitImage = false,
 }: {
   story: Story;
   compact?: boolean;
   priority?: boolean;
   variant?: "default" | "portfolio" | "proof";
+  fitImage?: boolean;
 }) {
+  const naturalSize = fitImage || p.image.endsWith(".svg");
   const toneBg = p.tone === "spur" ? "bg-navy" : "bg-[#e2e8f0]";
   return (
     <div
-      className={`relative overflow-hidden ${toneBg} ${caseArtVariants[variant]}`}
+      className={`relative overflow-hidden ${toneBg} ${naturalSize ? "h-auto" : caseArtVariants[variant]}`}
     >
       <img
+        key={p.image + (naturalSize ? "-natural" : "-framed")}
+        style={naturalSize ? { display: "block", position: "static", width: "100%", height: "auto", maxWidth: "100%", transform: "none", translate: "none", scale: "none" } : undefined}
+        data-preserve-image-bounds={naturalSize ? "" : undefined}
         src={p.image}
         alt={`${p.name} — ${p.art === "phone" ? "supplied mobile presentation" : "project presentation"}`}
-        width={p.art === "phone" ? 918 : 1600}
-        height={p.art === "phone" ? 1800 : 1000}
+        width={p.image.endsWith(".svg") ? 761 : p.art === "phone" ? 918 : 1600}
+        height={p.image.endsWith(".svg") ? 427 : p.art === "phone" ? 1800 : 1000}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : undefined}
         className={
-          p.art === "phone"
+          naturalSize ? "block w-full h-auto object-contain" : p.art === "phone"
             ? casePhoneImgVariants[variant]
             : "h-full w-full object-cover"
         }
@@ -78,13 +84,16 @@ export function StoryCard({
       ? `/work/${p.slug}?from=${from}`
       : `/work/${p.slug}`;
   return (
-    <Link className="work-card portfolio-card" href={href}>
-      <div className={`relative overflow-hidden bg-[#e2e8f0] ${compact ? "aspect-[1.7] max-[767px]:aspect-[1.5]" : "aspect-[1.25] max-[767px]:aspect-[1.15]"}`}>
+    <Link className="work-card portfolio-card block min-w-0 w-full" href={href}>
+      <div className={`relative overflow-hidden bg-[#e2e8f0] ${compact || story?.image.endsWith(".svg") ? "" : "aspect-[1.25] max-[767px]:aspect-[1.15]"}`}>
         {story ? (
-          <CaseArtwork story={story} compact variant="portfolio" />
+          <CaseArtwork story={story} compact variant="portfolio" fitImage={compact} />
         ) : (
           <img
-            src={p.image}
+            key={p.image + (compact ? "-natural" : "-framed")}
+        style={compact ? { display: "block", position: "static", width: "100%", height: "auto", maxWidth: "100%", transform: "none", translate: "none", scale: "none" } : undefined}
+        data-preserve-image-bounds={compact ? "" : undefined}
+        src={p.image}
             alt={p.name + " project presentation"}
             width="1600"
             height="1000"
@@ -147,7 +156,7 @@ export function PortfolioBreadth() {
       </div>
       <Link
         href="/work"
-        className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-8 max-[767px]:text-[14px]"
+        className="cta-link inline-flex items-center font-medium text-brand mt-8"
       >
         Explore the client stories <ArrowUpRight size={20} />
       </Link>
