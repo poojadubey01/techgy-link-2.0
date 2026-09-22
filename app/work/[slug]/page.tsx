@@ -52,6 +52,7 @@ export default async function Project({
                   ? "/work?filter=Digital"
                   : "/work"
             }
+            scroll={false}
             className="hover:text-brand"
           >
             Our work
@@ -71,7 +72,7 @@ export default async function Project({
       </section>
       <figure className="w-[min(1424px,calc(100%_-_112px))] mx-auto mb-[60px] bg-[#e2e8f0] rounded-md overflow-hidden max-[767px]:mb-[35px]">
         <img
-          className="w-full h-auto max-h-[820px] object-cover rounded-md max-[767px]:max-h-none"
+          className="w-full h-auto object-contain rounded-md"
           src={p.image}
           alt={p.name + " project presentation"}
           width="1600"

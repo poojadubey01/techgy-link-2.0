@@ -48,7 +48,7 @@ export function ConnectedProof() {
           >
             <div className="relative overflow-hidden bg-brand rounded">
               <img
-                src="/work/glc-web.webp"
+                src="/work/greenland-capital.png"
                 alt="Greenland Capital website project presentation"
                 width="1600"
                 height="900"

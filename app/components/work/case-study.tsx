@@ -35,7 +35,7 @@ export function CaseStudy({
           className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
           aria-label="Breadcrumb"
         >
-          <Link href={backHref} className="hover:text-brand">
+          <Link href={backHref} scroll={false} className="hover:text-brand">
             Our work
           </Link>
           <span>/</span>

@@ -50,6 +50,38 @@ export function WorkExplorer() {
     }
   }, [filterParam]);
 
+  useEffect(() => {
+    const saved = sessionStorage.getItem("work_scroll_pos");
+    if (saved) {
+      const top = parseInt(saved, 10);
+      if (!isNaN(top) && top > 0) {
+        requestAnimationFrame(() => {
+          window.scrollTo({ top, behavior: "instant" });
+        });
+        const t1 = setTimeout(() => {
+          window.scrollTo({ top, behavior: "instant" });
+        }, 50);
+        const t2 = setTimeout(() => {
+          window.scrollTo({ top, behavior: "instant" });
+        }, 150);
+        return () => {
+          clearTimeout(t1);
+          clearTimeout(t2);
+        };
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        sessionStorage.setItem("work_scroll_pos", window.scrollY.toString());
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleFilterChange = (t: string) => {
     setFilter(t);
     const newUrl = t === "All" ? "/work" : `/work?filter=${t}`;
