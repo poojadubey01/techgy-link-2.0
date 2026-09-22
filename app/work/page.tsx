@@ -1,10 +1,13 @@
 import { WorkExplorer } from "@/app/components/shared/faq-and-explorer";
 import { CTA } from "@/app/components/shared/common-blocks";
+import { Suspense } from "react";
+
 export const metadata = {
   title: "Our work",
   description:
     "Explore lending, recruitment, property, sales operations, mobile integrations and architectural visualisation by TechGy Link.",
 };
+
 export default function Work() {
   return (
     <main id="main" className="bg-[#f8f9fa]">
@@ -24,7 +27,9 @@ export default function Work() {
         </p>
       </section>
       <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto pt-4 pb-5 max-[767px]:pt-2 max-[767px]:pb-0">
-        <WorkExplorer />
+        <Suspense fallback={null}>
+          <WorkExplorer />
+        </Suspense>
       </section>
       <CTA />
     </main>

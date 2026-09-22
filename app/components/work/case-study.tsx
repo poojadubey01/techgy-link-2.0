@@ -15,7 +15,19 @@ const sectionH2 =
   "text-[clamp(35px,4vw,57px)] leading-[1.12] tracking-[-0.045em] mt-6 max-[767px]:text-[37px] max-[767px]:mt-5 max-[767px]:mb-[30px]";
 const bodyCopy = "text-[17px] leading-[1.85] text-[#000000] max-[767px]:text-[16px]";
 
-export function CaseStudy({ story: p }: { story: Story }) {
+export function CaseStudy({
+  story: p,
+  from,
+}: {
+  story: Story;
+  from?: string;
+}) {
+  const backHref =
+    from === "Visualisation"
+      ? "/work?filter=Visualisation"
+      : from === "Digital"
+        ? "/work?filter=Digital"
+        : "/work";
   return (
     <main id="main" className="bg-[#f8f9fa]">
       <section className="pt-[35px] max-[767px]:pt-7 w-[min(1424px,calc(100%_-_112px))] mx-auto">
@@ -23,7 +35,7 @@ export function CaseStudy({ story: p }: { story: Story }) {
           className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
           aria-label="Breadcrumb"
         >
-          <Link href="/work" className="hover:text-brand">
+          <Link href={backHref} className="hover:text-brand">
             Our work
           </Link>
           <span>/</span>

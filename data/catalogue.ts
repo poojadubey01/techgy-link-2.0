@@ -41,8 +41,9 @@ export const digitalProjects = oldProjects.map((p) => ({
   ...p,
   kind: "Digital",
 }));
+const excludedWorkSlugs = new Set(["spur-fit", "nex2u"]);
 export const work = [
-  ...digitalProjects,
+  ...digitalProjects.filter((p) => !excludedWorkSlugs.has(p.slug)),
   ...architecture.map((p) => ({
     slug: p.slug,
     name: p.title,
@@ -52,7 +53,7 @@ export const work = [
     description:
       "Architectural visualisation exploring the project through composition, light, materials and its surrounding landscape.",
     scope: p.tags,
-  })),
+  })).filter((p) => !excludedWorkSlugs.has(p.slug)),
 ];
 export const portfolioWork = work.filter((p) => !p.slug.startsWith("glc-"));
 export const oldServiceRoutes = {

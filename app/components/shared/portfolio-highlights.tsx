@@ -49,7 +49,7 @@ export function CaseArtwork({
         className={
           p.art === "phone"
             ? casePhoneImgVariants[variant]
-            : "h-full w-full object-contain"
+            : "h-full w-full object-cover"
         }
       />
       {!compact && (
@@ -63,16 +63,22 @@ export function CaseArtwork({
 }
 export function StoryCard({
   project: p,
+  from,
   showMetadata = true,
   compact = false,
 }: {
   project: ProjectLike;
+  from?: string;
   showMetadata?: boolean;
   compact?: boolean;
 }) {
   const story = storyFor(p.slug);
+  const href =
+    from && from !== "All"
+      ? `/work/${p.slug}?from=${from}`
+      : `/work/${p.slug}`;
   return (
-    <Link className="work-card portfolio-card" href={"/work/" + p.slug}>
+    <Link className="work-card portfolio-card" href={href}>
       <div className={`relative overflow-hidden bg-[#e2e8f0] ${compact ? "aspect-[1.7] max-[767px]:aspect-[1.5]" : "aspect-[1.25] max-[767px]:aspect-[1.15]"}`}>
         {story ? (
           <CaseArtwork story={story} compact variant="portfolio" />
@@ -83,7 +89,7 @@ export function StoryCard({
             width="1600"
             height="1000"
             loading="lazy"
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover"
           />
         )}
         <span className="absolute bottom-5 right-5 rounded-full bg-white w-[46px] h-[46px] grid place-items-center">
