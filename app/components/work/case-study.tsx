@@ -17,7 +17,7 @@ const bodyCopy = "text-[17px] leading-[1.85] text-[#000000] max-[767px]:text-[16
 
 export function CaseStudy({ story: p }: { story: Story }) {
   return (
-    <main id="main">
+    <main id="main" className="bg-[#f8f9fa]">
       <section className="pt-[35px] max-[767px]:pt-7 w-[min(1424px,calc(100%_-_112px))] mx-auto">
         <nav
           className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"

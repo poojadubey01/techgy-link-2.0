@@ -25,7 +25,7 @@ export default async function MarketingDetail({
   const m = marketing.find((m) => m.slug === detail);
   if (!m) notFound();
   return (
-    <main id="main">
+    <main id="main" className="bg-[#f8f9fa]">
       <section className="page-intro w-full mx-auto bg-[#f8f9fa] py-[72px] px-[max(56px,calc((100vw_-_1424px)/2))] max-[767px]:py-[45px] max-[767px]:px-5">
         <nav
           className="breadcrumb flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] [&_a:hover]:text-brand max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"

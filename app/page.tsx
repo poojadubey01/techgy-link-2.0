@@ -31,7 +31,7 @@ const starts = [
 ];
 export default function Home() {
   return (
-    <main id="main">
+    <main id="main" className="bg-[#f8f9fa]">
       <HomeHero />
       <CompanyEvolution />
       <CollectiveCapabilities />

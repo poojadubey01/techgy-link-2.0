@@ -80,6 +80,27 @@ export function EssenceMotion() {
               },
             ),
           );
+        gsap.utils.toArray<Element>(".outcomes").forEach((list) => {
+          const items = list.querySelectorAll("li");
+          if (!items.length) return;
+          gsap.fromTo(
+            items,
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.85,
+              stagger: 0.22,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: list,
+                start: "top 88%",
+                once: true,
+              },
+              clearProps: "all",
+            },
+          );
+        });
       });
       mm.add(
         "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
@@ -192,8 +213,9 @@ export function EssenceMotion() {
       );
     });
     const refresh = () => ScrollTrigger.refresh();
+    requestAnimationFrame(refresh);
     document.fonts.ready.then(refresh);
-    const timer = setTimeout(refresh, 400);
+    const timer = setTimeout(refresh, 350);
     return () => {
       clearTimeout(timer);
       cleanups.forEach((fn) => fn());

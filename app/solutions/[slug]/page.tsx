@@ -143,7 +143,7 @@ export default async function Solution({
           <p className="font-display text-[clamp(23px,2.35vw,35px)] leading-[1.4] tracking-[-0.025em] max-[767px]:text-[25px]">
             {s.start}
           </p>
-          <ul className="my-8 mx-0 max-[767px]:my-[25px]">
+          <ul className="outcomes my-8 mx-0 max-[767px]:my-[25px]">
             <li className="relative pt-[18px] pr-0 pb-[18px] pl-[25px] border-t border-t-rule text-[16px] text-[#000000] before:content-['—'] before:absolute before:left-0 before:text-brand max-[767px]:text-[15px] max-[767px]:py-[15px]">
               A documented brief and priorities
             </li>

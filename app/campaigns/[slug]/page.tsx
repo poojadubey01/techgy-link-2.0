@@ -104,7 +104,7 @@ export default async function Campaign({
             <p className="text-[17px] text-white max-[767px]:text-[16px]">
               {s.description}
             </p>
-            <ul className="my-8 mx-0 max-[767px]:my-[25px]">
+            <ul className="outcomes my-8 mx-0 max-[767px]:my-[25px]">
               {s.outcomes.map((o) => (
                 <li
                   key={o}

@@ -76,7 +76,7 @@ export default async function Product({
   const p = products.find((p) => p.slug === slug);
   if (!p) notFound();
   return (
-    <main id="main">
+    <main id="main" className="bg-[#f8f9fa]">
       <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
         <nav
           className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"

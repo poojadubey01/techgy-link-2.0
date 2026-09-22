@@ -40,7 +40,7 @@
     scroll-padding-top: 120px;
   }
   body {
-    @apply m-0 bg-white font-sans text-ink antialiased;
+    @apply m-0 bg-[#f8f9fa] font-sans text-ink antialiased;
     font-size: 16px;
     line-height: 1.65;
   }

@@ -6,7 +6,7 @@ export const metadata = {
 };
 export default function Services() {
   return (
-    <main id="main">
+    <main id="main" className="bg-[#f8f9fa]">
       <section className="page-intro w-full mx-auto bg-[#f8f9fa] py-[72px] px-[max(56px,calc((100vw_-_1424px)/2))] max-[767px]:py-[45px] max-[767px]:px-5">
         <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
           Our expertise

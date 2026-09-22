@@ -26,17 +26,17 @@ export default function Campaigns() {
       <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-3 gap-[35px] max-[1023px]:grid-cols-2 max-[767px]:grid-cols-1 max-[767px]:gap-[25px]">
         {campaigns.map((c) => (
           <Link
-            className="p-8 border border-[#e2e8f0] bg-[#f8f9fa] min-h-[340px] flex items-start flex-col rounded-[5px] hover:bg-[#f8f9fa] max-[767px]:min-h-[300px] max-[767px]:p-7"
+            className="group p-8 border border-[#e2e8f0] bg-[#f8f9fa] min-h-[340px] flex items-start flex-col rounded-[5px] hover:bg-brand hover:border-brand transition-all duration-300 max-[767px]:min-h-[300px] max-[767px]:p-7"
             key={c.slug}
             href={"/campaigns/" + c.slug}
           >
-            <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand">
+            <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand group-hover:text-white/80 transition-colors duration-300">
               {c.service.short}
             </p>
-            <h3 className="text-[33px] my-[35px] mx-0 max-[767px]:text-[32px] max-[767px]:my-[25px]">
+            <h3 className="text-[33px] my-[35px] mx-0 max-[767px]:text-[32px] max-[767px]:my-[25px] text-ink group-hover:text-white transition-colors duration-300">
               {c.headline}
             </h3>
-            <span className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand mt-auto max-[767px]:text-[14px]">
+            <span className="inline-flex items-center gap-5 text-sm font-medium leading-[1.6] text-brand group-hover:text-white mt-auto max-[767px]:text-[14px] transition-colors duration-300">
               {c.cta}
               <Arrow />
             </span>

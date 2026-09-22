@@ -8,23 +8,23 @@ export const metadata = {
 };
 export default function Solutions() {
   return (
-    <main id="main">
-      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto">
-        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]">
+    <main id="main" className="bg-[#f8f9fa]">
+      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
+        <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
           Connected solutions
         </p>
-        <h1>
+        <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[48px] max-[767px]:leading-[1.12] max-[767px]:mt-[22px]">
           Your bigger ambition.
           <br />
           <span className="text-brand">Our collective strength.</span>
         </h1>
-        <p>
+        <p className="text-[20px] leading-[1.7] text-[#000000] max-w-[770px] mt-[30px] max-[767px]:text-[17px] max-[767px]:leading-[1.8] max-[767px]:mt-[25px]">
           A property launch. A more connected operation. A new digital
           experience. Our solutions bring different teams into one conversation,
           so the work moves toward the same business goal.
         </p>
       </section>
-      <section className="bg-paper pt-[30px] pb-5 max-[767px]:pt-[5px] max-[767px]:pb-0">
+      <section className="pt-[30px] pb-5 max-[767px]:pt-[5px] max-[767px]:pb-0">
         <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto">
           {solutions.map((s, i) => (
             <Link
@@ -65,12 +65,10 @@ export default function Solutions() {
           ))}
         </div>
       </section>
-      <div className="flow-root bg-paper">
-        <CTA
-          title="One service can be enough."
-          text="These are flexible combinations. You can begin with a visualisation brief, a website or one workflow. Expand the scope only when the need is clear."
-        />
-      </div>
+      <CTA
+        title="One service can be enough."
+        text="These are flexible combinations. You can begin with a visualisation brief, a website or one workflow. Expand the scope only when the need is clear."
+      />
     </main>
   );
 }

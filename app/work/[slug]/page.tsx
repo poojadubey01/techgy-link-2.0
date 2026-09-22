@@ -34,7 +34,7 @@ export default async function Project({
       s.proof === slug || (gallery && s.id === "architectural-visualisation"),
   );
   return (
-    <main id="main">
+    <main id="main" className="bg-[#f8f9fa]">
       <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto">
         <nav
           className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
