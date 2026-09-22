@@ -123,6 +123,47 @@ export function Chatbot() {
   }, [messages, loading, stage, conversationEnded]);
 
   useEffect(() => {
+    // On phones, a `fixed; bottom: 0` panel tracks the page's layout
+    // viewport, not the visual one — so when the on-screen keyboard opens
+    // (focusing the message input), the keyboard covers the bottom of the
+    // panel instead of the panel shrinking to make room, and the input row
+    // ends up hidden behind it. Pin the panel to the actual visible area
+    // via the VisualViewport API instead, only below the md breakpoint.
+    const vv = typeof window !== "undefined" ? window.visualViewport : null;
+    if (!open || !vv) return;
+    const sync = () => {
+      const el = panelRef.current;
+      if (!el) return;
+      if (window.innerWidth > 767) {
+        el.style.top = "";
+        el.style.height = "";
+        el.style.maxHeight = "";
+        return;
+      }
+      // Anchor to the bottom of the *visible* area (not the full layout
+      // viewport) so this tracks the keyboard as it opens and closes, and
+      // let the CSS max-height fallback stand down in favour of this.
+      const height = Math.min(vv.height * 0.85, vv.height - 24);
+      el.style.maxHeight = "none";
+      el.style.height = `${height}px`;
+      el.style.top = `${vv.offsetTop + vv.height - height}px`;
+    };
+    sync();
+    vv.addEventListener("resize", sync);
+    vv.addEventListener("scroll", sync);
+    return () => {
+      vv.removeEventListener("resize", sync);
+      vv.removeEventListener("scroll", sync);
+      const el = panelRef.current;
+      if (el) {
+        el.style.top = "";
+        el.style.height = "";
+        el.style.maxHeight = "";
+      }
+    };
+  }, [open]);
+
+  useEffect(() => {
     return () => {
       if (typingIntervalRef.current) clearInterval(typingIntervalRef.current);
     };
