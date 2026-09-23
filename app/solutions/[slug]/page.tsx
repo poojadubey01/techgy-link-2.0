@@ -71,7 +71,7 @@ export default async function Solution({
           src={s.image}
           alt={
             s.id === "property-launch-sales"
-              ? "Dates County architectural visualisation"
+              ? "Eco World architectural visualisation"
               : s.id === "connected-sales-operations"
                 ? "QuickBooks integration project presentation"
                 : "Greenland Capital website project presentation"

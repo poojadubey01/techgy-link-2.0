@@ -103,10 +103,10 @@ export function ConnectedProof() {
             </span>
           </div>
           <Link
-            href="/work"
+            href="/work/greenland-capital"
             className="cta-button inline-flex items-center rounded-full bg-white text-brand border border-white col-start-1 row-start-2 self-end justify-self-start mb-[25px] max-[767px]:mb-0 max-[767px]:mt-1.5"
           >
-            Explore more of our work <ArrowUpRight size={18} className="max-[767px]:w-[15px]" />
+            Read the connected project story <ArrowUpRight size={18} className="max-[767px]:w-[15px]" />
           </Link>
         </div>
       </div>
