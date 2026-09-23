@@ -9,7 +9,7 @@ export const metadata = {
 export default function Solutions() {
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
+      <section className="page-intro site-container mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
         <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
           Connected solutions
         </p>
@@ -25,7 +25,7 @@ export default function Solutions() {
         </p>
       </section>
       <section className="pt-[30px] pb-5 max-[767px]:pt-[5px] max-[767px]:pb-0">
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto">
+        <div className="site-container mx-auto">
           {solutions.map((s, i) => (
             <Link
               key={s.id}

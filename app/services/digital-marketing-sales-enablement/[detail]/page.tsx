@@ -54,7 +54,7 @@ export default async function MarketingDetail({
         </div>
       </section>
       <MarketingFocus slug={m.slug} />
-      <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
+      <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
         <div>
           <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
             Who this is for
@@ -81,13 +81,13 @@ export default async function MarketingDetail({
         </div>
       </section>
       <section className="bg-paper py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)]">
+        <div className="site-container mx-auto">
           <SectionTitle
             label="The engagement"
             title="What we can help you deliver."
             description=""
           />
-          <div className="deliverable-grid grid grid-cols-[1fr_1fr] gap-y-0 gap-x-[70px] max-[1023px]:gap-x-[45px]">
+          <div className="deliverable-grid grid grid-cols-[1fr_1fr] max-[767px]:grid-cols-1 gap-y-0 gap-x-[70px] max-[1023px]:gap-x-[45px]">
             {m.deliverables.map(([t, d], i) => (
               <article
                 className="deliverable grid grid-cols-[32px_1fr] gap-[22px] pt-[35px] px-0 pb-[42px] border-t border-t-[#e2e8f0] max-[767px]:py-7"
@@ -105,7 +105,7 @@ export default async function MarketingDetail({
           </div>
         </div>
       </section>
-      <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
+      <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
         <div>
           <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
             How we start
@@ -127,7 +127,7 @@ export default async function MarketingDetail({
         </div>
       </section>
       <CTA title="Connect the next step." service={m.name} text={m.start} />
-      <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
+      <section className="site-container mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
         <Link
           href="/services/digital-marketing-sales-enablement"
           className="cta-link inline-flex items-center font-medium text-brand hover:text-brand"

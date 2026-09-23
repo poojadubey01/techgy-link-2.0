@@ -29,7 +29,7 @@ export function CompanyEvolution() {
       className="bg-brand text-white pt-[105px] pb-[60px] max-[767px]:pt-[65px] max-[767px]:pb-[35px]"
       id="why-link"
     >
-      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)]">
+      <div className="site-container mx-auto">
         <p className="text-[14px] text-[#f8f9fa] max-[767px]:text-[12px]">
           The reason behind the rebrand
         </p>
@@ -41,7 +41,7 @@ export function CompanyEvolution() {
           </span>
         </h2>
       </div>
-      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] grid grid-cols-[1fr_1fr] gap-[115px] items-start mt-20 max-[1100px]:gap-[55px] max-[767px]:block max-[767px]:mt-10">
+      <div className="site-container mx-auto grid grid-cols-[1fr_1fr] gap-[115px] items-start mt-20 max-[1100px]:gap-[55px] max-[767px]:block max-[767px]:mt-10">
         <div
           className="sticky top-[125px] pt-[35px] px-[35px] pb-[25px] bg-[#0022ff] border border-[#e2e8f0] min-w-0 rounded max-[1100px]:p-[27px] max-[767px]:relative max-[767px]:top-0 max-[767px]:p-[26px] max-[767px]:max-w-[520px] max-[767px]:min-h-0 max-[767px]:mb-10"
           aria-hidden="true"
@@ -50,7 +50,7 @@ export function CompanyEvolution() {
             <span className="text-[12px] uppercase tracking-[0.09em] text-[#f8f9fa]">
               Our foundation
             </span>
-            <p className="font-display text-[54px] leading-[1.05] tracking-[-0.04em] mt-[15px] max-[1100px]:text-[44px] max-[767px]:text-[43px] max-[767px]:leading-[1.08]">
+            <p className="font-display text-[54px] leading-[1.05] tracking-[-0.04em] mt-[15px] max-[1100px]:text-[44px] max-[767px]:text-[clamp(32px,9vw,43px)] max-[767px]:leading-[1.08]">
               TechGy
               <br />
               Innovations.
@@ -61,11 +61,11 @@ export function CompanyEvolution() {
             <span className="text-[12px] uppercase tracking-[0.09em] text-[#f8f9fa]">
               Our collective future
             </span>
-            <p className="text-[52px] whitespace-nowrap max-[1100px]:text-[44px] max-[767px]:text-[40px]">
+            <p className="text-[52px] max-[1100px]:text-[44px] max-[767px]:text-[clamp(30px,8.5vw,40px)]">
               TechGy <strong className="font-normal">Link.</strong>
             </p>
           </div>
-          <div className="grid grid-cols-[repeat(3,_1fr)] gap-[7px] mt-7 max-[1100px]:grid-cols-[repeat(2,_1fr)] max-[767px]:grid-cols-[repeat(3,_1fr)] max-[767px]:gap-1.5 max-[767px]:mt-6">
+          <div className="grid grid-cols-[repeat(3,_1fr)] gap-[7px] mt-7 max-[1100px]:grid-cols-[repeat(2,_1fr)] max-[767px]:grid-cols-[repeat(2,minmax(0,1fr))] max-[767px]:gap-1.5 max-[767px]:mt-6">
             {[
               "Brand",
               "Product design",

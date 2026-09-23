@@ -44,7 +44,7 @@ export function WebDevCanvas() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-full min-h-[520px] bg-[#f8f9fa] text-[#000000] overflow-hidden flex flex-col select-none border-l border-rule/50"
+      className="service-demo relative w-full h-full min-h-[520px] bg-[#f8f9fa] text-[#000000] overflow-hidden flex flex-col select-none border-l border-rule/50"
     >
       {/* Background Subtle Animated Glows & Grid */}
       <div className="glow-orb-1 absolute -top-16 -right-16 w-80 h-80 rounded-full bg-blue-200/50 blur-3xl pointer-events-none" />
@@ -52,7 +52,7 @@ export function WebDevCanvas() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
 
       {/* Clean White Browser Chrome / Header Bar */}
-      <div className="relative z-10 flex items-center justify-between px-4 py-3 border-b border-rule bg-white/80 backdrop-blur-md">
+      <div className="demo-row demo-toolbar relative z-10 flex items-center justify-between px-4 py-3 border-b border-rule bg-white/80 backdrop-blur-md">
         {/* Window controls */}
         <div className="flex items-center gap-2">
           <span className="w-3 h-3 rounded-full bg-[#ff5f56] inline-block shadow-sm" />
@@ -69,7 +69,7 @@ export function WebDevCanvas() {
         </div>
 
         {/* View Mode Switcher Tabs */}
-        <div className="flex items-center gap-1 bg-[#e2e8f0]/60 p-0.5 rounded-lg border border-rule text-[11px]">
+        <div className="demo-tabs flex items-center gap-1 bg-[#e2e8f0]/60 p-0.5 rounded-lg border border-rule text-[11px]">
           <button
             type="button"
             onClick={() => setActiveTab("preview")}
@@ -107,12 +107,12 @@ export function WebDevCanvas() {
       </div>
 
       {/* Main Canvas Body */}
-      <div className="relative z-10 flex-1 p-5 flex flex-col justify-between overflow-hidden">
+      <div className="demo-body relative z-10 flex-1 p-5 flex flex-col justify-between overflow-hidden">
         {activeTab === "preview" && (
           <div className="flex flex-col gap-4 h-full justify-between">
             {/* Top Interactive Hero Preview Card */}
             <div className="floating-card relative p-5 rounded-xl bg-white border border-rule shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
-              <div className="flex items-center justify-between mb-3">
+              <div className="demo-row flex items-center justify-between mb-3">
                 <span className="text-[10px] uppercase font-mono tracking-widest text-brand px-2 py-0.5 rounded bg-blue-50 border border-blue-200">
                   Next.js 16 • React 19 • GSAP
                 </span>
@@ -144,7 +144,7 @@ export function WebDevCanvas() {
             <div className="grid grid-cols-2 gap-3.5">
               {/* Feature 1: Performance Sparkline */}
               <div className="floating-card p-3.5 rounded-lg bg-white border border-rule shadow-xs">
-                <div className="flex items-center justify-between text-[11px] text-[#000000]/70 mb-2">
+                <div className="demo-row flex items-center justify-between text-[11px] text-[#000000]/70 mb-2">
                   <span>Lighthouse Core</span>
                   <span className="text-emerald-600 font-mono font-semibold">100 / 100</span>
                 </div>
@@ -156,7 +156,7 @@ export function WebDevCanvas() {
 
               {/* Feature 2: Responsive Stack */}
               <div className="floating-card p-3.5 rounded-lg bg-white border border-rule shadow-xs">
-                <div className="flex items-center justify-between text-[11px] text-[#000000]/70 mb-1">
+                <div className="demo-row flex items-center justify-between text-[11px] text-[#000000]/70 mb-1">
                   <span>Motion Engine</span>
                   <span className="text-brand font-mono font-medium">GSAP 3.15</span>
                 </div>
@@ -216,7 +216,7 @@ export function WebDevCanvas() {
               </p>
               <p>{"}"}</p>
             </div>
-            <div className="pt-2 border-t border-rule flex items-center justify-between text-[11px] text-[#000000]/50">
+            <div className="demo-row pt-2 border-t border-rule flex items-center justify-between text-[11px] text-[#000000]/50">
               <span>TypeScript 5.9</span>
               <span className="text-emerald-600 font-medium">Compiled successfully</span>
             </div>
@@ -261,7 +261,7 @@ export function WebDevCanvas() {
       </div>
 
       {/* Clean Footer Meta Badge */}
-      <div className="relative z-10 px-4 py-2 border-t border-rule bg-white/80 flex items-center justify-between text-[11px] text-[#000000]/50">
+      <div className="demo-row demo-footer relative z-10 px-4 py-2 border-t border-rule bg-white/80 flex items-center justify-between text-[11px] text-[#000000]/50">
         <span className="flex items-center gap-1.5 font-medium text-brand">
           <span className="w-2 h-2 rounded-full bg-brand animate-ping" />
           Interactive Canvas

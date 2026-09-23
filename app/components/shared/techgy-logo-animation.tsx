@@ -161,7 +161,7 @@ export function TechgyLogoAnimation({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       style={{ perspective: "1200px" }}
-      className={`relative flex flex-col items-center justify-center select-none ${className}`}
+      className={`relative w-full min-w-0 flex flex-col items-center justify-center select-none ${className}`}
     >
       {/* Dynamic 3D Transform Anchor */}
       <div
@@ -172,7 +172,7 @@ export function TechgyLogoAnimation({
             : "transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
           transformStyle: "preserve-3d",
         }}
-        className="techgy-3d-floating-rig relative flex items-center justify-center"
+        className="techgy-3d-floating-rig relative max-w-full flex items-center justify-center"
       >
         {/* Ambient Halo & Energy Diffusion */}
         {showGlow && (
@@ -200,7 +200,7 @@ export function TechgyLogoAnimation({
           viewBox="-40 -40 1059 1094"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="techgy-3d-breathing-scale relative z-10 overflow-visible drop-shadow-[0_24px_38px_rgba(0,34,255,0.14)]"
+          className="techgy-3d-breathing-scale max-w-full h-auto relative z-10 overflow-visible drop-shadow-[0_24px_38px_rgba(0,34,255,0.14)]"
         >
           <defs>
             {/* 3D Surface Bevel & Specular Lighting Filter */}
@@ -444,7 +444,7 @@ export function TechgyLogoAnimation({
 
       {/* Theme & Motion Interactive Selector Toolbar */}
       {showControls && (
-        <div className="relative z-20 mt-8 flex flex-wrap items-center justify-center gap-2 bg-white/90 backdrop-blur-md p-1.5 rounded-full border border-rule shadow-sm text-[12px] font-mono">
+        <div className="relative z-20 mt-8 flex flex-wrap items-center justify-center gap-2 bg-white/90 backdrop-blur-md p-1.5 rounded-2xl border border-rule shadow-sm text-[12px] font-mono">
           <button
             type="button"
             onClick={() => setActiveTheme("platinum_blue")}

@@ -93,7 +93,7 @@ const manifestoLines = [
 export default function About() {
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[65px] pb-20 max-[767px]:pt-[35px] max-[767px]:pb-[50px]">
+      <section className="site-container mx-auto pt-[65px] pb-20 max-[767px]:pt-[35px] max-[767px]:pb-[50px]">
         <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[12px]">
           Our story / A company growing into its name
         </p>
@@ -123,7 +123,7 @@ export default function About() {
         </div>
       </section>
       <section className="rebrand-statement bg-brand text-white pt-[90px] pb-[100px] overflow-hidden max-[767px]:pt-[55px] max-[767px]:pb-[65px]">
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto">
+        <div className="site-container mx-auto">
           <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-[#f8f9fa] max-[767px]:text-[12px]">
             Why Link?
           </p>
@@ -157,7 +157,7 @@ export default function About() {
           </p>
         </div>
       </section>
-      <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] grid grid-cols-[1fr_1fr] gap-[110px] max-[1100px]:gap-[60px] max-[767px]:block">
+      <section className="site-container mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] grid grid-cols-[1fr_1fr] gap-[110px] max-[1100px]:gap-[60px] max-[767px]:block">
         <div className="sticky top-[140px] self-start max-[767px]:static">
           <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand">
             How we got here
@@ -210,7 +210,7 @@ export default function About() {
         </div>
       </section>
       <section className="mt-0 mb-0 bg-[#0f1a34] py-20 text-white max-[767px]:py-[55px]">
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto">
+        <div className="site-container mx-auto">
           <div className="grid grid-cols-2 gap-[10%] items-end mb-[30px] max-[767px]:block">
             <div>
               <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-[#f8f9fa]">
@@ -249,7 +249,7 @@ export default function About() {
         className="bg-[#f8f9fa] py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]"
         id="our-teams"
       >
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto">
+        <div className="site-container mx-auto">
           <div>
             <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand">
               The people behind the possibilities
@@ -299,7 +299,7 @@ export default function About() {
         </div>
       </section>
       <section className="bg-[#e2e8f0] py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto">
+        <div className="site-container mx-auto">
           <p className="text-brand text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6]">
             The company we are building
           </p>

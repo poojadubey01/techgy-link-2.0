@@ -6,12 +6,12 @@ export function BrandingCanvas() {
   const [activeTab, setActiveTab] = useState<"logo_anim" | "brand_tokens" | "geometry_specs">("logo_anim");
 
   return (
-    <div className="relative w-full h-full min-h-[620px] bg-[#f8f9fa] text-[#000000] overflow-hidden flex flex-col select-none border-l border-rule/50 font-sans">
+    <div className="service-demo relative w-full h-full min-h-[620px] bg-[#f8f9fa] text-[#000000] overflow-hidden flex flex-col select-none border-l border-rule/50 font-sans">
       {/* Background Dots Matrix */}
       <div className="absolute inset-0 bg-[radial-gradient(#0022ff0f_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
       {/* Top Toolbar */}
-      <div className="relative z-20 flex items-center justify-between px-6 py-3 border-b border-rule bg-white/95 backdrop-blur-md max-[767px]:flex-col max-[767px]:gap-2.5 max-[767px]:items-start">
+      <div className="demo-row demo-toolbar relative z-20 flex items-center justify-between px-6 py-3 border-b border-rule bg-white/95 backdrop-blur-md max-[767px]:flex-col max-[767px]:gap-2.5 max-[767px]:items-start">
         <div className="flex items-center gap-2.5 text-[12px] font-mono text-[#000000]/70">
           <span className="w-2.5 h-2.5 rounded-full bg-brand animate-pulse" />
           <span className="font-bold text-brand uppercase tracking-wider">TechGy Brand System</span>
@@ -19,7 +19,7 @@ export function BrandingCanvas() {
         </div>
 
         {/* View Mode Switcher Tabs */}
-        <div className="flex items-center gap-1 bg-[#e2e8f0]/60 p-0.5 rounded-lg border border-rule text-[11px] font-mono">
+        <div className="demo-tabs flex items-center gap-1 bg-[#e2e8f0]/60 p-0.5 rounded-lg border border-rule text-[11px] font-mono">
           <button
             type="button"
             onClick={() => setActiveTab("logo_anim")}
@@ -57,7 +57,7 @@ export function BrandingCanvas() {
       </div>
 
       {/* Main Canvas Body */}
-      <div className="relative z-10 flex-1 p-6 flex flex-col items-center justify-center overflow-hidden">
+      <div className="demo-body relative z-10 flex-1 p-6 flex flex-col items-center justify-center overflow-hidden">
         {activeTab === "logo_anim" && (
           <div className="w-full h-full flex flex-col items-center justify-center py-4">
             <TechgyLogoAnimation size={400} interactive={true} showGlow={true} showControls={true} />
@@ -127,7 +127,7 @@ export function BrandingCanvas() {
       </div>
 
       {/* Clean Footer Meta Badge */}
-      <div className="relative z-10 px-6 py-2.5 border-t border-rule bg-white/95 flex items-center justify-between text-[11px] text-[#000000]/50 font-mono max-[767px]:flex-col max-[767px]:gap-1 max-[767px]:items-start">
+      <div className="demo-row demo-footer relative z-10 px-6 py-2.5 border-t border-rule bg-white/95 flex items-center justify-between text-[11px] text-[#000000]/50 font-mono max-[767px]:flex-col max-[767px]:gap-1 max-[767px]:items-start">
         <span className="flex items-center gap-1.5 font-bold text-brand">
           <span className="w-2 h-2 rounded-full bg-brand animate-ping" />
           TechGy Link Brand Identity Studio

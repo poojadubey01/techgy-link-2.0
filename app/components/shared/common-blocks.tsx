@@ -19,7 +19,7 @@ export function CTA({
   label?: string;
 }) {
   return (
-    <section className="reveal flex items-center justify-between gap-[50px] bg-[#0022ff] text-white rounded-md py-[55px] px-[60px] my-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:p-10 max-[767px]:flex-col max-[767px]:items-start max-[767px]:py-[35px] max-[767px]:px-[25px] max-[767px]:my-[55px]">
+    <section className="reveal flex items-center justify-between gap-[50px] bg-[#0022ff] text-white rounded-md py-[55px] px-[60px] my-[70px] site-container mx-auto max-[1200px]:p-10 max-[767px]:flex-col max-[767px]:items-start max-[767px]:py-[35px] max-[767px]:px-[25px] max-[767px]:my-[55px]">
       <div className="max-w-[800px]">
         <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-white/80 max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
           Let’s make it happen

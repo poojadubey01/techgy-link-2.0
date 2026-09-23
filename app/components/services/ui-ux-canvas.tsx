@@ -75,14 +75,14 @@ export function UiUxCanvas() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-full min-h-[520px] bg-[#f8f9fa] text-[#000000] overflow-hidden flex flex-col select-none border-l border-rule/50"
+      className="service-demo relative w-full h-full min-h-[520px] bg-[#f8f9fa] text-[#000000] overflow-hidden flex flex-col select-none border-l border-rule/50"
     >
       {/* Background Subtle Gradient & Dot Grid */}
       <div className="ui-orb-1 absolute -top-16 -right-16 w-80 h-80 rounded-full bg-blue-100/60 blur-3xl pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(#00000010_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
 
       {/* Figma-style Design Canvas Toolbar */}
-      <div className="relative z-10 flex items-center justify-between px-4 py-3 border-b border-rule bg-white/80 backdrop-blur-md">
+      <div className="demo-row demo-toolbar relative z-10 flex items-center justify-between px-4 py-3 border-b border-rule bg-white/80 backdrop-blur-md">
         {/* Layer & Selection info */}
         <div className="flex items-center gap-2 text-[11px] font-mono text-[#000000]/70">
           <span className="w-2 h-2 rounded-full bg-brand" />
@@ -91,7 +91,7 @@ export function UiUxCanvas() {
         </div>
 
         {/* View Mode Switcher Tabs */}
-        <div className="flex items-center gap-1 bg-[#e2e8f0]/60 p-0.5 rounded-lg border border-rule text-[11px]">
+        <div className="demo-tabs flex items-center gap-1 bg-[#e2e8f0]/60 p-0.5 rounded-lg border border-rule text-[11px]">
           <button
             type="button"
             onClick={() => setActiveTab("prototype")}
@@ -146,12 +146,12 @@ export function UiUxCanvas() {
       </div>
 
       {/* Main Canvas Body */}
-      <div className="relative z-10 flex-1 p-5 flex flex-col justify-between overflow-hidden">
+      <div className="demo-body relative z-10 flex-1 p-5 flex flex-col justify-between overflow-hidden">
         {activeTab === "prototype" && (
           <div className="flex flex-col gap-3.5 h-full justify-between">
             {/* Top Interactive Component Card */}
             <div className="ui-card-float relative p-5 rounded-xl bg-white border border-rule shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
-              <div className="flex items-center justify-between mb-3">
+              <div className="demo-row flex items-center justify-between mb-3">
                 <span className="text-[10px] uppercase font-mono tracking-wider text-brand px-2 py-0.5 rounded bg-blue-50 border border-blue-200">
                   Interactive Micro-Interaction
                 </span>
@@ -161,7 +161,7 @@ export function UiUxCanvas() {
               </div>
 
               {/* Segmented Pill Controller */}
-              <div className="flex items-center justify-between gap-3 mb-4">
+              <div className="demo-row flex items-center justify-between gap-3 mb-4">
                 <div className="flex bg-[#f1f5f9] p-1 rounded-lg border border-rule">
                   <button
                     type="button"
@@ -214,7 +214,7 @@ export function UiUxCanvas() {
             <div className="grid grid-cols-2 gap-3.5">
               {/* Feature 1: User Experience Metric */}
               <div className="ui-card-float p-3.5 rounded-lg bg-white border border-rule shadow-xs">
-                <div className="flex items-center justify-between text-[11px] text-[#000000]/70 mb-1.5">
+                <div className="demo-row flex items-center justify-between text-[11px] text-[#000000]/70 mb-1.5">
                   <span>Usability Rating</span>
                   <span className="text-emerald-600 font-mono font-semibold">9.8 / 10</span>
                 </div>
@@ -226,7 +226,7 @@ export function UiUxCanvas() {
 
               {/* Feature 2: Wireframe System */}
               <div className="ui-card-float p-3.5 rounded-lg bg-white border border-rule shadow-xs">
-                <div className="flex items-center justify-between text-[11px] text-[#000000]/70 mb-1">
+                <div className="demo-row flex items-center justify-between text-[11px] text-[#000000]/70 mb-1">
                   <span>Component States</span>
                   <span className="text-brand font-mono font-medium">8 Variations</span>
                 </div>
@@ -271,7 +271,7 @@ export function UiUxCanvas() {
               </div>
             </div>
 
-            <div className="pt-2 border-t border-rule flex items-center justify-between text-[11px] text-[#000000]/50">
+            <div className="demo-row pt-2 border-t border-rule flex items-center justify-between text-[11px] text-[#000000]/50">
               <span>Figma DevMode Sync</span>
               <span className="text-emerald-600 font-medium">Pixel-perfect specifications</span>
             </div>
@@ -315,7 +315,7 @@ export function UiUxCanvas() {
       </div>
 
       {/* Clean Footer Meta Badge */}
-      <div className="relative z-10 px-4 py-2 border-t border-rule bg-white/80 flex items-center justify-between text-[11px] text-[#000000]/50">
+      <div className="demo-row demo-footer relative z-10 px-4 py-2 border-t border-rule bg-white/80 flex items-center justify-between text-[11px] text-[#000000]/50">
         <span className="flex items-center gap-1.5 font-medium text-brand">
           <span className="w-2 h-2 rounded-full bg-brand animate-ping" />
           Interactive UI/UX Canvas

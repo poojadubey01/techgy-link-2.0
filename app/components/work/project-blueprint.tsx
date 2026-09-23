@@ -333,7 +333,7 @@ export function ProjectBlueprint({ slug }: { slug: string }) {
     <section
       id="inside-solution"
       aria-label="Solution scope diagram"
-      className="py-[120px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto"
+      className="py-[120px] max-[767px]:py-[70px] site-container mx-auto"
     >
       <div className="flex gap-10 justify-between items-end mb-[55px] max-[767px]:block max-[767px]:mb-9">
         <div>

@@ -31,7 +31,7 @@ export function CaseStudy({
         : "/work";
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="pt-[35px] max-[767px]:pt-7 w-[min(1424px,calc(100%_-_112px))] mx-auto">
+      <section className="pt-[35px] max-[767px]:pt-7 site-container mx-auto">
         <nav
           className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
           aria-label="Breadcrumb"
@@ -84,7 +84,7 @@ export function CaseStudy({
         </dl>
       </section>
       <section
-        className="grid grid-cols-[0.85fr_1.15fr] gap-[9%] max-[1023px]:gap-[50px] max-[767px]:block py-[120px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto"
+        className="grid grid-cols-[0.85fr_1.15fr] gap-[9%] max-[1023px]:gap-[50px] max-[767px]:block py-[120px] max-[767px]:py-[70px] site-container mx-auto"
         id="the-challenge"
       >
         <div>
@@ -114,7 +114,7 @@ export function CaseStudy({
           (p.tone === "spur" ? "bg-[#0f1a34] text-white" : "bg-[#e2e8f0]")
         }
       >
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto">
+        <div className="site-container mx-auto">
           <p className={eyebrow + (p.tone === "spur" ? " text-[#000000]" : "")}>
             02 / Connect the journey
           </p>
@@ -146,7 +146,7 @@ export function CaseStudy({
         </div>
       </section>
       <ProjectBlueprint slug={p.slug} />
-      <section className="py-[120px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[0.85fr_1.15fr] gap-[9%] max-[1023px]:gap-[50px] max-[767px]:block">
+      <section className="py-[120px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[0.85fr_1.15fr] gap-[9%] max-[1023px]:gap-[50px] max-[767px]:block">
         <div>
           <p className={eyebrow}>03 / Design the important details</p>
           <h2 className={sectionH2}>
@@ -173,7 +173,7 @@ export function CaseStudy({
         </div>
       </section>
       {p.slug === "greenland-capital" && (
-        <section className="py-[120px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto">
+        <section className="py-[120px] max-[767px]:py-[70px] site-container mx-auto">
           <div className="grid grid-cols-[1.4fr_1fr] gap-[10%] items-end mb-[42px] max-[1023px]:gap-10 max-[767px]:block max-[767px]:mb-8">
             <div>
               <p className={eyebrow}>The connected platform</p>
@@ -199,7 +199,7 @@ export function CaseStudy({
           </div>
         </section>
       )}
-      <section className="grid grid-cols-[1.2fr_1fr] gap-[12%] border-t border-[#e2e8f0] max-[767px]:block py-[120px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto">
+      <section className="grid grid-cols-[1.2fr_1fr] gap-[12%] border-t border-[#e2e8f0] max-[767px]:block py-[120px] max-[767px]:py-[70px] site-container mx-auto">
         <div>
           <p className={eyebrow}>The engagement</p>
           <h2 className={`${sectionH2} mb-[23px] max-[767px]:mb-[30px]`}>
@@ -222,7 +222,7 @@ export function CaseStudy({
         </div>
       </section>
       <section className="bg-brand text-white py-[75px] max-[767px]:py-12">
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[1.3fr_1fr] gap-[10%] items-center max-[767px]:block">
+        <div className="site-container mx-auto grid grid-cols-[1.3fr_1fr] gap-[10%] items-center max-[767px]:block">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-[#f8f9fa] max-[767px]:tracking-[0.085em]">
               The TechGy Link perspective
@@ -259,7 +259,7 @@ export function CaseStudy({
         service={p.name + " — related enquiry"}
         label="Discuss your challenge"
       />
-      <p className="w-[min(1424px,calc(100%_-_112px))] mx-auto text-[12px] text-[#000000] mb-[50px] max-[767px]:mb-10">
+      <p className="site-container mx-auto text-[12px] text-[#000000] mb-[50px] max-[767px]:mb-10">
         Project imagery from TechGy’s client portfolio. Interface figures and
         sample content are illustrative, not measured business results.
       </p>

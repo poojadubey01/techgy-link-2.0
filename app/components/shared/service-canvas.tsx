@@ -7,6 +7,7 @@ import { MarketingCanvas } from "@/app/components/services/marketing-canvas";
 import { ArchitectureCanvas } from "@/app/components/services/architecture-canvas";
 import { ConsultingCanvas } from "@/app/components/services/consulting-canvas";
 import { BrandingCanvas } from "@/app/components/services/branding-canvas";
+import { CustomSoftwareCanvas } from "@/app/components/services/custom-software-canvas";
 import { services } from "@/data/catalogue";
 
 type Service = (typeof services)[number];
@@ -61,6 +62,9 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
   if (s.id === "branding-identity")
     return <BrandingCanvas />;
 
+  if (s.id === "custom-software-development")
+    return <CustomSoftwareCanvas />;
+
   const [label, title, caption] = meta[s.id as keyof typeof meta] || [
     "Selected work",
     "Designed around the experience",
@@ -69,7 +73,7 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
 
   return (
     <figure
-      className={`${projectCanvasBg[s.id] || "bg-brand"} text-white rounded-md overflow-hidden grid grid-cols-[0.65fr_1fr] min-h-[500px] relative max-[1023px]:min-h-[430px] max-[1023px]:grid-cols-[0.75fr_1fr] max-[767px]:block max-[767px]:min-h-0`}
+      className={`${projectCanvasBg[s.id] || "bg-brand"} text-white rounded-md overflow-hidden grid grid-cols-[0.65fr_1fr] min-h-[500px] relative max-[1023px]:min-h-[430px] max-[1023px]:block max-[767px]:min-h-0`}
       data-image-reveal
     >
       <div className="py-[48px] px-[38px] flex flex-col justify-between items-start z-[2] max-[1023px]:p-[30px] max-[767px]:p-7">
@@ -85,13 +89,15 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
           </p>
         </div>
       </div>
-      <div className="relative overflow-hidden min-h-[500px] bg-white max-[1023px]:min-h-[430px] max-[767px]:min-h-0">
+      <div className="relative min-w-0 overflow-hidden min-h-[500px] bg-white max-[1023px]:min-h-[430px] max-[767px]:min-h-[340px]">
         {s.id === "website-design-development" ? (
           <WebDevCanvas />
         ) : s.id === "ui-ux-product-design" ? (
           <UiUxCanvas />
         ) : s.id === "mobile-application-development" ? (
           <MobileDevCanvas />
+        ) : s.id === "custom-software-development" ? (
+          <CustomSoftwareCanvas />
         ) : (
           <img
             src={s.image}

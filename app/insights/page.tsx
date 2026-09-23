@@ -9,7 +9,7 @@ export const metadata = {
 export default function Insights() {
   return (
     <main id="main" className="flow-root bg-[#f8f9fa]">
-      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
+      <section className="page-intro site-container mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
         <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
           Ideas from the work
         </p>
@@ -23,7 +23,7 @@ export default function Insights() {
           brief.
         </p>
       </section>
-      <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-3 gap-[45px] max-[1023px]:gap-7 max-[767px]:grid-cols-1 max-[767px]:gap-[35px]">
+      <section className="site-container mx-auto grid grid-cols-3 gap-[45px] max-[1023px]:gap-7 max-[767px]:grid-cols-1 max-[767px]:gap-[35px]">
         {articles.map((a) => (
           <article
             className="border-t border-t-[#e2e8f0] pt-[30px]"

@@ -304,7 +304,7 @@ export function Chatbot() {
           ref={panelRef}
           role="dialog"
           aria-label="TechGy Link chat assistant"
-          className="fixed z-60 flex flex-col bg-white border border-rule shadow-[0_35px_60px_#1116251a] right-5 bottom-38 w-[320px] h-125 max-h-[68vh] overflow-hidden max-[767px]:right-0 max-[767px]:bottom-0 max-[767px]:left-0 max-[767px]:w-full max-[767px]:h-[80svh] max-[767px]:max-h-[80svh]"
+          className="fixed z-60 flex flex-col bg-white border border-rule shadow-[0_35px_60px_#1116251a] right-5 bottom-38 w-[320px] h-125 max-h-[min(68dvh,calc(100dvh_-_164px))] overflow-hidden max-[767px]:right-0 max-[767px]:bottom-0 max-[767px]:left-0 max-[767px]:w-full max-[767px]:h-[80svh] max-[767px]:max-h-[80svh]"
         >
           <div className="flex items-center gap-3 bg-brand text-white px-5 py-4 shrink-0">
             <div className="min-w-0">

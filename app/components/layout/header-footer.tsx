@@ -51,10 +51,10 @@ export function Header() {
         Skip to content
       </a>
       <header className="sticky top-0 z-50 bg-[#f8f9faf0] backdrop-blur-lg border-b border-b-[#e2e8f0]">
-        <div className="flex items-center gap-8 max-[1200px]:gap-[25px] max-[1100px]:min-[768px]:gap-5 max-[767px]:gap-[13px] max-[370px]:gap-2.5 mx-auto h-[82px] max-[1023px]:h-20 max-[767px]:h-[74px] w-[calc(100%_-_112px)] max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] max-w-[1424px]">
+        <div className="flex items-center gap-8 max-[1200px]:gap-[25px] max-[1100px]:min-[768px]:gap-5 max-[767px]:gap-[13px] max-[370px]:gap-2 mx-auto h-[82px] max-[1023px]:h-20 max-[767px]:h-[74px] site-container">
           <Link
             href="/"
-            className="w-[194px] max-[1200px]:w-[170px] max-[1100px]:min-[768px]:w-[174px] max-[767px]:w-[154px] max-[370px]:w-[135px] shrink-0"
+            className="w-[194px] max-[1200px]:w-[170px] max-[1100px]:min-[768px]:w-[174px] max-[767px]:w-[154px] max-[370px]:w-[104px] shrink-0"
             aria-label="TechGy Link home"
           >
             <img
@@ -129,12 +129,12 @@ export function Header() {
           </nav>
           <Link
             href="/contact"
-            className="cta-button inline-flex items-center rounded-full bg-brand text-white border border-brand max-[1023px]:ml-auto"
+            className="cta-button inline-flex items-center rounded-full bg-brand text-white border border-brand max-[1023px]:ml-auto shrink-0 max-[370px]:px-3"
           >
             Let’s talk <ArrowUpRight size={18} className="max-[767px]:w-[15px]" />
           </Link>
           <button
-            className="hidden max-[1023px]:block p-2 max-[767px]:p-[7px]"
+            className="hidden max-[1023px]:block shrink-0 p-2 max-[767px]:p-[7px]"
             onClick={() => setOpen(true)}
             aria-label="Open navigation"
             aria-expanded={open}
@@ -146,7 +146,7 @@ export function Header() {
       </header>
       <dialog
         ref={mobile}
-        className="w-full max-w-[520px] h-[100svh] max-h-[100svh] mt-0 mr-0 mb-0 ml-auto border-0 p-6 bg-white text-ink overflow-auto"
+        className="w-full max-w-[520px] h-[100dvh] max-h-[100dvh] mt-0 mr-0 mb-0 ml-auto border-0 p-6 bg-white text-ink overflow-auto"
         aria-label="Website navigation"
         onCancel={() => setOpen(false)}
         onClick={(e) => {
@@ -204,7 +204,7 @@ export function Header() {
 export function Footer() {
   const path = usePathname();
   const wrap =
-    "w-[min(1424px,calc(100%_-_112px))] max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] mx-auto";
+    "site-container mx-auto";
   const footerEyebrow =
     "text-xs font-medium uppercase tracking-[0.105em] max-[767px]:text-[11px] max-[767px]:tracking-[0.085em] leading-[1.6] text-[#f8f9fa] mb-[22px] max-[767px]:mb-[19px]";
   const footerNavLink =
@@ -220,7 +220,7 @@ export function Footer() {
         >
           <Link
             href="/contact"
-            className="flex items-center justify-between max-[767px]:gap-5 gap-[30px] font-display my-[30px] mx-0 py-[30px] max-[767px]:py-[25px] text-[clamp(70px,8vw,120px)] max-[767px]:text-[52px] leading-[1.03] max-[767px]:leading-[1.1] tracking-[-0.05em]"
+            className="flex items-center justify-between max-[767px]:gap-5 gap-[30px] font-display my-[30px] mx-0 py-[30px] max-[767px]:py-[25px] text-[clamp(70px,8vw,120px)] max-[767px]:text-[clamp(32px,8.5vw,52px)] leading-[1.03] max-[767px]:leading-[1.1] tracking-[-0.05em]"
           >
             <span className="max-w-[900px]">
               Let’s build<em className="block text-[#f8f9fa]">what’s next.</em>

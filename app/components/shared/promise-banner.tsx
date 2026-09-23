@@ -33,7 +33,7 @@ export function PartnerPromise({ compact = false }: { compact?: boolean }) {
 
   return (
     <section className="bg-paper py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
-      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1100px]:gap-[50px] max-[767px]:block">
+      <div className="site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1100px]:gap-[50px] max-[767px]:block">
         <div>
           <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[12px]">
             What being your growth partner means

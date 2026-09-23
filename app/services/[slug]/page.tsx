@@ -86,7 +86,7 @@ export default async function Service({
         </div>
       </section>
       <section
-        className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]"
+        className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]"
         id="overview"
       >
         <div>
@@ -119,7 +119,7 @@ export default async function Service({
         className="bg-transparent py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]"
         id="deliverables"
       >
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)]">
+        <div className="site-container mx-auto">
           <SectionTitle
             label="What we deliver"
             title="Purpose in every detail."
@@ -144,7 +144,7 @@ export default async function Service({
         </div>
       </section>
       {isMarketing && (
-        <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)]">
+        <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto">
           <SectionTitle
             label="Explore the disciplines"
             title="One journey. Different specialisms."
@@ -172,7 +172,7 @@ export default async function Service({
       {architecture ? (
         <div className="architecture-proof bg-[#e2e8f0]" id="proof">
           <ArchitectureGallery />
-          <div className="architecture-film w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] pb-[85px]">
+          <div className="architecture-film site-container mx-auto pb-[85px]">
             <video
               controls
               playsInline
@@ -192,7 +192,7 @@ export default async function Service({
         <ServiceEvidence service={s} />
       )}
       <section
-        className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)]"
+        className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto"
         id="process"
       >
         <SectionTitle
@@ -210,7 +210,7 @@ export default async function Service({
         className="bg-transparent py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]"
         id="questions"
       >
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
+        <div className="site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
           <div>
             <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
               A little more clarity

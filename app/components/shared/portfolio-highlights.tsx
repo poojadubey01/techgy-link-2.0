@@ -69,7 +69,7 @@ export { StoryCard } from "@/app/components/shared/story-card";
 
 export function PortfolioBreadth() {
   return (
-    <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto py-[85px] border-b border-b-rule max-[1023px]:py-[70px] max-[767px]:py-[55px]">
+    <section className="site-container mx-auto py-[85px] border-b border-b-rule max-[1023px]:py-[70px] max-[767px]:py-[55px]">
       <div className="grid grid-cols-[1.4fr_1fr] gap-[10%] items-end mb-8 max-[1023px]:gap-10 max-[767px]:block max-[767px]:mb-6">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
@@ -111,7 +111,7 @@ const solutionProof = {
 export function SolutionEvidence({ id }: { id: string }) {
   const selected = solutionProof[id as keyof typeof solutionProof] || [];
   return (
-    <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
+    <section className="site-container mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
       <div className="grid grid-cols-[1.4fr_1fr] gap-[10%] items-end mb-[42px] max-[1023px]:gap-10 max-[767px]:block max-[767px]:mb-8">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">

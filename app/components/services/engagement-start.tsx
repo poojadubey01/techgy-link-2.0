@@ -7,7 +7,7 @@ export function EngagementStart({ service: s }: { service: Service }) {
   const e = engagements[s.id as keyof typeof engagements];
   return (
     <section
-      className="engagement-start w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] bg-[#e2e8f0] rounded-md p-12 mt-0 mb-[35px] scroll-mt-6 max-[1023px]:p-[35px] max-[767px]:py-[29px] max-[767px]:px-[25px] max-[767px]:mb-5"
+      className="engagement-start site-container mx-auto bg-[#e2e8f0] rounded-md p-12 mt-0 mb-[35px] scroll-mt-6 max-[1023px]:p-[35px] max-[767px]:py-[29px] max-[767px]:px-[25px] max-[767px]:mb-5"
       id="starting-scope"
     >
       <div className="engagement-heading grid grid-cols-[0.9fr_2fr] gap-[50px] items-start max-[1023px]:gap-[35px] max-[767px]:block">

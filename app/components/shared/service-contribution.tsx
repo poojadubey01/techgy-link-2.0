@@ -14,7 +14,7 @@ export function ServiceContribution({ service }: { service: Service }) {
   const c = contributions[service.id as keyof typeof contributions];
   return (
     <section className="bg-paper py-[75px] my-0 max-[767px]:py-[55px]">
-      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto">
+      <div className="site-container mx-auto">
         <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[12px]">
           The TechGy Link difference
         </p>
@@ -56,7 +56,7 @@ export function SolutionCollaboration({ id }: { id: string }) {
   const c = solutionConnections[id as keyof typeof solutionConnections];
   return (
     <section className="bg-paper mt-[70px] max-[767px]:mt-10">
-      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto">
+      <div className="site-container mx-auto">
         <div className="grid grid-cols-[1fr_1fr] gap-[90px] items-end m-0 max-[767px]:block">
           <div>
             <p className={eyebrowClass}>Why a connected partner matters</p>
@@ -92,7 +92,7 @@ export function SolutionCollaboration({ id }: { id: string }) {
 }
 export function PartnerSignature() {
   return (
-    <aside className="w-[min(1424px,calc(100%_-_112px))] mx-auto border-t border-t-rule pt-10 pb-[65px] grid grid-cols-[0.55fr_1.2fr_0.55fr] gap-[45px] items-start max-[1100px]:grid-cols-[1fr_2fr] max-[1100px]:gap-[30px] max-[767px]:block max-[767px]:pt-8 max-[767px]:pb-[50px]">
+    <aside className="site-container mx-auto border-t border-t-rule pt-10 pb-[65px] grid grid-cols-[0.55fr_1.2fr_0.55fr] gap-[45px] items-start max-[1100px]:grid-cols-[1fr_2fr] max-[1100px]:gap-[30px] max-[767px]:block max-[767px]:pt-8 max-[767px]:pb-[50px]">
       <p className="text-[12px] text-brand">
         Specialist work. A wider perspective.
       </p>

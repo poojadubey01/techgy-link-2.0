@@ -77,7 +77,7 @@ export default async function Product({
   if (!p) notFound();
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
+      <section className="page-intro site-container mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
         <nav
           className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
           aria-label="Breadcrumb"
@@ -98,7 +98,7 @@ export default async function Product({
           {p.description}
         </p>
       </section>
-      <figure className="w-[min(1424px,calc(100%_-_112px))] mx-auto bg-[#f8f9fa]">
+      <figure className="site-container mx-auto bg-[#f8f9fa]">
         <img
           src={p.image}
           alt={p.name + " presentation"}
@@ -107,7 +107,7 @@ export default async function Product({
           className="w-full h-auto max-h-[760px] object-contain rounded-md"
         />
       </figure>
-      <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
+      <section className="site-container mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
         <SectionTitle
           label="A fit discussion"
           title="Explore the workflow, not just the features."

@@ -42,7 +42,7 @@ export function Testimonials() {
   return (
     <section aria-labelledby="testimonials-title" className="bg-paper py-[65px] max-[767px]:py-[45px] border-t border-rule">
       <div className="w-full">
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] flex items-end justify-between gap-5 mb-6 max-[767px]:flex-wrap">
+        <div className="site-container mx-auto flex items-end justify-between gap-5 mb-6 max-[767px]:flex-wrap">
           <h2 id="testimonials-title" className="text-[clamp(32px,3.5vw,48px)] leading-[1.15]">What our <span className="text-brand">partners</span> say.</h2>
           <div className="flex gap-3 shrink-0">
             <button type="button" onClick={() => move(-1)} aria-label="Previous testimonial" aria-controls="testimonial-cards" className="grid place-items-center w-11 h-11 rounded-full border border-brand text-brand hover:bg-brand hover:text-white"><ArrowLeft size={20} /></button>

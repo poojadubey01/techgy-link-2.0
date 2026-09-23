@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <main
       id="main"
-      className="w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[1fr_1fr] gap-[100px] pt-20 pb-[120px] max-[1023px]:gap-10 max-[767px]:grid-cols-1 max-[767px]:gap-[35px] max-[767px]:pt-[45px] max-[767px]:pb-[70px]"
+      className="site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] pt-20 pb-[120px] max-[1023px]:gap-10 max-[767px]:grid-cols-1 max-[767px]:gap-[35px] max-[767px]:pt-[45px] max-[767px]:pb-[70px]"
     >
       <div>
         <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand">

@@ -82,14 +82,14 @@ export function AiAutomationCanvas() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-full min-h-[520px] bg-[#f8f9fa] text-[#000000] overflow-hidden flex flex-col select-none rounded-md"
+      className="service-demo relative w-full h-full min-h-[520px] bg-[#f8f9fa] text-[#000000] overflow-hidden flex flex-col select-none rounded-md"
     >
       {/* Background Subtle Gradient & Grid */}
       <div className="ai-orb-1 absolute -top-16 -right-16 w-80 h-80 rounded-full bg-blue-100/60 blur-3xl pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(#00000010_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
 
       {/* Top Architecture Toolbar */}
-      <div className="relative z-10 flex items-center justify-between px-6 py-4 border-b border-rule bg-white/80 backdrop-blur-md">
+      <div className="demo-row demo-toolbar relative z-10 flex items-center justify-between px-6 py-4 border-b border-rule bg-white/80 backdrop-blur-md">
         {/* Pipeline status */}
         <div className="flex items-center gap-2 text-[12px] font-mono text-[#000000]/70">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -98,7 +98,7 @@ export function AiAutomationCanvas() {
         </div>
 
         {/* View Mode Switcher Tabs */}
-        <div className="flex items-center gap-1 bg-[#e2e8f0]/60 p-0.5 rounded-lg border border-rule text-[11px]">
+        <div className="demo-tabs flex items-center gap-1 bg-[#e2e8f0]/60 p-0.5 rounded-lg border border-rule text-[11px]">
           <button
             type="button"
             onClick={() => setActiveTab("pipeline")}
@@ -136,11 +136,11 @@ export function AiAutomationCanvas() {
       </div>
 
       {/* Main Canvas Body */}
-      <div className="relative z-10 flex-1 p-6 flex flex-col justify-between overflow-hidden">
+      <div className="demo-body relative z-10 flex-1 p-6 flex flex-col justify-between overflow-hidden">
         {activeTab === "pipeline" && (
           <div className="flex flex-col justify-between h-full gap-5">
             {/* Simulation Controller Header */}
-            <div className="flex items-center justify-between bg-white p-4 rounded-xl border border-rule shadow-xs">
+            <div className="demo-row flex items-center justify-between bg-white p-4 rounded-xl border border-rule shadow-xs">
               <div>
                 <span className="text-[10px] uppercase font-mono tracking-widest text-brand block mb-0.5">
                   Real-time Event Orchestration
@@ -200,7 +200,7 @@ export function AiAutomationCanvas() {
                     <p className="text-[11px] text-[#000000]/60 leading-relaxed mb-3">
                       {node.desc}
                     </p>
-                    <div className="pt-2 border-t border-rule flex items-center justify-between text-[10px] text-[#000000]/50 font-mono">
+                    <div className="demo-row pt-2 border-t border-rule flex items-center justify-between text-[10px] text-[#000000]/50 font-mono">
                       <span>Status:</span>
                       <span className={isActive ? "text-brand font-semibold" : "text-emerald-600 font-medium"}>
                         {node.status}
@@ -212,7 +212,7 @@ export function AiAutomationCanvas() {
             </div>
 
             {/* Pipeline Meta Status */}
-            <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-rule text-[11px] text-[#000000]/70">
+            <div className="demo-row flex items-center justify-between bg-white p-3 rounded-lg border border-rule text-[11px] text-[#000000]/70">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 Zero data loss guarantee • Encrypted SOC2 Type II compliance
@@ -305,7 +305,7 @@ export function AiAutomationCanvas() {
       </div>
 
       {/* Clean Footer Meta Badge */}
-      <div className="relative z-10 px-6 py-2.5 border-t border-rule bg-white/80 flex items-center justify-between text-[11px] text-[#000000]/50">
+      <div className="demo-row demo-footer relative z-10 px-6 py-2.5 border-t border-rule bg-white/80 flex items-center justify-between text-[11px] text-[#000000]/50">
         <span className="flex items-center gap-1.5 font-medium text-brand">
           <span className="w-2 h-2 rounded-full bg-brand animate-ping" />
           Autonomous System Integration

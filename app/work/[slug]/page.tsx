@@ -40,7 +40,7 @@ export default async function Project({
   );
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[75px] pb-[60px] max-[767px]:pt-[50px] max-[767px]:pb-[40px]">
+      <section className="page-intro site-container mx-auto pt-[75px] pb-[60px] max-[767px]:pt-[50px] max-[767px]:pb-[40px]">
         <nav
           className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
           aria-label="Breadcrumb"
@@ -71,7 +71,7 @@ export default async function Project({
           {p.description}
         </p>
       </section>
-      <figure className="w-[min(1424px,calc(100%_-_112px))] mx-auto mb-[60px] bg-[#e2e8f0] rounded-md overflow-hidden max-[767px]:mb-[35px]">
+      <figure className="site-container mx-auto mb-[60px] bg-[#e2e8f0] rounded-md overflow-hidden max-[767px]:mb-[35px]">
         <img
           className="w-full h-auto object-contain rounded-md"
           src={p.image}
@@ -81,7 +81,7 @@ export default async function Project({
           fetchPriority="high"
         />
       </figure>
-      <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[1.1fr_1fr] gap-[95px] py-[65px] border-b border-rule max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px] max-[767px]:py-10">
+      <section className="site-container mx-auto grid grid-cols-[1.1fr_1fr] gap-[95px] py-[65px] border-b border-rule max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px] max-[767px]:py-10">
         <div>
           <h2 className="mb-[25px] text-[43px] max-[767px]:text-[35px]">
             {gallery ? "A sense of place." : "A closer look at the work."}
@@ -163,7 +163,7 @@ export default async function Project({
         </div>
       </section>
       {gallery ? (
-        <section className="py-[120px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto">
+        <section className="py-[120px] max-[767px]:py-[70px] site-container mx-auto">
           <SectionTitle
             label={gallery.images.length + " original images"}
             title="Explore the collection."
@@ -199,7 +199,7 @@ export default async function Project({
           </div>
         </section>
       ) : slug.startsWith("glc-") ? (
-        <section className="py-[120px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto">
+        <section className="py-[120px] max-[767px]:py-[70px] site-container mx-auto">
           <SectionTitle
             label="The connected platform"
             title="One business. Multiple experiences."

@@ -22,7 +22,7 @@ export default function Services() {
           understanding of the business you want to build.
         </p>
       </section>
-      <section className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)]">
+      <section className="site-container mx-auto">
         <ServiceDirectory />
       </section>
       <CTA

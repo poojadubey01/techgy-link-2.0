@@ -6,7 +6,7 @@ export const metadata = {
 export default function Privacy() {
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
+      <section className="page-intro site-container mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
         <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
           Website privacy
         </p>
@@ -19,7 +19,7 @@ export default function Privacy() {
           This notice describes the enquiry flow on this website.
         </p>
       </section>
-      <article className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-w-[820px] pb-[110px] max-[767px]:pb-[70px]">
+      <article className="site-container mx-auto max-w-[820px] pb-[110px] max-[767px]:pb-[70px]">
         <section className="mb-[45px]">
           <h2 className="text-[34px] mb-[25px] max-[767px]:text-[30px]">
             What you share

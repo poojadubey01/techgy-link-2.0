@@ -6,7 +6,7 @@ export function ConnectedProof() {
       className="bg-[#111625] text-white overflow-hidden py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]"
       id="selected-work"
     >
-      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)]">
+      <div className="site-container mx-auto">
         <div className="grid grid-cols-[1.2fr_0.8fr] gap-x-[95px] items-end max-[1100px]:gap-[50px] max-[767px]:block">
           <p className="col-span-full mb-[30px] text-[#f8f9fa] text-[14px] max-[767px]:text-[12px] max-[767px]:mb-6">
             The thinking, made tangible

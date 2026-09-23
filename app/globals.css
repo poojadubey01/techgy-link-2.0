@@ -228,3 +228,52 @@
     opacity: 0.3;
   }
 }
+
+/* Shared page gutters: compact phones through large desktop/TV viewports. */
+:root {
+  --site-gutter: clamp(20px, 4vw, 56px);
+  --site-width: 1424px;
+}
+.site-container {
+  width: min(var(--site-width), calc(100% - 2 * var(--site-gutter)));
+  margin-inline: auto;
+}
+@media (min-width: 1920px) {
+  :root { --site-width: 1760px; }
+}
+@media (min-width: 2560px) {
+  :root { --site-width: 2080px; }
+}
+@layer base {
+  :where(.grid, .flex) > * { min-width: 0; }
+  :where(h1, h2, h3, h4, h5, p, a, li, dd) { overflow-wrap: anywhere; }
+  :where(input, select, textarea) { max-width: 100%; }
+}
+@media (max-width: 479px) {
+  .page-intro h1, .detail-copy h1, main > .site-container h1 {
+    font-size: clamp(34px, 10vw, 46px);
+  }
+}
+@media (max-width: 767px) {
+  input, select, textarea { font-size: 16px; }
+}
+/* Demos respond to their panel width, including when beside desktop copy. */
+.service-demo { container-type: inline-size; min-width: 0; }
+.demo-toolbar, .demo-footer { flex-shrink: 0; gap: 12px; flex-wrap: wrap; }
+.demo-tabs { max-width: 100%; flex-wrap: wrap; }
+.demo-tabs button { min-height: 44px; line-height: 1.4; }
+.demo-body { min-width: 0; }
+@container (max-width: 700px) {
+  .demo-toolbar { align-items: flex-start; padding: 16px; }
+  .demo-toolbar > div { min-width: 0; flex-wrap: wrap; }
+  .demo-tabs { width: 100%; }
+  .demo-tabs button { flex: 1 1 100px; }
+  .demo-footer { padding: 12px 16px; align-items: flex-start; }
+  .demo-row { flex-wrap: wrap; gap: 8px; }
+}
+@container (max-width: 520px) {
+  .demo-body { padding: 16px 12px; }
+  .demo-body .grid:not(.phone-chassis *) { grid-template-columns: minmax(0, 1fr); }
+  .demo-body .flex:not(.flex-col):not(.phone-chassis):not(.phone-chassis *) { flex-wrap: wrap; }
+  .demo-footer > span { max-width: 100%; }
+}

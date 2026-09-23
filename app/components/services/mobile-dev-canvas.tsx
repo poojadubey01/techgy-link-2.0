@@ -53,7 +53,7 @@ export function MobileDevCanvas() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-full min-h-[580px] bg-[#f8f9fa] text-[#000000] overflow-hidden flex flex-col select-none border-l border-rule/50 font-sans"
+      className="service-demo relative w-full h-full min-h-[580px] bg-[#f8f9fa] text-[#000000] overflow-hidden flex flex-col select-none border-l border-rule/50 font-sans"
     >
       {/* Background Subtle Gradient & Dots Grid */}
       <div className="mob-orb-1 absolute -top-16 -right-16 w-80 h-80 rounded-full bg-blue-100/50 blur-3xl pointer-events-none" />
@@ -61,7 +61,7 @@ export function MobileDevCanvas() {
       <div className="absolute inset-0 bg-[radial-gradient(#0000000c_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
       {/* Simulator Top Toolbar */}
-      <div className="relative z-20 flex items-center justify-between px-6 py-3 border-b border-rule bg-white/95 backdrop-blur-md">
+      <div className="demo-toolbar relative z-20 flex items-center justify-between px-6 py-3 border-b border-rule bg-white/95 backdrop-blur-md">
         <div className="flex items-center gap-2 text-[12px] font-mono text-[#000000]/70">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
           <span className="font-bold text-brand uppercase tracking-wider">iOS & Android Simulator</span>
@@ -69,7 +69,7 @@ export function MobileDevCanvas() {
         </div>
 
         {/* View Mode Switcher Tabs */}
-        <div className="flex items-center gap-1 bg-[#e2e8f0]/60 p-0.5 rounded-lg border border-rule text-[11px] font-mono">
+        <div className="demo-tabs flex items-center gap-1 bg-[#e2e8f0]/60 p-0.5 rounded-lg border border-rule text-[11px] font-mono">
           <button
             type="button"
             onClick={() => setActiveTab("preview")}
@@ -107,14 +107,14 @@ export function MobileDevCanvas() {
       </div>
 
       {/* Main Canvas Body */}
-      <div className="relative z-10 flex-1 p-5 flex flex-col items-center justify-center overflow-hidden">
+      <div className="demo-body relative z-10 flex-1 p-5 flex flex-col items-center justify-center overflow-hidden">
         {activeTab === "preview" && (
           /* ========================================================================= */
           /* AUTHENTIC SMARTPHONE CHASSIS (Fixed Outer Bezel, Screen Perfectly Contained)*/
           /* ========================================================================= */
-          <div className="relative flex items-center justify-center py-2">
+          <div className="relative w-full flex items-center justify-center py-2">
             {/* Phone Outer Bezel Enclosure */}
-            <div className="phone-chassis relative w-[285px] h-[560px] bg-[#0b1329] p-[10px] rounded-[52px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.12)] flex flex-col items-center justify-center">
+            <div className="phone-chassis relative shrink-0 w-[285px] max-w-full h-[560px] bg-[#0b1329] p-[10px] rounded-[52px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.12)] flex flex-col items-center justify-center">
               
               {/* Hardware Side Buttons */}
               {/* Action Button (Top Left) */}
@@ -133,19 +133,19 @@ export function MobileDevCanvas() {
                 <div className="absolute -top-[100px] -left-[100px] w-[400px] h-[220px] bg-gradient-to-br from-white/20 via-white/5 to-transparent rotate-[-35deg] pointer-events-none z-30" />
 
                 {/* 1. STATUS BAR & DYNAMIC ISLAND */}
-                <div className="relative z-40 px-5 pt-3 pb-1 flex items-center justify-between text-[11px] font-mono text-[#000000] bg-transparent">
+                <div className="relative z-40 shrink-0 px-3 pt-3 pb-1 flex items-center gap-1 justify-between text-[11px] font-mono text-[#000000] bg-transparent">
                   <span className="font-bold text-[12px] tracking-tight">9:41</span>
 
                   {/* Interactive Dynamic Island Pill */}
                   <div
                     onClick={() => setNotifExpanded(!notifExpanded)}
-                    className={`h-[24px] bg-black rounded-full flex items-center justify-between px-2.5 transition-all cursor-pointer shadow-sm ${
-                      notifExpanded ? "w-[155px]" : "w-[90px]"
+                    className={`h-[24px] min-w-0 bg-black rounded-full flex items-center gap-1 justify-between px-2.5 transition-all cursor-pointer shadow-sm ${
+                      notifExpanded ? "w-[135px]" : "w-[90px]"
                     }`}
                   >
                     <div className="flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                      <span className="text-[9px] text-white font-sans font-medium">
+                      <span className="text-[9px] text-white font-sans font-medium truncate">
                         {notifExpanded ? "Farmland Live" : "Active"}
                       </span>
                     </div>
@@ -163,7 +163,7 @@ export function MobileDevCanvas() {
                 </div>
 
                 {/* 2. APP SCREEN SCROLLABLE CONTENT */}
-                <div className="relative z-20 flex-1 px-3.5 py-1.5 flex flex-col justify-between overflow-hidden">
+                <div className="relative z-20 min-h-0 flex-1 px-3.5 py-1.5 flex flex-col gap-2 overflow-y-auto overscroll-contain [&>div]:shrink-0">
                   
                   {/* Dynamic Push Notification Banner */}
                   {notifExpanded && (
@@ -361,7 +361,7 @@ export function MobileDevCanvas() {
       </div>
 
       {/* Clean Footer Meta Badge */}
-      <div className="relative z-10 px-6 py-2.5 border-t border-rule bg-white/95 flex items-center justify-between text-[11px] text-[#000000]/50 font-mono">
+      <div className="demo-footer relative z-10 px-6 py-2.5 border-t border-rule bg-white/95 flex items-center justify-between text-[11px] text-[#000000]/50 font-mono">
         <span className="flex items-center gap-1.5 font-bold text-brand">
           <span className="w-2 h-2 rounded-full bg-brand animate-ping" />
           TechGy Link Mobile Engineering Simulator

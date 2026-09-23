@@ -46,14 +46,14 @@ export function ArchitectureCanvas() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-full min-h-[600px] bg-[#f8f9fa] text-[#000000] overflow-hidden flex flex-col select-none rounded-md border-l border-rule/50 font-sans"
+      className="service-demo relative w-full h-full min-h-[600px] bg-[#f8f9fa] text-[#000000] overflow-hidden flex flex-col select-none rounded-md border-l border-rule/50 font-sans"
     >
       {/* Background Architectural Grid Matrix */}
       <div className="arch-ambient-orb absolute -top-20 -right-20 w-96 h-96 rounded-full bg-blue-100/40 blur-3xl pointer-events-none" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0022ff08_1px,transparent_1px),linear-gradient(to_bottom,#0022ff08_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
 
       {/* Top Architectural Studio Control Bar */}
-      <div className="relative z-20 flex items-center justify-between px-6 py-3.5 border-b border-rule bg-white/95 backdrop-blur-md flex-wrap gap-2">
+      <div className="demo-row demo-toolbar relative z-20 flex items-center justify-between px-6 py-3.5 border-b border-rule bg-white/95 backdrop-blur-md flex-wrap gap-2">
         <div className="flex items-center gap-2.5 text-[12px] font-mono">
           <span className="w-2.5 h-2.5 rounded-full bg-brand animate-pulse" />
           <span className="font-bold text-brand uppercase tracking-wider">Arch 3D Studio</span>
@@ -72,7 +72,7 @@ export function ArchitectureCanvas() {
       </div>
 
       {/* Main Interactive Studio Grid */}
-      <div className="relative z-10 flex-1 p-5 grid grid-cols-[1.5fr_0.85fr] gap-4 items-stretch overflow-hidden max-[1024px]:grid-cols-1">
+      <div className="demo-body relative z-10 flex-1 p-5 grid grid-cols-[1.5fr_0.85fr] gap-4 items-stretch overflow-hidden max-[1024px]:grid-cols-1">
         
         {/* Left 3D WebGL Viewport Stage */}
         <div className="relative w-full h-full min-h-[460px] bg-[#090d16] rounded-xl border border-rule shadow-sm overflow-hidden flex flex-col justify-between">
@@ -101,7 +101,7 @@ export function ArchitectureCanvas() {
           </div>
 
           {/* Bottom Viewport Status & Navigation Controls Hint */}
-          <div className="relative z-30 px-4 py-3 bg-[#090d16] border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-white/90 shadow-lg">
+          <div className="demo-row relative z-30 px-4 py-3 bg-[#090d16] border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-white/90 shadow-lg">
             <span className="text-white font-medium flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-brand" />
               Left Click: Orbit • Right Click: Pan • Scroll: Zoom
@@ -116,7 +116,7 @@ export function ArchitectureCanvas() {
           {/* Main Selected Zone Card */}
           <div className="bg-white p-6 rounded-xl border border-rule shadow-sm flex flex-col justify-between flex-1">
             <div>
-              <div className="flex items-center justify-between mb-3">
+              <div className="demo-row flex items-center justify-between mb-3">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-brand px-2.5 py-1 rounded bg-blue-50 border border-blue-200 font-bold">
                   {vintageRoom.category}
                 </span>
@@ -146,7 +146,7 @@ export function ArchitectureCanvas() {
           </div>
 
           {/* Render Pipeline Banner */}
-          <div className="bg-white p-4 rounded-xl border border-rule shadow-sm flex items-center justify-between text-[11px] font-mono">
+          <div className="demo-row bg-white p-4 rounded-xl border border-rule shadow-sm flex items-center justify-between text-[11px] font-mono">
             <span className="text-[#000000]/60">Visualization Pipeline</span>
             <span className="text-brand font-bold">3ds Max + V-Ray Studio</span>
           </div>
@@ -154,7 +154,7 @@ export function ArchitectureCanvas() {
       </div>
 
       {/* Clean Bottom Title Block */}
-      <div className="relative z-10 px-6 py-2.5 border-t border-rule bg-white/95 flex items-center justify-between text-[11px] text-[#000000]/50 font-mono">
+      <div className="demo-row demo-footer relative z-10 px-6 py-2.5 border-t border-rule bg-white/95 flex items-center justify-between text-[11px] text-[#000000]/50 font-mono">
         <span className="flex items-center gap-1.5 text-brand font-bold">
           <span className="w-2 h-2 rounded-full bg-brand animate-ping" />
           TechGy Link Architectural Studio Visualizer

@@ -24,7 +24,7 @@ export default async function Article({
   if (!a) notFound();
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
+      <section className="page-intro site-container mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
         <nav
           className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
           aria-label="Breadcrumb"
@@ -45,7 +45,7 @@ export default async function Article({
           {a.summary}
         </p>
       </section>
-      <article className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-w-[820px] pb-[110px] max-[767px]:pb-[70px]">
+      <article className="site-container mx-auto max-w-[820px] pb-[110px] max-[767px]:pb-[70px]">
         {a.sections.map(([t, d]) => (
           <section key={t} className="mb-[45px]">
             <h2 className="text-[34px] mb-[25px] max-[767px]:text-[30px]">

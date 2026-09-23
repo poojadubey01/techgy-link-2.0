@@ -23,7 +23,7 @@ export function ServiceEvidence({
   if (s.id === "technology-consulting-modernisation")
     return (
       <section className={sectionClass} id={campaign ? undefined : "proof"}>
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[1fr_1.15fr] gap-[95px] items-start max-[1023px]:gap-[45px] max-[767px]:block">
+        <div className="site-container mx-auto grid grid-cols-[1fr_1.15fr] gap-[95px] items-start max-[1023px]:gap-[45px] max-[767px]:block">
           <div>
             <p className={eyebrowClass}>Example assessment outputs</p>
             <h2 className="text-[clamp(36px,3.9vw,62px)] mt-[22px] mb-[25px] max-[767px]:text-[37px]">
@@ -80,7 +80,7 @@ export function ServiceEvidence({
   if (s.id === "branding-identity")
     return (
       <section className={sectionClass} id={campaign ? undefined : "proof"}>
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
+        <div className="site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
           <div>
             <p className={eyebrowClass}>Our own identity</p>
             <h2 className="mt-6 max-[767px]:text-[37px] max-[767px]:mt-5">
@@ -109,7 +109,7 @@ export function ServiceEvidence({
   const marketing = s.id === "digital-marketing-sales-enablement";
   return (
     <section className={sectionClass} id={campaign ? undefined : "proof"}>
-      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[1.4fr_1fr] gap-[85px] items-center max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
+      <div className="site-container mx-auto grid grid-cols-[1.4fr_1fr] gap-[85px] items-center max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
         <Link
           href={"/work/" + p.slug}
           className="overflow-hidden bg-[#e2e8f0] block"

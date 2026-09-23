@@ -59,7 +59,7 @@ export function MarketingFocus({ slug }: { slug: string }) {
   if (!j) return null;
   return (
     <section
-      className="marketing-focus w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] mt-0 mb-5 bg-brand text-white p-[54px] rounded-md max-[767px]:py-8 max-[767px]:px-[25px] max-[767px]:mb-0"
+      className="marketing-focus site-container mx-auto mt-0 mb-5 bg-brand text-white p-[54px] rounded-md max-[767px]:py-8 max-[767px]:px-[25px] max-[767px]:mb-0"
       data-diagram
     >
       <div className="marketing-focus-head grid grid-cols-[1fr_2.6fr] gap-[70px] items-start mb-[52px] max-[767px]:block max-[767px]:mb-8">

@@ -48,7 +48,7 @@ export function CollectiveCapabilities() {
       className="bg-white py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]"
       id="expertise"
     >
-      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)]">
+      <div className="site-container mx-auto">
         <div>
           <p className="text-brand text-[14px] max-[767px]:text-[12px]">
             The strength of the whole company

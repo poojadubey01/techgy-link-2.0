@@ -6,7 +6,7 @@ export function HomeHero() {
       className="overflow-hidden bg-[#f8f9fa] pt-[35px] max-[767px]:pt-[25px]"
       aria-labelledby="home-title"
     >
-      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] flex items-center justify-between gap-[30px] text-[14px] text-[#000000]">
+      <div className="site-container mx-auto flex items-center justify-between gap-[30px] text-[14px] text-[#000000]">
         <p className="text-brand text-[13px] max-[767px]:text-[12px]">
           TechGy Link / Your growth partner
         </p>
@@ -17,7 +17,7 @@ export function HomeHero() {
           Built on experience. Growing in possibility.
         </Link>
       </div>
-      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] relative mt-[45px] max-[767px]:mt-[30px]">
+      <div className="site-container mx-auto relative mt-[45px] max-[767px]:mt-[30px]">
         <h1
           id="home-title"
           className="text-[clamp(72px,8.5vw,132px)] font-normal leading-[1.04] tracking-[-0.065em] max-[767px]:text-[clamp(46px,12.1vw,79px)] max-[767px]:leading-[1.08] max-[767px]:tracking-[-0.06em]"
@@ -50,7 +50,7 @@ export function HomeHero() {
           </span>
         </p>
       </div>
-      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] grid grid-cols-[1.05fr_1fr] gap-[100px] items-center mt-[38px] mb-[45px] max-[1100px]:gap-[50px] max-[767px]:block max-[767px]:mt-[27px] max-[767px]:mb-8">
+      <div className="site-container mx-auto grid grid-cols-[1.05fr_1fr] gap-[100px] items-center mt-[38px] mb-[45px] max-[1100px]:gap-[50px] max-[767px]:block max-[767px]:mt-[27px] max-[767px]:mb-8">
         <p className="text-lg leading-[1.75] text-[#000000] max-w-[630px] max-[767px]:text-base max-[767px]:leading-[1.8]">
           From the first brand idea to the systems behind your growth, we bring
           design, technology, marketing and visualisation together—so your next
@@ -89,7 +89,7 @@ export function HomeHero() {
           />
         </div>
       </div>
-      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] pt-[25px] pb-[35px] text-[14px] text-[#000000] flex justify-between gap-[25px] max-[767px]:pb-[30px] max-[767px]:block max-[767px]:text-[13px]">
+      <div className="site-container mx-auto pt-[25px] pb-[35px] text-[14px] text-[#000000] flex justify-between gap-[25px] max-[767px]:pb-[30px] max-[767px]:block max-[767px]:text-[13px]">
         <a
           href="#why-link"
           className="cta-link inline-flex items-center font-medium text-brand max-[767px]:mt-[18px]"

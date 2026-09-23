@@ -3,7 +3,7 @@ export default function NotFound() {
   return (
     <main
       id="main"
-      className="w-[min(1424px,calc(100%_-_112px))] mx-auto py-[120px] max-[767px]:py-20"
+      className="site-container mx-auto py-[120px] max-[767px]:py-20"
     >
       <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
         404 / A small detour
