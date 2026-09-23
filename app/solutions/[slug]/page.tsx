@@ -1,6 +1,7 @@
 import { SolutionEvidence } from "@/app/components/shared/portfolio-highlights";
 import { SolutionCollaboration } from "@/app/components/shared/service-contribution";
 import { ConnectedWorkspaceCanvas } from "@/app/components/services/connected-workspace-canvas";
+import { DigitalExperienceHeroCanvas } from "@/app/components/solutions/digital-experience-hero-laptop";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "@/app/components/ui/internal-link";
 import { solutions, enquiry } from "@/data/catalogue";
@@ -67,8 +68,12 @@ export default async function Solution({
         </div>
       </section>
       {s.id === "connected-sales-operations" ? (
-        <div className="site-container mx-auto mb-[60px] rounded-md overflow-hidden max-[767px]:mb-[35px]">
+        <div className="site-container mx-auto mb-[60px] max-[767px]:mb-[35px]">
           <ConnectedWorkspaceCanvas />
+        </div>
+      ) : s.id === "digital-experience-product" ? (
+        <div className="site-container mx-auto mb-[60px] max-[767px]:mb-[35px]">
+          <DigitalExperienceHeroCanvas />
         </div>
       ) : (
         <figure className="site-container mx-auto mb-[60px] bg-[#e2e8f0] rounded-md overflow-hidden max-[767px]:mb-[35px]">
