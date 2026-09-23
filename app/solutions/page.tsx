@@ -49,7 +49,7 @@ export default function Solutions() {
               </div>
               <div className="max-w-[480px] px-[15px] max-[1023px]:px-0">
                 <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]">
-                  0{i + 1} / {s.kicker}
+                  {s.kicker}
                 </p>
                 <h3 className="text-[clamp(34px,3.5vw,56px)] my-[25px] mx-0 max-[1023px]:text-[36px] max-[767px]:text-[34px] max-[767px]:my-[18px] max-[767px]:mx-0">
                   {s.short}

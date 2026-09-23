@@ -122,7 +122,11 @@ export function WorkExplorer() {
         {["All", "Digital", "Visualisation"].map((t) => (
           <button
             key={t}
-            className="flex items-center gap-[22px] border border-rule rounded-full py-[13px] px-[23px] text-[14px] aria-[pressed=true]:bg-ink aria-[pressed=true]:text-white aria-[pressed=true]:border-ink max-[767px]:gap-[13px] max-[767px]:py-2.5 max-[767px]:px-3.5 max-[767px]:text-[12px]"
+            className={`flex items-center gap-[22px] border rounded-full py-[13px] px-[23px] text-[14px] transition-all duration-200 cursor-pointer max-[767px]:gap-[13px] max-[767px]:py-2.5 max-[767px]:px-3.5 max-[767px]:text-[12px] ${
+              filter === t
+                ? "bg-brand text-white border-brand shadow-sm"
+                : "bg-transparent text-ink border-rule hover:border-brand/40"
+            }`}
             aria-pressed={filter === t}
             onClick={() => handleFilterChange(t)}
           >
