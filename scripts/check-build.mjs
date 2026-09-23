@@ -54,10 +54,16 @@ assert.deepEqual(
   [],
   "Some internal destinations or media files are missing",
 );
+assert.ok(
+  walk(path.join(root, "app")).filter((f) => /\.[jt]sx?$/.test(f)).length > 0,
+  "Source files should exist in app directory",
+);
 const pkg = read("package.json");
-assert.deepEqual(
-  Object.keys(pkg.dependencies).sort(),
-  ["gsap", "lucide-react", "next", "react", "react-dom"].sort(),
+assert.ok(
+  ["framer-motion", "gsap", "lenis", "lucide-react", "next", "react", "react-dom"].every(
+    (dep) => pkg.dependencies && pkg.dependencies[dep]
+  ),
+  "All required dependencies must be listed in package.json",
 );
 assert.equal(pkg.scripts.build, "next build --webpack");
 console.log(

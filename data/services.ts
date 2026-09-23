@@ -129,7 +129,10 @@ export default [
       "mobile-application-development",
       "website-design-development"
     ],
-    "audience": "Product teams building or improving SaaS interfaces, portals, business applications and mobile experiences."
+    "audience": "Product teams building or improving SaaS interfaces, portals, business applications and mobile experiences.",
+    "clients": [
+      { "name": "Greenland Capital", "logo": "/testimonials/Veda bharat.png" }
+    ]
   },
   {
     "id": "website-design-development",
@@ -195,7 +198,11 @@ export default [
       "ui-ux-product-design",
       "digital-marketing-sales-enablement"
     ],
-    "audience": "Businesses whose website no longer reflects their quality, and teams launching a new offer or campaign."
+    "audience": "Businesses whose website no longer reflects their quality, and teams launching a new offer or campaign.",
+    "clients": [
+      { "name": "Eco World", "logo": "/testimonials/Datescounty.svg" },
+      { "name": "Greenland Capital", "logo": "/testimonials/Veda bharat.png" }
+    ]
   },
   {
     "id": "custom-software-development",
@@ -261,7 +268,11 @@ export default [
       "ai-automation-system-integration",
       "technology-consulting-modernisation"
     ],
-    "audience": "Organisations managing work through disconnected spreadsheets, manual approvals or software that does not fit their process."
+    "audience": "Organisations managing work through disconnected spreadsheets, manual approvals or software that does not fit their process.",
+    "clients": [
+      { "name": "Lending Bridge", "logo": "/testimonials/Lending Bridge.png" },
+      { "name": "Greenland Capital", "logo": "/testimonials/Veda bharat.png" }
+    ]
   },
   {
     "id": "mobile-application-development",
@@ -327,7 +338,10 @@ export default [
       "custom-software-development",
       "ai-automation-system-integration"
     ],
-    "audience": "Businesses serving customers, field teams, agents and employees through workflows beyond the office."
+    "audience": "Businesses serving customers, field teams, agents and employees through workflows beyond the office.",
+    "clients": [
+      { "name": "Greenland Capital", "logo": "/testimonials/Veda bharat.png" }
+    ]
   },
   {
     "id": "ai-automation-system-integration",
@@ -393,7 +407,10 @@ export default [
       "digital-marketing-sales-enablement",
       "technology-consulting-modernisation"
     ],
-    "audience": "Teams repeating data entry, reconciling systems by hand or losing time on avoidable operational handoffs."
+    "audience": "Teams repeating data entry, reconciling systems by hand or losing time on avoidable operational handoffs.",
+    "clients": [
+      { "name": "QuickBooks", "logo": "/testimonials/Quick books.svg" }
+    ]
   },
   {
     "id": "digital-marketing-sales-enablement",
@@ -459,7 +476,10 @@ export default [
       "branding-identity",
       "ai-automation-system-integration"
     ],
-    "audience": "Businesses whose marketing activity, landing pages, enquiry handling and sales follow-up need a shared direction."
+    "audience": "Businesses whose marketing activity, landing pages, enquiry handling and sales follow-up need a shared direction.",
+    "clients": [
+      { "name": "Greenland Capital", "logo": "/testimonials/Veda bharat.png" }
+    ]
   },
   {
     "id": "architectural-visualisation",
@@ -525,7 +545,12 @@ export default [
       "website-design-development",
       "digital-marketing-sales-enablement"
     ],
-    "audience": "Developers, architects, interior designers and property-marketing teams presenting a proposed space."
+    "audience": "Developers, architects, interior designers and property-marketing teams presenting a proposed space.",
+    "clients": [
+      { "name": "Hirize", "logo": "/testimonials/Hirize.webp" },
+      { "name": "Reliance Builders", "logo": "/testimonials/Reliance builders.webp" },
+      { "name": "Vijetha Group / IJM", "logo": "/testimonials/ijmindia.png" }
+    ]
   },
   {
     "id": "technology-consulting-modernisation",

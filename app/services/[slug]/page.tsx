@@ -14,6 +14,7 @@ import {
   Process,
   CTA,
   Arrow,
+  ServiceClients,
 } from "@/app/components/shared/common-blocks";
 import { FAQs } from "@/app/components/shared/faq-and-explorer";
 import { engagements } from "@/data/engagements";
@@ -147,6 +148,7 @@ export default async function Service({
           </div>
         </div>
       </section>
+      <ServiceClients service={s} />
       {isMarketing && (
         <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto">
           <SectionTitle
