@@ -50,6 +50,10 @@ export default async function Service({
   if (!s) notFound();
   const architecture = s.id === "architectural-visualisation";
   const isMarketing = s.id === "digital-marketing-sales-enablement";
+  const showServiceEvidence = ![
+    "ui-ux-product-design",
+    "website-design-development",
+  ].includes(s.id);
   return (
     <main id="main" className="service-page bg-[#f8f9fa]">
       <section className="detail-hero bg-[#f8f9fa] w-full pt-[38px] pb-[58px] px-[max(56px,calc((100vw_-_1424px)/2))] max-[767px]:pt-[25px] max-[767px]:px-5 max-[767px]:pb-[35px]">
@@ -188,9 +192,9 @@ export default async function Service({
             </p>
           </div>
         </div>
-      ) : (
+      ) : showServiceEvidence ? (
         <ServiceEvidence service={s} />
-      )}
+      ) : null}
       <section
         className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)]"
         id="process"

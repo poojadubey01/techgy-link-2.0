@@ -2,7 +2,7 @@ import { SolutionEvidence } from "@/app/components/shared/portfolio-highlights";
 import { SolutionCollaboration } from "@/app/components/shared/service-contribution";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "@/app/components/ui/internal-link";
-import { solutions, services, enquiry } from "@/data/catalogue";
+import { solutions, enquiry } from "@/data/catalogue";
 import { SectionTitle, CTA, Arrow } from "@/app/components/shared/common-blocks";
 const aliases = {
   "property-launch-sales-enablement": "property-launch-sales",
@@ -32,7 +32,6 @@ export default async function Solution({
     );
   const s = solutions.find((s) => s.id === slug);
   if (!s) notFound();
-  const selected = s.services.map((i) => services[i]);
   return (
     <main id="main" className="bg-[#f8f9fa]">
       <section className="page-intro w-[min(1424px,calc(100%_-_112px))] mx-auto pt-[75px] pb-[60px] max-[767px]:pt-[50px] max-[767px]:pb-[40px]">
@@ -83,7 +82,6 @@ export default async function Solution({
         />
       </figure>
       <SolutionCollaboration id={s.id} />
-      <SolutionEvidence id={s.id} />
       <section className="py-[120px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]">
@@ -108,31 +106,12 @@ export default async function Solution({
         </div>
       </section>
       <section className="py-[120px] max-[767px]:py-[70px] bg-paper">
-        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto">
+        <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto [&>.section-title]:mb-0">
           <SectionTitle
             label="The expertise behind it"
             title="Select the parts you need."
             description="Each service is independently available. Shared discovery, assets and engineering are identified once in the scope."
           />
-          <div className="grid grid-cols-[repeat(3,1fr)] gap-10 max-[1023px]:gap-[25px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-3">
-            {selected.map((service) => (
-              <Link
-                key={service.id}
-                href={"/services/" + service.id}
-                className="relative flex flex-col items-start border-t border-t-[#e2e8f0] py-7 max-[767px]:py-[25px]"
-              >
-                <h3 className="text-[30px] leading-[1.2] max-[1023px]:text-[27px] max-[767px]:text-[29px]">
-                  {service.name}
-                </h3>
-                <p className="text-[15px] text-[#000000] leading-[1.8] mt-5 max-[767px]:mt-[15px]">
-                  {service.tagline}
-                </p>
-                <span className="inline-block mt-6 max-[767px]:mt-5">
-                  <Arrow />
-                </span>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
       <section className="py-[120px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
@@ -162,6 +141,7 @@ export default async function Solution({
           </ul>
         </div>
       </section>
+      <SolutionEvidence id={s.id} />
       <CTA
         title="Let’s connect the right expertise."
         text={s.start}

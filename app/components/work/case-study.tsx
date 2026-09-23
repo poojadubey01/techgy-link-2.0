@@ -1,7 +1,7 @@
 import Link from "@/app/components/ui/internal-link";
 import { ArrowUpRight } from "@/app/components/ui/icons";
-import { services, digitalProjects } from "@/data/catalogue";
-import { CTA, WorkCard } from "@/app/components/shared/common-blocks";
+import { services } from "@/data/catalogue";
+import { CTA } from "@/app/components/shared/common-blocks";
 import { CaseArtwork } from "@/app/components/shared/portfolio-highlights";
 import { ProjectBlueprint } from "@/app/components/work/project-blueprint";
 import { portfolioStories } from "@/data/portfolio-stories";
@@ -10,8 +10,6 @@ type Story = (typeof portfolioStories)[number];
 
 const eyebrow =
   "text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]";
-const textLink =
-  "cta-link inline-flex items-center font-medium text-brand";
 const sectionH2 =
   "text-[clamp(35px,4vw,57px)] leading-[1.12] tracking-[-0.045em] mt-6 max-[767px]:text-[37px] max-[767px]:mt-5 max-[767px]:mb-[30px]";
 const bodyCopy = "text-[17px] leading-[1.85] text-[#000000] max-[767px]:text-[16px]";
@@ -53,14 +51,12 @@ export function CaseStudy({
             <p className="text-lg leading-[1.75] max-w-[580px] text-[#000000] max-[767px]:text-[16px]">
               {p.description}
             </p>
-            <a
-              href="#the-challenge"
-              className={`${textLink} mt-[30px] max-[767px]:mt-[23px] max-[767px]:mb-[32px]`}
-            >
-              Explore the thinking <ArrowUpRight size={20} />
-            </a>
           </div>
-          <CaseArtwork story={p} priority />
+          <CaseArtwork
+            story={p}
+            priority
+            showCaption={false}
+          />
         </div>
         <dl className="grid grid-cols-[1fr_1.3fr_1fr] border-y border-[#e2e8f0] py-6 gap-[25px] max-[767px]:grid-cols-2 max-[767px]:gap-y-6 max-[767px]:gap-x-4 max-[767px]:py-[23px]">
           <div>
@@ -172,33 +168,6 @@ export function CaseStudy({
           ))}
         </div>
       </section>
-      {p.slug === "greenland-capital" && (
-        <section className="py-[120px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto">
-          <div className="grid grid-cols-[1.4fr_1fr] gap-[10%] items-end mb-[42px] max-[1023px]:gap-10 max-[767px]:block max-[767px]:mb-8">
-            <div>
-              <p className={eyebrow}>The connected platform</p>
-              <h2 className="text-[clamp(36px,4.6vw,65px)] leading-[1.1] tracking-tighter mt-[23px] max-[767px]:text-[39px]">
-                Different roles.
-                <br />A shared business.
-              </h2>
-            </div>
-            <p className="text-[17px] leading-[1.85] text-[#000000] max-w-[430px] max-[767px]:text-[16px] max-[767px]:mt-6">
-              Explore the customer experiences and the operational interfaces as
-              individual parts of the wider platform.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-y-[60px] gap-x-8 max-[767px]:grid-cols-1 max-[767px]:gap-[35px]">
-            {digitalProjects
-              .filter((x) => x.slug.startsWith("glc-"))
-              .map((x) => (
-                <WorkCard
-                  key={x.slug}
-                  project={x}
-                />
-              ))}
-          </div>
-        </section>
-      )}
       <section className="grid grid-cols-[1.2fr_1fr] gap-[12%] border-t border-[#e2e8f0] max-[767px]:block py-[120px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto">
         <div>
           <p className={eyebrow}>The engagement</p>

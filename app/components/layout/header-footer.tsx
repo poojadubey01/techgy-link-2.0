@@ -269,7 +269,6 @@ export function Footer() {
           {[
             ...nav,
             ["Services", "/services"],
-            ["Starting engagements", "/campaigns"],
             ["Business platforms", "/products"],
             ["Contact", "/contact"],
           ].map(([name, href]) => (
