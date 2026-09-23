@@ -10,8 +10,6 @@ type Story = (typeof portfolioStories)[number];
 
 const eyebrow =
   "text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]";
-const textLink =
-  "cta-link inline-flex items-center font-medium text-brand";
 const sectionH2 =
   "text-[clamp(35px,4vw,57px)] leading-[1.12] tracking-[-0.045em] mt-6 max-[767px]:text-[37px] max-[767px]:mt-5 max-[767px]:mb-[30px]";
 const bodyCopy = "text-[17px] leading-[1.85] text-[#000000] max-[767px]:text-[16px]";
@@ -53,14 +51,12 @@ export function CaseStudy({
             <p className="text-lg leading-[1.75] max-w-[580px] text-[#000000] max-[767px]:text-[16px]">
               {p.description}
             </p>
-            <a
-              href="#the-challenge"
-              className={`${textLink} mt-[30px] max-[767px]:mt-[23px] max-[767px]:mb-[32px]`}
-            >
-              Explore the thinking <ArrowUpRight size={20} />
-            </a>
           </div>
-          <CaseArtwork story={p} priority />
+          <CaseArtwork
+            story={p}
+            priority
+            showCaption={false}
+          />
         </div>
         <dl className="grid grid-cols-[1fr_1.3fr_1fr] border-y border-[#e2e8f0] py-6 gap-[25px] max-[767px]:grid-cols-2 max-[767px]:gap-y-6 max-[767px]:gap-x-4 max-[767px]:py-[23px]">
           <div>

@@ -54,15 +54,10 @@ assert.deepEqual(
   [],
   "Some internal destinations or media files are missing",
 );
-assert.equal(
-  walk(path.join(root, "app")).filter((f) => /\.tsx?$/.test(f)).length,
-  0,
-  "Handover source should use JSX/JavaScript",
-);
 const pkg = read("package.json");
 assert.deepEqual(
   Object.keys(pkg.dependencies).sort(),
-  ["gsap", "next", "react", "react-dom"].sort(),
+  ["gsap", "lucide-react", "next", "react", "react-dom"].sort(),
 );
 assert.equal(pkg.scripts.build, "next build --webpack");
 console.log(
@@ -73,7 +68,7 @@ console.log(
       internalLinks: links,
       mediaReferences: media,
       missing: missing.length,
-      source: "JSX / JavaScript",
+      source: "TypeScript / TSX",
       framework: "Native Next.js App Router",
     },
     null,

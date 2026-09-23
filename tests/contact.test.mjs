@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { handleContact } from "../lib/contact.js";
+import { handleContact } from "../lib/contact.ts";
 
 const payload = {
   name: "Local test",

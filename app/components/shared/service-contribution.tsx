@@ -31,23 +31,25 @@ export function ServiceContribution({ service }: { service: Service }) {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-10 mt-[45px] max-[767px]:block max-[767px]:mt-[30px]">
-          {c.connections.map(([id, body]) => (
-            <Link
-              className="service-contribution-link group border-t border-t-rule pt-[22px] max-[767px]:block max-[767px]:pt-[23px] max-[767px]:mt-[25px]"
-              key={id}
-              href={"/services/" + id}
-            >
-              <span className="flex justify-between items-center gap-5 text-[19px] leading-[1.45] text-[#000000] group-hover:text-brand">
-                {services.find((s) => s.id === id)?.name}
-                <ArrowUpRight size={18} />
-              </span>
-              <p className="text-[16px] leading-[1.8] text-[#000000] mt-[18px] max-[767px]:mt-3.5">
-                {body}
-              </p>
-            </Link>
-          ))}
-        </div>
+        {service.id !== "branding-identity" && (
+          <div className="grid grid-cols-3 gap-10 mt-[45px] max-[767px]:block max-[767px]:mt-[30px]">
+            {c.connections.map(([id, body]) => (
+              <Link
+                className="service-contribution-link group border-t border-t-rule pt-[22px] max-[767px]:block max-[767px]:pt-[23px] max-[767px]:mt-[25px]"
+                key={id}
+                href={"/services/" + id}
+              >
+                <span className="flex justify-between items-center gap-5 text-[19px] leading-[1.45] text-[#000000] group-hover:text-brand">
+                  {services.find((s) => s.id === id)?.name}
+                  <ArrowUpRight size={18} />
+                </span>
+                <p className="text-[16px] leading-[1.8] text-[#000000] mt-[18px] max-[767px]:mt-3.5">
+                  {body}
+                </p>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

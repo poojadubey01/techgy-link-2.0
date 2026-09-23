@@ -9,6 +9,9 @@ npm install
 npm run dev
 ```
 
+If PowerShell reports that `npm.ps1` cannot be loaded because script execution is
+disabled, use `npm.cmd` in place of `npm` (for example, `npm.cmd run dev`).
+
 Open [http://localhost:3000](http://localhost:3000).
 
 ## Project structure
@@ -16,8 +19,8 @@ Open [http://localhost:3000](http://localhost:3000).
 ```
 app/                  Routes, layouts and components (Next.js App Router)
   components/         Reusable UI components
-  <route>/page.jsx     One folder per route (about, services, work, ...)
-  layout.jsx           Root layout
+  <route>/page.tsx     One folder per route (about, services, work, ...)
+  layout.tsx           Root layout
   globals.css, ...     Global and shared styles
 data/                 Site content (services, solutions, portfolio, insights, ...)
 lib/                  Server-side helpers (e.g. contact form delivery)
@@ -26,8 +29,8 @@ scripts/              Maintenance/build-check scripts
 tests/                Test files
 ```
 
-Content lives in `data/` as plain JavaScript modules (not JSON), so it's easy to read,
-comment and edit directly. Start with `data/catalogue.js` — it pulls together services,
+Content lives in `data/` as TypeScript modules (not JSON), so it's easy to read,
+comment and edit directly. Start with `data/catalogue.ts` — it pulls together services,
 solutions, work and campaigns used across the site.
 
 Import shared code with the `@/` alias, e.g. `import { services } from "@/data/catalogue"`.
@@ -54,7 +57,7 @@ CONTACT_API_TOKEN=optional-server-side-token
 ```
 
 The endpoint receives a JSON payload with `name`, `email`, `phone`, `services`, `budget` and
-`message`. See `lib/contact.js` for the full logic.
+`message`. See `lib/contact.ts` for the full logic.
 
 ## Environment variables
 

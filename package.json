@@ -10,7 +10,7 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "test:contact": "node --test tests/contact.test.mjs",
+    "test:contact": "node --experimental-strip-types --test tests/contact.test.mjs",
     "check:build": "node scripts/check-build.mjs"
   },
   "dependencies": {

@@ -29,22 +29,18 @@ export function ConnectedProof() {
               engineering.
             </p>
             <p className="text-[13px] mt-5 text-[#f8f9fa]">
-              <span className="inline-block text-[13px] text-brand bg-[#f8f9fa] border border-[#e2e8f0] rounded-full py-[7px] px-[14px]">
-                Ongoing project
-              </span>
+              <Link
+                href="/work/greenland-capital"
+                className="inline-flex items-center gap-2 text-[13px] text-brand bg-[#f8f9fa] border border-[#e2e8f0] rounded-full py-[7px] px-[14px] hover:bg-white"
+              >
+                Ongoing project <ArrowUpRight size={16} />
+              </Link>
             </p>
-            <Link
-              href="/work/greenland-capital"
-              className="cta-link inline-flex items-center font-medium text-white mt-[27px] max-[767px]:mt-5"
-            >
-              Read the connected project story <ArrowUpRight size={18} />
-            </Link>
           </div>
         </div>
         <div className="glc-ensemble mt-[70px] grid grid-cols-[1.18fr_0.82fr] gap-7 items-start max-[767px]:block max-[767px]:mt-[35px]">
-          <Link
+          <div
             className="ensemble-web block min-w-0 col-start-1 row-start-1 row-end-3 max-[767px]:mb-[30px]"
-            href="/work/glc-user-website"
           >
             <div className="relative overflow-hidden bg-brand rounded">
               <video
@@ -59,17 +55,15 @@ export function ConnectedProof() {
                 <source src="/work/optimized/greenland-capital-recording.mp4" type="video/mp4" />
               </video>
             </div>
-            <span className="grid grid-cols-[1fr_auto] gap-y-[5px] gap-x-5 text-[17px] pt-[18px] max-[767px]:text-[16px]">
+            <span className="flex items-center justify-between gap-5 text-[17px] pt-[18px] max-[767px]:text-[16px]">
               The customer introduction{" "}
-              <small className="col-start-1 text-[#f8f9fa] text-[13px]">
+              <small className="shrink-0 text-right text-[#f8f9fa] text-[13px]">
                 Website & experience
               </small>
-              <ArrowUpRight className="col-start-2 row-start-1 row-end-3 w-5 self-center" />
             </span>
-          </Link>
-          <Link
+          </div>
+          <div
             className="ensemble-app block min-w-0 max-[767px]:mb-[30px]"
-            href="/work/glc-user-mobile"
           >
             <div className="relative overflow-hidden bg-brand rounded">
               <img
@@ -81,17 +75,15 @@ export function ConnectedProof() {
                 className="w-full h-auto block"
               />
             </div>
-            <span className="grid grid-cols-[1fr_auto] gap-y-[5px] gap-x-5 text-[17px] pt-[18px] max-[767px]:text-[16px]">
+            <span className="flex items-center justify-between gap-5 text-[17px] pt-[18px] max-[767px]:text-[16px]">
               The experience on the move{" "}
-              <small className="col-start-1 text-[#f8f9fa] text-[13px]">
+              <small className="shrink-0 text-right text-[#f8f9fa] text-[13px]">
                 Mobile application
               </small>
-              <ArrowUpRight className="col-start-2 row-start-1 row-end-3 w-5 self-center" />
             </span>
-          </Link>
-          <Link
+          </div>
+          <div
             className="ensemble-ops block min-w-0 max-[767px]:mb-[30px]"
-            href="/work/glc-superadmin"
           >
             <div className="relative overflow-hidden bg-brand rounded">
               <img
@@ -103,14 +95,13 @@ export function ConnectedProof() {
                 className="w-full h-auto block"
               />
             </div>
-            <span className="grid grid-cols-[1fr_auto] gap-y-[5px] gap-x-5 text-[17px] pt-[18px] max-[767px]:text-[16px]">
+            <span className="flex items-center justify-between gap-5 text-[17px] pt-[18px] max-[767px]:text-[16px]">
               The business behind it{" "}
-              <small className="col-start-1 text-[#f8f9fa] text-[13px]">
+              <small className="shrink-0 text-right text-[#f8f9fa] text-[13px]">
                 Custom software
               </small>
-              <ArrowUpRight className="col-start-2 row-start-1 row-end-3 w-5 self-center" />
             </span>
-          </Link>
+          </div>
           <Link
             href="/work"
             className="cta-button inline-flex items-center rounded-full bg-white text-brand border border-white col-start-1 row-start-2 self-end justify-self-start mb-[25px] max-[767px]:mb-0 max-[767px]:mt-1.5"

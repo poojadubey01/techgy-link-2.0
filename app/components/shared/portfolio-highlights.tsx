@@ -1,6 +1,7 @@
 import Link from "@/app/components/ui/internal-link";
 import { ArrowUpRight } from "@/app/components/ui/icons";
-import { storyFor, portfolioStories } from "@/data/portfolio-stories";
+import { portfolioStories } from "@/data/portfolio-stories";
+import architecture from "@/data/architecture";
 import { StoryCard } from "@/app/components/shared/story-card";
 
 type Story = (typeof portfolioStories)[number];
@@ -30,12 +31,14 @@ export function CaseArtwork({
   compact = false,
   priority = false,
   variant = "default",
+  showCaption = true,
 }: {
   story: Story;
   compact?: boolean;
   priority?: boolean;
   variant?: "default" | "portfolio" | "proof";
   fitImage?: boolean;
+  showCaption?: boolean;
 }) {
   const toneBg = p.tone === "spur" ? "bg-navy" : "bg-[#e2e8f0]";
   return (
@@ -55,7 +58,7 @@ export function CaseArtwork({
             : "h-full w-full object-cover"
         }
       />
-      {!compact && (
+      {!compact && showCaption && (
         <div className="absolute left-[25px] right-[25px] bottom-[17px] flex justify-between gap-2.5 text-[12px] text-[#000000] max-[767px]:left-[15px] max-[767px]:right-[15px] max-[767px]:bottom-[13px]">
           <span>{p.name}</span>
           <span>Project presentation</span>
@@ -87,29 +90,38 @@ export function PortfolioBreadth() {
           expertise it needs.
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-[30px] max-[1023px]:gap-[22px] max-[767px]:grid-cols-1 max-[767px]:gap-[38px]">
-        {["lending-bridge", "planet-green-crm"].map((slug) => (
-          <StoryCard key={slug} project={storyFor(slug)!} showMetadata={false} compact />
-        ))}
-      </div>
       <Link
         href="/work"
-        className="cta-link inline-flex items-center font-medium text-brand mt-8"
+        className="cta-button inline-flex items-center justify-center rounded-full bg-brand text-white"
       >
-        Explore the client stories <ArrowUpRight size={20} />
+        Explore our projects <ArrowUpRight size={20} />
       </Link>
     </section>
   );
 }
 
 const solutionProof = {
-  "property-launch-sales": ["greenland-capital", "planet-green-crm"],
   "connected-sales-operations": ["planet-green-crm", "quickbooks-integration"],
   "digital-experience-product": ["lending-bridge", "nex2u"],
 };
 
+const propertyLaunchProof = ["dates-county", "vasavi-atlantis"].map((slug) => {
+  const project = architecture.find((p) => p.slug === slug)!;
+  return {
+    slug: project.slug,
+    name: project.title,
+    category: project.sector,
+    image: project.coverImage,
+  };
+});
+
 export function SolutionEvidence({ id }: { id: string }) {
-  const selected = solutionProof[id as keyof typeof solutionProof] || [];
+  const isPropertyLaunch = id === "property-launch-sales";
+  const selected = isPropertyLaunch
+    ? propertyLaunchProof
+    : (solutionProof[id as keyof typeof solutionProof] || []).map(
+        (slug) => portfolioStories.find((p) => p.slug === slug)!,
+      );
   return (
     <section className="site-container mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
       <div className="grid grid-cols-[1.4fr_1fr] gap-[10%] items-end mb-[42px] max-[1023px]:gap-10 max-[767px]:block max-[767px]:mb-8">
@@ -124,15 +136,17 @@ export function SolutionEvidence({ id }: { id: string }) {
           </h2>
         </div>
         <p className="text-[17px] leading-[1.85] text-[#000000] max-w-[430px] max-[767px]:text-[16px] max-[767px]:mt-6">
-          These engagements show relevant parts of the journey. Each story makes
-          its contribution and delivery stage clear.
+          {isPropertyLaunch
+            ? "These visualisation projects show how composition, light and material detail help people understand a proposed place."
+            : "These engagements show relevant parts of the journey. Each story makes its contribution and delivery stage clear."}
         </p>
       </div>
       <div className="grid grid-cols-2 gap-[45px] max-[767px]:grid-cols-1 max-[767px]:gap-[38px]">
-        {selected.map((slug) => (
+        {selected.map((project) => (
           <StoryCard
-            key={slug}
-            project={portfolioStories.find((p) => p.slug === slug)!}
+            key={project.slug}
+            project={project}
+            from={isPropertyLaunch ? "Visualisation" : undefined}
           />
         ))}
       </div>
