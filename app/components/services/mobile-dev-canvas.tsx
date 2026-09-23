@@ -127,7 +127,7 @@ export function MobileDevCanvas() {
               <div className="absolute -right-[3px] top-[145px] w-[3.5px] h-[55px] bg-[#334155] rounded-r-md border-r border-white/20 shadow-xs" />
 
               {/* OLED Screen (100% Contained & Clipped Inside Phone Frame) */}
-              <div className="relative w-full h-full bg-[#f8f9fa] rounded-[42px] overflow-hidden flex flex-col justify-between shadow-inner">
+              <div className="relative isolate w-full h-full min-h-0 bg-[#f8f9fa] rounded-[42px] [clip-path:inset(0_round_42px)] overflow-hidden flex flex-col justify-between shadow-inner">
                 
                 {/* Diagonal Glass Sheen Reflection Overlay */}
                 <div className="absolute -top-[100px] -left-[100px] w-[400px] h-[220px] bg-gradient-to-br from-white/20 via-white/5 to-transparent rotate-[-35deg] pointer-events-none z-30" />
@@ -244,7 +244,7 @@ export function MobileDevCanvas() {
                 </div>
 
                 {/* 3. BOTTOM APP TAB BAR & HOME INDICATOR PILL */}
-                <div className="relative z-30 bg-white/95 backdrop-blur-md border-t border-rule pt-2 pb-2 px-3">
+                <div className="relative z-30 shrink-0 rounded-b-[42px] overflow-hidden bg-white border-t border-rule pt-2 pb-3 px-3">
                   <div className="flex items-center justify-around text-[9px] font-medium text-[#000000]/50 mb-1.5">
                     {(
                       [
