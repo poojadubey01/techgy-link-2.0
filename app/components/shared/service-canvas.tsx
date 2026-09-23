@@ -7,7 +7,7 @@ import { MarketingCanvas } from "@/app/components/services/marketing-canvas";
 import { ArchitectureCanvas } from "@/app/components/services/architecture-canvas";
 import { ConsultingCanvas } from "@/app/components/services/consulting-canvas";
 import { BrandingCanvas } from "@/app/components/services/branding-canvas";
-import { CustomSoftwareCanvas } from "@/app/components/services/custom-software-canvas";
+import { CustomSoftwareDesktop } from "@/app/components/services/custom-software-desktop";
 import { services } from "@/data/catalogue";
 
 type Service = (typeof services)[number];
@@ -62,9 +62,6 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
   if (s.id === "branding-identity")
     return <BrandingCanvas />;
 
-  if (s.id === "custom-software-development")
-    return <CustomSoftwareCanvas />;
-
   const [label, title, caption] = meta[s.id as keyof typeof meta] || [
     "Selected work",
     "Designed around the experience",
@@ -89,7 +86,7 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
           </p>
         </div>
       </div>
-      <div className="relative min-w-0 overflow-hidden min-h-[500px] bg-white max-[1023px]:min-h-[430px] max-[767px]:min-h-[340px]">
+      <div className="relative min-w-0 overflow-hidden min-h-[500px] bg-white max-[1023px]:min-h-[480px] max-[767px]:min-h-[480px]">
         {s.id === "website-design-development" ? (
           <WebDevCanvas />
         ) : s.id === "ui-ux-product-design" ? (
@@ -97,7 +94,7 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
         ) : s.id === "mobile-application-development" ? (
           <MobileDevCanvas />
         ) : s.id === "custom-software-development" ? (
-          <CustomSoftwareCanvas />
+          <CustomSoftwareDesktop />
         ) : (
           <img
             src={s.image}

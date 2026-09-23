@@ -57,7 +57,7 @@ assert.deepEqual(
 const pkg = read("package.json");
 assert.deepEqual(
   Object.keys(pkg.dependencies).sort(),
-  ["gsap", "lucide-react", "next", "react", "react-dom"].sort(),
+  ["@rive-app/react-canvas", "gsap", "lucide-react", "motion", "next", "react", "react-dom"].sort(),
 );
 assert.equal(pkg.scripts.build, "next build --webpack");
 console.log(
