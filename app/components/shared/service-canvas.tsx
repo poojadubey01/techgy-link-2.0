@@ -1,4 +1,12 @@
-import { ArrowRight, ArrowUpRight } from "@/app/components/ui/icons";
+"use client";
+import { WebDevCanvas } from "@/app/components/services/web-dev-canvas";
+import { UiUxCanvas } from "@/app/components/services/ui-ux-canvas";
+import { MobileDevCanvas } from "@/app/components/services/mobile-dev-canvas";
+import { AiAutomationCanvas } from "@/app/components/services/ai-automation-canvas";
+import { MarketingCanvas } from "@/app/components/services/marketing-canvas";
+import { ArchitectureCanvas } from "@/app/components/services/architecture-canvas";
+import { ConsultingCanvas } from "@/app/components/services/consulting-canvas";
+import { BrandingCanvas } from "@/app/components/services/branding-canvas";
 import { services } from "@/data/catalogue";
 
 type Service = (typeof services)[number];
@@ -37,236 +45,28 @@ const projectCanvasImg: Record<string, string> = {
     "absolute h-auto w-[180%] max-w-none left-[-40%] bottom-0 object-cover max-[767px]:w-[200%] max-[767px]:left-[-50%]",
 };
 
-const canvasHeadingWrap =
-  "flex justify-between gap-[35px] items-end mb-[52px] max-[767px]:block max-[767px]:mb-9";
-const canvasHeadingH3 =
-  "text-[clamp(35px,3.8vw,59px)] tracking-[-0.045em] leading-[1.07] mt-5 max-[1023px]:text-[42px] max-[767px]:text-[38px]";
-
 export function ServiceCanvas({ service: s }: { service: Service }) {
   if (s.id === "architectural-visualisation")
-    return (
-      <figure
-        className="relative overflow-hidden bg-paper aspect-[2.25] max-[767px]:aspect-[1.13]"
-        data-image-reveal
-      >
-        <img
-          src={s.image}
-          width="1600"
-          height="1000"
-          alt="Vasavi Atlantis architectural visualisation at dusk"
-          fetchPriority="high"
-          className="w-full h-full object-cover"
-        />
-        <figcaption className="absolute bottom-[22px] left-6 py-[10px] px-4 bg-paper text-[#000000] text-[12px] rounded-full max-[767px]:text-[10px] max-[767px]:left-3 max-[767px]:bottom-3 max-[767px]:max-w-[calc(100%_-_24px)] max-[767px]:px-3 max-[767px]:py-[9px]">
-          Selected work / Vasavi Atlantis
-        </figcaption>
-      </figure>
-    );
-  if (s.id === "branding-identity")
-    return (
-      <div
-        className="grid grid-cols-[1.15fr_1fr] rounded-md overflow-hidden text-white max-[767px]:block max-[767px]:min-h-0"
-        data-image-reveal
-      >
-        <div className="relative overflow-hidden aspect-square self-start w-full p-[42px] flex flex-col items-start justify-between bg-[#111625] max-[1023px]:p-[30px] max-[767px]:p-[27px] max-[767px]:min-h-[300px] after:content-[''] after:absolute after:inset-0 after:z-[1] after:pointer-events-none after:[background:radial-gradient(ellipse_at_center,transparent_40%,#0022ff_115%)] after:opacity-50">
-          <p className="relative z-10 text-[11px] text-paper max-[767px]:text-[10px]">
-            Our own identity / TechGy Link
-          </p>
-          <video
-            src="/brand/Union%20Logo%20Reveal.mp4"
-            width="541"
-            height="111"
-            autoPlay
-            loop
-            muted
-            playsInline
-            aria-label="TechGy Link visual identity"
-            className="absolute inset-0 w-full h-full object-cover z-0 border-0 outline-none [filter:brightness(1.35)_saturate(1.15)_contrast(1.05)]"
-          />
-          <p className="relative z-10 font-display text-[36px] tracking-[-0.04em] leading-[1.2] [text-shadow:0_2px_18px_rgba(0,0,0,0.55)] max-[767px]:text-[29px]">
-            A clear idea.
-            <br />A consistent expression.
-          </p>
-        </div>
-        <div className="py-[30px] px-10 bg-paper text-brand flex flex-col justify-center max-[1023px]:p-[30px] max-[767px]:p-[27px]">
-          <span className="font-display text-[180px] leading-[1.1] tracking-[-0.075em] max-[1023px]:text-[145px] max-[767px]:text-[135px]">
-            Aa
-          </span>
-          <p className="text-[14px] text-paper mt-[15px] max-[767px]:text-[13px]">
-            Character in every detail.
-          </p>
-          <div className="flex mt-10 h-[60px] max-[767px]:mt-[30px]">
-            <span className="w-[33.333%] flex items-end p-[10px] text-[11px] bg-brand text-white">
-              Blue
-            </span>
-            <span className="w-[33.333%] flex items-end p-[10px] text-[11px] bg-[#111625] text-white">
-              Ink
-            </span>
-            <span className="w-[33.333%] flex items-end p-[10px] text-[11px] bg-rule text-paper">
-              Silver
-            </span>
-          </div>
-        </div>
-      </div>
-    );
+    return <ArchitectureCanvas />;
+
   if (s.id === "ai-automation-system-integration")
-    return (
-      <div
-        className="p-[43px] bg-brand text-paper rounded-md overflow-hidden min-h-[490px] max-[1023px]:p-8 max-[767px]:py-7 max-[767px]:px-6 max-[767px]:min-h-0"
-        data-diagram
-      >
-        <div className={canvasHeadingWrap}>
-          <div>
-            <p className="text-[11px] tracking-[0.1em] text-paper max-[767px]:text-[10px]">
-              Illustrative workflow
-            </p>
-            <h3 className={canvasHeadingH3}>
-              Less repetition.
-              <br />
-              More connection.
-            </h3>
-          </div>
-          <p className="text-[14px] leading-[1.8] text-paper max-[1023px]:text-[13px] max-[767px]:text-[13px] max-[767px]:mt-6">
-            Connect the routine steps.
-            <br />
-            Keep people in control of the decisions.
-          </p>
-        </div>
-        <ol className="workflow-nodes list-none grid grid-cols-4 gap-[22px] p-0 m-0 max-[1023px]:gap-[18px] max-[767px]:grid-cols-2 max-[767px]:gap-y-[31px] max-[767px]:gap-x-[18px]">
-          {[
-            ["01", "Capture", "An enquiry arrives"],
-            ["02", "Validate", "Check the information"],
-            ["03", "Review", "A person approves"],
-            ["04", "Connect", "Update the business system"],
-          ].map(([n, t, d]) => (
-            <li
-              key={n}
-              className="relative border-t-2 border-rule pt-5 max-[767px]:pt-4"
-            >
-              <span className="text-[11px] text-paper">{n}</span>
-              <h4 className="text-[27px] mt-[14px] mx-0 mb-3 max-[1023px]:text-[23px] max-[767px]:text-[23px] max-[767px]:mt-4 max-[767px]:mx-0 max-[767px]:mb-3">
-                {t}
-              </h4>
-              <p className="text-[13px] text-paper max-[767px]:text-[12px] max-[767px]:leading-[1.7]">
-                {d}
-              </p>
-              <ArrowRight
-                size={20}
-                className="absolute right-px top-5 text-paper max-[767px]:w-[15px] max-[767px]:top-[18px]"
-              />
-            </li>
-          ))}
-        </ol>
-        <div className="flex gap-[30px] text-[11px] text-paper border-t border-[#f8f9fa20] pt-[23px] mt-[39px] max-[767px]:grid max-[767px]:gap-[13px] max-[767px]:mt-[30px]">
-          <span>Exceptions remain visible</span>
-          <span>Human approval where needed</span>
-          <span>Every handoff has an owner</span>
-        </div>
-      </div>
-    );
+    return <AiAutomationCanvas />;
+
   if (s.id === "digital-marketing-sales-enablement")
-    return (
-      <div
-        className="p-[43px] bg-brand text-paper rounded-md overflow-hidden min-h-[490px] max-[1023px]:p-8 max-[767px]:py-7 max-[767px]:px-6 max-[767px]:min-h-0"
-        data-diagram
-      >
-        <div className={canvasHeadingWrap}>
-          <div>
-            <p className="text-[11px] tracking-[0.1em] text-paper max-[767px]:text-[10px]">
-              A connected acquisition journey
-            </p>
-            <h3 className={canvasHeadingH3}>
-              Attention is
-              <br />
-              the beginning.
-            </h3>
-          </div>
-          <p className="text-[14px] leading-[1.8] text-paper max-[1023px]:text-[13px] max-[767px]:text-[13px] max-[767px]:mt-6">
-            Make the offer, destination and follow-up <br />
-            part of the same plan.
-          </p>
-        </div>
-        <ol className="marketing-path grid grid-cols-4 list-none p-0 m-0 gap-0 max-[767px]:grid-cols-2 max-[767px]:gap-y-[22px] max-[767px]:gap-x-[18px]">
-          {[
-            ["Reach", "The right audience"],
-            ["Resonate", "A relevant offer"],
-            ["Convert", "A clear next step"],
-            ["Continue", "An informed conversation"],
-          ].map(([t, d], i) => (
-            <li
-              key={t}
-              className="py-[22px] px-5 border-t border-[#e2e8f070] border-l border-[#e2e8f035] first:pl-0 first:border-l-0 max-[767px]:py-[18px] max-[767px]:px-0 max-[767px]:border-l-0"
-            >
-              <span className="text-[11px] text-paper">0{i + 1}</span>
-              <h4 className="text-[29px] mt-[18px] mx-0 mb-[13px] max-[1023px]:text-[25px] max-[767px]:text-[24px] max-[767px]:mt-[14px] max-[767px]:mb-3">
-                {t}
-              </h4>
-              <p className="text-[13px] text-paper max-[767px]:text-[12px] max-[767px]:leading-[1.7]">
-                {d}
-              </p>
-            </li>
-          ))}
-        </ol>
-        <p className="text-[11px] leading-[1.8] text-paper mt-[30px] max-[767px]:text-[10px] max-[767px]:mt-[25px]">
-          Example journey / Performance is measured against an agreed campaign
-          brief.
-        </p>
-      </div>
-    );
+    return <MarketingCanvas />;
+
   if (s.id === "technology-consulting-modernisation")
-    return (
-      <div
-        className="p-[43px] bg-brand text-white rounded-md overflow-hidden min-h-[490px] max-[1023px]:p-8 max-[767px]:py-7 max-[767px]:px-6 max-[767px]:min-h-0"
-        data-diagram
-      >
-        <div className={canvasHeadingWrap}>
-          <div>
-            <p className="text-[11px] tracking-[0.1em] text-white/80 max-[767px]:text-[10px]">
-              The assessment framework
-            </p>
-            <h3 className={canvasHeadingH3}>
-              See the system.
-              <br />
-              Plan the change.
-            </h3>
-          </div>
-          <p className="text-[14px] leading-[1.8] text-white/90 max-[1023px]:text-[13px] max-[767px]:text-[13px] max-[767px]:mt-6">
-            Senior technical review, connected <br />
-            to practical implementation.
-          </p>
-        </div>
-        <div className="assessment-map grid grid-cols-3 gap-[22px] max-[1023px]:gap-[15px] max-[767px]:grid-cols-1 max-[767px]:gap-[14px]">
-          {[
-            ["01", "Understand today", "Systems, constraints, dependencies"],
-            ["02", "Evaluate the options", "Architecture, risk, integration"],
-            ["03", "Define the path", "Priorities, ownership, milestones"],
-          ].map(([n, t, d]) => (
-            <div
-              key={n}
-              className="relative bg-white p-6 rounded-sm max-[1023px]:p-5 max-[767px]:p-5"
-            >
-              <span className="text-[11px] text-brand">{n}</span>
-              <h4 className="text-[26px] mt-[23px] mx-0 mb-[15px] max-[1023px]:text-[23px] max-[767px]:text-[25px] max-[767px]:mt-[17px] max-[767px]:mb-[11px]">
-                {t}
-              </h4>
-              <p className="text-[13px] text-[#000000] leading-[1.7]">{d}</p>
-              <ArrowUpRight
-                size={20}
-                className="absolute right-5 top-[23px] text-brand"
-              />
-            </div>
-          ))}
-        </div>
-        <p className="text-[11px] leading-[1.8] text-white/80 mt-[30px] max-[767px]:text-[10px] max-[767px]:mt-[25px]">
-          Assessment → Architecture decisions → Phased roadmap
-        </p>
-      </div>
-    );
+    return <ConsultingCanvas />;
+
+  if (s.id === "branding-identity")
+    return <BrandingCanvas />;
+
   const [label, title, caption] = meta[s.id as keyof typeof meta] || [
     "Selected work",
     "Designed around the experience",
     "TechGy Link / Project presentation",
   ];
+
   return (
     <figure
       className={`${projectCanvasBg[s.id] || "bg-brand"} text-white rounded-md overflow-hidden grid grid-cols-[0.65fr_1fr] min-h-[500px] relative max-[1023px]:min-h-[430px] max-[1023px]:grid-cols-[0.75fr_1fr] max-[767px]:block max-[767px]:min-h-0`}
@@ -285,17 +85,25 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
           </p>
         </div>
       </div>
-      <div className="relative overflow-hidden min-h-[500px] bg-rule max-[1023px]:min-h-[430px] max-[767px]:min-h-0 max-[767px]:h-[320px]">
-        <img
-          src={s.image}
-          alt={caption}
-          width="1600"
-          height="1000"
-          fetchPriority="high"
-          className={
-            projectCanvasImg[s.id] || "absolute w-full h-full object-cover"
-          }
-        />
+      <div className="relative overflow-hidden min-h-[500px] bg-white max-[1023px]:min-h-[430px] max-[767px]:min-h-0">
+        {s.id === "website-design-development" ? (
+          <WebDevCanvas />
+        ) : s.id === "ui-ux-product-design" ? (
+          <UiUxCanvas />
+        ) : s.id === "mobile-application-development" ? (
+          <MobileDevCanvas />
+        ) : (
+          <img
+            src={s.image}
+            alt={caption}
+            width="1600"
+            height="1000"
+            fetchPriority="high"
+            className={
+              projectCanvasImg[s.id] || "absolute w-full h-full object-cover"
+            }
+          />
+        )}
       </div>
     </figure>
   );

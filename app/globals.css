@@ -204,3 +204,27 @@
     padding: 10px 16px;
   }
 }
+
+/* Scope map wires: a static run with a signal travelling along it. */
+.blueprint-wires path {
+  fill: none;
+  stroke: #e2e8f0;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+.blueprint-wires path[data-wire-draw] {
+  stroke: #0022ff;
+  stroke-dasharray: 0.05 0.2;
+  animation: blueprint-wire-draw 3.4s linear infinite;
+}
+@keyframes blueprint-wire-draw {
+  from { stroke-dashoffset: 0.25; }
+  to { stroke-dashoffset: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blueprint-wires path[data-wire-draw] {
+    animation: none;
+    stroke-dasharray: none;
+    opacity: 0.3;
+  }
+}

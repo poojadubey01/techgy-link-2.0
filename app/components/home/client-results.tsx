@@ -47,14 +47,17 @@ export function ConnectedProof() {
             href="/work/glc-user-website"
           >
             <div className="relative overflow-hidden bg-brand rounded">
-              <img
-                src="/work/greenland-capital.png"
-                alt="Greenland Capital website project presentation"
-                width="1600"
-                height="900"
-                loading="lazy"
-                className="w-full h-auto block"
-              />
+              <video
+                poster="/work/optimized/greenland-capital.png"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                className="w-full h-auto block rounded"
+              >
+                <source src="/work/optimized/greenland-capital-recording.mp4" type="video/mp4" />
+              </video>
             </div>
             <span className="grid grid-cols-[1fr_auto] gap-y-[5px] gap-x-5 text-[17px] pt-[18px] max-[767px]:text-[16px]">
               The customer introduction{" "}

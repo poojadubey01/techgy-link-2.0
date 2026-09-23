@@ -3,6 +3,7 @@ import { ArrowUpRight } from "@/app/components/ui/icons";
 import { services, digitalProjects } from "@/data/catalogue";
 import { CTA, WorkCard } from "@/app/components/shared/common-blocks";
 import { CaseArtwork } from "@/app/components/shared/portfolio-highlights";
+import { ProjectBlueprint } from "@/app/components/work/project-blueprint";
 import { portfolioStories } from "@/data/portfolio-stories";
 
 type Story = (typeof portfolioStories)[number];
@@ -144,6 +145,7 @@ export function CaseStudy({
           </p>
         </div>
       </section>
+      <ProjectBlueprint slug={p.slug} />
       <section className="py-[120px] max-[767px]:py-[70px] w-[min(1424px,calc(100%_-_112px))] mx-auto grid grid-cols-[0.85fr_1.15fr] gap-[9%] max-[1023px]:gap-[50px] max-[767px]:block">
         <div>
           <p className={eyebrow}>03 / Design the important details</p>
@@ -185,16 +187,13 @@ export function CaseStudy({
               individual parts of the wider platform.
             </p>
           </div>
-          <div className="grid grid-cols-[1fr_1fr] gap-y-[60px] gap-x-8 max-[767px]:grid-cols-[1fr] max-[767px]:gap-[35px]">
+          <div className="grid grid-cols-2 gap-y-[60px] gap-x-8 max-[767px]:grid-cols-1 max-[767px]:gap-[35px]">
             {digitalProjects
               .filter((x) => x.slug.startsWith("glc-"))
-              .map((x, i) => (
+              .map((x) => (
                 <WorkCard
                   key={x.slug}
                   project={x}
-                  className={
-                    i % 4 === 1 ? "pt-[85px] max-[767px]:pt-0" : undefined
-                  }
                 />
               ))}
           </div>

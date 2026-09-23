@@ -1,5 +1,6 @@
 import { storyFor } from "@/data/portfolio-stories";
 import { CaseStudy } from "@/app/components/work/case-study";
+import { ProjectBlueprint } from "@/app/components/work/project-blueprint";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "@/app/components/ui/internal-link";
 import { work, architecture, services, digitalProjects } from "@/data/catalogue";
@@ -219,6 +220,7 @@ export default async function Project({
           </div>
         </section>
       ) : null}
+      <ProjectBlueprint slug={slug} />
       <CTA
         title="Have a similar challenge?"
         service={

@@ -5,28 +5,52 @@ import { portfolioWork as work } from "@/data/catalogue";
 import { StoryCard } from "@/app/components/shared/portfolio-highlights";
 
 export function FAQs({ items }: { items: string[][] }) {
+  const [openIndexes, setOpenIndexes] = useState<number[]>([]);
+
+  const toggle = (index: number) => {
+    setOpenIndexes((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
+  };
+
   return (
-    <div>
-      {items.map(([q, a]) => (
-        <details
-          key={q}
-          name="service-faq"
-          className="group border-t border-t-rule last:border-b last:border-b-rule"
-        >
-          <summary className="flex items-center justify-between gap-5 cursor-pointer py-[25px] px-0 list-none text-[20px] font-display tracking-[-0.015em] leading-[1.45] [&::-webkit-details-marker]:hidden max-[767px]:py-[23px]">
-            {q}
-            <span
-              aria-hidden="true"
-              className="font-sans text-[25px] font-light text-[#000000] transition-transform group-open:rotate-45"
+    <div className="faq-list divide-y divide-rule border-y border-rule">
+      {items.map(([q, a], i) => {
+        const isOpen = openIndexes.includes(i);
+        return (
+          <div key={q} className="group">
+            <button
+              type="button"
+              onClick={() => toggle(i)}
+              aria-expanded={isOpen}
+              className="w-full flex items-center justify-between gap-6 text-left py-[24px] px-0 bg-transparent border-0 cursor-pointer transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-brand max-[767px]:py-[20px]"
             >
-              +
-            </span>
-          </summary>
-          <p className="pt-0 pr-[30px] pb-[25px] pl-0 text-[#000000] leading-[1.85] text-[16px] max-[767px]:text-[15px] max-[767px]:pr-[15px]">
-            {a}
-          </p>
-        </details>
-      ))}
+              <span className="text-[20px] font-display tracking-[-0.015em] leading-[1.4] text-ink group-hover:text-brand transition-colors duration-200 max-[767px]:text-[18px]">
+                {q}
+              </span>
+              <span
+                aria-hidden="true"
+                className={`shrink-0 w-[34px] h-[34px] rounded-full border border-rule flex items-center justify-center text-[22px] font-light text-ink/80 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-brand group-hover:text-brand ${
+                  isOpen ? "rotate-45 bg-brand text-white border-brand shadow-sm" : "bg-white"
+                }`}
+              >
+                +
+              </span>
+            </button>
+            <div
+              className={`grid transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+              }`}
+            >
+              <div className="overflow-hidden">
+                <p className="pt-0 pr-[40px] pb-[25px] pl-0 text-[#000000]/80 leading-[1.85] text-[16px] max-[767px]:text-[15px] max-[767px]:pr-[10px] max-[767px]:pb-[20px]">
+                  {a}
+                </p>
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -98,7 +122,11 @@ export function WorkExplorer() {
         {["All", "Digital", "Visualisation"].map((t) => (
           <button
             key={t}
-            className="flex items-center gap-[22px] border border-rule rounded-full py-[13px] px-[23px] text-[14px] aria-[pressed=true]:bg-ink aria-[pressed=true]:text-white aria-[pressed=true]:border-ink max-[767px]:gap-[13px] max-[767px]:py-2.5 max-[767px]:px-3.5 max-[767px]:text-[12px]"
+            className={`flex items-center gap-[22px] border rounded-full py-[13px] px-[23px] text-[14px] transition-all duration-200 cursor-pointer max-[767px]:gap-[13px] max-[767px]:py-2.5 max-[767px]:px-3.5 max-[767px]:text-[12px] ${
+              filter === t
+                ? "bg-brand text-white border-brand shadow-sm"
+                : "bg-transparent text-ink border-rule hover:border-brand/40"
+            }`}
             aria-pressed={filter === t}
             onClick={() => handleFilterChange(t)}
           >
