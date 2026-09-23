@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import gsap from "gsap";
 import { ArrowUpRight } from "@/app/components/ui/icons";
+import { ConnectedWorkspaceCanvas } from "./connected-workspace-canvas";
 
 interface ArchNode {
   id: string;
@@ -1356,5 +1357,6 @@ export function CustomSoftwareCanvas() {
       </div>
     </div>
   );
+  return <ConnectedWorkspaceCanvas />;
 }
 

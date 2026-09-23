@@ -68,6 +68,32 @@ export function SectionTitle({
     </div>
   );
 }
+
+export function ServiceClients({ service: s }: { service: Service }) {
+  if (!s.clients || s.clients.length === 0) return null;
+  return (
+    <section className="reveal py-[70px] max-[767px]:py-[45px] border-t border-t-rule">
+      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] flex items-center gap-[50px] max-[767px]:flex-col max-[767px]:items-start max-[767px]:gap-6">
+        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand shrink-0">
+          Clients we&rsquo;ve done this for
+        </p>
+        <div className="flex flex-wrap items-center gap-x-12 gap-y-6">
+          {s.clients.map((c) => (
+            <img
+              key={c.name}
+              src={c.logo}
+              alt={c.name}
+              width={120}
+              height={40}
+              loading="lazy"
+              className="h-9 w-auto max-w-[120px] object-contain"
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 export function ServiceDirectory({ compact = false }: { compact?: boolean }) {
   return (
     <div className="mt-[35px]">

@@ -41,11 +41,6 @@ export function ArchitectureGallery() {
             <br />a point of view.
           </h2>
         </div>
-        <p className="text-[15px] text-[#000000] max-[767px]:text-[14px] max-[767px]:mt-5">
-          Nine project collections.
-          <br />
-          149 original renders.
-        </p>
       </div>
       <div className="architecture-grid grid grid-cols-[repeat(3,1fr)] gap-y-[45px] gap-x-6 max-[1023px]:grid-cols-[1fr_1fr] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[35px]">
         {galleries.map((g, i) => (
@@ -69,9 +64,6 @@ export function ArchitectureGallery() {
               />
               <span className="project-open absolute right-4 bottom-4 bg-white rounded-full w-10 h-10 grid place-items-center">
                 <ArrowUpRight size={20} />
-              </span>
-              <span className="render-count absolute top-4 left-4 bg-[#f8f9faeb] text-[#000000] py-1.5 px-2.5 text-[12px]">
-                {g.images.length} frames
               </span>
             </div>
             <div className="architecture-meta">

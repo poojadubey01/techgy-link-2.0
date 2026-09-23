@@ -14,11 +14,11 @@ import {
   Process,
   CTA,
   Arrow,
+  ServiceClients,
 } from "@/app/components/shared/common-blocks";
 import { FAQs } from "@/app/components/shared/faq-and-explorer";
 import { engagements } from "@/data/engagements";
 import { ServiceEvidence } from "@/app/components/shared/service-evidence";
-import { EngagementStart } from "@/app/components/services/engagement-start";
 import { ArchitectureGallery } from "@/app/components/services/architecture-gallery";
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.id }));
@@ -147,6 +147,7 @@ export default async function Service({
           </div>
         </div>
       </section>
+      <ServiceClients service={s} />
       {isMarketing && (
         <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto">
           <SectionTitle
@@ -209,7 +210,6 @@ export default async function Service({
           details={engagements[s.id as keyof typeof engagements].process}
         />
       </section>
-      <EngagementStart service={s} />
       <section
         className="bg-transparent py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]"
         id="questions"

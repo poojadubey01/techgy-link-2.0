@@ -887,7 +887,7 @@ export default [
   },
   {
     "slug": "dates-county",
-    "title": "Dates County",
+    "title": "Eco World",
     "location": "India",
     "sector": "Resorts & Farmland Community",
     "tags": ["Resort Masterplan", "Golf & Sports", "Lake View"],
@@ -895,7 +895,7 @@ export default [
     "imageCount": 16,
     "images": [
       {
-        "caption": "Aerial view  Dates County",
+        "caption": "Aerial view  Eco World",
         "url": "/architecture/dates-county/Aerial_view_-Dates_County.webp",
         "width": 1920,
         "height": 1080
@@ -907,61 +907,61 @@ export default [
         "height": 1080
       },
       {
-        "caption": "Date County Aerial View",
+        "caption": "Eco World Aerial View",
         "url": "/architecture/dates-county/Date_County_Aerial_View.webp",
         "width": 1920,
         "height": 1080
       },
       {
-        "caption": "Date County Basket Ball Court",
+        "caption": "Eco World Basket Ball Court",
         "url": "/architecture/dates-county/Date_County_Basket_Ball_Court.webp",
         "width": 1920,
         "height": 1080
       },
       {
-        "caption": "Date County Chaman Resorts",
+        "caption": "Eco World Chaman Resorts",
         "url": "/architecture/dates-county/Date_County_Chaman_Resorts.webp",
         "width": 1920,
         "height": 1080
       },
       {
-        "caption": "Date County Golf",
+        "caption": "Eco World Golf",
         "url": "/architecture/dates-county/Date_County_Golf.webp",
         "width": 1920,
         "height": 1080
       },
       {
-        "caption": "Date County Temple",
+        "caption": "Eco World Temple",
         "url": "/architecture/dates-county/Date_County_Temple.webp",
         "width": 1920,
         "height": 1080
       },
       {
-        "caption": "Date County Vegatable Garden (4)",
+        "caption": "Eco World Vegatable Garden (4)",
         "url": "/architecture/dates-county/Date_County_Vegatable_Garden_(4).webp",
         "width": 1920,
         "height": 1080
       },
       {
-        "caption": "Date County cricket ground 02",
+        "caption": "Eco World cricket ground 02",
         "url": "/architecture/dates-county/Date_County_cricket_ground_02.webp",
         "width": 1920,
         "height": 817
       },
       {
-        "caption": "Dates CountyMALLS",
+        "caption": "Eco World MALLS",
         "url": "/architecture/dates-county/Dates_CountyMALLS.webp",
         "width": 1920,
         "height": 1080
       },
       {
-        "caption": "Dates County Club house (3)",
+        "caption": "Eco World Club house (3)",
         "url": "/architecture/dates-county/Dates_County_Club_house_(3).webp",
         "width": 1920,
         "height": 1080
       },
       {
-        "caption": "Dates County Lake",
+        "caption": "Eco World Lake",
         "url": "/architecture/dates-county/Dates_County_Lake.webp",
         "width": 1920,
         "height": 1080

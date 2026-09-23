@@ -1,5 +1,7 @@
 import { SolutionEvidence } from "@/app/components/shared/portfolio-highlights";
 import { SolutionCollaboration } from "@/app/components/shared/service-contribution";
+import { ConnectedWorkspaceCanvas } from "@/app/components/services/connected-workspace-canvas";
+import { DigitalExperienceHeroCanvas } from "@/app/components/solutions/digital-experience-hero-laptop";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "@/app/components/ui/internal-link";
 import { solutions, enquiry } from "@/data/catalogue";
@@ -65,22 +67,30 @@ export default async function Solution({
           </Link>
         </div>
       </section>
-      <figure className="site-container mx-auto mb-[60px] bg-[#e2e8f0] rounded-md overflow-hidden max-[767px]:mb-[35px]">
-        <img
-          className="w-full h-auto max-h-[820px] object-cover rounded-md max-[767px]:max-h-none"
-          src={s.image}
-          alt={
-            s.id === "property-launch-sales"
-              ? "Dates County architectural visualisation"
-              : s.id === "connected-sales-operations"
-                ? "QuickBooks integration project presentation"
+      {s.id === "connected-sales-operations" ? (
+        <div className="site-container mx-auto mb-[60px] max-[767px]:mb-[35px]">
+          <ConnectedWorkspaceCanvas />
+        </div>
+      ) : s.id === "digital-experience-product" ? (
+        <div className="site-container mx-auto mb-[60px] max-[767px]:mb-[35px]">
+          <DigitalExperienceHeroCanvas />
+        </div>
+      ) : (
+        <figure className="site-container mx-auto mb-[60px] bg-[#e2e8f0] rounded-md overflow-hidden max-[767px]:mb-[35px]">
+          <img
+            className="w-full h-auto max-h-[820px] object-cover rounded-md max-[767px]:max-h-none"
+            src={s.image}
+            alt={
+              s.id === "property-launch-sales"
+                ? "Eco World architectural visualisation"
                 : "Greenland Capital website project presentation"
-          }
-          width="1600"
-          height="900"
-          fetchPriority="high"
-        />
-      </figure>
+            }
+            width="1600"
+            height="900"
+            fetchPriority="high"
+          />
+        </figure>
+      )}
       <SolutionCollaboration id={s.id} />
       <section className="py-[120px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
         <div>
