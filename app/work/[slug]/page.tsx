@@ -61,7 +61,7 @@ export default async function Project({
           <span>/</span>
           <span>{p.name}</span>
         </nav>
-        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+        <p className="eyebrow text-brand">
           {p.category}
         </p>
         <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[48px] max-[767px]:leading-[1.12] max-[767px]:mt-[22px]">
@@ -83,7 +83,7 @@ export default async function Project({
       </figure>
       <section className="site-container mx-auto grid grid-cols-[1.1fr_1fr] gap-[95px] py-[65px] border-b border-rule max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px] max-[767px]:py-10">
         <div>
-          <h2 className="mb-[25px] text-[43px] max-[767px]:text-[35px]">
+          <h2 className="mb-[25px]">
             {gallery ? "A sense of place." : "A closer look at the work."}
           </h2>
           <p className="text-[#000000] text-[16px] max-[767px]:text-[15px]">

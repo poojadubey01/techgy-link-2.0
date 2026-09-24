@@ -94,10 +94,10 @@ export default async function Service({
         id="overview"
       >
         <div>
-          <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+          <p className="eyebrow text-brand">
             The starting point
           </p>
-          <h2 className="mt-6 max-[767px]:text-[37px] max-[767px]:mt-5">{s.problem}</h2>
+          <h2 className="mt-6 max-[767px]:mt-5">{s.problem}</h2>
         </div>
         <div>
           <p className="large-copy font-display text-[clamp(23px,2.35vw,35px)] leading-[1.4] tracking-[-0.025em] max-[767px]:text-[25px]">
@@ -177,21 +177,6 @@ export default async function Service({
       {architecture ? (
         <div className="architecture-proof bg-[#e2e8f0]" id="proof">
           <ArchitectureGallery />
-          <div className="architecture-film site-container mx-auto pb-[85px]">
-            <video
-              controls
-              playsInline
-              preload="none"
-              poster="/source/3d/hero-poster.jpg"
-              aria-label="TechGy Link architectural visualisation showreel"
-              className="w-full aspect-video bg-[#111625]"
-            >
-              <source src="/source/3d/hero.mp4" type="video/mp4" />
-            </video>
-            <p className="text-[12px] text-[#000000] mt-[15px]">
-              Architectural showreel / TechGy Link
-            </p>
-          </div>
         </div>
       ) : showServiceEvidence ? (
         <ServiceEvidence service={s} />
@@ -216,10 +201,10 @@ export default async function Service({
       >
         <div className="site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
           <div>
-            <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+            <p className="eyebrow text-brand">
               A little more clarity
             </p>
-            <h2 className="mt-6 max-[767px]:text-[37px] max-[767px]:mt-5">Before we begin.</h2>
+            <h2 className="mt-6 max-[767px]:mt-5">Before we begin.</h2>
           </div>
           <FAQs items={s.faqs} />
         </div>

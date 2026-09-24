@@ -8,6 +8,7 @@ import { CompanyEvolution } from "@/app/components/home/story-timeline";
 import { CollectiveCapabilities } from "@/app/components/home/capabilities-grid";
 import { ConnectedProof } from "@/app/components/home/client-results";
 import { PartnerPromise } from "@/app/components/shared/promise-banner";
+import { WhyTechGy } from "@/app/components/home/why-techgy";
 const starts = [
   {
     n: "01",
@@ -40,13 +41,14 @@ export default function Home() {
       <CollectiveCapabilities />
       <ConnectedProof />
       <PortfolioBreadth />
+      <WhyTechGy />
       <section className="bg-[#e2e8f0]">
         <div className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[0.85fr_1.4fr] gap-[90px] items-start max-[1100px]:gap-[45px] max-[1100px]:grid-cols-[0.8fr_1.2fr] max-[767px]:block">
           <div className="sticky top-[150px] max-[767px]:static">
-            <p className="text-brand text-[13px]">
+            <p className="eyebrow text-brand">
               Where your next chapter can begin
             </p>
-            <h2 className="text-[55px] leading-[1.15] my-[25px] max-[1100px]:text-[43px] max-[767px]:text-[40px] max-[767px]:my-[22px]">
+            <h2 className="my-6 max-[767px]:my-5">
               What are you
               <br />
               <span className="text-brand">moving toward?</span>

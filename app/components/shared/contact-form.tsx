@@ -67,7 +67,7 @@ export function ContactForm({ initialService = "", campaign = "" }) {
     }
   }
   const eyebrowClass =
-    "text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]";
+    "eyebrow text-brand";
   const buttonOutlineClass =
     "cta-button inline-flex items-center justify-center font-medium border border-rule bg-transparent rounded-full";
   const textLinkClass =

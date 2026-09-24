@@ -88,7 +88,7 @@ export default async function Product({
           <span>/</span>
           {p.name}
         </nav>
-        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+        <p className="eyebrow text-brand">
           {p.name}
         </p>
         <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[48px] max-[767px]:leading-[1.12] max-[767px]:mt-[22px]">

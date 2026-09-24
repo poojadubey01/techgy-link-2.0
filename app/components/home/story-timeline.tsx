@@ -33,7 +33,7 @@ export function CompanyEvolution() {
         <p className="text-[14px] text-[#f8f9fa] max-[767px]:text-[12px]">
           The reason behind the rebrand
         </p>
-        <h2 className="text-[clamp(42px,4.5vw,69px)] leading-[1.14] max-w-[1120px] mt-[25px] max-[767px]:text-[36px] max-[767px]:leading-[1.2] max-[767px]:mt-[22px]">
+        <h2 className="max-w-[1120px] mt-6 max-[767px]:mt-5">
           We kept adding the people
           <br className="max-[767px]:hidden" />
           <span className="max-[767px]:block max-[767px]:mt-[5px]">

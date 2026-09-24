@@ -35,10 +35,10 @@ export function PartnerPromise({ compact = false }: { compact?: boolean }) {
     <section className="bg-paper py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
       <div className="site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1100px]:gap-[50px] max-[767px]:block">
         <div>
-          <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[12px]">
+          <p className="eyebrow text-brand">
             What being your growth partner means
           </p>
-          <h2 className="text-[49px] leading-[1.17] my-[26px] max-[1100px]:text-[42px] max-[767px]:text-[36px] max-[767px]:leading-[1.2]">
+          <h2 className="my-6 max-[767px]:my-5">
             You bring the ambition.
             <br />
             <span className="text-brand">We connect the people.</span>

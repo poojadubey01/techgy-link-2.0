@@ -6,7 +6,7 @@ import { ArrowUpRight } from "@/app/components/ui/icons";
 type Service = (typeof services)[number];
 
 const eyebrowClass =
-  "text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]";
+  "eyebrow text-brand";
 const textLinkClass =
   "cta-link inline-flex items-center font-medium text-brand";
 
@@ -15,11 +15,11 @@ export function ServiceContribution({ service }: { service: Service }) {
   return (
     <section className="bg-paper py-[75px] my-0 max-[767px]:py-[55px]">
       <div className="site-container mx-auto">
-        <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[12px]">
+        <p className="eyebrow text-brand">
           The TechGy Link difference
         </p>
         <div className="grid grid-cols-[1fr_1fr] gap-[90px] items-start mt-[26px] max-[767px]:block max-[767px]:mt-[23px]">
-          <h2 className="text-[clamp(35px,3.3vw,51px)] leading-[1.15] max-[767px]:text-[34px] max-[767px]:leading-[1.18]">
+          <h2>
             {c.title}
           </h2>
           <div className="max-[767px]:mt-[25px]">
@@ -43,7 +43,7 @@ export function SolutionCollaboration({ id }: { id: string }) {
         <div className="grid grid-cols-[1fr_1fr] gap-[90px] items-end m-0 max-[767px]:block">
           <div>
             <p className={eyebrowClass}>Why a connected partner matters</p>
-            <h2 className="mt-[25px] max-[767px]:text-[34px] max-[767px]:mt-[23px]">
+            <h2 className="mt-6 max-[767px]:mt-5">
               {c.title}
             </h2>
           </div>

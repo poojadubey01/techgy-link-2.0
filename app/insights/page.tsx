@@ -10,7 +10,7 @@ export default function Insights() {
   return (
     <main id="main" className="flow-root bg-[#f8f9fa]">
       <section className="page-intro site-container mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
-        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+        <p className="eyebrow text-brand">
           Ideas from the work
         </p>
         <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[48px] max-[767px]:leading-[1.12] max-[767px]:mt-[22px]">
@@ -29,7 +29,7 @@ export default function Insights() {
             className="border-t border-t-[#e2e8f0] pt-[30px]"
             key={a.id}
           >
-            <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-[#111625]">
+            <p className="eyebrow text-[#111625]">
               {a.category}
             </p>
             <h3 className="text-[32px] my-[26px] mx-0 leading-[1.18] max-[1023px]:text-[28px]">

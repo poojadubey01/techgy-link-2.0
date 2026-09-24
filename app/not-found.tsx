@@ -5,7 +5,7 @@ export default function NotFound() {
       id="main"
       className="site-container mx-auto py-[120px] max-[767px]:py-20"
     >
-      <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+      <p className="eyebrow text-brand">
         404 / A small detour
       </p>
       <h1 className="my-[25px] mx-0">Let’s reconnect.</h1>

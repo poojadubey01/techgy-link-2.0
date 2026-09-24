@@ -4,7 +4,7 @@ import { UiUxCanvas } from "@/app/components/services/ui-ux-canvas";
 import { MobileDevCanvas } from "@/app/components/services/mobile-dev-canvas";
 import { AiAutomationCanvas } from "@/app/components/services/ai-automation-canvas";
 import { MarketingCanvas } from "@/app/components/services/marketing-canvas";
-import { ArchitectureCanvas } from "@/app/components/services/architecture-canvas";
+import { ArchitectureShowreel } from "@/app/components/services/architecture-showreel";
 import { ConsultingCanvas } from "@/app/components/services/consulting-canvas";
 import { BrandingMotion } from "@/app/components/services/branding-motion";
 import { CustomSoftwareDesktop } from "@/app/components/services/custom-software-desktop";
@@ -48,7 +48,7 @@ const projectCanvasImg: Record<string, string> = {
 
 export function ServiceCanvas({ service: s }: { service: Service }) {
   if (s.id === "architectural-visualisation")
-    return <ArchitectureCanvas />;
+    return <ArchitectureShowreel />;
 
   if (s.id === "ai-automation-system-integration")
     return <AiAutomationCanvas />;

@@ -11,7 +11,7 @@ export function ConnectedProof() {
           <p className="col-span-full mb-[30px] text-[#f8f9fa] text-[14px] max-[767px]:text-[12px] max-[767px]:mb-6">
             The thinking, made tangible
           </p>
-          <h2 className="text-[clamp(43px,4.6vw,70px)] leading-[1.1] max-[767px]:text-[38px] max-[767px]:leading-[1.16]">
+          <h2>
             One business.
             <br />
             Several experiences.

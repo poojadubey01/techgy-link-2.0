@@ -50,10 +50,10 @@ export function CollectiveCapabilities() {
     >
       <div className="site-container mx-auto">
         <div>
-          <p className="text-brand text-[14px] max-[767px]:text-[12px]">
+          <p className="eyebrow text-brand">
             The strength of the whole company
           </p>
-          <h2 className="text-[clamp(40px,4.8vw,72px)] mt-[25px] mb-[30px] leading-[1.15] max-[767px]:text-[37px] max-[767px]:leading-[1.18] max-[767px]:mt-[22px] max-[767px]:mb-[25px]">
+          <h2 className="mb-[30px] max-[767px]:mb-[25px] mt-6 max-[767px]:mt-5">
             Specialists in the detail.
             <br />
             <span className="text-brand">Partners in the bigger picture.</span>

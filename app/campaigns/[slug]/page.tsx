@@ -32,7 +32,7 @@ export default async function Campaign({
       <section className="site-container mx-auto bg-[#f8f9fa] py-[65px] max-[767px]:py-10">
         <div className="grid grid-cols-[1.05fr_1fr] gap-[60px] items-center max-[1023px]:gap-[30px] max-[767px]:grid-cols-1 max-[767px]:gap-8">
           <div className="block">
-            <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[1023px]:text-[12px]">
+            <p className="eyebrow text-brand">
               TechGy Link / {s.name}
             </p>
             <h1 className="text-[clamp(42px,4.8vw,72px)] max-[1023px]:text-[46px] max-[767px]:text-[43px]">
@@ -97,10 +97,10 @@ export default async function Campaign({
       >
         <div className="site-container mx-auto grid grid-cols-[1fr_1fr] gap-[95px] max-[1023px]:gap-[50px] max-[767px]:grid-cols-1 max-[767px]:gap-[35px]">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-white">
+            <p className="eyebrow text-white">
               Your first step
             </p>
-            <h2 className="my-[25px] mx-0 max-[767px]:text-[38px]">{c.cta}.</h2>
+            <h2 className="my-6 max-[767px]:my-5">{c.cta}.</h2>
             <p className="text-[17px] text-white max-[767px]:text-[16px]">
               {s.description}
             </p>
@@ -127,10 +127,10 @@ export default async function Campaign({
       </section>
       <section className="site-container mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] grid grid-cols-[1fr_1fr] gap-[100px] max-[1023px]:gap-[50px] max-[767px]:grid-cols-1 max-[767px]:gap-[30px]">
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand">
+          <p className="eyebrow text-brand">
             Before we start
           </p>
-          <h2 className="mt-6 max-[767px]:text-[37px] max-[767px]:mt-5">
+          <h2 className="mt-6 max-[767px]:mt-5">
             Useful answers.
           </h2>
         </div>

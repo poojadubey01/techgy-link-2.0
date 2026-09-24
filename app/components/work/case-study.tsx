@@ -9,9 +9,9 @@ import { portfolioStories } from "@/data/portfolio-stories";
 type Story = (typeof portfolioStories)[number];
 
 const eyebrow =
-  "text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]";
+  "eyebrow text-brand";
 const sectionH2 =
-  "text-[clamp(35px,4vw,57px)] leading-[1.12] tracking-[-0.045em] mt-6 max-[767px]:text-[37px] max-[767px]:mt-5 max-[767px]:mb-[30px]";
+  "max-[767px]:mb-[30px] mt-6 max-[767px]:mt-5";
 const bodyCopy = "text-[17px] leading-[1.85] text-[#000000] max-[767px]:text-[16px]";
 
 export function CaseStudy({
@@ -114,7 +114,7 @@ export function CaseStudy({
           <p className={eyebrow + (p.tone === "spur" ? " text-[#000000]" : "")}>
             02 / Connect the journey
           </p>
-          <h2 className="text-[clamp(35px,4vw,58px)] leading-[1.15] tracking-[-0.045em] max-w-[800px] mt-[22px] mx-0 mb-[45px] max-[767px]:text-[36px] max-[767px]:mb-[35px]">
+          <h2 className="max-w-[800px] mb-[45px] max-[767px]:mb-[35px] mt-6 max-[767px]:mt-5">
             {p.journeyTitle}
           </h2>
           <ol className="case-flow grid grid-cols-4 list-none gap-7 p-0 m-0 max-[1023px]:gap-5 max-[767px]:grid-cols-1 max-[767px]:gap-6">
@@ -173,7 +173,7 @@ export function CaseStudy({
           <div className="grid grid-cols-[1.4fr_1fr] gap-[10%] items-end mb-[42px] max-[1023px]:gap-10 max-[767px]:block max-[767px]:mb-8">
             <div>
               <p className={eyebrow}>The connected platform</p>
-              <h2 className="text-[clamp(36px,4.6vw,65px)] leading-[1.1] tracking-tighter mt-[23px] max-[767px]:text-[39px]">
+              <h2 className="mt-6 max-[767px]:mt-5">
                 Different roles.
                 <br />A shared business.
               </h2>
@@ -220,10 +220,10 @@ export function CaseStudy({
       <section className="bg-brand text-white py-[75px] max-[767px]:py-12">
         <div className="site-container mx-auto grid grid-cols-[1.3fr_1fr] gap-[10%] items-center max-[767px]:block">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-[#f8f9fa] max-[767px]:tracking-[0.085em]">
+            <p className="eyebrow text-[#f8f9fa]">
               The TechGy Link perspective
             </p>
-            <h2 className="text-[clamp(32px,3.6vw,54px)] leading-[1.15] tracking-[-0.045em] my-6 max-[767px]:text-[35px]">
+            <h2 className="my-6 max-[767px]:my-5">
               Understand the whole.
               <br />
               Connect the right strengths.

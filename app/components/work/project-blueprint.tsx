@@ -337,10 +337,10 @@ export function ProjectBlueprint({ slug }: { slug: string }) {
     >
       <div className="flex gap-10 justify-between items-end mb-[55px] max-[767px]:block max-[767px]:mb-9">
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]">
+          <p className="eyebrow text-brand">
             Inside the solution
           </p>
-          <h2 className="text-[clamp(32px,3.7vw,53px)] leading-[1.14] tracking-[-0.045em] max-w-[760px] mt-[22px] max-[767px]:text-[34px] max-[767px]:mt-5">
+          <h2 className="max-w-[760px] mt-6 max-[767px]:mt-5">
             {b.title}
           </h2>
         </div>

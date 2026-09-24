@@ -21,7 +21,7 @@ export function CTA({
   return (
     <section className="reveal flex items-center justify-between gap-[50px] bg-[#0022ff] text-white rounded-md py-[55px] px-[60px] my-[70px] site-container mx-auto max-[1200px]:p-10 max-[767px]:flex-col max-[767px]:items-start max-[767px]:py-[35px] max-[767px]:px-[25px] max-[767px]:my-[55px]">
       <div className="max-w-[800px]">
-        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-white/80 max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+        <p className="eyebrow text-white/80">
           Let’s make it happen
         </p>
         <h2 className="text-[46px] text-white max-w-[800px] my-5 mx-0 max-[1200px]:text-[39px] max-[767px]:text-[34px] max-[767px]:my-[18px] max-[767px]:mx-0">
@@ -53,10 +53,10 @@ export function SectionTitle({
   return (
     <div className="section-title reveal flex items-end justify-between gap-[60px] mb-14 max-[1023px]:gap-[30px] max-[767px]:block max-[767px]:mb-[35px]">
       <div>
-        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+        <p className="eyebrow text-brand">
           {label}
         </p>
-        <h2 className="max-w-[800px] mt-[22px] text-[clamp(38px,4.25vw,66px)] max-[1023px]:text-[46px] max-[767px]:text-[38px] max-[767px]:leading-[1.12] max-[767px]:mt-[18px] max-[767px]:max-w-[550px]">
+        <h2 className="max-w-[800px] max-[767px]:max-w-[550px] mt-6 max-[767px]:mt-5">
           {title}
         </h2>
       </div>
@@ -74,7 +74,7 @@ export function ServiceClients({ service: s }: { service: Service }) {
   return (
     <section className="reveal py-[70px] max-[767px]:py-[45px] border-t border-t-rule">
       <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] flex items-center gap-[50px] max-[767px]:flex-col max-[767px]:items-start max-[767px]:gap-6">
-        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand shrink-0">
+        <p className="eyebrow text-brand shrink-0">
           Clients we&rsquo;ve done this for
         </p>
         <div className="flex flex-wrap items-center gap-x-12 gap-y-6">

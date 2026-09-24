@@ -94,7 +94,7 @@ export default function About() {
   return (
     <main id="main" className="bg-[#f8f9fa]">
       <section className="site-container mx-auto pt-[65px] pb-20 max-[767px]:pt-[35px] max-[767px]:pb-[50px]">
-        <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[12px]">
+        <p className="eyebrow text-brand">
           Our story / A company growing into its name
         </p>
         <h1 className="text-[clamp(59px,7.8vw,117px)] leading-[1.08] tracking-[-0.06em] mt-[33px] mb-[50px] max-[767px]:text-[48px] max-[767px]:leading-[1.1] max-[767px]:mt-[26px] max-[767px]:mb-[30px]">
@@ -124,7 +124,7 @@ export default function About() {
       </section>
       <section className="rebrand-statement bg-brand text-white pt-[90px] pb-[100px] overflow-hidden max-[767px]:pt-[55px] max-[767px]:pb-[65px]">
         <div className="site-container mx-auto">
-          <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-[#f8f9fa] max-[767px]:text-[12px]">
+          <p className="eyebrow text-[#f8f9fa]">
             Why Link?
           </p>
           <h2
@@ -159,10 +159,10 @@ export default function About() {
       </section>
       <section className="site-container mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] grid grid-cols-[1fr_1fr] gap-[110px] max-[1100px]:gap-[60px] max-[767px]:block">
         <div className="sticky top-[140px] self-start max-[767px]:static">
-          <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand">
+          <p className="eyebrow text-brand">
             How we got here
           </p>
-          <h2 className="text-[52px] leading-[1.2] mt-[26px] max-[1100px]:text-[44px] max-[767px]:text-[39px] max-[767px]:mt-[22px]">
+          <h2 className="mt-6 max-[767px]:mt-5">
             A foundation.
             <br />A broader view.
             <br />
@@ -213,10 +213,10 @@ export default function About() {
         <div className="site-container mx-auto">
           <div className="grid grid-cols-2 gap-[10%] items-end mb-[30px] max-[767px]:block">
             <div>
-              <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-[#f8f9fa]">
+              <p className="eyebrow text-[#f8f9fa]">
                 The people who make the work possible
               </p>
-              <h2 className="text-[clamp(32px,4vw,56px)] leading-[1.1] tracking-[-0.04em] mt-[22px] max-[767px]:text-[36px]">
+              <h2 className="mt-6 max-[767px]:mt-5">
                 Behind the systems,
                 <br />a team that cares.
               </h2>
@@ -251,10 +251,10 @@ export default function About() {
       >
         <div className="site-container mx-auto">
           <div>
-            <p className="text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand">
+            <p className="eyebrow text-brand">
               The people behind the possibilities
             </p>
-            <h2 className="text-[clamp(41px,4.7vw,71px)] leading-[1.12] my-[25px]">
+            <h2 className="my-6 max-[767px]:my-5">
               Different expertise.
               <br />
               <span className="text-brand">One company to call.</span>
@@ -300,10 +300,10 @@ export default function About() {
       </section>
       <section className="bg-[#e2e8f0] py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
         <div className="site-container mx-auto">
-          <p className="text-brand text-[13px] font-medium uppercase tracking-[0.105em] leading-[1.6]">
+          <p className="eyebrow text-brand">
             The company we are building
           </p>
-          <h2 className="text-[clamp(43px,5.2vw,79px)] mt-[27px] mb-[35px] leading-[1.12] max-[767px]:text-[39px] max-[767px]:leading-[1.2] max-[767px]:mt-[23px] max-[767px]:mb-7">
+          <h2 className="mb-[35px] max-[767px]:mb-7 mt-6 max-[767px]:mt-5">
             Start with one challenge.
             <br />
             Stay with a partner who

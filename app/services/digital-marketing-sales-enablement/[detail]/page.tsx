@@ -56,10 +56,10 @@ export default async function MarketingDetail({
       <MarketingFocus slug={m.slug} />
       <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
         <div>
-          <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+          <p className="eyebrow text-brand">
             Who this is for
           </p>
-          <h2 className="mt-6 max-[767px]:text-[37px] max-[767px]:mt-5">
+          <h2 className="mt-6 max-[767px]:mt-5">
             Start with the right context.
           </h2>
         </div>
@@ -107,10 +107,10 @@ export default async function MarketingDetail({
       </section>
       <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
         <div>
-          <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+          <p className="eyebrow text-brand">
             How we start
           </p>
-          <h2 className="mt-6 max-[767px]:text-[37px] max-[767px]:mt-5">{m.start}</h2>
+          <h2 className="mt-6 max-[767px]:mt-5">{m.start}</h2>
         </div>
         <div>
           <p>

@@ -75,10 +75,10 @@ export function PortfolioBreadth() {
     <section className="site-container mx-auto py-[85px] border-b border-b-rule max-[1023px]:py-[70px] max-[767px]:py-[55px]">
       <div className="grid grid-cols-[1.4fr_1fr] gap-[10%] items-end mb-8 max-[1023px]:gap-10 max-[767px]:block max-[767px]:mb-6">
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+          <p className="eyebrow text-brand">
             The work behind our perspective
           </p>
-          <h2 className="text-[clamp(34px,4vw,55px)] leading-[1.1] tracking-tighter mt-[23px] max-[767px]:text-[34px]">
+          <h2 className="mt-6 max-[767px]:mt-5">
             Every business has
             <br />
             its own <span className="text-brand">moving parts.</span>
@@ -126,10 +126,10 @@ export function SolutionEvidence({ id }: { id: string }) {
     <section className="site-container mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
       <div className="grid grid-cols-[1.4fr_1fr] gap-[10%] items-end mb-[42px] max-[1023px]:gap-10 max-[767px]:block max-[767px]:mb-8">
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+          <p className="eyebrow text-brand">
             Relevant project experience
           </p>
-          <h2 className="text-[clamp(36px,4.6vw,65px)] leading-[1.1] tracking-tighter mt-[23px] max-[767px]:text-[39px]">
+          <h2 className="mt-6 max-[767px]:mt-5">
             See the thinking
             <br />
             in the work.

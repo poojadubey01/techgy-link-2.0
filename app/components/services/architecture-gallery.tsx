@@ -33,10 +33,10 @@ export function ArchitectureGallery() {
     >
       <div className="section-heading flex justify-between items-end gap-10 mb-[45px] max-[767px]:block max-[767px]:mb-[33px]">
         <div>
-          <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+          <p className="eyebrow text-brand">
             Architectural visualisation / Selected work
           </p>
-          <h2 className="mt-[25px] max-[767px]:text-[38px] max-[767px]:mt-5">
+          <h2 className="mt-6 max-[767px]:mt-5">
             In every frame,
             <br />a point of view.
           </h2>

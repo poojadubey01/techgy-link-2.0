@@ -11,7 +11,7 @@ export function EngagementStart({ service: s }: { service: Service }) {
       id="starting-scope"
     >
       <div className="engagement-heading grid grid-cols-[0.9fr_2fr] gap-[50px] items-start max-[1023px]:gap-[35px] max-[767px]:block">
-        <p className="eyebrow pt-[7px] text-brand max-[767px]:text-[12px]">
+        <p className="eyebrow pt-[7px] text-brand">
           Your first engagement
         </p>
         <h2 className="text-[38px] leading-[1.17] tracking-[-0.035em] max-w-[750px] max-[1023px]:text-[34px] max-[767px]:text-[32px] max-[767px]:mt-[18px]">

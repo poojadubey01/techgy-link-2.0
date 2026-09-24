@@ -47,7 +47,7 @@ export default async function Solution({
           <span>/</span>
           <span>{s.title}</span>
         </nav>
-        <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+        <p className="eyebrow text-brand">
           {s.kicker}
         </p>
         <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[48px] max-[767px]:leading-[1.12] max-[767px]:mt-[22px]">
@@ -94,10 +94,10 @@ export default async function Solution({
       <SolutionCollaboration id={s.id} />
       <section className="py-[120px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]">
+          <p className="eyebrow text-brand">
             A connected plan
           </p>
-          <h2 className="mt-6 max-[767px]:text-[37px] max-[767px]:mt-5">
+          <h2 className="mt-6 max-[767px]:mt-5">
             Bring the handoffs
             <br />
             into the brief.
@@ -126,10 +126,10 @@ export default async function Solution({
       </section>
       <section className="py-[120px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]">
+          <p className="eyebrow text-brand">
             Your starting engagement
           </p>
-          <h2 className="mt-6 max-[767px]:text-[37px] max-[767px]:mt-5">A useful first step.</h2>
+          <h2 className="mt-6 max-[767px]:mt-5">A useful first step.</h2>
         </div>
         <div>
           <p className="font-display text-[clamp(23px,2.35vw,35px)] leading-[1.4] tracking-[-0.025em] max-[767px]:text-[25px]">

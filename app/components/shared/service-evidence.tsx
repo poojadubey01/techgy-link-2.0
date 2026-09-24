@@ -9,7 +9,7 @@ type Service = (typeof services)[number];
 const sectionClass =
   "py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]";
 const eyebrowClass =
-  "text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]";
+  "eyebrow text-brand";
 const textLinkClass =
   "cta-link inline-flex items-center font-medium text-brand";
 
@@ -26,7 +26,7 @@ export function ServiceEvidence({
         <div className="site-container mx-auto grid grid-cols-[1fr_1.15fr] gap-[95px] items-start max-[1023px]:gap-[45px] max-[767px]:block">
           <div>
             <p className={eyebrowClass}>Example assessment outputs</p>
-            <h2 className="text-[clamp(36px,3.9vw,62px)] mt-[22px] mb-[25px] max-[767px]:text-[37px]">
+            <h2 className="mb-[25px] mt-6 max-[767px]:mt-5">
               Advice you can
               <br />
               make decisions with.
@@ -83,7 +83,7 @@ export function ServiceEvidence({
         <div className="site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
           <div>
             <p className={eyebrowClass}>Our own identity</p>
-            <h2 className="mt-6 max-[767px]:text-[37px] max-[767px]:mt-5">
+            <h2 className="mt-6 max-[767px]:mt-5">
               A complete system.
               <br />
               Beyond the logo.
@@ -136,7 +136,7 @@ export function ServiceEvidence({
                 : "Selected work"}{" "}
             / {p.category}
           </p>
-          <h2 className="text-[50px] my-[25px] mx-0 max-[1023px]:text-[38px] max-[767px]:text-[38px] max-[767px]:my-5 max-[767px]:mx-0">
+          <h2 className="my-6 max-[767px]:my-5">
             {p.name}
           </h2>
           <p className="text-[#000000] my-[25px] mx-0 max-[767px]:text-[15px] max-[767px]:my-5 max-[767px]:mx-0">

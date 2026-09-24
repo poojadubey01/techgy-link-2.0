@@ -84,7 +84,7 @@ export function Header() {
               </summary>
               <div className="absolute left-0 right-0 bg-white border-b border-rule grid top-full py-12 px-14 grid-cols-[1fr_2fr] gap-14 shadow-[0_35px_40px_#1116250d]">
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-[0.105em] max-[767px]:text-[11px] max-[767px]:tracking-[0.085em] leading-[1.6] text-brand">
+                  <p className="eyebrow text-brand">
                     Our expertise
                   </p>
                   <h2 className="text-[38px] mt-[22px] mx-0 mb-8">
@@ -206,7 +206,7 @@ export function Footer() {
   const wrap =
     "site-container mx-auto";
   const footerEyebrow =
-    "text-xs font-medium uppercase tracking-[0.105em] max-[767px]:text-[11px] max-[767px]:tracking-[0.085em] leading-[1.6] text-[#f8f9fa] mb-[22px] max-[767px]:mb-[19px]";
+    "eyebrow text-[#f8f9fa] mb-[22px] max-[767px]:mb-[19px]";
   const footerNavLink =
     "block text-[14px] leading-[1.75] mb-2.5 text-[#f8f9fa]";
   return (

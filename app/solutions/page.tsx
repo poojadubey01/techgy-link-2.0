@@ -10,7 +10,7 @@ export default function Solutions() {
   return (
     <main id="main" className="bg-[#f8f9fa]">
       <section className="page-intro site-container mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
-        <p className="eyebrow text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:text-[11px] max-[767px]:tracking-[0.085em]">
+        <p className="eyebrow text-brand">
           Connected solutions
         </p>
         <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[48px] max-[767px]:leading-[1.12] max-[767px]:mt-[22px]">
@@ -48,7 +48,7 @@ export default function Solutions() {
                 />
               </div>
               <div className="max-w-[480px] px-[15px] max-[1023px]:px-0">
-                <p className="text-xs font-medium uppercase tracking-[0.105em] leading-[1.6] text-brand max-[767px]:tracking-[0.085em]">
+                <p className="eyebrow text-brand">
                   {s.kicker}
                 </p>
                 <h3 className="text-[clamp(34px,3.5vw,56px)] my-[25px] mx-0 max-[1023px]:text-[36px] max-[767px]:text-[34px] max-[767px]:my-[18px] max-[767px]:mx-0">

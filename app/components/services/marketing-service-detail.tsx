@@ -66,7 +66,7 @@ export function MarketingFocus({ slug }: { slug: string }) {
         <p className="eyebrow text-[11px] text-[#f8f9fa] pt-[9px] max-[767px]:text-[10px] max-[767px]:p-0">
           How the pieces connect
         </p>
-        <h2 className="text-[clamp(30px,3.5vw,55px)] tracking-[-0.045em] leading-[1.12] max-w-[760px] max-[767px]:text-[32px] max-[767px]:mt-[22px]">
+        <h2 className="max-w-[760px]">
           {j.title}
         </h2>
       </div>

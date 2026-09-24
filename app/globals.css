@@ -24,7 +24,7 @@
 }
 @theme {
   --color-brand: #0022ff;
-  --color-ink: #000000;
+  --color-ink: #111625;
   --color-navy: #0f1a34;
   --color-charcoal: #111625;
   --color-paper: #f8f9fa;
@@ -40,7 +40,7 @@
     scroll-padding-top: 120px;
   }
   body {
-    @apply m-0 bg-[#f8f9fa] font-sans text-ink antialiased;
+    @apply m-0 bg-paper font-sans text-ink antialiased;
     font-size: 16px;
     line-height: 1.65;
   }
@@ -63,8 +63,10 @@
   h1 {
     font-size: clamp(48px, 6.7vw, 102px);
   }
+  /* Section titles use this size site-wide; avoid per-section overrides. */
   h2 {
     font-size: clamp(36px, 4.4vw, 66px);
+    line-height: 1.1;
   }
   h3 {
     font-size: clamp(24px, 2.6vw, 38px);
@@ -178,6 +180,22 @@
 @keyframes ambition-blink {
   0%, 40%, 100% { color: #000000; }
   15%, 25% { color: #0022ff; }
+}
+/* Section subtitle (eyebrow) above every section title; colour is set per use. */
+@layer components {
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.105em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 767px) {
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.085em;
+    }
+  }
 }
 /* Shared sizing for primary, secondary, and text CTAs. */
 .cta-button,

@@ -7,7 +7,7 @@ export function HomeHero() {
       aria-labelledby="home-title"
     >
       <div className="site-container mx-auto flex items-center justify-between gap-[30px] text-[14px] text-[#000000]">
-        <p className="text-brand text-[13px] max-[767px]:text-[12px]">
+        <p className="eyebrow text-brand">
           TechGy Link / Your growth partner
         </p>
         <Link
