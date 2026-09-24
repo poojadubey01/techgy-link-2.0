@@ -6,7 +6,7 @@ import { AiAutomationCanvas } from "@/app/components/services/ai-automation-canv
 import { MarketingCanvas } from "@/app/components/services/marketing-canvas";
 import { ArchitectureCanvas } from "@/app/components/services/architecture-canvas";
 import { ConsultingCanvas } from "@/app/components/services/consulting-canvas";
-import { BrandingCanvas } from "@/app/components/services/branding-canvas";
+import { BrandingMotion } from "@/app/components/services/branding-motion";
 import { CustomSoftwareDesktop } from "@/app/components/services/custom-software-desktop";
 import { services } from "@/data/catalogue";
 
@@ -60,7 +60,7 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
     return <ConsultingCanvas />;
 
   if (s.id === "branding-identity")
-    return <BrandingCanvas />;
+    return <BrandingMotion />;
 
   const [label, title, caption] = meta[s.id as keyof typeof meta] || [
     "Selected work",
