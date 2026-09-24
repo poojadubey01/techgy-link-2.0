@@ -59,17 +59,11 @@ assert.ok(
   "Source files should exist in app directory",
 );
 const pkg = read("package.json");
-<<<<<<< HEAD
-assert.deepEqual(
-  Object.keys(pkg.dependencies).sort(),
-  ["@rive-app/react-canvas", "gsap", "lucide-react", "motion", "next", "react", "react-dom"].sort(),
-=======
 assert.ok(
   ["framer-motion", "gsap", "lenis", "lucide-react", "next", "react", "react-dom"].every(
     (dep) => pkg.dependencies && pkg.dependencies[dep]
   ),
   "All required dependencies must be listed in package.json",
->>>>>>> 89f2d43b773a83cf8bdeb821c7fee73373618ed3
 );
 assert.equal(pkg.scripts.build, "next build --webpack");
 console.log(
