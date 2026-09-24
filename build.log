@@ -1,0 +1,70 @@
+
+> techgy-link-reimagined@1.0.0 build
+> next build --webpack
+
+▲ Next.js 16.2.6 (webpack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.2s
+  Running TypeScript ...
+  Finished TypeScript in 3.8s ...
+  Collecting page data using 23 workers ...
+  Generating static pages using 23 workers (0/69) ...
+  Generating static pages using 23 workers (17/69) 
+  Generating static pages using 23 workers (34/69) 
+  Generating static pages using 23 workers (51/69) 
+✓ Generating static pages using 23 workers (69/69) in 598ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ƒ /api/chat
+├ ƒ /api/chat-register
+├ ƒ /api/chat-warmup
+├ ƒ /api/contact
+├ ○ /campaigns
+├ ● /campaigns/[slug]
+│ ├ /campaigns/branding-identity
+│ ├ /campaigns/ui-ux-product-design
+│ ├ /campaigns/website-design-development
+│ └ [+6 more paths]
+├ ○ /contact
+├ ○ /insights
+├ ● /insights/[slug]
+│ ├ /insights/website-or-application
+│ ├ /insights/automation-first-workflow
+│ └ /insights/connected-property-launch
+├ ○ /privacy
+├ ○ /products
+├ ● /products/[slug]
+│ ├ /products/sales-crm
+│ └ /products/office-tracker-hrms
+├ ○ /robots.txt
+├ ○ /services
+├ ● /services/[slug]
+│ ├ /services/branding-identity
+│ ├ /services/ui-ux-product-design
+│ ├ /services/website-design-development
+│ └ [+6 more paths]
+├ ● /services/digital-marketing-sales-enablement/[detail]
+│ ├ /services/digital-marketing-sales-enablement/marketing-strategy
+│ ├ /services/digital-marketing-sales-enablement/seo
+│ ├ /services/digital-marketing-sales-enablement/performance-marketing
+│ └ [+3 more paths]
+├ ○ /sitemap.xml
+├ ○ /solutions
+├ ● /solutions/[slug]
+│ ├ /solutions/property-launch-sales
+│ ├ /solutions/connected-sales-operations
+│ └ /solutions/digital-experience-product
+├ ○ /work
+└ ƒ /work/[slug]
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

@@ -107,6 +107,18 @@ const NODES: WorkflowNode[] = [
   },
 ];
 
+const ICONS: Record<WorkflowNode["iconType"], string> = {
+  user: "👤",
+  file: "📁",
+  bank: "🏦",
+  memo: "🧠",
+  match: "⚡",
+  review: "🛡️",
+  journal: "📑",
+  ledger: "🏛️",
+  monitor: "📡",
+};
+
 export function ConnectedWorkspaceCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeNodeId, setActiveNodeId] = useState<string>("user-reg");
@@ -195,7 +207,7 @@ export function ConnectedWorkspaceCanvas() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[620px] sm:h-[680px] lg:h-[720px] bg-white rounded-3xl border border-[#e2e8f0] shadow-xs overflow-hidden select-none"
+      className="relative w-full md:h-[680px] lg:h-[720px] bg-white rounded-3xl border border-[#e2e8f0] shadow-xs overflow-hidden select-none"
       aria-label="Connected Workspace Architecture Ecosystem"
     >
       {/* Background Matrix & Subtle Ambient Core Glow */}
@@ -210,7 +222,7 @@ export function ConnectedWorkspaceCanvas() {
 
       {/* SVG Connection Tracks & Pulses */}
       <svg
-        className="absolute inset-0 w-full h-full pointer-events-none z-0"
+        className="absolute inset-0 w-full h-full pointer-events-none z-0 max-md:hidden"
         viewBox="0 0 1000 700"
         preserveAspectRatio="none"
       >
@@ -291,7 +303,7 @@ export function ConnectedWorkspaceCanvas() {
       </svg>
 
       {/* Central Laptop Element with Static Crisp Logo & TechGy Link Wordmark */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center select-none pointer-events-none">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center select-none pointer-events-none max-md:relative max-md:left-auto max-md:top-auto max-md:translate-x-0 max-md:translate-y-0 max-md:pt-8 max-md:pb-3">
         <div className="relative w-[300px] sm:w-[360px] lg:w-[410px] h-[190px] sm:h-[230px] lg:h-[260px] bg-[#0f172a] rounded-t-xl p-2.5 shadow-2xl border-[3px] border-[#334155] flex flex-col justify-between overflow-hidden">
           <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-slate-700" />
 
@@ -336,7 +348,7 @@ export function ConnectedWorkspaceCanvas() {
               </p>
             </div>
 
-            <div className="w-full flex items-center justify-between text-[9px] font-mono text-slate-400 bg-slate-900/90 px-2.5 py-1 rounded border border-slate-800">
+            <div className="w-full flex items-center justify-between text-[9px] font-mono text-slate-400 bg-slate-900/90 px-2.5 py-1 rounded border border-slate-800 max-sm:hidden">
               <span>Reconciliation Sync</span>
               <span className="text-emerald-400 font-bold">100% Balanced</span>
             </div>
@@ -344,10 +356,10 @@ export function ConnectedWorkspaceCanvas() {
         </div>
 
         {/* Laptop Base Stand */}
-        <div className="relative w-[360px] sm:w-[440px] lg:w-[500px] h-[14px] bg-gradient-to-b from-[#cbd5e1] via-[#94a3b8] to-[#64748b] rounded-b-xl shadow-xl flex justify-center border-t border-slate-300">
+        <div className="relative w-[340px] max-[400px]:w-[310px] sm:w-[440px] lg:w-[500px] h-[14px] bg-gradient-to-b from-[#cbd5e1] via-[#94a3b8] to-[#64748b] rounded-b-xl shadow-xl flex justify-center border-t border-slate-300">
           <div className="w-24 h-1.5 bg-[#475569] rounded-b-md" />
         </div>
-        <div className="w-[320px] sm:w-[400px] lg:w-[450px] h-3 bg-black/15 blur-md rounded-full mt-1" />
+        <div className="w-[300px] max-[400px]:w-[280px] sm:w-[400px] lg:w-[450px] h-3 bg-black/15 blur-md rounded-full mt-1" />
       </div>
 
       {/* Floating Labeled Nodes arranged in clean Clockwise sequence */}
@@ -356,7 +368,7 @@ export function ConnectedWorkspaceCanvas() {
         return (
           <div
             key={node.id}
-            className={`floating-node-${node.id} absolute z-30 transition-all duration-300`}
+            className={`floating-node-${node.id} absolute z-30 transition-all duration-300 max-md:hidden`}
             style={{
               left: `${node.position.xPercent}%`,
               top: `${node.position.yPercent}%`,
@@ -379,15 +391,7 @@ export function ConnectedWorkspaceCanvas() {
                   color: node.accentColor,
                 }}
               >
-                {node.iconType === "user" && "👤"}
-                {node.iconType === "file" && "📁"}
-                {node.iconType === "bank" && "🏦"}
-                {node.iconType === "memo" && "🧠"}
-                {node.iconType === "match" && "⚡"}
-                {node.iconType === "review" && "🛡️"}
-                {node.iconType === "journal" && "📑"}
-                {node.iconType === "ledger" && "🏛️"}
-                {node.iconType === "monitor" && "📡"}
+                {ICONS[node.iconType]}
               </div>
 
               {/* Node Text */}
@@ -408,6 +412,33 @@ export function ConnectedWorkspaceCanvas() {
           </div>
         );
       })}
+
+      {/* Below tablet width the orbit can't fit, so the same steps read as a grid under the laptop */}
+      <div className="relative z-30 hidden grid-cols-2 gap-2 px-3 pb-4 pt-1 max-md:grid">
+        {NODES.map((node, i) => {
+          const isActive = activeNodeId === node.id;
+          return (
+            <div
+              key={node.id}
+              onClick={() => setActiveNodeId(node.id)}
+              className={`node-pill-${node.id} flex min-w-0 items-center gap-2 rounded-xl border bg-white px-2.5 py-2 transition-all duration-300 ${
+                isActive ? "border-brand shadow-md" : "border-slate-200/90 shadow-xs"
+              } ${i === NODES.length - 1 ? "col-span-2" : ""}`}
+            >
+              <div
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-[13px]"
+                style={{ backgroundColor: `${node.accentColor}15` }}
+              >
+                {ICONS[node.iconType]}
+              </div>
+              <div className="flex min-w-0 flex-col">
+                <span className="text-[8.5px] font-mono uppercase tracking-wider text-slate-400 font-semibold">{node.tag}</span>
+                <span className="text-[11.5px] font-bold leading-tight text-slate-800">{node.name}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 }

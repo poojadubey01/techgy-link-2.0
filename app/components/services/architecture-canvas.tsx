@@ -116,11 +116,11 @@ export function ArchitectureCanvas() {
           {/* Main Selected Zone Card */}
           <div className="bg-white p-6 rounded-xl border border-rule shadow-sm flex flex-col justify-between flex-1">
             <div>
-              <div className="demo-row flex items-center justify-between mb-3">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-brand px-2.5 py-1 rounded bg-blue-50 border border-blue-200 font-bold">
+              <div className="demo-row flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span className="min-w-0 text-[10px] font-mono uppercase tracking-[0.12em] leading-snug text-brand px-2.5 py-1 rounded bg-blue-50 border border-blue-200 font-bold">
                   {vintageRoom.category}
                 </span>
-                <span className="text-emerald-600 font-mono font-bold text-[11px]">
+                <span className="shrink-0 text-emerald-600 font-mono font-bold text-[11px]">
                   3ds Max Production
                 </span>
               </div>
@@ -137,9 +137,9 @@ export function ArchitectureCanvas() {
             {/* Architecture Specifications Matrix */}
             <div className="p-4 bg-[#f8f9fa] rounded-lg border border-rule text-[11px] font-mono space-y-2.5">
               {vintageRoom.specs.map((spec, i) => (
-                <div key={i} className="flex justify-between border-b border-rule/50 pb-2 last:border-0 last:pb-0">
-                  <span className="text-[#000000]/50">{spec.label}</span>
-                  <span className="font-bold text-slate-800">{spec.value}</span>
+                <div key={i} className="flex justify-between gap-3 border-b border-rule/50 pb-2 last:border-0 last:pb-0">
+                  <span className="shrink-0 whitespace-nowrap text-[#000000]/50">{spec.label}</span>
+                  <span className="min-w-0 text-right font-bold text-slate-800">{spec.value}</span>
                 </div>
               ))}
             </div>
