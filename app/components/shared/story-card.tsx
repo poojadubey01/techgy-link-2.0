@@ -69,7 +69,7 @@ export function StoryCard({
       </div>
       {story && (
         <>
-          <p className="text-[17px] leading-normal mt-4 tracking-[-0.02em] text-[#000000] truncate max-[767px]:text-[15px] max-[767px]:mt-2.5">
+          <p className="text-[17px] leading-normal mt-4 tracking-[-0.02em] text-[#000000] truncate max-[1023px]:whitespace-normal max-[1023px]:line-clamp-2 max-[767px]:text-[15px] max-[767px]:mt-2.5">
             {story.headline}
           </p>
           {showMetadata && (

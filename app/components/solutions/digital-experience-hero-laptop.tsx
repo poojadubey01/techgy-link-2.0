@@ -340,11 +340,11 @@ export function DigitalExperienceHeroCanvas() {
                 {/* 1. Website Visitors Card (Count-up from 0) */}
                 <div className="sm:col-span-7 bg-[#0022FF]/95 backdrop-blur-2xl text-white rounded-[22px] sm:rounded-[26px] p-4 sm:p-4.5 shadow-xl border border-white/30 flex flex-col justify-between relative overflow-hidden ring-1 ring-white/20">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-                  <div className="flex items-center justify-between mb-1">
+                  <div className="flex items-center justify-between gap-2 mb-1">
                     <span className="text-xs font-bold uppercase tracking-wider text-blue-100">
                       Website Visitors
                     </span>
-                    <span className="flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-bold bg-white/20 text-white rounded-full">
+                    <span className="flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-bold bg-white/20 text-white rounded-full shrink-0 whitespace-nowrap">
                       <span className="w-1.5 h-1.5 rounded-full bg-cyan-300 live-beacon-pulse" />
                       Live Sync
                     </span>
@@ -443,11 +443,11 @@ export function DigitalExperienceHeroCanvas() {
                 <div className="sm:col-span-5 flex flex-col gap-3 sm:gap-3.5">
                   {/* Conversion Rate Card (Count-up from 0) */}
                   <div className="bg-white/80 backdrop-blur-2xl rounded-[22px] sm:rounded-[26px] p-3.5 sm:p-4 border border-white/80 shadow-md flex flex-col justify-between overflow-hidden ring-1 ring-white/60">
-                    <div className="flex items-center justify-between mb-0.5">
+                    <div className="flex items-center justify-between gap-2 mb-0.5">
                       <span className="text-xs font-bold text-slate-700 uppercase tracking-wider">
                         Lead Conversion
                       </span>
-                      <span className="text-xs font-bold text-brand bg-blue-50 px-2 py-0.5 rounded-full">
+                      <span className="text-xs font-bold text-brand bg-blue-50 px-2 py-0.5 rounded-full shrink-0 whitespace-nowrap">
                         +24.8%
                       </span>
                     </div>
@@ -492,9 +492,9 @@ export function DigitalExperienceHeroCanvas() {
                   <div className="grid grid-cols-2 gap-2.5">
                     {/* ROI Growth Card */}
                     <div className="bg-white/80 backdrop-blur-2xl rounded-[18px] sm:rounded-[20px] p-3 sm:p-3.5 border border-white/80 shadow-md flex flex-col justify-between overflow-hidden ring-1 ring-white/60">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[10px] text-slate-500 font-mono font-medium">ROI Growth</span>
-                        <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] text-slate-500 font-mono font-medium min-w-0 truncate">ROI Growth</span>
+                        <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full shrink-0 whitespace-nowrap">
                           +18.4%
                         </span>
                       </div>
@@ -537,9 +537,9 @@ export function DigitalExperienceHeroCanvas() {
 
                     {/* Total Leads Card */}
                     <div className="bg-white/80 backdrop-blur-2xl rounded-[18px] sm:rounded-[20px] p-3 sm:p-3.5 border border-white/80 shadow-md flex flex-col justify-between overflow-hidden ring-1 ring-white/60">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[10px] text-slate-500 font-mono font-medium">Total Leads</span>
-                        <span className="text-[10px] font-bold text-brand bg-blue-50 px-1.5 py-0.5 rounded-full">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] text-slate-500 font-mono font-medium min-w-0 truncate">Total Leads</span>
+                        <span className="text-[10px] font-bold text-brand bg-blue-50 px-1.5 py-0.5 rounded-full shrink-0 whitespace-nowrap">
                           +42.1%
                         </span>
                       </div>
@@ -587,7 +587,7 @@ export function DigitalExperienceHeroCanvas() {
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-4 relative z-10">
                 {/* 3. CTR based on Traffic Sources Card (Count-up from 0) */}
                 <div className="sm:col-span-7 bg-white/80 backdrop-blur-2xl rounded-[22px] sm:rounded-[26px] p-3.5 sm:p-4.5 border border-white/80 shadow-md flex flex-col justify-between ring-1 ring-white/60">
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between gap-2 mb-2">
                     <div>
                       <span className="text-xs font-bold text-slate-800 uppercase tracking-wider block">
                         CTR by Traffic Sources
@@ -642,11 +642,11 @@ export function DigitalExperienceHeroCanvas() {
 
                 {/* 4. Total Investments / Delivery Value (Count-up from 0) */}
                 <div className="sm:col-span-5 bg-white/80 backdrop-blur-2xl rounded-[22px] sm:rounded-[26px] p-3.5 sm:p-4.5 border border-white/80 shadow-md flex flex-col justify-between ring-1 ring-white/60">
-                  <div className="flex items-center justify-between mb-1">
+                  <div className="flex items-center justify-between gap-2 mb-1">
                     <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
                       Total Delivery Value
                     </span>
-                    <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full shrink-0 whitespace-nowrap">
                       Active
                     </span>
                   </div>
