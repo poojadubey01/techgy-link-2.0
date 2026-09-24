@@ -56,37 +56,39 @@ export default async function Service({
   ].includes(s.id);
   return (
     <main id="main" className="service-page bg-[#f8f9fa]">
-      <section className="detail-hero bg-[#f8f9fa] w-full pt-[38px] pb-[58px] px-[max(56px,calc((100vw_-_1424px)/2))] max-[767px]:pt-[25px] max-[767px]:px-5 max-[767px]:pb-[35px]">
-        <nav
-          className="breadcrumb flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] [&_a:hover]:text-brand max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
-          aria-label="Breadcrumb"
-        >
-          <Link href="/services">Services</Link>
-          <span>/</span>
-          <span>{s.name}</span>
-        </nav>
-        <div className="detail-hero-grid grid grid-cols-[1fr] gap-12 max-[767px]:gap-8">
-          <div className="detail-copy grid grid-cols-[1.3fr_1fr] gap-x-[85px] max-[767px]:block">
-            <h1 className="text-[clamp(46px,5.5vw,86px)] tracking-[-0.055em] max-[1100px]:text-[43px] max-[1100px]:leading-[1.11] max-[370px]:text-[40px]">
-              {s.headline}
-            </h1>
-            <p className="text-[#000000] text-[17px] leading-[1.8] pt-[7px] max-[767px]:text-[16px] max-[767px]:mt-[25px]">
-              {s.description}
-            </p>
-            <div className="hero-actions col-span-full flex items-center gap-6 mt-[30px] max-[1100px]:flex-wrap max-[767px]:mt-[25px]">
-              <Link
-                href={enquiry(s.name)}
-                className="cta-button inline-flex items-center justify-center font-medium border border-transparent rounded-full bg-brand text-white hover:brightness-90 shrink-0 max-[370px]:max-w-full"
-              >
-                {s.cta}
-                <Arrow />
-              </Link>
-              <p className="hero-teamline text-[14px] leading-[1.6] text-brand max-w-[480px]">
-                {contributions[s.id as keyof typeof contributions].team}
+      <section className="detail-hero bg-[#f8f9fa] w-full pt-[38px] pb-[58px] max-[767px]:pt-[25px] max-[767px]:pb-[35px]">
+        <div className="site-container mx-auto">
+          <nav
+            className="breadcrumb flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] [&_a:hover]:text-brand max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
+            aria-label="Breadcrumb"
+          >
+            <Link href="/services">Services</Link>
+            <span>/</span>
+            <span>{s.name}</span>
+          </nav>
+          <div className="detail-hero-grid grid grid-cols-[1fr] gap-12 max-[767px]:gap-8">
+            <div className="detail-copy grid grid-cols-[1.3fr_1fr] gap-x-[85px] max-[767px]:block">
+              <h1 className="text-[clamp(46px,5.5vw,86px)] tracking-[-0.055em] max-[1100px]:text-[43px] max-[1100px]:leading-[1.11] max-[370px]:text-[40px]">
+                {s.headline}
+              </h1>
+              <p className="text-[#000000] text-[17px] leading-[1.8] pt-[7px] max-[767px]:text-[16px] max-[767px]:mt-[25px]">
+                {s.description}
               </p>
+              <div className="hero-actions col-span-full flex items-center gap-6 mt-[30px] max-[1100px]:flex-wrap max-[767px]:mt-[25px]">
+                <Link
+                  href={enquiry(s.name)}
+                  className="cta-button inline-flex items-center justify-center font-medium border border-transparent rounded-full bg-brand text-white hover:brightness-90 shrink-0 max-[370px]:max-w-full"
+                >
+                  {s.cta}
+                  <Arrow />
+                </Link>
+                <p className="hero-teamline text-[14px] leading-[1.6] text-brand max-w-[480px]">
+                  {contributions[s.id as keyof typeof contributions].team}
+                </p>
+              </div>
             </div>
+            <ServiceVisual service={s} />
           </div>
-          <ServiceVisual service={s} />
         </div>
       </section>
       <section

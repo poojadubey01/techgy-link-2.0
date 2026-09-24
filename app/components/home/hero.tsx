@@ -66,7 +66,7 @@ export function HomeHero() {
         </div>
       </div>
       <div
-        className="relative overflow-hidden rounded-[3px] h-[clamp(120px,12vw,200px)] w-full bg-[#e2e8f0] max-[767px]:h-[130px]"
+        className="site-container mx-auto relative overflow-hidden rounded-[3px] h-[clamp(120px,12vw,200px)] bg-[#e2e8f0] max-[767px]:h-[130px]"
         aria-label="Our capabilities, in motion"
         data-image-reveal
       >

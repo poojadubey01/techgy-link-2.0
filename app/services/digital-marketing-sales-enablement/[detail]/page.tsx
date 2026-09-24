@@ -26,31 +26,33 @@ export default async function MarketingDetail({
   if (!m) notFound();
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="page-intro w-full mx-auto bg-[#f8f9fa] py-[72px] px-[max(56px,calc((100vw_-_1424px)/2))] max-[767px]:py-[45px] max-[767px]:px-5">
-        <nav
-          className="breadcrumb flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] [&_a:hover]:text-brand max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
-          aria-label="Breadcrumb"
-        >
-          <Link href="/services/digital-marketing-sales-enablement">
-            Digital Marketing & Sales Enablement
-          </Link>
-          <span>/</span>
-          <span>{m.name}</span>
-        </nav>
-        <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[46px] max-[767px]:leading-[1.13] max-[767px]:mt-[22px]">
-          {m.headline}
-        </h1>
-        <p className="text-[20px] leading-[1.7] text-[#000000] max-w-[770px] mt-[30px] max-[767px]:text-[17px] max-[767px]:leading-[1.8] max-[767px]:mt-[25px]">
-          {m.intro}
-        </p>
-        <div className="hero-actions flex flex-wrap items-center gap-6 mt-8">
-          <Link
-            className="cta-button inline-flex items-center justify-center font-medium border border-transparent rounded-full bg-brand text-white hover:brightness-90 max-[370px]:max-w-full"
-            href={enquiry(m.name)}
+      <section className="page-intro w-full bg-[#f8f9fa] py-[72px] max-[767px]:py-[45px]">
+        <div className="site-container mx-auto">
+          <nav
+            className="breadcrumb flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] [&_a:hover]:text-brand max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
+            aria-label="Breadcrumb"
           >
-            Discuss {m.name.toLowerCase()}
-            <Arrow />
-          </Link>
+            <Link href="/services/digital-marketing-sales-enablement">
+              Digital Marketing & Sales Enablement
+            </Link>
+            <span>/</span>
+            <span>{m.name}</span>
+          </nav>
+          <h1 className="mt-[26px] max-w-[1120px] leading-[1.1] max-[767px]:text-[46px] max-[767px]:leading-[1.13] max-[767px]:mt-[22px]">
+            {m.headline}
+          </h1>
+          <p className="text-[20px] leading-[1.7] text-[#000000] max-w-[770px] mt-[30px] max-[767px]:text-[17px] max-[767px]:leading-[1.8] max-[767px]:mt-[25px]">
+            {m.intro}
+          </p>
+          <div className="hero-actions flex flex-wrap items-center gap-6 mt-8">
+            <Link
+              className="cta-button inline-flex items-center justify-center font-medium border border-transparent rounded-full bg-brand text-white hover:brightness-90 max-[370px]:max-w-full"
+              href={enquiry(m.name)}
+            >
+              Discuss {m.name.toLowerCase()}
+              <Arrow />
+            </Link>
+          </div>
         </div>
       </section>
       <MarketingFocus slug={m.slug} />
