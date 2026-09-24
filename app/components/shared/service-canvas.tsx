@@ -13,16 +13,6 @@ import { services } from "@/data/catalogue";
 type Service = (typeof services)[number];
 
 const meta = {
-  "ui-ux-product-design": [
-    "Product experience",
-    "From structure to interface",
-    "Greenland Capital / Product design presentation",
-  ],
-  "website-design-development": [
-    "Digital experience",
-    "A place for your brand to come alive",
-    "Eco World / Website project",
-  ],
   "custom-software-development": [
     "Business applications",
     "Complex work. Clear interfaces.",
@@ -36,10 +26,6 @@ const meta = {
 };
 const projectCanvasBg: Record<string, string> = {};
 const projectCanvasImg: Record<string, string> = {
-  "website-design-development":
-    "absolute h-auto w-[185%] max-w-none left-[-39%] top-[-17%] object-cover max-[767px]:top-[-8%]",
-  "ui-ux-product-design":
-    "absolute h-[154%] w-[148%] max-w-none left-[-2%] bottom-0 object-left-bottom",
   "custom-software-development":
     "absolute h-[125%] w-full bottom-0 object-[51%_bottom]",
   "mobile-application-development":
@@ -61,6 +47,12 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
 
   if (s.id === "branding-identity")
     return <BrandingMotion />;
+
+  if (s.id === "ui-ux-product-design")
+    return <UiUxCanvas />;
+
+  if (s.id === "website-design-development")
+    return <WebDevCanvas />;
 
   const [label, title, caption] = meta[s.id as keyof typeof meta] || [
     "Selected work",
@@ -87,11 +79,7 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
         </div>
       </div>
       <div className="relative min-w-0 overflow-hidden min-h-[500px] bg-white max-[1023px]:min-h-[480px] max-[767px]:min-h-[480px]">
-        {s.id === "website-design-development" ? (
-          <WebDevCanvas />
-        ) : s.id === "ui-ux-product-design" ? (
-          <UiUxCanvas />
-        ) : s.id === "mobile-application-development" ? (
+        {s.id === "mobile-application-development" ? (
           <MobileDevCanvas />
         ) : s.id === "custom-software-development" ? (
           <CustomSoftwareDesktop />

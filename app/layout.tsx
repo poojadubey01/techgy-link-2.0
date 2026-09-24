@@ -5,6 +5,7 @@ import { EssenceMotion } from "@/app/components/layout/scroll-animations";
 import { Header, Footer, Motion } from "@/app/components/layout/header-footer";
 import { Chatbot } from "@/app/components/shared/chatbot";
 import { WhatsAppButton } from "@/app/components/shared/whatsapp-button";
+import { CallButton } from "@/app/components/shared/call-button";
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Footer />
         <WhatsAppButton />
         <Chatbot />
+        <CallButton />
         <Motion />
         <EssenceMotion />
       </body>

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChartNoAxesCombined, MapPin, PanelsTopLeft, UserRound } from "lucide-react";
 
 const navIds = ["home", "explore", "analytics", "profile"] as const;
