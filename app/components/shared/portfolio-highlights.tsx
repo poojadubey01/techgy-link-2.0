@@ -43,19 +43,19 @@ export function CaseArtwork({
   const toneBg = p.tone === "spur" ? "bg-navy" : "bg-[#e2e8f0]";
   return (
     <div
-      className={`relative overflow-hidden ${toneBg} ${caseArtVariants[variant]}`}
+      className={`relative overflow-hidden ${toneBg} ${p.art === "phone" ? caseArtVariants[variant] : "rounded-[5px]"}`}
     >
       <img
         src={p.image}
         alt={`${p.name} — ${p.art === "phone" ? "supplied mobile presentation" : "project presentation"}`}
-        width={p.art === "phone" ? 918 : 1600}
-        height={p.art === "phone" ? 1800 : 1000}
+        width={p.art === "phone" ? 918 : 2784}
+        height={p.art === "phone" ? 1800 : 1740}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : undefined}
         className={
           p.art === "phone"
             ? casePhoneImgVariants[variant]
-            : "h-full w-full object-cover"
+            : "block h-auto w-full"
         }
       />
       {!compact && showCaption && (

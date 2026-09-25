@@ -7,14 +7,14 @@ export const services = serviceData.map((s, i) => ({
   ...s,
   image: [
     "/brand/logo.png",
-    "/work/optimized/greenland-capital.png",
-    "/work/optimized/eco-world.jpg",
-    "/work/glc-admin.webp",
+    "/mockup/Green Land Capital Mockup.png",
+    "/mockup/eco world.png",
+    "/mockup/Green Land Capital - Super Admin.png",
     "/work/glc-mobile.webp",
-    "/work/optimized/quickbooks.png",
-    "/work/optimized/eco-world.jpg",
+    "/mockup/QUICKBOOKS CONNECTOR.png",
+    "/mockup/eco world.png",
     "/architecture/vasavi-atlantis/Aerial_Night.webp",
-    "/work/glc-ccs.webp",
+    "/mockup/Green Land Capital - CCS.png",
   ][i],
   proof: [
     "",
@@ -32,8 +32,8 @@ export const solutions = solutionData.map((s, i) => ({
   ...s,
   image: [
     "/architecture/dates-county/Aerial_view_-Dates_County.webp",
-    "/work/optimized/quickbooks.png",
-    "/work/optimized/greenland-capital.png",
+    "/mockup/QUICKBOOKS CONNECTOR.png",
+    "/mockup/Green Land Capital Mockup.png",
   ][i],
 }));
 export { articles, architecture };

@@ -42,7 +42,7 @@ export function StoryCard({
       href={href}
       onClick={saveScroll}
     >
-      <div className={`relative overflow-hidden rounded-md bg-[#e2e8f0] ${compact ? "aspect-[1.25] max-[767px]:aspect-[1.2]" : "aspect-[1.25] max-[767px]:aspect-[1.15]"}`}>
+      <div className={`relative overflow-hidden rounded-md bg-[#e2e8f0] ${story && story.art !== "phone" ? "" : compact ? "aspect-[1.25] max-[767px]:aspect-[1.2]" : "aspect-[1.25] max-[767px]:aspect-[1.15]"}`}>
         {story ? (
           <CaseArtwork story={story} compact variant="portfolio" />
         ) : (

@@ -4,7 +4,7 @@ const componentProjects = [
     slug: "eco-world",
     name: "Eco World",
     category: "Property / Digital experience",
-    image: "/work/optimized/eco-world.jpg",
+    image: "/mockup/eco world.png",
     description:
       "A property website connecting the project story, visual presentation and customer enquiry journey.",
     scope: [

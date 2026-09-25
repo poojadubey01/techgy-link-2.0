@@ -85,7 +85,7 @@ export default async function Solution({
       ) : (
         <figure className="site-container mx-auto mb-[60px] bg-[#e2e8f0] rounded-md overflow-hidden max-[767px]:mb-[35px]">
           <img
-            className="w-full h-auto max-h-[820px] object-cover rounded-md max-[767px]:max-h-none"
+            className="block w-full h-auto rounded-md"
             src={s.image}
             alt={
               s.id === "property-launch-sales"

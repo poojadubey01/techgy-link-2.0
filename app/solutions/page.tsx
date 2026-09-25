@@ -34,12 +34,12 @@ export default function Solutions() {
             >
               <div
                 className={
-                  "overflow-hidden bg-[#e2e8f0] aspect-[1.45] w-full rounded-md relative flex items-center justify-center max-[767px]:aspect-[1.35]" +
+                  "overflow-hidden bg-[#e2e8f0] w-full rounded-md relative" +
                   (i % 2 === 1 ? " md:order-2" : "")
                 }
               >
                 <img
-                  className="w-full h-full object-cover rounded-md"
+                  className="block w-full h-auto rounded-md"
                   src={s.image}
                   alt={s.short + " — related project presentation"}
                   width="1600"

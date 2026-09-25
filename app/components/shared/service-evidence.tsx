@@ -123,7 +123,7 @@ export function ServiceEvidence({
               width="1600"
               height="1000"
               loading="lazy"
-              className="w-full h-auto min-h-[360px] object-cover max-[767px]:min-h-0 max-[767px]:aspect-[1.3]"
+              className="block w-full h-auto"
             />
           )}
         </Link>
