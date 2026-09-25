@@ -52,11 +52,14 @@ export function Testimonials() {
     const container = mobileScrollRef.current;
     if (!container) return;
     const containerLeft = container.getBoundingClientRect().left;
+    const gutter = container.firstElementChild
+      ? parseFloat(getComputedStyle(container.firstElementChild).paddingLeft)
+      : 0;
     let closestIndex = 0;
     let minDiff = Infinity;
     mobileCardsRef.current.forEach((card, idx) => {
       if (!card) return;
-      const diff = Math.abs(card.getBoundingClientRect().left - (containerLeft + 24));
+      const diff = Math.abs(card.getBoundingClientRect().left - (containerLeft + gutter));
       if (diff < minDiff) {
         minDiff = diff;
         closestIndex = idx;
@@ -72,8 +75,11 @@ export function Testimonials() {
     if (!container || !card) return;
 
     const containerLeft = container.getBoundingClientRect().left;
+    const gutter = container.firstElementChild
+      ? parseFloat(getComputedStyle(container.firstElementChild).paddingLeft)
+      : 0;
     const cardLeft = card.getBoundingClientRect().left;
-    const diff = cardLeft - (containerLeft + 24);
+    const diff = cardLeft - (containerLeft + gutter);
 
     container.scrollBy({
       left: diff,
@@ -255,7 +261,7 @@ export function Testimonials() {
 
   return (
     <section aria-labelledby="testimonials-title" className="w-full py-10 md:py-14 [@media(min-width:1360px)]:py-16">
-      <div className="max-w-8xl mx-auto px-6 [@media(min-width:1360px)]:px-[46px] mb-10 md:mb-16 [@media(min-width:1360px)]:mb-25 flex items-center justify-between gap-6">
+      <div className="site-container mx-auto mb-10 md:mb-16 [@media(min-width:1360px)]:mb-25 flex items-center justify-between gap-6">
         <motion.h2
           id="testimonials-title"
           className="font-medium text-[32px] sm:text-[36px] [@media(min-width:1360px)]:text-[40px] leading-[1.2] [@media(min-width:1360px)]:leading-12 tracking-[-0.8px] text-ink"
@@ -297,7 +303,7 @@ export function Testimonials() {
           className="w-full overflow-x-auto overscroll-x-contain touch-pan-x snap-x snap-mandatory [&::-webkit-scrollbar]:hidden scroll-smooth"
           style={{ scrollbarWidth: "none" }}
         >
-          <div className="flex gap-6 w-max px-6 scroll-px-6">
+          <div className="flex gap-6 w-max px-[var(--site-gutter)] scroll-px-[var(--site-gutter)]">
             {testimonials.map((t, idx) => (
               <div
                 key={t.name}
@@ -336,7 +342,7 @@ export function Testimonials() {
         </div>
 
         {/* Mobile bottom-left controls for navigating left and right */}
-        <div className="flex items-center gap-3 px-6 mt-6">
+        <div className="site-container mx-auto flex items-center gap-3 mt-6">
           <button
             type="button"
             onClick={handlePrevMobile}

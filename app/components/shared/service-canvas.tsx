@@ -1,14 +1,16 @@
 "use client";
-import { WebDevCanvas } from "@/app/components/services/web-dev-canvas";
-import { UiUxCanvas } from "@/app/components/services/ui-ux-canvas";
-import { MobileDevCanvas } from "@/app/components/services/mobile-dev-canvas";
-import { AiAutomationCanvas } from "@/app/components/services/ai-automation-canvas";
-import { MarketingCanvas } from "@/app/components/services/marketing-canvas";
-import { ArchitectureShowreel } from "@/app/components/services/architecture-showreel";
-import { ConsultingCanvas } from "@/app/components/services/consulting-canvas";
-import { BrandingMotion } from "@/app/components/services/branding-motion";
-import { CustomSoftwareDesktop } from "@/app/components/services/custom-software-desktop";
+import dynamic from "next/dynamic";
 import { services } from "@/data/catalogue";
+
+const WebDevCanvas = dynamic(() => import("@/app/components/services/web-dev-canvas").then((module) => module.WebDevCanvas));
+const UiUxCanvas = dynamic(() => import("@/app/components/services/ui-ux-canvas").then((module) => module.UiUxCanvas));
+const MobileDevCanvas = dynamic(() => import("@/app/components/services/mobile-dev-canvas").then((module) => module.MobileDevCanvas));
+const AiAutomationCanvas = dynamic(() => import("@/app/components/services/ai-automation-canvas").then((module) => module.AiAutomationCanvas));
+const MarketingCanvas = dynamic(() => import("@/app/components/services/marketing-canvas").then((module) => module.MarketingCanvas));
+const ArchitectureShowreel = dynamic(() => import("@/app/components/services/architecture-showreel").then((module) => module.ArchitectureShowreel));
+const ConsultingCanvas = dynamic(() => import("@/app/components/services/consulting-canvas").then((module) => module.ConsultingCanvas));
+const BrandingMotion = dynamic(() => import("@/app/components/services/branding-motion").then((module) => module.BrandingMotion));
+const CustomSoftwareDesktop = dynamic(() => import("@/app/components/services/custom-software-desktop").then((module) => module.CustomSoftwareDesktop));
 
 type Service = (typeof services)[number];
 

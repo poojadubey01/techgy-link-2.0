@@ -7,7 +7,7 @@ export const metadata = {
 export default function Services() {
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="page-intro w-full mx-auto bg-[#f8f9fa] py-[72px] px-[max(56px,calc((100vw_-_1424px)/2))] max-[767px]:py-[45px] max-[767px]:px-5">
+      <section className="page-intro site-container mx-auto bg-[#f8f9fa] py-[72px] max-[767px]:py-[45px]">
         <p className="eyebrow text-brand">
           Our expertise
         </p>

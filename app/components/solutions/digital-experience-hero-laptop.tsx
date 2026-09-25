@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Link from "@/app/components/ui/internal-link";
+import { enquiry } from "@/data/catalogue";
 
 const SEARCH_PHRASES = [
   "Search platforms, design tokens, APIs...",
@@ -836,7 +837,7 @@ export function DigitalExperienceHeroCanvas() {
 
               {/* Action Button inside Phone */}
               <Link
-                href="/contact?interest=digital-experience-product"
+                href={enquiry("Digital Experience & Product Delivery")}
                 className="w-full bg-[#0022FF] hover:bg-[#001ad4] text-white font-bold text-xs py-2 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5"
               >
                 <span>View details</span>

@@ -1,5 +1,6 @@
 import { contributions } from "@/data/company-content";
 import { ServiceContribution } from "@/app/components/shared/service-contribution";
+import { GrowthPartners } from "@/app/components/home/growth-partners";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "@/app/components/ui/internal-link";
 import {
@@ -119,6 +120,7 @@ export default async function Service({
         </div>
       </section>
       <ServiceContribution service={s} />
+      <GrowthPartners />
       <section
         className="bg-transparent py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]"
         id="deliverables"
@@ -129,7 +131,7 @@ export default async function Service({
             title="Purpose in every detail."
             description="A defined set of deliverables, shaped around the work your business needs."
           />
-          <div className="deliverable-grid grid grid-cols-[1fr_1fr] gap-y-0 gap-x-[70px] max-[1023px]:gap-x-[45px]">
+          <div className="deliverable-grid grid grid-cols-[1fr_1fr] gap-y-0 gap-x-[70px] max-[1023px]:gap-x-[45px] max-[767px]:grid-cols-1">
             {s.deliverables.map(([t, d], i) => (
               <article
                 className="deliverable reveal grid grid-cols-[32px_1fr] gap-[22px] pt-[35px] px-0 pb-[42px] border-t border-t-[#e2e8f0] max-[767px]:py-7"
@@ -147,7 +149,6 @@ export default async function Service({
           </div>
         </div>
       </section>
-      <ServiceClients service={s} />
       {isMarketing && (
         <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto">
           <SectionTitle
@@ -155,7 +156,7 @@ export default async function Service({
             title="One journey. Different specialisms."
             description=""
           />
-          <div className="related-links grid grid-cols-[repeat(3,1fr)] gap-10 max-[767px]:gap-[25px]">
+          <div className="related-links grid grid-cols-[repeat(3,1fr)] gap-10 max-[767px]:grid-cols-1 max-[767px]:gap-[25px]">
             {marketing.map((m) => (
               <Link
                 href={"/services/digital-marketing-sales-enablement/" + m.slug}
@@ -181,6 +182,7 @@ export default async function Service({
       ) : showServiceEvidence ? (
         <ServiceEvidence service={s} />
       ) : null}
+      <ServiceClients service={s} />
       <section
         className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto"
         id="process"

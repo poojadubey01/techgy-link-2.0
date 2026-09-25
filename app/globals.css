@@ -305,7 +305,7 @@
 .service-visual > .service-demo,
 .service-visual > .branding-motion { display: flex; flex-direction: column; }
 .service-visual .sv-body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
-.service-visual > figure.service-demo video { height: 100%; aspect-ratio: auto; object-fit: contain; }
+.service-visual > figure.service-demo video { height: 100%; aspect-ratio: auto; object-fit: cover; }
 
 /* Service hero title: always two lines, one shared size. */
 .detail-copy .service-title { white-space: pre-line; line-height: 1.08; letter-spacing: -0.055em; font-size: clamp(30px, 4.2vw, 60px); }

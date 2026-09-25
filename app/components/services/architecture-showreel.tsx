@@ -5,12 +5,11 @@ export function ArchitectureShowreel() {
         autoPlay
         muted
         loop
-        controls
         playsInline
         preload="metadata"
         poster="/source/3d/hero-poster.jpg"
         aria-label="TechGy Link architectural visualisation showreel"
-        className="block aspect-video w-full object-contain"
+        className="block aspect-video w-full object-cover"
       >
         <source src="/source/3d/hero.mp4" type="video/mp4" />
         Your browser does not support this video.

@@ -73,11 +73,11 @@ export function ServiceClients({ service: s }: { service: Service }) {
   if (!s.clients || s.clients.length === 0) return null;
   return (
     <section className="reveal py-[70px] max-[767px]:py-[45px] border-t border-t-rule">
-      <div className="w-[min(1424px,calc(100%_-_112px))] mx-auto max-[1200px]:w-[calc(100%_-_64px)] max-[767px]:w-[calc(100%_-_40px)] flex items-center gap-[50px] max-[767px]:flex-col max-[767px]:items-start max-[767px]:gap-6">
+      <div className="site-container mx-auto flex items-center gap-[50px] max-[767px]:flex-col max-[767px]:items-start max-[767px]:gap-6">
         <p className="eyebrow text-brand shrink-0">
           Clients we&rsquo;ve done this for
         </p>
-        <div className="flex flex-wrap items-center gap-x-12 gap-y-6">
+        <div className="grid w-full grid-cols-2 items-center gap-x-5 gap-y-6 min-[768px]:flex min-[768px]:w-auto min-[768px]:flex-wrap min-[768px]:gap-x-12">
           {s.clients.map((c) => (
             <img
               key={c.name}
@@ -174,7 +174,7 @@ export function Process({
   details: string[];
 }) {
   return (
-    <div className="grid grid-cols-[repeat(4,1fr)] gap-[35px] max-[1023px]:grid-cols-[1fr_1fr] max-[1023px]:gap-10 max-[767px]:gap-y-8 max-[767px]:gap-x-[25px] max-[370px]:grid-cols-[1fr]">
+    <div className="grid grid-cols-[repeat(4,1fr)] gap-[35px] max-[1023px]:grid-cols-[1fr_1fr] max-[1023px]:gap-10 max-[767px]:grid-cols-1 max-[767px]:gap-8">
       {steps.map((step, i) => (
         <div
           className="reveal border-t border-t-rule pt-[22px] max-[767px]:pt-[19px]"

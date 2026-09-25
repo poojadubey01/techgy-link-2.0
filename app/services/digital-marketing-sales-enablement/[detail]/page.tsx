@@ -1,4 +1,5 @@
 import { PartnerSignature } from "@/app/components/shared/service-contribution";
+import { GrowthPartners } from "@/app/components/home/growth-partners";
 import { notFound } from "next/navigation";
 import Link from "@/app/components/ui/internal-link";
 import { marketing, enquiry } from "@/data/catalogue";
@@ -82,6 +83,7 @@ export default async function MarketingDetail({
           </ul>
         </div>
       </section>
+      <GrowthPartners />
       <section className="bg-paper py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
         <div className="site-container mx-auto">
           <SectionTitle

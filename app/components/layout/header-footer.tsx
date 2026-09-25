@@ -52,7 +52,7 @@ export function Header() {
       >
         Skip to content
       </a>
-      <header className="sticky top-0 z-50 bg-[#f8f9faf0] backdrop-blur-lg border-b border-b-[#e2e8f0]">
+      <header className="sticky top-0 z-50 bg-white border-b border-b-[#e2e8f0]">
         <div className="flex items-center gap-8 max-[1200px]:gap-[25px] max-[1100px]:min-[768px]:gap-5 max-[767px]:gap-[13px] max-[370px]:gap-2 mx-auto h-[82px] max-[1023px]:h-20 max-[767px]:h-[74px] site-container">
           <Link
             href="/"
@@ -84,37 +84,39 @@ export function Header() {
               <summary className="flex cursor-pointer items-center gap-2 list-none min-h-11 [&::-webkit-details-marker]:hidden group-open:text-brand">
                 Services <ChevronDown size={14} />
               </summary>
-              <div className="absolute left-0 right-0 bg-white border-b border-rule grid top-full py-12 px-14 grid-cols-[1fr_2fr] gap-14 shadow-[0_35px_40px_#1116250d]">
-                <div>
-                  <p className="eyebrow text-brand">
-                    Our expertise
-                  </p>
-                  <h2 className="text-[38px] mt-[22px] mx-0 mb-8">
-                    The right minds.
-                    <br />
-                    Around your brief.
-                  </h2>
-                  <Link
-                    href="/services"
-                    className="cta-link inline-flex items-center font-medium text-brand hover:text-brand"
-                  >
-                    All services <ArrowUpRight size={18} />
-                  </Link>
-                </div>
-                <div className="grid grid-cols-2 gap-x-8">
-                  {services.map((s) => (
+              <div className="absolute left-0 right-0 top-full bg-white border-b border-rule py-12 shadow-[0_35px_40px_#1116250d]">
+                <div className="site-container mx-auto grid grid-cols-[1fr_2fr] gap-14">
+                  <div>
+                    <p className="eyebrow text-brand">
+                      Our expertise
+                    </p>
+                    <h2 className="text-[38px] mt-[22px] mx-0 mb-8">
+                      The right minds.
+                      <br />
+                      Around your brief.
+                    </h2>
                     <Link
-                      key={s.id}
-                      href={"/services/" + s.id}
-                      className="flex items-center gap-3 py-4 border-b border-rule text-sm leading-normal hover:text-brand"
+                      href="/services"
+                      className="cta-link inline-flex items-center font-medium text-brand hover:text-brand"
                     >
-                      <span className="text-[#000000] text-[12px]">
-                        {s.num}
-                      </span>
-                      {s.name}
-                      <ArrowUpRight size={17} className="ml-auto" />
+                      All services <ArrowUpRight size={18} />
                     </Link>
-                  ))}
+                  </div>
+                  <div className="grid grid-cols-2 gap-x-8">
+                    {services.map((s) => (
+                      <Link
+                        key={s.id}
+                        href={"/services/" + s.id}
+                        className="flex items-center gap-3 py-4 border-b border-rule text-sm leading-normal hover:text-brand"
+                      >
+                        <span className="text-[#000000] text-[12px]">
+                          {s.num}
+                        </span>
+                        {s.name}
+                        <ArrowUpRight size={17} className="ml-auto" />
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </details>
