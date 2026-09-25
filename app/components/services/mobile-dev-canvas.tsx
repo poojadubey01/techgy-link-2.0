@@ -105,7 +105,7 @@ export function MobileDevCanvas() {
       <div className="pointer-events-none absolute -top-24 -right-20 h-[420px] w-[420px] rounded-full bg-blue-200/40 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -left-24 h-[380px] w-[380px] rounded-full bg-blue-100/60 blur-3xl" />
 
-      <div className="relative z-10 flex flex-col gap-5 p-6 @max-[520px]:p-3">
+      <div className="sv-body relative z-10 flex flex-col gap-5 p-6 @max-[520px]:p-3">
         {/* task progress */}
         <div className="grid grid-cols-4 gap-3 @max-[520px]:gap-1.5">
           {phases.map((p, i) => {
@@ -132,7 +132,7 @@ export function MobileDevCanvas() {
         </div>
 
         {/* scene */}
-        <div className="grid grid-cols-[auto_minmax(56px,120px)_minmax(0,1fr)] items-center @max-[760px]:grid-cols-1 @max-[760px]:justify-items-center">
+        <div className="grid grid-cols-[auto_minmax(56px,120px)_minmax(0,1fr)] items-center @max-[640px]:grid-cols-1 @max-[640px]:justify-items-center">
           {/* phone */}
           <div className="flex flex-col items-center gap-3">
             <Phone android={android}>
@@ -150,24 +150,24 @@ export function MobileDevCanvas() {
           </div>
 
           {/* sync link */}
-          <div className="relative flex h-full w-full items-center @max-[760px]:h-12 @max-[760px]:w-auto @max-[760px]:flex-col">
-            <div className="relative h-[2px] w-full @max-[760px]:h-full @max-[760px]:w-[2px]">
+          <div className="relative flex h-full w-full items-center @max-[640px]:h-12 @max-[640px]:w-auto @max-[640px]:flex-col">
+            <div className="relative h-[2px] w-full @max-[640px]:h-full @max-[640px]:w-[2px]">
               <div
                 className={`absolute inset-0 rounded-full transition-colors duration-500 ${
                   offline
-                    ? "bg-[repeating-linear-gradient(90deg,#cbd5e1_0_5px,transparent_5px_10px)] @max-[760px]:bg-[repeating-linear-gradient(180deg,#cbd5e1_0_5px,transparent_5px_10px)]"
-                    : "bg-gradient-to-r from-brand/30 to-brand/70 @max-[760px]:bg-gradient-to-b"
+                    ? "bg-[repeating-linear-gradient(90deg,#cbd5e1_0_5px,transparent_5px_10px)] @max-[640px]:bg-[repeating-linear-gradient(180deg,#cbd5e1_0_5px,transparent_5px_10px)]"
+                    : "bg-gradient-to-r from-brand/30 to-brand/70 @max-[640px]:bg-gradient-to-b"
                 }`}
               />
               {!offline &&
                 [0, 1, 2].map((i) => (
-                  <span key={i} className="md-packet absolute top-1/2 @max-[760px]:hidden" style={{ animation: `md-packet 1.8s linear ${i * 0.6}s infinite` }}>
+                  <span key={i} className="md-packet absolute top-1/2 @max-[640px]:hidden" style={{ animation: `md-packet 1.8s linear ${i * 0.6}s infinite` }}>
                     <span className="block h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand shadow-[0_0_10px_rgba(0,34,255,0.7)]" />
                   </span>
                 ))}
               {!offline &&
                 [0, 1].map((i) => (
-                  <span key={`y${i}`} className="md-packet absolute left-1/2 hidden @max-[760px]:block" style={{ animation: `md-packet-y 1.2s linear ${i * 0.6}s infinite` }}>
+                  <span key={`y${i}`} className="md-packet absolute left-1/2 hidden @max-[640px]:block" style={{ animation: `md-packet-y 1.2s linear ${i * 0.6}s infinite` }}>
                     <span className="block h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand" />
                   </span>
                 ))}

@@ -290,7 +290,7 @@ export function Chatbot() {
         aria-label={open ? "Close chat" : "Open chat with TechGy Link"}
         aria-expanded={open}
         className={
-          "fixed z-50 grid place-items-center h-14 w-14 max-[767px]:h-12 max-[767px]:w-12 rounded-full border-[3px] border-white bg-brand text-white shadow-[0_18px_30px_#0022ff40] transition-transform hover:scale-105 right-5 bottom-23 max-[767px]:right-4 max-[767px]:bottom-19" +
+          "fixed z-50 grid place-items-center h-14 w-14 max-[767px]:h-12 max-[767px]:w-12 rounded-full border-2 border-white bg-brand text-white shadow-[0_18px_30px_#0022ff40] transition-transform hover:scale-105 right-5 bottom-23 max-[767px]:right-4 max-[767px]:bottom-19" +
           (open ? " max-[767px]:hidden" : "")
         }
       >

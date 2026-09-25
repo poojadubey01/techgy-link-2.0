@@ -210,7 +210,7 @@ export function ConsultingCanvas() {
       </div>
 
       {/* ── BODY ───────────────────────────────────────────── */}
-      <div className="relative z-10 flex-1 flex flex-col min-h-0 p-6 @max-[520px]:p-3">
+      <div className="sv-body relative z-10 flex-1 flex flex-col min-h-0 p-6 @max-[520px]:p-3">
         {activeTab === "portal" && <TransformationView tick={tick} />}
         {activeTab === "impact" && <ImpactView />}
         {activeTab === "roadmap" && (
@@ -319,9 +319,9 @@ function TransformationView({ tick }: { tick: number }) {
       </div>
 
       {/* scene */}
-      <div className="relative flex-1 grid grid-cols-[minmax(0,1fr)_minmax(190px,236px)_minmax(0,1fr)] items-stretch @max-[880px]:grid-cols-1 @max-[880px]:gap-y-1">
+      <div className="relative flex-1 grid grid-cols-[minmax(0,1fr)_minmax(190px,236px)_minmax(0,1fr)] items-stretch @max-[640px]:grid-cols-1 @max-[640px]:gap-y-1">
         <LegacyPanel live={live} done={done} liveCount={liveCount} />
-        <div className="relative self-center flex items-center @max-[880px]:flex-col @max-[880px]:py-1">
+        <div className="relative self-center flex items-center @max-[640px]:flex-col @max-[640px]:py-1">
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,rgba(0,34,255,0.14),transparent_62%)] pointer-events-none" />
           <Connector dir="in" active={!done} />
           <Hub p={p} done={done} pct={pct} />
@@ -496,16 +496,16 @@ function LegacyPanel({ live, done, liveCount }: { live: boolean[]; done: boolean
 function Connector({ dir, active }: { dir: "in" | "out"; active: boolean }) {
   const isIn = dir === "in";
   return (
-    <div className="relative flex-1 min-w-[26px] h-[2px] @max-[880px]:flex-none @max-[880px]:w-[2px] @max-[880px]:h-7">
+    <div className="relative flex-1 min-w-[26px] h-[2px] @max-[640px]:flex-none @max-[640px]:w-[2px] @max-[640px]:h-7">
       <div
         className={`absolute inset-0 rounded-full ${
           isIn
-            ? "bg-gradient-to-r from-amber-400/80 to-brand/40 @max-[880px]:bg-gradient-to-b"
-            : "bg-gradient-to-r from-brand/40 to-brand/80 @max-[880px]:bg-gradient-to-b"
+            ? "bg-gradient-to-r from-amber-400/80 to-brand/40 @max-[640px]:bg-gradient-to-b"
+            : "bg-gradient-to-r from-brand/40 to-brand/80 @max-[640px]:bg-gradient-to-b"
         }`}
       />
       <span
-        className={`absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full border-2 bg-white @max-[880px]:hidden ${
+        className={`absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full border-2 bg-white @max-[640px]:hidden ${
           isIn ? "left-0 -translate-x-1/2 border-amber-400" : "right-0 translate-x-1/2 border-brand"
         }`}
       />
@@ -513,7 +513,7 @@ function Connector({ dir, active }: { dir: "in" | "out"; active: boolean }) {
         [0, 1, 2].map((i) => (
           <span
             key={i}
-            className="cc-packet absolute top-1/2 @max-[880px]:hidden"
+            className="cc-packet absolute top-1/2 @max-[640px]:hidden"
             style={{ animation: `cc-packet 1.8s linear ${i * 0.6}s infinite` }}
           >
             <span
@@ -529,7 +529,7 @@ function Connector({ dir, active }: { dir: "in" | "out"; active: boolean }) {
         [0, 1].map((i) => (
           <span
             key={`y${i}`}
-            className="cc-packet absolute left-1/2 hidden @max-[880px]:block"
+            className="cc-packet absolute left-1/2 hidden @max-[640px]:block"
             style={{ animation: `cc-packet-y 1.2s linear ${i * 0.6}s infinite` }}
           >
             <span
@@ -590,7 +590,7 @@ function Hub({ p, done, pct }: { p: number; done: boolean; pct: number }) {
         </div>
       </div>
 
-      <div className="absolute top-full mt-3 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 @max-[880px]:static @max-[880px]:translate-x-0 @max-[880px]:mt-2">
+      <div className="absolute top-full mt-3 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 @max-[640px]:static @max-[640px]:translate-x-0 @max-[640px]:mt-2">
         <img src="/brand/logo.png" alt="TechGy Link" width="541" height="110" className="w-[118px] h-auto" />
         <span
           key={done ? "done" : "routing"}
@@ -863,7 +863,7 @@ function ImpactView() {
         </span>
       </div>
 
-      <div className="grid grid-cols-4 gap-3 @max-[880px]:grid-cols-2 @max-[420px]:grid-cols-1">
+      <div className="grid grid-cols-4 gap-3 @max-[640px]:grid-cols-2 @max-[420px]:grid-cols-1">
         {kpis.map((k, i) => (
           <KpiTile key={k.label} kpi={k} index={i} />
         ))}
@@ -984,7 +984,7 @@ function RoadmapView({
       </div>
 
       {/* phase cards */}
-      <div className="flex-1 grid grid-cols-3 gap-3.5 @max-[880px]:grid-cols-1">
+      <div className="flex-1 grid grid-cols-3 gap-3.5 @max-[640px]:grid-cols-1">
         {roadmapSteps.map((step, idx) => {
           const active = idx === stepIdx;
           const complete = idx < stepIdx;

@@ -195,7 +195,7 @@ export function BrandingMotion() {
       <div className="pointer-events-none absolute -top-24 -right-20 h-[420px] w-[420px] rounded-full bg-blue-200/40 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -left-24 h-[360px] w-[360px] rounded-full bg-blue-100/60 blur-3xl" />
 
-      <div className="relative grid min-h-[600px] grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] items-center gap-6 px-11 py-10 @max-[820px]:grid-cols-1 @max-[820px]:gap-2 @max-[820px]:px-6 @max-[820px]:py-8">
+      <div className="relative grid flex-1 min-h-[600px] grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] items-center gap-6 px-11 py-10 @max-[820px]:grid-cols-1 @max-[820px]:gap-2 @max-[820px]:px-6 @max-[820px]:py-8">
         <div className="relative z-20 flex flex-col">
           <h3 className="brand-intro font-display text-[clamp(40px,5.6cqw,70px)] leading-[0.95] tracking-[-0.05em]">
             One mark.

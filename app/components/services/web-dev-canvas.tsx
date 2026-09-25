@@ -117,7 +117,7 @@ export function WebDevCanvas() {
       <div className="pointer-events-none absolute -top-24 -right-20 h-[420px] w-[420px] rounded-full bg-blue-200/40 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -left-24 h-[360px] w-[360px] rounded-full bg-blue-100/60 blur-3xl" />
 
-      <div className="relative z-10 p-6 @max-[520px]:p-3">
+      <div className="sv-body relative z-10 p-6 @max-[520px]:p-3">
         {/* browser */}
         <div className="overflow-hidden rounded-xl border border-rule bg-white shadow-[0_28px_60px_-30px_rgba(15,26,52,0.45)]">
           {/* tabs = process steps */}
@@ -185,7 +185,7 @@ export function WebDevCanvas() {
           </div>
 
           {/* viewport */}
-          <div key={step} className="relative h-[440px] overflow-hidden bg-[#fbfcfe] animate-[wd-fade_.45s_ease-out] @max-[760px]:h-[420px]">
+          <div key={step} className="relative h-[440px] overflow-hidden bg-[#fbfcfe] animate-[wd-fade_.45s_ease-out] @max-[640px]:h-[420px]">
             {step === 0 && <MessageScene t={t} />}
             {step === 1 && <JourneyScene t={t} />}
             {step === 2 && <BuildScene t={t} />}
@@ -250,8 +250,8 @@ function MessageScene({ t }: { t: number }) {
   const chosen = t >= 0.68;
   const hierarchy = t >= 0.8;
   return (
-    <div className="grid h-full grid-cols-[minmax(0,0.75fr)_minmax(0,1.5fr)] gap-5 p-6 @max-[760px]:grid-cols-1 @max-[760px]:p-4">
-      <Panel title="Sitemap" className="@max-[760px]:hidden">
+    <div className="grid h-full grid-cols-[minmax(0,0.75fr)_minmax(0,1.5fr)] gap-5 p-6 @max-[640px]:grid-cols-1 @max-[640px]:p-4">
+      <Panel title="Sitemap" className="@max-[640px]:hidden">
         <div className="flex flex-col">
           <div className="flex items-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-[12.5px] font-medium text-brand">
             <Logo small /> Home
@@ -350,7 +350,7 @@ function JourneyScene({ t }: { t: number }) {
   const pin = (k: number) => t >= 0.55 + k * 0.09;
   const block = "animate-[wd-rise_.4s_ease-out_both]";
   return (
-    <div className="grid h-full grid-cols-[minmax(0,1.7fr)_minmax(0,0.8fr)] gap-5 p-6 @max-[760px]:grid-cols-1 @max-[760px]:p-4">
+    <div className="grid h-full grid-cols-[minmax(0,1.7fr)_minmax(0,0.8fr)] gap-5 p-6 @max-[640px]:grid-cols-1 @max-[640px]:p-4">
       <div className="relative flex min-h-0 flex-col gap-2.5 overflow-hidden rounded-xl border border-rule bg-white p-3">
         <div className={`pointer-events-none absolute inset-0 grid grid-cols-12 gap-2 px-3 transition-opacity duration-500 ${grid ? "opacity-100" : "opacity-0"}`}>
           {Array.from({ length: 12 }).map((_, i) => (
@@ -411,7 +411,7 @@ function JourneyScene({ t }: { t: number }) {
         )}
       </div>
 
-      <Panel title="Visitor journey" className="@max-[760px]:hidden">
+      <Panel title="Visitor journey" className="@max-[640px]:hidden">
         <div className="flex flex-col gap-2.5">
           {journey.map((j, k) => {
             const on = pin(k);
@@ -457,7 +457,7 @@ function BuildScene({ t }: { t: number }) {
   const publishing = t >= 0.5 && t < 0.58;
   const published = t >= 0.58;
   return (
-    <div className="grid h-full grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] gap-5 p-6 @max-[760px]:grid-cols-1 @max-[760px]:p-4">
+    <div className="grid h-full grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] gap-5 p-6 @max-[640px]:grid-cols-1 @max-[640px]:p-4">
       {/* live site */}
       <div className="flex min-h-0 min-w-0 flex-col overflow-hidden rounded-xl border border-rule bg-white shadow-xs">
         <div className="flex h-11 shrink-0 items-center justify-between border-b border-rule px-4">
@@ -504,7 +504,7 @@ function BuildScene({ t }: { t: number }) {
       {/* CMS */}
       <Panel
         title="Edit · Home"
-        className="@max-[760px]:hidden"
+        className="@max-[640px]:hidden"
         right={
           <span
             className={`rounded-full border px-2 py-0.5 font-mono text-[9.5px] font-semibold uppercase ${
@@ -592,8 +592,8 @@ function LaunchScene({ t }: { t: number }) {
   const live = t >= 0.66;
   const enquiry = t >= 0.78;
   return (
-    <div className="relative grid h-full grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] gap-5 p-6 @max-[760px]:grid-cols-1 @max-[760px]:p-4">
-      <div className="flex min-h-0 items-end justify-center gap-[4%] pb-4 @max-[760px]:hidden">
+    <div className="relative grid h-full grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] gap-5 p-6 @max-[640px]:grid-cols-1 @max-[640px]:p-4">
+      <div className="flex min-h-0 items-end justify-center gap-[4%] pb-4 @max-[640px]:hidden">
         {(
           [
             ["desktop", "w-[58%]", "aspect-[16/10] rounded-lg border-[6px]"],
@@ -636,7 +636,7 @@ function LaunchScene({ t }: { t: number }) {
       </Panel>
 
       {enquiry && (
-        <div className="absolute left-6 top-6 w-[300px] max-w-[calc(100%-48px)] rounded-xl border border-rule bg-white p-3 shadow-[0_20px_40px_-16px_rgba(15,26,52,0.45)] animate-[wd-slide_.45s_ease-out_both] @max-[760px]:bottom-4 @max-[760px]:left-4 @max-[760px]:top-auto">
+        <div className="absolute left-6 top-6 w-[300px] max-w-[calc(100%-48px)] rounded-xl border border-rule bg-white p-3 shadow-[0_20px_40px_-16px_rgba(15,26,52,0.45)] animate-[wd-slide_.45s_ease-out_both] @max-[640px]:bottom-4 @max-[640px]:left-4 @max-[640px]:top-auto">
           <div className="flex items-center gap-2">
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-blue-50 text-brand">
               <Bell className="h-3.5 w-3.5" />

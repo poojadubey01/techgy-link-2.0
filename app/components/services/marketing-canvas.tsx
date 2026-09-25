@@ -97,7 +97,7 @@ export function MarketingCanvas() {
       <div className="absolute -top-24 -right-20 w-[420px] h-[420px] rounded-full bg-blue-200/40 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 -left-24 w-[380px] h-[380px] rounded-full bg-emerald-100/50 blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 flex-1 flex flex-col min-h-0 p-6 @max-[520px]:p-3">
+      <div className="sv-body relative z-10 flex-1 flex flex-col min-h-0 p-6 @max-[520px]:p-3">
         <JourneyView tick={tick} />
       </div>
     </div>
@@ -179,7 +179,7 @@ function JourneyView({ tick }: { tick: number }) {
       </div>
 
       {/* track */}
-      <div className="relative h-[30px] @max-[880px]:hidden">
+      <div className="relative h-[30px] @max-[640px]:hidden">
         <div
           className="absolute top-1/2 -translate-y-1/2 h-[2px] bg-[repeating-linear-gradient(90deg,#cbd5e1_0_4px,transparent_4px_8px)]"
           style={{ left: colCenter(0), right: `calc((100% - ${GAP * 4}px) * 0.1)` }}
@@ -210,7 +210,7 @@ function JourneyView({ tick }: { tick: number }) {
       </div>
 
       {/* stage cards */}
-      <div className="grid grid-cols-5 gap-3 @max-[880px]:grid-cols-1">
+      <div className="grid grid-cols-5 gap-3 @max-[640px]:grid-cols-1">
         {stages.map((s, i) => {
           const active = i === stage;
           const complete = i < stage || (journeyDone && i === 4);
@@ -222,8 +222,8 @@ function JourneyView({ tick }: { tick: number }) {
                 active
                   ? "bg-white border-brand/50 ring-1 ring-brand/20 shadow-[0_18px_36px_-18px_rgba(0,34,255,0.5)] -translate-y-1"
                   : complete
-                    ? "bg-white border-emerald-200 shadow-xs @max-[880px]:hidden"
-                    : "bg-white/60 border-dashed border-slate-300 @max-[880px]:hidden"
+                    ? "bg-white border-emerald-200 shadow-xs @max-[640px]:hidden"
+                    : "bg-white/60 border-dashed border-slate-300 @max-[640px]:hidden"
               }`}
             >
               <div className="flex items-center justify-between gap-2">

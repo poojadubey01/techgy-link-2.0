@@ -106,9 +106,9 @@ export function UiUxCanvas() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#0000000d_1px,transparent_1px)] bg-[size:20px_20px]" />
       <div className="pointer-events-none absolute -top-24 -right-20 h-[420px] w-[420px] rounded-full bg-blue-200/40 blur-3xl" />
 
-      <div className="relative z-10 flex flex-col gap-4 p-6 @max-[520px]:p-3">
+      <div className="sv-body relative z-10 flex flex-col gap-4 p-6 @max-[520px]:p-3">
         {/* process stepper */}
-        <div className="grid grid-cols-4 gap-4 @max-[760px]:gap-2">
+        <div className="grid grid-cols-4 gap-4 @max-[640px]:gap-2">
           {steps.map((st, i) => {
             const on = i === step;
             const fill = i < step ? 1 : on ? t : 0;
@@ -125,7 +125,7 @@ export function UiUxCanvas() {
                     style={{ width: `${fill * 100}%` }}
                   />
                 </span>
-                <span className="flex items-baseline gap-2 @max-[760px]:hidden">
+                <span className="flex items-baseline gap-2 @max-[640px]:hidden">
                   <span className={`font-mono text-[11px] ${on ? "text-brand" : "text-black/35"}`}>0{i + 1}</span>
                   <span
                     className={`text-[13.5px] font-medium leading-snug transition-colors ${
@@ -136,7 +136,7 @@ export function UiUxCanvas() {
                   </span>
                 </span>
                 <span
-                  className={`pl-[26px] text-[12px] leading-snug transition-colors @max-[760px]:hidden ${
+                  className={`pl-[26px] text-[12px] leading-snug transition-colors @max-[640px]:hidden ${
                     on ? "text-black/60" : "text-black/30"
                   }`}
                 >
@@ -146,7 +146,7 @@ export function UiUxCanvas() {
             );
           })}
         </div>
-        <div key={step} className="hidden animate-[ux-fade_.35s_ease-out] @max-[760px]:block">
+        <div key={step} className="hidden animate-[ux-fade_.35s_ease-out] @max-[640px]:block">
           <div className="flex items-baseline gap-2">
             <span className="font-mono text-[11px] text-brand">0{step + 1}</span>
             <span className="text-[14px] font-medium">{steps[step].title}</span>

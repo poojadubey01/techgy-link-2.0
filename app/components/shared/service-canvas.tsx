@@ -12,7 +12,7 @@ import { services } from "@/data/catalogue";
 
 type Service = (typeof services)[number];
 
-export function ServiceCanvas({ service: s }: { service: Service }) {
+function pick(s: Service) {
   if (s.id === "architectural-visualisation")
     return <ArchitectureShowreel />;
 
@@ -38,4 +38,8 @@ export function ServiceCanvas({ service: s }: { service: Service }) {
     return <MobileDevCanvas />;
 
   return <CustomSoftwareDesktop />;
+}
+
+export function ServiceCanvas({ service }: { service: Service }) {
+  return <div className="service-visual">{pick(service)}</div>;
 }

@@ -90,7 +90,7 @@ export function CustomSoftwareDesktop() {
       <div className="pointer-events-none absolute -top-24 -right-20 h-[420px] w-[420px] rounded-full bg-blue-200/40 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -left-24 h-[360px] w-[360px] rounded-full bg-blue-100/60 blur-3xl" />
 
-      <div className="relative z-10 p-6 @max-[520px]:p-3">
+      <div className="sv-body relative z-10 p-6 @max-[520px]:p-3">
         {/* process stepper */}
         <div className="grid grid-cols-4 gap-3 @max-[640px]:gap-1.5">
           {phases.map((p, i) => {
@@ -159,7 +159,7 @@ export function CustomSoftwareDesktop() {
             </div>
 
             {/* phase content */}
-            <div key={phase} className="min-h-[420px] animate-[cs-fade_.4s_ease-out] @max-[760px]:min-h-[380px]">
+            <div key={phase} className="min-h-[420px] animate-[cs-fade_.4s_ease-out] @max-[640px]:min-h-[380px]">
               {phase === 0 && <DiscoverScene t={t} />}
               {phase === 1 && <ScopeScene t={t} />}
               {phase === 2 && <BuildScene t={t} />}
@@ -191,18 +191,18 @@ function Panel({ title, children, className = "" }: { title: string; children: R
 
 /* ── 01 · discover the workflow ──────────────────────────────── */
 const flowNodes = [
-  { label: "Order raised", x: 20, y: 44, at: 0.03, kind: "start" },
-  { label: "≥ $10,000?", x: 208, y: 44, at: 0.14, kind: "decision" },
-  { label: "Manager approves", x: 20, y: 168, at: 0.3, kind: "step" },
-  { label: "Finance approves", x: 208, y: 168, at: 0.42, kind: "step" },
-  { label: "PO issued", x: 114, y: 260, at: 0.56, kind: "end" },
+  { label: "Order raised", x: 8, y: 40, at: 0.03, kind: "start" },
+  { label: "≥ $10,000?", x: 184, y: 40, at: 0.14, kind: "decision" },
+  { label: "Manager approves", x: 8, y: 160, at: 0.3, kind: "step" },
+  { label: "Finance approves", x: 184, y: 160, at: 0.42, kind: "step" },
+  { label: "PO issued", x: 96, y: 252, at: 0.56, kind: "end" },
 ] as const;
 const flowEdges = [
-  { d: "M120 60 L200 60", at: 0.1 },
-  { d: "M96 78 Q 40 110, 40 160", at: 0.22, label: { x: 8, y: 118, text: "No" } },
-  { d: "M244 78 Q 244 120, 244 160", at: 0.34, label: { x: 250, y: 118, text: "Yes" } },
-  { d: "M64 204 Q 90 232, 112 254", at: 0.48 },
-  { d: "M244 204 Q 200 236, 160 254", at: 0.5 },
+  { d: "M114 62 L182 62", at: 0.1 },
+  { d: "M204 84 Q 60 108, 60 156", at: 0.22, label: { x: 102, y: 116, text: "No" } },
+  { d: "M236 84 L236 156", at: 0.34, label: { x: 244, y: 124, text: "Yes" } },
+  { d: "M60 204 Q 70 240, 100 250", at: 0.48 },
+  { d: "M236 204 Q 228 240, 196 250", at: 0.5 },
 ];
 const rules = [
   { text: "Orders ≥ $10,000 require Finance approval", at: 0.62 },
@@ -212,10 +212,10 @@ const rules = [
 
 function DiscoverScene({ t }: { t: number }) {
   return (
-    <div className="grid h-full grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-4 p-5 @max-[760px]:grid-cols-1 @max-[760px]:p-3.5">
+    <div className="grid h-full grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-4 p-5 @max-[640px]:grid-cols-1 @max-[640px]:p-3.5">
       <Panel title="Workflow map">
-        <div className="relative h-[300px] @max-[760px]:h-[280px]">
-          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 300 300" aria-hidden="true">
+        <div className="relative mx-auto h-[300px] w-[296px] max-w-full">
+          <svg className="absolute left-0 top-0" width="296" height="300" viewBox="0 0 296 300" aria-hidden="true">
             {flowEdges.map((e, i) => (
               <g key={i}>
                 <path
@@ -309,10 +309,10 @@ const scope = [
 
 function ScopeScene({ t }: { t: number }) {
   return (
-    <div className="grid h-full grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-4 p-5 @max-[760px]:grid-cols-1 @max-[760px]:p-3.5">
+    <div className="grid h-full grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-4 p-5 @max-[640px]:grid-cols-1 @max-[640px]:p-3.5">
       <Panel title="System architecture">
-        <div className="relative h-[300px] @max-[760px]:h-[260px]">
-          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 320 260" aria-hidden="true">
+        <div className="relative mx-auto h-[260px] w-[296px] max-w-full">
+          <svg className="absolute left-0 top-0" width="296" height="260" viewBox="0 0 296 260" aria-hidden="true">
             {archEdges.map(([a, b, at], i) => {
               const on = t >= at;
               const na = archNodes[a];
@@ -393,7 +393,7 @@ function BuildScene({ t }: { t: number }) {
   const typed = codeLine.slice(0, Math.floor(clamp01(t / 0.4) * codeLine.length));
   const typing = t < 0.4;
   return (
-    <div className="grid h-full grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-4 p-5 @max-[760px]:grid-cols-1 @max-[760px]:p-3.5">
+    <div className="grid h-full grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-4 p-5 @max-[640px]:grid-cols-1 @max-[640px]:p-3.5">
       <div className="flex min-h-0 min-w-0 flex-col gap-3">
         <div className="rounded-xl border border-rule bg-navy p-4 font-mono text-[11.5px] leading-relaxed text-white/85 shadow-xs">
           <div className="mb-2 text-[10px] uppercase tracking-wider text-white/40">approvals.ts</div>
@@ -459,7 +459,7 @@ function ReleaseScene({ t, gf }: { t: number; gf: number }) {
   const live = gf >= 0.9;
   const ticket = t >= 0.86;
   return (
-    <div className="grid h-full grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-4 p-5 @max-[760px]:grid-cols-1 @max-[760px]:p-3.5">
+    <div className="grid h-full grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-4 p-5 @max-[640px]:grid-cols-1 @max-[640px]:p-3.5">
       <Panel title="Deployment">
         <div className="flex items-center gap-2">
           {pipeline.map((p, i) => (

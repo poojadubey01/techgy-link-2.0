@@ -15,10 +15,12 @@ const nav = [
 export function Header() {
   const path = usePathname();
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const mobile = useRef<HTMLDialogElement>(null);
   const details = useRef<HTMLDetailsElement>(null);
   useEffect(() => {
     setOpen(false);
+    setServicesOpen(false);
     if (details.current) details.current.open = false;
   }, [path]);
   useEffect(() => {
@@ -174,29 +176,67 @@ export function Header() {
             ["Services", "/services"],
             ...nav,
             ["Contact", "/contact"],
-          ].map(([label, href]) => (
-            <Link
-              onClick={() => setOpen(false)}
-              key={href}
-              href={href}
-              className="flex justify-between items-center py-3 border-b border-rule font-display text-[29px]"
-            >
-              {label}
-              <ArrowUpRight />
-            </Link>
-          ))}
+          ].map(([label, href]) =>
+            label === "Services" ? (
+              <div key={href} className="border-b border-rule">
+                <button
+                  type="button"
+                  onClick={() => setServicesOpen((v) => !v)}
+                  aria-expanded={servicesOpen}
+                  aria-controls="mobile-services"
+                  className="flex w-full justify-between items-center py-3 font-display text-[29px] text-left"
+                >
+                  <span className={servicesOpen ? "text-brand" : ""}>Services</span>
+                  <ChevronDown
+                    size={24}
+                    className={`transition-transform duration-300 ${servicesOpen ? "rotate-180 text-brand" : ""}`}
+                  />
+                </button>
+                <div
+                  id="mobile-services"
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${servicesOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+                >
+                  <div className="overflow-hidden">
+                    <ul className="m-0 flex list-none flex-col p-0 pb-3" inert={!servicesOpen}>
+                      {services.map((s) => (
+                        <li key={s.id}>
+                          <Link
+                            onClick={() => setOpen(false)}
+                            href={"/services/" + s.id}
+                            className="flex items-center gap-3 border-t border-rule/60 py-3 pl-1 text-[15px] leading-snug text-[#000000] hover:text-brand"
+                          >
+                            <span className="w-6 shrink-0 font-mono text-[11px] text-black/40">{s.num}</span>
+                            <span className="flex-1">{s.name}</span>
+                            <ArrowUpRight size={16} className="shrink-0 text-black/40" />
+                          </Link>
+                        </li>
+                      ))}
+                      <li>
+                        <Link
+                          onClick={() => setOpen(false)}
+                          href="/services"
+                          className="flex items-center gap-2 border-t border-rule/60 pt-3.5 pl-1 text-[14px] font-medium text-brand"
+                        >
+                          All services <ArrowUpRight size={16} />
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                onClick={() => setOpen(false)}
+                key={href}
+                href={href}
+                className="flex justify-between items-center py-3 border-b border-rule font-display text-[29px]"
+              >
+                {label}
+                <ArrowUpRight />
+              </Link>
+            ),
+          )}
         </nav>
-        <div className="grid gap-4 mt-9 text-sm text-[#000000]">
-          {services.map((s) => (
-            <Link
-              onClick={() => setOpen(false)}
-              key={s.id}
-              href={"/services/" + s.id}
-            >
-              {s.name}
-            </Link>
-          ))}
-        </div>
       </dialog>
     </>
   );
