@@ -1,9 +1,7 @@
-import Link from "@/app/components/ui/internal-link";
-import { ArrowUpRight } from "@/app/components/ui/icons";
 export function ConnectedProof() {
   return (
     <section
-      className="bg-[#111625] text-white overflow-hidden py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]"
+      className="bg-[#111625] text-white overflow-hidden section-space"
       id="selected-work"
     >
       <div className="site-container mx-auto">
@@ -28,13 +26,14 @@ export function ConnectedProof() {
               A shared business challenge, approached through design and
               engineering.
             </p>
-            <p className="text-[13px] mt-5 text-[#f8f9fa]">
-              <Link
-                href="/work/greenland-capital"
-                className="inline-flex items-center gap-2 text-[13px] text-brand bg-[#f8f9fa] border border-[#e2e8f0] rounded-full py-[7px] px-[14px] hover:bg-white"
-              >
-                Ongoing project <ArrowUpRight size={16} />
-              </Link>
+            <p className="mt-5">
+              <span className="inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/10 px-3.5 py-2 text-[13px] font-medium text-white">
+                <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                </span>
+                Ongoing project
+              </span>
             </p>
           </div>
         </div>
@@ -102,12 +101,6 @@ export function ConnectedProof() {
               </small>
             </span>
           </div>
-          <Link
-            href="/work/greenland-capital"
-            className="cta-button inline-flex items-center rounded-full bg-white text-brand border border-white col-start-1 row-start-2 self-end justify-self-start mb-[25px] max-[767px]:mb-0 max-[767px]:mt-1.5"
-          >
-            Read the connected project story <ArrowUpRight size={18} className="max-[767px]:w-[15px]" />
-          </Link>
         </div>
       </div>
     </section>

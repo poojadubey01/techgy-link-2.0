@@ -11,7 +11,7 @@ export const metadata = {
 export default function Work() {
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="page-intro site-container mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
+      <section className="page-intro site-container mx-auto section-space">
         <p className="eyebrow text-brand">
           Selected work
         </p>
@@ -26,7 +26,7 @@ export default function Work() {
           architectural visualisation.
         </p>
       </section>
-      <section className="site-container mx-auto pt-4 pb-5 max-[767px]:pt-2 max-[767px]:pb-0">
+      <section className="site-container mx-auto">
         <Suspense fallback={null}>
           <WorkExplorer />
         </Suspense>

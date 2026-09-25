@@ -9,7 +9,7 @@ export const metadata = {
 export default function Solutions() {
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="page-intro site-container mx-auto pt-[75px] pb-[70px] max-[767px]:pt-[50px] max-[767px]:pb-[45px]">
+      <section className="page-intro site-container mx-auto section-space">
         <p className="eyebrow text-brand">
           Connected solutions
         </p>
@@ -24,7 +24,7 @@ export default function Solutions() {
           so the work moves toward the same business goal.
         </p>
       </section>
-      <section className="pt-[30px] pb-5 max-[767px]:pt-[5px] max-[767px]:pb-0">
+      <section>
         <div className="site-container mx-auto">
           {solutions.map((s, i) => (
             <Link

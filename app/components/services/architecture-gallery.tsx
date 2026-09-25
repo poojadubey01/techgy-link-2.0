@@ -28,7 +28,7 @@ export function ArchitectureGallery() {
   };
   return (
     <section
-      className="architecture-section py-[85px] max-[767px]:py-[55px] site-container mx-auto"
+      className="architecture-section section-space site-container mx-auto"
       id="selected-work"
     >
       <div className="section-heading flex justify-between items-end gap-10 mb-[45px] max-[767px]:block max-[767px]:mb-[33px]">

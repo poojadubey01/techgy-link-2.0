@@ -93,7 +93,7 @@ const manifestoLines = [
 export default function About() {
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="site-container mx-auto pt-[65px] pb-20 max-[767px]:pt-[35px] max-[767px]:pb-[50px]">
+      <section className="site-container mx-auto section-space">
         <p className="eyebrow text-brand">
           Our story / A company growing into its name
         </p>
@@ -122,7 +122,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section className="rebrand-statement bg-brand text-white pt-[90px] pb-[100px] overflow-hidden max-[767px]:pt-[55px] max-[767px]:pb-[65px]">
+      <section className="rebrand-statement bg-brand text-white section-space overflow-hidden">
         <div className="site-container mx-auto">
           <p className="eyebrow text-[#f8f9fa]">
             Why Link?
@@ -157,7 +157,7 @@ export default function About() {
           </p>
         </div>
       </section>
-      <section className="site-container mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] grid grid-cols-[1fr_1fr] gap-[110px] max-[1100px]:gap-[60px] max-[767px]:block">
+      <section className="site-container mx-auto section-space grid grid-cols-[1fr_1fr] gap-[110px] max-[1100px]:gap-[60px] max-[767px]:block">
         <div className="sticky top-[140px] self-start max-[767px]:static">
           <p className="eyebrow text-brand">
             How we got here
@@ -209,7 +209,7 @@ export default function About() {
           ))}
         </div>
       </section>
-      <section className="mt-0 mb-0 bg-[#0f1a34] py-20 text-white max-[767px]:py-[55px]">
+      <section className="bg-[#0f1a34] section-space text-white">
         <div className="site-container mx-auto">
           <div className="grid grid-cols-2 gap-[10%] items-end mb-[30px] max-[767px]:block">
             <div>
@@ -246,7 +246,7 @@ export default function About() {
         </div>
       </section>
       <section
-        className="bg-[#f8f9fa] py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]"
+        className="bg-[#f8f9fa] section-space"
         id="our-teams"
       >
         <div className="site-container mx-auto">
@@ -298,7 +298,7 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section className="bg-[#e2e8f0] py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
+      <section className="bg-[#e2e8f0] section-space">
         <div className="site-container mx-auto">
           <p className="eyebrow text-brand">
             The company we are building

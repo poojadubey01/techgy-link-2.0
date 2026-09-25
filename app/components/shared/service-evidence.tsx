@@ -7,7 +7,7 @@ import { ArrowUpRight } from "@/app/components/ui/icons";
 type Service = (typeof services)[number];
 
 const sectionClass =
-  "py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]";
+  "section-space";
 const eyebrowClass =
   "eyebrow text-brand";
 const textLinkClass =

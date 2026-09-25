@@ -260,7 +260,7 @@ export function Testimonials() {
   };
 
   return (
-    <section aria-labelledby="testimonials-title" className="w-full py-10 md:py-14 [@media(min-width:1360px)]:py-16">
+    <section aria-labelledby="testimonials-title" className="w-full section-space">
       <div className="site-container mx-auto mb-10 md:mb-16 [@media(min-width:1360px)]:mb-25 flex items-center justify-between gap-6">
         <motion.h2
           id="testimonials-title"

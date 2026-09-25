@@ -254,13 +254,21 @@
 :root {
   --site-gutter: clamp(20px, 4vw, 56px);
   --site-width: 1424px;
+  --section-space: 56px;
 }
+.section-space { padding-block: var(--section-space); }
 .site-container {
   width: min(var(--site-width), calc(100% - 2 * var(--site-gutter)));
   margin-inline: auto;
 }
 @media (min-width: 1920px) {
   :root { --site-width: 1760px; }
+}
+@media (max-width: 1023px) {
+  :root { --section-space: 48px; }
+}
+@media (max-width: 767px) {
+  :root { --section-space: 40px; }
 }
 @media (min-width: 2560px) {
   :root { --site-width: 2080px; }

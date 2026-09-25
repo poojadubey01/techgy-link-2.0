@@ -19,7 +19,7 @@ export function CTA({
   label?: string;
 }) {
   return (
-    <section className="reveal flex items-center justify-between gap-[50px] bg-[#0022ff] text-white rounded-md py-[55px] px-[60px] my-[70px] site-container mx-auto max-[1200px]:p-10 max-[767px]:flex-col max-[767px]:items-start max-[767px]:py-[35px] max-[767px]:px-[25px] max-[767px]:my-[55px]">
+    <section className="reveal flex items-center justify-between gap-[50px] bg-[#0022ff] text-white rounded-md py-[55px] px-[60px] my-[var(--section-space)] site-container mx-auto max-[1200px]:p-10 max-[767px]:flex-col max-[767px]:items-start max-[767px]:py-[35px] max-[767px]:px-[25px]">
       <div className="max-w-[800px]">
         <p className="eyebrow text-white/80">
           Let’s make it happen
@@ -69,16 +69,25 @@ export function SectionTitle({
   );
 }
 
-export function ServiceClients({ service: s }: { service: Service }) {
-  if (!s.clients || s.clients.length === 0) return null;
+export function ServiceClients({ service }: { service: Service }) {
+  return <ClientsFor services={[service]} />;
+}
+// Clients across several services, de-duplicated by name.
+export function ClientsFor({ services: list }: { services: (Service | undefined)[] }) {
+  const clients = [
+    ...new Map(
+      list.flatMap((s) => s?.clients ?? []).map((c) => [c.name, c]),
+    ).values(),
+  ];
+  if (clients.length === 0) return null;
   return (
-    <section className="reveal py-[70px] max-[767px]:py-[45px] border-t border-t-rule">
+    <section className="reveal section-space border-t border-t-rule">
       <div className="site-container mx-auto flex items-center gap-[50px] max-[767px]:flex-col max-[767px]:items-start max-[767px]:gap-6">
         <p className="eyebrow text-brand shrink-0">
           Clients we&rsquo;ve done this for
         </p>
         <div className="grid w-full grid-cols-2 items-center gap-x-5 gap-y-6 min-[768px]:flex min-[768px]:w-auto min-[768px]:flex-wrap min-[768px]:gap-x-12">
-          {s.clients.map((c) => (
+          {clients.map((c) => (
             <img
               key={c.name}
               src={c.logo}

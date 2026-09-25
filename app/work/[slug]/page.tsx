@@ -1,10 +1,11 @@
+import { GrowthPartners } from "@/app/components/home/growth-partners";
 import { storyFor } from "@/data/portfolio-stories";
 import { CaseStudy } from "@/app/components/work/case-study";
 import { ProjectBlueprint } from "@/app/components/work/project-blueprint";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "@/app/components/ui/internal-link";
-import { work, architecture, services, digitalProjects } from "@/data/catalogue";
-import { CTA, SectionTitle, WorkCard, Arrow } from "@/app/components/shared/common-blocks";
+import { work, architecture, services } from "@/data/catalogue";
+import { CTA, SectionTitle, Arrow, ClientsFor } from "@/app/components/shared/common-blocks";
 export function generateStaticParams() {
   return work.map((p) => ({ slug: p.slug }));
 }
@@ -40,7 +41,7 @@ export default async function Project({
   );
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="page-intro site-container mx-auto pt-[75px] pb-[60px] max-[767px]:pt-[50px] max-[767px]:pb-[40px]">
+      <section className="page-intro site-container mx-auto section-space">
         <nav
           className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
           aria-label="Breadcrumb"
@@ -81,7 +82,7 @@ export default async function Project({
           fetchPriority="high"
         />
       </figure>
-      <section className="site-container mx-auto grid grid-cols-[1.1fr_1fr] gap-[95px] py-[65px] border-b border-rule max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px] max-[767px]:py-10">
+      <section className="site-container mx-auto grid grid-cols-[1.1fr_1fr] gap-[95px] section-space border-b border-rule max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
         <div>
           <h2 className="mb-[25px]">
             {gallery ? "A sense of place." : "A closer look at the work."}
@@ -91,11 +92,7 @@ export default async function Project({
               ? "This collection explores the architecture at different scales, from its wider setting to individual spaces. Composition, light and material detail are used to make the proposed environment understandable."
               : slug === "quickbooks-integration"
                 ? "This engagement connects business operations with QuickBooks Desktop through an accounting integration. The focus is the flow of information between systems, including invoicing and financial data."
-                : slug.startsWith("glc-")
-                  ? "Greenland Capital brings property discovery, screening and administration into connected digital journeys. This project view focuses on " +
-                    p.name.replace("GLC ", "").toLowerCase() +
-                    " and the scope shown in the published project presentation."
-                  : p.description}
+                : p.description}
           </p>
           {slug === "quickbooks-integration" && (
             <p
@@ -106,29 +103,11 @@ export default async function Project({
               that Intuit or QuickBooks commissioned TechGy Link.
             </p>
           )}
-          {slug.startsWith("glc-") ? (
-            <div className="mt-7 [&>p]:my-[18px]!">
-              <span className="inline-block text-[13px] text-brand bg-[#f8f9fa] border border-[#e2e8f0] rounded-full py-[7px] px-[14px]">
-                Part of an ongoing project
-              </span>
-              <p>
-                This interface is one part of the Greenland Capital platform.
-                Explore the wider business challenge and the connected scope.
-              </p>
-              <Link
-                href="/work/greenland-capital"
-                className="cta-link inline-flex items-center font-medium text-brand"
-              >
-                The Greenland Capital story <Arrow />
-              </Link>
-            </div>
-          ) : (
-            !gallery && (
-              <p className="text-sm leading-[1.8]" style={{ marginTop: 24 }}>
-                Project presentation. For a current demonstration and a
-                discussion of the delivered scope, speak with our team.
-              </p>
-            )
+          {!gallery && (
+            <p className="text-sm leading-[1.8]" style={{ marginTop: 24 }}>
+              Project presentation. For a current demonstration and a
+              discussion of the delivered scope, speak with our team.
+            </p>
           )}
         </div>
         <div className="grid grid-cols-[1fr_1fr] gap-[30px] border-l border-rule pl-[35px] max-[767px]:gap-6 max-[767px]:border-l-0 max-[767px]:pl-0">
@@ -163,7 +142,7 @@ export default async function Project({
         </div>
       </section>
       {gallery ? (
-        <section className="py-[120px] max-[767px]:py-[70px] site-container mx-auto">
+        <section className="section-space site-container mx-auto">
           <SectionTitle
             label={gallery.images.length + " original images"}
             title="Explore the collection."
@@ -198,29 +177,10 @@ export default async function Project({
             ))}
           </div>
         </section>
-      ) : slug.startsWith("glc-") ? (
-        <section className="py-[120px] max-[767px]:py-[70px] site-container mx-auto">
-          <SectionTitle
-            label="The connected platform"
-            title="One business. Multiple experiences."
-            description=""
-          />
-          <div className="grid grid-cols-[1fr_1fr] gap-y-[60px] gap-x-8 max-[767px]:grid-cols-[1fr] max-[767px]:gap-[35px]">
-            {digitalProjects
-              .filter((x) => x.slug.startsWith("glc-") && x.slug !== slug)
-              .map((x, i) => (
-                <WorkCard
-                  key={x.slug}
-                  project={x}
-                  className={
-                    i % 4 === 1 ? "pt-[85px] max-[767px]:pt-0" : undefined
-                  }
-                />
-              ))}
-          </div>
-        </section>
       ) : null}
       <ProjectBlueprint slug={slug} />
+      <GrowthPartners />
+      <ClientsFor services={relatedServices.length ? relatedServices : [services[3]]} />
       <CTA
         title="Have a similar challenge?"
         service={

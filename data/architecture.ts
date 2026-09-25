@@ -889,26 +889,20 @@ export default [
     "slug": "dates-county",
     "title": "Eco World",
     "location": "India",
-    "sector": "Resorts & Farmland Community",
+    "sector": "Luxury Plotting Community",
     "tags": ["Resort Masterplan", "Golf & Sports", "Lake View"],
     "coverImage": "/architecture/dates-county/Aerial_view_-Dates_County.webp",
-    "imageCount": 16,
+    "imageCount": 15,
     "images": [
       {
-        "caption": "Aerial view  Eco World",
-        "url": "/architecture/dates-county/Aerial_view_-Dates_County.webp",
+        "caption": "Eco World Aerial View",
+        "url": "/architecture/dates-county/Date_County_Aerial_View.webp",
         "width": 1920,
         "height": 1080
       },
       {
         "caption": "Convention Hall",
         "url": "/architecture/dates-county/Convention_Hall.webp",
-        "width": 1920,
-        "height": 1080
-      },
-      {
-        "caption": "Eco World Aerial View",
-        "url": "/architecture/dates-county/Date_County_Aerial_View.webp",
         "width": 1920,
         "height": 1080
       },

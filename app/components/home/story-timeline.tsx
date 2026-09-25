@@ -26,7 +26,7 @@ const chapters = [
 export function CompanyEvolution() {
   return (
     <section
-      className="bg-brand text-white pt-[105px] pb-[60px] max-[767px]:pt-[65px] max-[767px]:pb-[35px]"
+      className="bg-brand text-white section-space"
       id="why-link"
     >
       <div className="site-container mx-auto">

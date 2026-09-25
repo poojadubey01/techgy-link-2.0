@@ -29,7 +29,7 @@ export default async function Campaign({
   const s = c.service;
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="site-container mx-auto bg-[#f8f9fa] py-[65px] max-[767px]:py-10">
+      <section className="site-container mx-auto bg-[#f8f9fa] section-space">
         <div className="grid grid-cols-[1.05fr_1fr] gap-[60px] items-center max-[1023px]:gap-[30px] max-[767px]:grid-cols-1 max-[767px]:gap-8">
           <div className="block">
             <p className="eyebrow text-brand">
@@ -63,7 +63,7 @@ export default async function Campaign({
           <ServiceVisual service={s} />
         </div>
       </section>
-      <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] bg-[#e2e8f0]">
+      <section className="section-space bg-[#e2e8f0]">
         <div className="site-container mx-auto">
           <SectionTitle
             label="A focused engagement"
@@ -92,7 +92,7 @@ export default async function Campaign({
       </section>
       <ServiceEvidence service={s} campaign />
       <section
-        className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] bg-[#0f1a34] text-white"
+        className="section-space bg-[#0f1a34] text-white"
         id="start"
       >
         <div className="site-container mx-auto grid grid-cols-[1fr_1fr] gap-[95px] max-[1023px]:gap-[50px] max-[767px]:grid-cols-1 max-[767px]:gap-[35px]">
@@ -125,7 +125,7 @@ export default async function Campaign({
           />
         </div>
       </section>
-      <section className="site-container mx-auto py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] grid grid-cols-[1fr_1fr] gap-[100px] max-[1023px]:gap-[50px] max-[767px]:grid-cols-1 max-[767px]:gap-[30px]">
+      <section className="site-container mx-auto section-space grid grid-cols-[1fr_1fr] gap-[100px] max-[1023px]:gap-[50px] max-[767px]:grid-cols-1 max-[767px]:gap-[30px]">
         <div>
           <p className="eyebrow text-brand">
             Before we start

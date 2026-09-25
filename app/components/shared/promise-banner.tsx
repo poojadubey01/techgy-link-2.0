@@ -32,7 +32,7 @@ export function PartnerPromise({ compact = false }: { compact?: boolean }) {
   ];
 
   return (
-    <section className="bg-paper py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]">
+    <section className="bg-paper section-space">
       <div className="site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1100px]:gap-[50px] max-[767px]:block">
         <div>
           <p className="eyebrow text-brand">

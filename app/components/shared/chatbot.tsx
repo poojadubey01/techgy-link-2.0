@@ -34,10 +34,6 @@ const VIEW_WORK_SUGGESTION = "See our work";
 // Real project names the backend may name, mapped to where they actually
 // live on this site. Kept in sync with data/content.ts and app/products.
 const PROJECT_LINKS: Record<string, string> = {
-  "glc user mobile": "/work/glc-user-mobile",
-  "glc user website": "/work/glc-user-website",
-  "glc css dashboard": "/work/glc-screening-dashboard",
-  "glc superadmin": "/work/glc-superadmin",
   "eco world": "/work/eco-world",
   "lending bridge": "/work/lending-bridge",
   quickbooks: "/work/quickbooks-integration",

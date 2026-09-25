@@ -45,7 +45,7 @@ const groups = [
 export function CollectiveCapabilities() {
   return (
     <section
-      className="bg-white py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]"
+      className="bg-white section-space"
       id="expertise"
     >
       <div className="site-container mx-auto">

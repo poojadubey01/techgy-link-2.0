@@ -1,15 +1,22 @@
+import { GrowthPartners } from "@/app/components/home/growth-partners";
 import { SolutionEvidence } from "@/app/components/shared/portfolio-highlights";
 import { SolutionCollaboration } from "@/app/components/shared/service-contribution";
 import { ConnectedWorkspaceCanvas } from "@/app/components/services/connected-workspace-canvas";
 import { DigitalExperienceHeroCanvas } from "@/app/components/solutions/digital-experience-hero-laptop";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "@/app/components/ui/internal-link";
-import { solutions, enquiry } from "@/data/catalogue";
-import { SectionTitle, CTA, Arrow } from "@/app/components/shared/common-blocks";
+import { solutions, enquiry, services } from "@/data/catalogue";
+import { CTA, Arrow, ClientsFor } from "@/app/components/shared/common-blocks";
 const aliases = {
   "property-launch-sales-enablement": "property-launch-sales",
   "digital-experience-product-delivery": "digital-experience-product",
 };
+const startingOutcomes = [
+  "A documented brief and priorities",
+  "Named delivery and review responsibilities",
+  "A scoped proposal with clear dependencies",
+  "Agreed evidence for acceptance and handover",
+];
 export function generateStaticParams() {
   return solutions.map((s) => ({ slug: s.id }));
 }
@@ -36,7 +43,7 @@ export default async function Solution({
   if (!s) notFound();
   return (
     <main id="main" className="bg-[#f8f9fa]">
-      <section className="page-intro site-container mx-auto pt-[75px] pb-[60px] max-[767px]:pt-[50px] max-[767px]:pb-[40px]">
+      <section className="page-intro site-container mx-auto section-space">
         <nav
           className="flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
           aria-label="Breadcrumb"
@@ -92,7 +99,7 @@ export default async function Solution({
         </figure>
       )}
       <SolutionCollaboration id={s.id} />
-      <section className="py-[120px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
+      <section className="section-space border-t border-t-rule site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
         <div>
           <p className="eyebrow text-brand">
             A connected plan
@@ -115,43 +122,30 @@ export default async function Solution({
           ))}
         </div>
       </section>
-      <section className="py-[120px] max-[767px]:py-[70px] bg-paper">
-        <div className="site-container mx-auto [&>.section-title]:mb-0">
-          <SectionTitle
-            label="The expertise behind it"
-            title="Select the parts you need."
-            description="Each service is independently available. Shared discovery, assets and engineering are identified once in the scope."
-          />
-        </div>
-      </section>
-      <section className="py-[120px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[1200px]:gap-[50px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
-        <div>
-          <p className="eyebrow text-brand">
-            Your starting engagement
-          </p>
-          <h2 className="mt-6 max-[767px]:mt-5">A useful first step.</h2>
-        </div>
-        <div>
-          <p className="font-display text-[clamp(23px,2.35vw,35px)] leading-[1.4] tracking-[-0.025em] max-[767px]:text-[25px]">
-            {s.start}
-          </p>
-          <ul className="outcomes my-8 mx-0 max-[767px]:my-[25px]">
-            <li className="relative pt-[18px] pr-0 pb-[18px] pl-[25px] border-t border-t-rule text-[16px] text-[#000000] before:content-['—'] before:absolute before:left-0 before:text-brand max-[767px]:text-[15px] max-[767px]:py-[15px]">
-              A documented brief and priorities
-            </li>
-            <li className="relative pt-[18px] pr-0 pb-[18px] pl-[25px] border-t border-t-rule text-[16px] text-[#000000] before:content-['—'] before:absolute before:left-0 before:text-brand max-[767px]:text-[15px] max-[767px]:py-[15px]">
-              Named delivery and review responsibilities
-            </li>
-            <li className="relative pt-[18px] pr-0 pb-[18px] pl-[25px] border-t border-t-rule text-[16px] text-[#000000] before:content-['—'] before:absolute before:left-0 before:text-brand max-[767px]:text-[15px] max-[767px]:py-[15px]">
-              A scoped proposal with clear dependencies
-            </li>
-            <li className="relative pt-[18px] pr-0 pb-[18px] pl-[25px] border-t border-t-rule text-[16px] text-[#000000] before:content-['—'] before:absolute before:left-0 before:text-brand max-[767px]:text-[15px] max-[767px]:py-[15px]">
-              Agreed evidence for acceptance and handover
-            </li>
-          </ul>
+      <section className="bg-white section-space">
+        <div className="site-container mx-auto">
+          <div className="grid grid-cols-[0.9fr_1.1fr] items-end gap-[10%] border-b border-rule pb-12 max-[767px]:block max-[767px]:pb-8">
+            <div>
+              <p className="eyebrow text-brand">Your starting engagement</p>
+              <h2 className="mt-6 max-w-[680px] max-[767px]:mt-5">A useful first step.</h2>
+            </div>
+            <p className="max-w-[700px] font-display text-[clamp(23px,2.3vw,34px)] leading-[1.4] tracking-[-0.025em] max-[767px]:mt-7 max-[767px]:text-[23px]">
+              {s.start}
+            </p>
+          </div>
+          <ol className="grid grid-cols-2 gap-x-14 max-[767px]:grid-cols-1">
+            {startingOutcomes.map((outcome, i) => (
+              <li key={outcome} className="flex gap-5 border-b border-rule py-7 max-[767px]:py-6">
+                <span className="shrink-0 pt-1 text-[12px] font-medium text-brand">0{i + 1}</span>
+                <span className="text-[17px] leading-[1.55] max-[767px]:text-[16px]">{outcome}</span>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
       <SolutionEvidence id={s.id} />
+      <GrowthPartners />
+      <ClientsFor services={s.services.map((i) => services[i])} />
       <CTA
         title="Let’s connect the right expertise."
         text={s.start}

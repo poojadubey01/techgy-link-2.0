@@ -28,7 +28,7 @@ const rows = [
 
 export function WhyTechGy() {
   return (
-    <section className="site-container mx-auto py-[85px] border-b border-b-rule max-[1023px]:py-[70px] max-[767px]:py-[55px]">
+    <section className="site-container mx-auto section-space border-b border-b-rule">
       <p className="eyebrow text-brand">
         Why TechGy
       </p>

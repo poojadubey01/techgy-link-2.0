@@ -13,7 +13,7 @@ const textLinkClass =
 export function ServiceContribution({ service }: { service: Service }) {
   const c = contributions[service.id as keyof typeof contributions];
   return (
-    <section className="bg-paper py-[75px] my-0 max-[767px]:py-[55px]">
+    <section className="bg-paper section-space my-0">
       <div className="site-container mx-auto">
         <p className="eyebrow text-brand">
           The TechGy Link difference
@@ -38,7 +38,7 @@ export function ServiceContribution({ service }: { service: Service }) {
 export function SolutionCollaboration({ id }: { id: string }) {
   const c = solutionConnections[id as keyof typeof solutionConnections];
   return (
-    <section className="bg-paper mt-[70px] max-[767px]:mt-10">
+    <section className="bg-paper section-space">
       <div className="site-container mx-auto">
         <div className="grid grid-cols-[1fr_1fr] gap-[90px] items-end m-0 max-[767px]:block">
           <div>

@@ -1,7 +1,8 @@
+import { GrowthPartners } from "@/app/components/home/growth-partners";
 import Link from "@/app/components/ui/internal-link";
 import { ArrowUpRight } from "@/app/components/ui/icons";
-import { services, digitalProjects } from "@/data/catalogue";
-import { CTA, WorkCard } from "@/app/components/shared/common-blocks";
+import { services } from "@/data/catalogue";
+import { CTA, ClientsFor } from "@/app/components/shared/common-blocks";
 import { CaseArtwork } from "@/app/components/shared/portfolio-highlights";
 import { ProjectBlueprint } from "@/app/components/work/project-blueprint";
 import { portfolioStories } from "@/data/portfolio-stories";
@@ -80,7 +81,7 @@ export function CaseStudy({
         </dl>
       </section>
       <section
-        className="grid grid-cols-[0.85fr_1.15fr] gap-[9%] max-[1023px]:gap-[50px] max-[767px]:block py-[120px] max-[767px]:py-[70px] site-container mx-auto"
+        className="grid grid-cols-[0.85fr_1.15fr] gap-[9%] max-[1023px]:gap-[50px] max-[767px]:block section-space site-container mx-auto"
         id="the-challenge"
       >
         <div>
@@ -106,7 +107,7 @@ export function CaseStudy({
       </section>
       <section
         className={
-          "py-[70px] max-[767px]:py-12 " +
+          "section-space " +
           (p.tone === "spur" ? "bg-[#0f1a34] text-white" : "bg-[#e2e8f0]")
         }
       >
@@ -142,7 +143,7 @@ export function CaseStudy({
         </div>
       </section>
       <ProjectBlueprint slug={p.slug} />
-      <section className="py-[120px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[0.85fr_1.15fr] gap-[9%] max-[1023px]:gap-[50px] max-[767px]:block">
+      <section className="section-space site-container mx-auto grid grid-cols-[0.85fr_1.15fr] gap-[9%] max-[1023px]:gap-[50px] max-[767px]:block">
         <div>
           <p className={eyebrow}>03 / Design the important details</p>
           <h2 className={sectionH2}>
@@ -168,34 +169,7 @@ export function CaseStudy({
           ))}
         </div>
       </section>
-      {p.slug === "greenland-capital" && (
-        <section className="py-[120px] max-[767px]:py-[70px] site-container mx-auto">
-          <div className="grid grid-cols-[1.4fr_1fr] gap-[10%] items-end mb-[42px] max-[1023px]:gap-10 max-[767px]:block max-[767px]:mb-8">
-            <div>
-              <p className={eyebrow}>The connected platform</p>
-              <h2 className="mt-6 max-[767px]:mt-5">
-                Different roles.
-                <br />A shared business.
-              </h2>
-            </div>
-            <p className="text-[17px] leading-[1.85] text-[#000000] max-w-[430px] max-[767px]:text-[16px] max-[767px]:mt-6">
-              Explore the customer experiences and the operational interfaces as
-              individual parts of the wider platform.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-y-[60px] gap-x-8 max-[767px]:grid-cols-1 max-[767px]:gap-[35px]">
-            {digitalProjects
-              .filter((x) => x.slug.startsWith("glc-"))
-              .map((x) => (
-                <WorkCard
-                  key={x.slug}
-                  project={x}
-                />
-              ))}
-          </div>
-        </section>
-      )}
-      <section className="grid grid-cols-[1.2fr_1fr] gap-[12%] border-t border-[#e2e8f0] max-[767px]:block py-[120px] max-[767px]:py-[70px] site-container mx-auto">
+      <section className="grid grid-cols-[1.2fr_1fr] gap-[12%] border-t border-[#e2e8f0] max-[767px]:block section-space site-container mx-auto">
         <div>
           <p className={eyebrow}>The engagement</p>
           <h2 className={`${sectionH2} mb-[23px] max-[767px]:mb-[30px]`}>
@@ -217,7 +191,7 @@ export function CaseStudy({
           </ul>
         </div>
       </section>
-      <section className="bg-brand text-white py-[75px] max-[767px]:py-12">
+      <section className="bg-brand text-white section-space">
         <div className="site-container mx-auto grid grid-cols-[1.3fr_1fr] gap-[10%] items-center max-[767px]:block">
           <div>
             <p className="eyebrow text-[#f8f9fa]">
@@ -249,6 +223,8 @@ export function CaseStudy({
           </div>
         </div>
       </section>
+      <GrowthPartners />
+      <ClientsFor services={p.services.map((id) => services.find((s) => s.id === id))} />
       <CTA
         title="What is your business trying to make possible?"
         text="Share the challenge, the people involved and the systems around it. We’ll help shape the right starting point."

@@ -27,6 +27,16 @@ const nextConfig: NextConfig = {
         destination: "/work/:path*",
         permanent: true,
       },
+      {
+        source: "/work/glc-:page",
+        destination: "/work/greenland-capital/",
+        permanent: true,
+      },
+      {
+        source: "/services/digital-marketing-sales-enablement/:detail",
+        destination: "/services/digital-marketing-sales-enablement/",
+        permanent: true,
+      },
       ...Object.entries(legacy).map(([oldSlug, slug]) => ({
         source: "/services/" + oldSlug,
         destination: "/services/" + slug,

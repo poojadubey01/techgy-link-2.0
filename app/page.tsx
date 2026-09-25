@@ -43,7 +43,7 @@ export default function Home() {
       <PortfolioBreadth />
       <WhyTechGy />
       <section className="bg-[#e2e8f0]">
-        <div className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[0.85fr_1.4fr] gap-[90px] items-start max-[1100px]:gap-[45px] max-[1100px]:grid-cols-[0.8fr_1.2fr] max-[767px]:block">
+        <div className="section-space site-container mx-auto grid grid-cols-[0.85fr_1.4fr] gap-[90px] items-start max-[1100px]:gap-[45px] max-[1100px]:grid-cols-[0.8fr_1.2fr] max-[767px]:block">
           <div className="sticky top-[150px] max-[767px]:static">
             <p className="eyebrow text-brand">
               Where your next chapter can begin

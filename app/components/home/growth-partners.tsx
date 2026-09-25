@@ -2,7 +2,7 @@ export function GrowthPartners() {
   return (
     <section
       aria-labelledby="growth-partners-title"
-      className="bg-white pt-[100px] pb-[75px] max-[1023px]:pt-[80px] max-[1023px]:pb-[60px] max-[767px]:pt-[60px] max-[767px]:pb-[45px]"
+      className="bg-white section-space"
     >
       <div className="site-container mx-auto flex items-center gap-10 max-[767px]:flex-col max-[767px]:items-start max-[767px]:gap-5">
         <div className="shrink-0 max-w-[260px]">

@@ -6,7 +6,6 @@ import Link from "@/app/components/ui/internal-link";
 import {
   services,
   oldServiceRoutes,
-  marketing,
   enquiry,
 } from "@/data/catalogue";
 import {
@@ -50,14 +49,13 @@ export default async function Service({
   const s = services.find((s) => s.id === slug);
   if (!s) notFound();
   const architecture = s.id === "architectural-visualisation";
-  const isMarketing = s.id === "digital-marketing-sales-enablement";
   const showServiceEvidence = ![
     "ui-ux-product-design",
     "website-design-development",
   ].includes(s.id);
   return (
     <main id="main" className="service-page bg-[#f8f9fa]">
-      <section className="detail-hero bg-[#f8f9fa] w-full pt-[38px] pb-[58px] max-[767px]:pt-[25px] max-[767px]:pb-[35px]">
+      <section className="detail-hero bg-[#f8f9fa] w-full section-space">
         <div className="site-container mx-auto">
           <nav
             className="breadcrumb flex gap-3 items-center flex-wrap text-[13px] text-[#000000] mb-[35px] [&_a:hover]:text-brand max-[767px]:text-[12px] max-[767px]:mb-7 max-[767px]:gap-[9px]"
@@ -91,7 +89,7 @@ export default async function Service({
         </div>
       </section>
       <section
-        className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]"
+        className="section-space site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]"
         id="overview"
       >
         <div>
@@ -122,7 +120,7 @@ export default async function Service({
       <ServiceContribution service={s} />
       <GrowthPartners />
       <section
-        className="bg-transparent py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]"
+        className="bg-transparent section-space"
         id="deliverables"
       >
         <div className="site-container mx-auto">
@@ -149,32 +147,6 @@ export default async function Service({
           </div>
         </div>
       </section>
-      {isMarketing && (
-        <section className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto">
-          <SectionTitle
-            label="Explore the disciplines"
-            title="One journey. Different specialisms."
-            description=""
-          />
-          <div className="related-links grid grid-cols-[repeat(3,1fr)] gap-10 max-[767px]:grid-cols-1 max-[767px]:gap-[25px]">
-            {marketing.map((m) => (
-              <Link
-                href={"/services/digital-marketing-sales-enablement/" + m.slug}
-                key={m.slug}
-                className="group relative flex flex-col items-start border-t border-t-[#e2e8f0] py-7"
-              >
-                <h3 className="text-[30px] leading-[1.2] group-hover:text-brand max-[767px]:text-[27px]">
-                  {m.name}
-                </h3>
-                <p className="text-[15px] text-[#000000] leading-[1.8] mt-5">{m.intro}</p>
-                <span className="mt-6 inline-block">
-                  <Arrow />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
       {architecture ? (
         <div className="architecture-proof bg-[#e2e8f0]" id="proof">
           <ArchitectureGallery />
@@ -184,7 +156,7 @@ export default async function Service({
       ) : null}
       <ServiceClients service={s} />
       <section
-        className="py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px] site-container mx-auto"
+        className="section-space site-container mx-auto"
         id="process"
       >
         <SectionTitle
@@ -198,7 +170,7 @@ export default async function Service({
         />
       </section>
       <section
-        className="bg-transparent py-[120px] max-[1023px]:py-[90px] max-[767px]:py-[70px]"
+        className="bg-transparent section-space"
         id="questions"
       >
         <div className="site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] max-[767px]:grid-cols-[1fr] max-[767px]:gap-[30px]">
