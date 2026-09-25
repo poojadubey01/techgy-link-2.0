@@ -6,7 +6,7 @@ import { DigitalExperienceHeroCanvas } from "@/app/components/solutions/digital-
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "@/app/components/ui/internal-link";
 import { solutions, enquiry, services } from "@/data/catalogue";
-import { CTA, Arrow, ClientsFor } from "@/app/components/shared/common-blocks";
+import { CTA, Arrow } from "@/app/components/shared/common-blocks";
 const aliases = {
   "property-launch-sales-enablement": "property-launch-sales",
   "digital-experience-product-delivery": "digital-experience-product",
@@ -145,7 +145,6 @@ export default async function Solution({
       </section>
       <SolutionEvidence id={s.id} />
       <GrowthPartners />
-      <ClientsFor services={s.services.map((i) => services[i])} />
       <CTA
         title="Let’s connect the right expertise."
         text={s.start}

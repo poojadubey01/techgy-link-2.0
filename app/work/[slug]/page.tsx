@@ -5,7 +5,7 @@ import { ProjectBlueprint } from "@/app/components/work/project-blueprint";
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "@/app/components/ui/internal-link";
 import { work, architecture, services } from "@/data/catalogue";
-import { CTA, SectionTitle, Arrow, ClientsFor } from "@/app/components/shared/common-blocks";
+import { CTA, SectionTitle, Arrow } from "@/app/components/shared/common-blocks";
 export function generateStaticParams() {
   return work.map((p) => ({ slug: p.slug }));
 }
@@ -180,7 +180,6 @@ export default async function Project({
       ) : null}
       <ProjectBlueprint slug={slug} />
       <GrowthPartners />
-      <ClientsFor services={relatedServices.length ? relatedServices : [services[3]]} />
       <CTA
         title="Have a similar challenge?"
         service={

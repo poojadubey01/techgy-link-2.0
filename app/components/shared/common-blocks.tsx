@@ -69,40 +69,6 @@ export function SectionTitle({
   );
 }
 
-export function ServiceClients({ service }: { service: Service }) {
-  return <ClientsFor services={[service]} />;
-}
-// Clients across several services, de-duplicated by name.
-export function ClientsFor({ services: list }: { services: (Service | undefined)[] }) {
-  const clients = [
-    ...new Map(
-      list.flatMap((s) => s?.clients ?? []).map((c) => [c.name, c]),
-    ).values(),
-  ];
-  if (clients.length === 0) return null;
-  return (
-    <section className="reveal section-space border-t border-t-rule">
-      <div className="site-container mx-auto flex items-center gap-[50px] max-[767px]:flex-col max-[767px]:items-start max-[767px]:gap-6">
-        <p className="eyebrow text-brand shrink-0">
-          Clients we&rsquo;ve done this for
-        </p>
-        <div className="grid w-full grid-cols-2 items-center gap-x-5 gap-y-6 min-[768px]:flex min-[768px]:w-auto min-[768px]:flex-wrap min-[768px]:gap-x-12">
-          {clients.map((c) => (
-            <img
-              key={c.name}
-              src={c.logo}
-              alt={c.name}
-              width={120}
-              height={40}
-              loading="lazy"
-              className="h-9 w-auto max-w-[120px] object-contain"
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 export function ServiceDirectory({ compact = false }: { compact?: boolean }) {
   return (
     <div className="mt-[35px]">

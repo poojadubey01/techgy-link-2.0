@@ -2,7 +2,7 @@ import { GrowthPartners } from "@/app/components/home/growth-partners";
 import Link from "@/app/components/ui/internal-link";
 import { ArrowUpRight } from "@/app/components/ui/icons";
 import { services } from "@/data/catalogue";
-import { CTA, ClientsFor } from "@/app/components/shared/common-blocks";
+import { CTA } from "@/app/components/shared/common-blocks";
 import { CaseArtwork } from "@/app/components/shared/portfolio-highlights";
 import { ProjectBlueprint } from "@/app/components/work/project-blueprint";
 import { portfolioStories } from "@/data/portfolio-stories";
@@ -224,7 +224,6 @@ export function CaseStudy({
         </div>
       </section>
       <GrowthPartners />
-      <ClientsFor services={p.services.map((id) => services.find((s) => s.id === id))} />
       <CTA
         title="What is your business trying to make possible?"
         text="Share the challenge, the people involved and the systems around it. We’ll help shape the right starting point."

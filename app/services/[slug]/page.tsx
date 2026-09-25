@@ -14,7 +14,6 @@ import {
   Process,
   CTA,
   Arrow,
-  ServiceClients,
 } from "@/app/components/shared/common-blocks";
 import { FAQs } from "@/app/components/shared/faq-and-explorer";
 import { engagements } from "@/data/engagements";
@@ -154,7 +153,6 @@ export default async function Service({
       ) : showServiceEvidence ? (
         <ServiceEvidence service={s} />
       ) : null}
-      <ServiceClients service={s} />
       <section
         className="section-space site-container mx-auto"
         id="process"
