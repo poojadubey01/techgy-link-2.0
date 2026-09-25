@@ -63,7 +63,7 @@ export function WhyTechGy() {
               >
                 {r.label}
               </th>
-              <td className="py-7 pr-6 align-top text-[17px] leading-[1.6] text-[#000000]/45 line-through decoration-[#000000]/20 max-[767px]:p-0 max-[767px]:text-[15px]">
+              <td className="py-7 pr-6 align-top text-[17px] leading-[1.6] text-[#000000]/45 max-[767px]:p-0 max-[767px]:text-[15px]">
                 <span className="sr-only">Generic IT vendor: </span>
                 {r.them}
               </td>
