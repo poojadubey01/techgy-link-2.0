@@ -10,7 +10,7 @@ type Testimonial = {
   name: string;
   company: string;
   quote: string;
-  logo: string;
+  logo?: string;
 };
 
 const testimonials = testimonialsData as Testimonial[];
@@ -319,14 +319,15 @@ export function Testimonials() {
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="flex items-center gap-4 mt-auto pt-10">
-                  <div className="relative h-10 w-20 shrink-0">
-                    <img
-                      src={t.logo}
-                      alt={t.company}
-                      loading="lazy"
-                      className="absolute inset-0 h-full w-full object-contain object-left"
-                    />
-                  </div>
+                  {t.logo ? (
+                    <div className={`relative w-20 shrink-0 ${t.logo === "/testimonials/vijetha.png" ? "h-14" : "h-10"}`}>
+                      <img src={t.logo} alt={t.company} loading="lazy" className="absolute inset-0 h-full w-full object-contain object-left" />
+                    </div>
+                  ) : (
+                    <div aria-label={`${t.name} avatar`} className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-semibold text-white">
+                      {t.name.split(" ").map((part) => part[0]).join("")}
+                    </div>
+                  )}
                   <div>
                     <p className="font-medium text-ink leading-[1.2] text-[16px]">
                       {t.name}
@@ -395,14 +396,15 @@ export function Testimonials() {
                 &ldquo;{t.quote}&rdquo;
               </p>
               <div className="flex items-center gap-4 mt-auto pt-10">
-                <div className="relative h-10 w-20 shrink-0">
-                  <img
-                    src={t.logo}
-                    alt={t.company}
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-contain object-left"
-                  />
-                </div>
+                {t.logo ? (
+                  <div className={`relative w-20 shrink-0 ${t.logo === "/testimonials/vijetha.png" ? "h-14" : "h-10"}`}>
+                    <img src={t.logo} alt={t.company} loading="lazy" className="absolute inset-0 h-full w-full object-contain object-left" />
+                  </div>
+                ) : (
+                  <div aria-label={`${t.name} avatar`} className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-semibold text-white">
+                    {t.name.split(" ").map((part) => part[0]).join("")}
+                  </div>
+                )}
                 <div>
                   <p className="font-medium text-ink leading-[1.2] text-[16px]">
                     {t.name}
