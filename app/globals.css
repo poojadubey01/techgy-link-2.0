@@ -205,6 +205,9 @@
   font-weight: 500;
   line-height: 20px;
 }
+.cta-button.header-talk-button {
+  font-size: 12px;
+}
 .cta-button {
   min-height: 46px;
   padding: 12px 20px;

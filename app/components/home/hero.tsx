@@ -61,7 +61,7 @@ export function HomeHero() {
             href="/contact"
             className="cta-button inline-flex items-center justify-center font-medium border border-transparent rounded-full bg-brand text-white hover:brightness-90"
           >
-            Build your next chapter <ArrowUpRight size={20} />
+            Get your growth partner <ArrowUpRight size={20} />
           </Link>
         </div>
       </div>

@@ -131,7 +131,7 @@ export function Header() {
           </nav>
           <Link
             href="/contact"
-            className="cta-button inline-flex items-center rounded-full bg-brand text-white border border-brand max-[1023px]:ml-auto shrink-0 max-[370px]:px-3"
+            className="cta-button header-talk-button inline-flex items-center rounded-full bg-brand text-white border border-brand max-[1023px]:ml-auto shrink-0 max-[370px]:px-3"
           >
             Let’s talk <ArrowUpRight size={18} className="max-[767px]:w-[15px]" />
           </Link>
@@ -260,17 +260,9 @@ export function Footer() {
         >
           <Link
             href="/contact"
-            className="flex items-center justify-between max-[767px]:gap-5 gap-[30px] font-display my-[30px] mx-0 py-[30px] max-[767px]:py-[25px] text-[clamp(70px,8vw,120px)] max-[767px]:text-[clamp(32px,8.5vw,52px)] leading-[1.03] max-[767px]:leading-[1.1] tracking-[-0.05em]"
+            className="cta-button inline-flex items-center rounded-full bg-brand text-white border border-brand my-[30px] hover:brightness-90"
           >
-            <span className="max-w-[900px]">
-              Let’s build<em className="block text-[#f8f9fa]">what’s next.</em>
-            </span>
-            <span className="grid place-items-center bg-brand rounded-full h-[120px] w-[120px] max-[1023px]:h-[90px] max-[1023px]:w-[90px] max-[767px]:w-[52px] max-[767px]:h-[52px] max-[767px]:basis-[52px] shrink-0 text-white border-0">
-              <ArrowUpRight
-                strokeWidth={1}
-                className="w-[68px] h-[68px] max-[1023px]:w-[52px] max-[1023px]:h-[52px] max-[767px]:w-[27px] max-[767px]:h-[27px]"
-              />
-            </span>
+            Start your project <ArrowUpRight size={18} />
           </Link>
           <p className="text-[18px] leading-[1.8] text-[#f8f9fa] max-w-[630px]">
             Bring us the ambition. We’ll connect the thinking, the people and
