@@ -5,6 +5,7 @@ export const metadata = {
   title: "Focused engagements",
   description:
     "Start with one relevant problem: a brand, website, product experience, application, workflow, campaign, property visual or technology decision.",
+  alternates: { canonical: "/campaigns/" },
 };
 export default function Campaigns() {
   return (

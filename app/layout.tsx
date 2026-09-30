@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { siteUrl, allowIndexing } from "../lib/site";
+import { siteUrl, allowIndexing, phoneDisplay, email } from "../lib/site";
 import "./globals.css";
 import { EssenceMotion } from "@/app/components/layout/scroll-animations";
 import { Header, Footer, Motion } from "@/app/components/layout/header-footer";
@@ -17,11 +17,33 @@ export const metadata = {
     "Your design, technology and growth partner. TechGy Link brings brand, product, engineering, marketing and visualisation expertise together around your next business ambition.",
   icons: { icon: "/source/icon.svg", apple: "/source/apple-icon.png" },
   robots: { index: allowIndexing, follow: allowIndexing },
+  alternates: { canonical: "/" },
+};
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "TechGy Link",
+  url: siteUrl,
+  logo: siteUrl + "/brand/logo.png",
+  description:
+    "Design, technology and growth partner bringing brand, product, engineering, marketing and visualisation expertise together.",
+  telephone: phoneDisplay,
+  email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Hyderabad",
+    addressCountry: "IN",
+  },
+  sameAs: ["https://in.linkedin.com/company/techgy-link"],
 };
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <ScrollToTop />
         <Header />
         {children}

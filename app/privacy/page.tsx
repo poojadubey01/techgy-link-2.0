@@ -2,6 +2,7 @@ export const metadata = {
   title: "Website privacy",
   description:
     "How project enquiry details are used on this TechGy Link website.",
+  alternates: { canonical: "/privacy/" },
 };
 export default function Privacy() {
   return (

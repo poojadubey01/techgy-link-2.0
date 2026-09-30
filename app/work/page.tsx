@@ -6,6 +6,7 @@ export const metadata = {
   title: "Our work",
   description:
     "Explore lending, recruitment, property, sales operations, mobile integrations and architectural visualisation by TechGy Link.",
+  alternates: { canonical: "/work/" },
 };
 
 export default function Work() {

@@ -5,6 +5,7 @@ export const metadata = {
   title: "Insights",
   description:
     "Practical perspectives on digital experiences, workflow automation and connected property launches.",
+  alternates: { canonical: "/insights/" },
 };
 export default function Insights() {
   return (

@@ -5,6 +5,7 @@ export const metadata = {
   title: "Connected business solutions",
   description:
     "Property launch, connected sales and operations, and digital product delivery: optional service combinations around a clear business problem.",
+  alternates: { canonical: "/solutions/" },
 };
 export default function Solutions() {
   return (

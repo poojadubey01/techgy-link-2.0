@@ -2,6 +2,7 @@ export const metadata = {
   title: "Business platforms",
   description:
     "Discuss a Sales CRM or HRMS implementation with TechGy Link. Review a demonstration, fit, scope, integrations and support before committing.",
+  alternates: { canonical: "/products/" },
 };
 export default function Products() {
   return (

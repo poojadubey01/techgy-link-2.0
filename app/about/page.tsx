@@ -5,6 +5,7 @@ export const metadata = {
   title: "Our story — from TechGy Innovations to TechGy Link",
   description:
     "How a technology foundation grew into a connected design, technology and growth partner. Meet the capabilities and people behind TechGy Link.",
+  alternates: { canonical: "/about/" },
 };
 const teams = [
   {

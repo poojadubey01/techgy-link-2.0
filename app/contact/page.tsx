@@ -5,6 +5,7 @@ export const metadata = {
   title: "Discuss your project",
   description:
     "Tell TechGy Link what you want to build or improve. Connect with our design, technology and growth team in Hyderabad.",
+  alternates: { canonical: "/contact/" },
 };
 export default function Contact() {
   return (
