@@ -8,6 +8,7 @@ import { whatsappLink } from "@/lib/site";
 
 const CHAT_API_URL = "/api/chat";
 const REGISTER_API_URL = "/api/chat-register";
+const SESSION_KEY = "techgy_chat_session";
 // The backend appends this once a conversation is naturally wrapped up. We
 // strip it before display and use it as the signal to offer "start a new
 // conversation" instead of the message box.
@@ -17,19 +18,9 @@ type ChatMessage = {
   id: string;
   role: "user" | "assistant";
   content: string;
-  synthetic?: boolean;
   suggestions?: string[];
   unreachable?: boolean;
 };
-
-const STARTER_SUGGESTIONS = [
-  "I need a new website",
-  "I want to modernise my systems",
-  "I'm exploring AI for my business",
-  "Something else",
-];
-
-const VIEW_WORK_SUGGESTION = "See our work";
 
 // Real project names the backend may name, mapped to where they actually
 // live on this site. Kept in sync with data/content.ts and app/products.
@@ -46,6 +37,41 @@ const projectSuggestionHref = (s: string) =>
   PROJECT_LINKS[s.trim().replace(/^see /i, "").trim().toLowerCase()] ?? "/work";
 
 type Lead = { name: string; email: string; phone: string; availableTiming: string };
+type ChatState = "ASK_NAME" | "ASK_EMAIL" | "ASK_PHONE" | "ASK_TIMING" | "CHAT";
+type HistoryMessage = { role: "user" | "assistant"; content: string };
+type ChatSession = {
+  chatState: ChatState;
+  lead: { name: string; email: string; phone: string; available_timing: string };
+  registered: boolean;
+  history: HistoryMessage[];
+  stage: string | null;
+  stageTurns: number;
+  suggestions: string[];
+  conversationEnded?: boolean;
+};
+
+const emptySession = (): ChatSession => ({
+  chatState: "ASK_NAME",
+  lead: { name: "", email: "", phone: "", available_timing: "" },
+  registered: false,
+  history: [],
+  stage: null,
+  stageTurns: 0,
+  suggestions: [],
+});
+
+function loadSession(): ChatSession | null {
+  try {
+    const value = sessionStorage.getItem(SESSION_KEY);
+    if (!value) return null;
+    const saved = JSON.parse(value) as ChatSession;
+    if (!saved || !saved.lead || !Array.isArray(saved.history) ||
+        !["ASK_NAME", "ASK_EMAIL", "ASK_PHONE", "ASK_TIMING", "CHAT"].includes(saved.chatState)) return null;
+    return saved;
+  } catch {
+    return null;
+  }
+}
 
 const TIME_SLOTS = [
   "Morning (9 AM to 12 PM)",
@@ -61,17 +87,6 @@ let messageCounter = 0;
 const nextId = () => `${Date.now()}-${messageCounter++}`;
 
 const isValidEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-const firstName = (name: string) => name.trim().split(/\s+/)[0] || name;
-
-function buildGreeting(lead: Lead): ChatMessage {
-  return {
-    id: "greeting",
-    role: "assistant",
-    content: `Hi ${firstName(lead.name)}, welcome to TechGy Link. I'm the TechGy assistant and I'm here to help. Tell me a bit about what you're looking for.`,
-    synthetic: true,
-    suggestions: STARTER_SUGGESTIONS,
-  };
-}
 
 type Stage = "gate" | "chat";
 
@@ -87,6 +102,8 @@ export function Chatbot() {
   const [timingInput, setTimingInput] = useState("");
   const [registering, setRegistering] = useState(false);
   const [registerError, setRegisterError] = useState("");
+  const [savedChoice, setSavedChoice] = useState<ChatSession | null>(null);
+  const [sessionReady, setSessionReady] = useState(false);
 
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
@@ -97,6 +114,58 @@ export function Chatbot() {
   const panelRef = useRef<HTMLDivElement>(null);
   const typingIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const warmedRef = useRef(false);
+  const chatEpochRef = useRef(0);
+  const sessionRef = useRef<ChatSession>(emptySession());
+
+  function saveSession(patch: Partial<ChatSession>) {
+    sessionRef.current = { ...sessionRef.current, ...patch };
+    try {
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify(sessionRef.current));
+    } catch {
+      // The widget can still run when browser storage is unavailable.
+    }
+  }
+
+  useEffect(() => {
+    const saved = loadSession();
+    if (saved) setSavedChoice(saved);
+    setSessionReady(true);
+  }, []);
+
+  function restoreChat(saved: ChatSession) {
+    sessionRef.current = saved;
+    setNameInput(saved.lead.name || "");
+    setEmailInput(saved.lead.email || "");
+    setPhoneInput(saved.lead.phone || "");
+    setTimingInput(saved.lead.available_timing || "");
+    if (saved.chatState === "CHAT") {
+      const restoredLead: Lead = {
+        name: saved.lead.name, email: saved.lead.email,
+        phone: saved.lead.phone, availableTiming: saved.lead.available_timing,
+      };
+      setLead(restoredLead);
+      setStage("chat");
+      setConversationEnded(!!saved.conversationEnded);
+      setMessages(saved.history.map((message, index) => ({
+        ...message,
+        id: nextId(),
+        suggestions: index === saved.history.length - 1 && message.role === "assistant"
+          ? saved.suggestions : undefined,
+      })));
+      if (!saved.history.length) void startConversation(restoredLead);
+    }
+    setOpen(true);
+    setSavedChoice(null);
+  }
+
+  function updateLeadField(field: keyof ChatSession["lead"], value: string) {
+    const lead = { ...sessionRef.current.lead, [field]: value };
+    const chatState: ChatState = !lead.name.trim() ? "ASK_NAME"
+      : !isValidEmail(lead.email.trim()) ? "ASK_EMAIL"
+      : !lead.phone.trim() ? "ASK_PHONE"
+      : "ASK_TIMING";
+    saveSession({ lead, chatState });
+  }
 
   useEffect(() => {
     if (open && panelRef.current)
@@ -190,27 +259,69 @@ export function Chatbot() {
     const phone = phoneInput.trim();
     const availableTiming = timingInput.trim();
     if (!name || !isValidEmail(email) || !phone || !availableTiming || registering) return;
+    const newLead: Lead = { name, email, phone, availableTiming };
+    setLead(newLead);
+    setMessages([]);
+    setStage("chat");
+    saveSession({
+      chatState: "CHAT",
+      lead: { name, email, phone, available_timing: availableTiming },
+      history: [], stage: null, stageTurns: 0, suggestions: [], conversationEnded: false,
+    });
+    void startConversation(newLead);
+  }
+
+  async function startConversation(currentLead: Lead) {
+    const chatEpoch = chatEpochRef.current;
+    if (!sessionRef.current.registered) {
+      // One registration attempt per chat. Do not hold up the greeting for it.
+      fetch(REGISTER_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: currentLead.name, email: currentLead.email, phone: currentLead.phone,
+          available_timing: currentLead.availableTiming,
+        }),
+      }).catch((error) => console.error("Error sending registration request:", error));
+      saveSession({ registered: true });
+    }
     setRegistering(true);
     setRegisterError("");
     try {
-      const res = await fetch(REGISTER_API_URL, {
+      const res = await fetch(CHAT_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, available_timing: availableTiming }),
+        body: JSON.stringify({
+          init: true, message: "", history: [], stage: null, stage_turns: 0,
+          name: currentLead.name, email: currentLead.email, phone: currentLead.phone,
+          available_timing: currentLead.availableTiming,
+        }),
       });
       if (!res.ok) throw new Error(`Request failed with ${res.status}`);
-      const newLead: Lead = { name, email, phone, availableTiming };
-      setLead(newLead);
-      setMessages([buildGreeting(newLead)]);
-      setStage("chat");
+      const data: { reply: string; suggestions?: string[]; stage?: string; stage_turns?: number } = await res.json();
+      if (chatEpoch !== chatEpochRef.current) return;
+      const suggestions = data.suggestions || [];
+      const history: HistoryMessage[] = [{ role: "assistant", content: data.reply }];
+      saveSession({ history, stage: data.stage ?? null, stageTurns: data.stage_turns ?? 0, suggestions });
+      setMessages([{ id: nextId(), role: "assistant", content: data.reply, suggestions }]);
     } catch {
-      setRegisterError("Couldn’t register your details. Please try again.");
+      if (chatEpoch !== chatEpochRef.current) return;
+      setRegisterError("Couldn’t start the chat. Please try again.");
     } finally {
-      setRegistering(false);
+      if (chatEpoch === chatEpochRef.current) setRegistering(false);
     }
   }
 
   function startNewChat() {
+    chatEpochRef.current++;
+    try { sessionStorage.removeItem(SESSION_KEY); } catch {}
+    sessionRef.current = emptySession();
+    if (typingIntervalRef.current) clearInterval(typingIntervalRef.current);
+    typingIntervalRef.current = null;
+    setIsTyping(false);
+    setLoading(false);
+    setRegistering(false);
+    setSavedChoice(null);
     setLead(null);
     setMessages([]);
     setInput("");
@@ -224,12 +335,14 @@ export function Chatbot() {
   }
 
   async function sendMessage(override?: string) {
+    const chatEpoch = chatEpochRef.current;
     const text = (override ?? input).trim();
-    if (!text || loading || isTyping || !lead) return;
-    const history = messages
-      .filter((m) => !m.synthetic)
-      .map((m) => ({ role: m.role, content: m.content }));
+    if (!text || loading || isTyping || registering || !lead || !sessionRef.current.history.length) return;
+    const history = sessionRef.current.history;
+    const previousStage = sessionRef.current.stage;
+    const previousStageTurns = sessionRef.current.stageTurns;
     setMessages((prev) => [...prev, { id: nextId(), role: "user", content: text }]);
+    saveSession({ history: [...history, { role: "user", content: text }], suggestions: [] });
     setInput("");
     setLoading(true);
     const requestChat = () =>
@@ -243,6 +356,8 @@ export function Chatbot() {
           phone: lead.phone,
           available_timing: lead.availableTiming,
           history,
+          stage: previousStage,
+          stage_turns: previousStageTurns,
         }),
       });
     try {
@@ -253,22 +368,25 @@ export function Chatbot() {
       let res = await requestChat();
       if (!res.ok) res = await requestChat();
       if (!res.ok) throw new Error(`Request failed with ${res.status}`);
-      const data: { reply: string; suggestions?: string[] } = await res.json();
+      const data: { reply: string; suggestions?: string[]; stage?: string; stage_turns?: number } = await res.json();
+      if (chatEpoch !== chatEpochRef.current) return;
       const hasEnded = data.reply.includes(CHAT_END_MARKER);
       const cleanReply = data.reply.replace(CHAT_END_MARKER, "").trim();
-      const modelSuggestions = data.suggestions ?? [];
-      const namedAProject = modelSuggestions.some(isProjectSuggestion);
-      const suggestions = hasEnded
-        ? undefined
-        : namedAProject
-          ? modelSuggestions
-          : [...modelSuggestions, VIEW_WORK_SUGGESTION];
+      const suggestions = hasEnded ? [] : data.suggestions ?? [];
+      saveSession({
+        history: [...sessionRef.current.history, { role: "assistant", content: cleanReply }],
+        stage: data.stage ?? previousStage,
+        stageTurns: data.stage_turns ?? previousStageTurns,
+        suggestions,
+        conversationEnded: hasEnded,
+      });
       setLoading(false);
       const id = nextId();
       setMessages((prev) => [...prev, { id, role: "assistant", content: "", suggestions }]);
       typeOutReply(id, cleanReply);
       if (hasEnded) setConversationEnded(true);
     } catch {
+      if (chatEpoch !== chatEpochRef.current) return;
       setLoading(false);
       const id = nextId();
       setMessages((prev) => [...prev, { id, role: "assistant", content: "", unreachable: true }]);
@@ -281,8 +399,25 @@ export function Chatbot() {
 
   return (
     <>
+      {savedChoice && (
+        <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/40 px-4">
+          <div role="dialog" aria-modal="true" aria-labelledby="chat-resume-title" className="w-full max-w-85 bg-white p-5 shadow-[0_24px_60px_#11162533]">
+            <p id="chat-resume-title" className="font-display text-[18px] text-ink">
+              You have a chat in progress. Do you want to continue it or start a new chat?
+            </p>
+            <div className="mt-5 flex flex-col gap-2">
+              <button type="button" autoFocus onClick={() => restoreChat(savedChoice)} className="bg-brand px-4 py-2.5 text-[13px] font-medium text-white">
+                Continue chat
+              </button>
+              <button type="button" onClick={() => { startNewChat(); setOpen(true); }} className="border border-rule px-4 py-2.5 text-[13px] font-medium text-ink">
+                Start new chat
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <button
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => { if (sessionReady && !savedChoice) setOpen((v) => !v); }}
         aria-label={open ? "Close chat" : "Open chat with TechGy Link"}
         aria-expanded={open}
         className={
@@ -295,7 +430,7 @@ export function Chatbot() {
           <span className="absolute top-0 right-0 h-3 w-3 rounded-full bg-[#25D366] border-2 border-white" />
         )}
       </button>
-      {open && (
+      {open && sessionReady && !savedChoice && (
         <div
           ref={panelRef}
           role="dialog"
@@ -340,7 +475,7 @@ export function Chatbot() {
                 <input
                   type="text"
                   value={nameInput}
-                  onChange={(e) => setNameInput(e.target.value)}
+                  onChange={(e) => { setNameInput(e.target.value); updateLeadField("name", e.target.value); }}
                   placeholder="Your name"
                   aria-label="Your name"
                   required
@@ -349,7 +484,7 @@ export function Chatbot() {
                 <input
                   type="email"
                   value={emailInput}
-                  onChange={(e) => setEmailInput(e.target.value)}
+                  onChange={(e) => { setEmailInput(e.target.value); updateLeadField("email", e.target.value); }}
                   placeholder="Your email"
                   aria-label="Your email"
                   required
@@ -358,7 +493,7 @@ export function Chatbot() {
                 <input
                   type="tel"
                   value={phoneInput}
-                  onChange={(e) => setPhoneInput(e.target.value)}
+                  onChange={(e) => { setPhoneInput(e.target.value); updateLeadField("phone", e.target.value); }}
                   placeholder="Phone number, with country code"
                   aria-label="Your phone number"
                   required
@@ -367,7 +502,7 @@ export function Chatbot() {
                 <div className="relative w-full">
                   <select
                     value={timingInput}
-                    onChange={(e) => setTimingInput(e.target.value)}
+                    onChange={(e) => { setTimingInput(e.target.value); updateLeadField("available_timing", e.target.value); }}
                     aria-label="Your available timing"
                     required
                     className={
@@ -402,6 +537,19 @@ export function Chatbot() {
           {stage === "chat" && (
             <>
               <div ref={scrollRef} className="no-scrollbar flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3 bg-paper">
+                {registering && messages.length === 0 && (
+                  <div className="self-start bg-white border border-rule px-4 py-3 flex gap-1.5" aria-label="Starting chat">
+                    <span className="chat-dot h-1.5 w-1.5 rounded-full bg-[#94a3b8]" />
+                    <span className="chat-dot h-1.5 w-1.5 rounded-full bg-[#94a3b8]" />
+                    <span className="chat-dot h-1.5 w-1.5 rounded-full bg-[#94a3b8]" />
+                  </div>
+                )}
+                {registerError && messages.length === 0 && lead && !registering && (
+                  <div className="self-start flex flex-col gap-2 bg-white border border-rule px-4 py-3 text-[13px]">
+                    <p>{registerError}</p>
+                    <button type="button" onClick={() => void startConversation(lead)} className="text-left font-medium text-brand">Try again</button>
+                  </div>
+                )}
                 {messages.map((m, i) => {
                   const isLast = i === messages.length - 1;
                   const suggestionsActive = isLast && !isTyping && !loading && !conversationEnded;
@@ -483,7 +631,7 @@ export function Chatbot() {
                   <button
                     type="submit"
                     aria-label="Send message"
-                    disabled={!input.trim() || loading || isTyping}
+                    disabled={!input.trim() || loading || isTyping || registering || messages.length === 0}
                     className="grid place-items-center h-11 w-11 shrink-0 bg-brand text-white disabled:opacity-40"
                   >
                     <Send size={17} />
