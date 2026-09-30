@@ -4,6 +4,7 @@ import gsap from "gsap";
 import Link from "@/app/components/ui/internal-link";
 import { ChevronDown, X } from "@/app/components/ui/icons";
 import { MessageCircle, Send, RefreshCw, Loader2 } from "lucide-react";
+import { getCountries, getCountryCallingCode, parsePhoneNumberFromString, type CountryCode } from "libphonenumber-js";
 import { whatsappLink } from "@/lib/site";
 
 const CHAT_API_URL = "/api/chat";
@@ -42,6 +43,8 @@ type HistoryMessage = { role: "user" | "assistant"; content: string };
 type ChatSession = {
   chatState: ChatState;
   lead: { name: string; email: string; phone: string; available_timing: string };
+  phoneCountry?: CountryCode;
+  phoneNational?: string;
   registered: boolean;
   history: HistoryMessage[];
   stage: string | null;
@@ -87,6 +90,19 @@ let messageCounter = 0;
 const nextId = () => `${Date.now()}-${messageCounter++}`;
 
 const isValidEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+const countryNames = new Intl.DisplayNames(["en"], { type: "region" });
+const PHONE_COUNTRIES = getCountries()
+  .map((country) => ({
+    country,
+    name: countryNames.of(country) ?? country,
+    callingCode: getCountryCallingCode(country),
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+function fullPhoneNumber(national: string, country: CountryCode) {
+  const parsed = parsePhoneNumberFromString(national, country);
+  return parsed?.isPossible() ? parsed.number : null;
+}
 
 type Stage = "gate" | "chat";
 
@@ -99,6 +115,7 @@ export function Chatbot() {
   const [nameInput, setNameInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [phoneInput, setPhoneInput] = useState("");
+  const [phoneCountry, setPhoneCountry] = useState<CountryCode>("IN");
   const [timingInput, setTimingInput] = useState("");
   const [registering, setRegistering] = useState(false);
   const [registerError, setRegisterError] = useState("");
@@ -136,7 +153,9 @@ export function Chatbot() {
     sessionRef.current = saved;
     setNameInput(saved.lead.name || "");
     setEmailInput(saved.lead.email || "");
-    setPhoneInput(saved.lead.phone || "");
+    const parsedPhone = parsePhoneNumberFromString(saved.lead.phone || "");
+    setPhoneCountry(saved.phoneCountry ?? parsedPhone?.country ?? "IN");
+    setPhoneInput(saved.phoneNational ?? parsedPhone?.nationalNumber ?? saved.lead.phone.replace(/\D/g, ""));
     setTimingInput(saved.lead.available_timing || "");
     if (saved.chatState === "CHAT") {
       const restoredLead: Lead = {
@@ -256,7 +275,7 @@ export function Chatbot() {
     e.preventDefault();
     const name = nameInput.trim();
     const email = emailInput.trim();
-    const phone = phoneInput.trim();
+    const phone = fullPhoneNumber(phoneInput, phoneCountry);
     const availableTiming = timingInput.trim();
     if (!name || !isValidEmail(email) || !phone || !availableTiming || registering) return;
     const newLead: Lead = { name, email, phone, availableTiming };
@@ -266,6 +285,7 @@ export function Chatbot() {
     saveSession({
       chatState: "CHAT",
       lead: { name, email, phone, available_timing: availableTiming },
+      phoneCountry, phoneNational: phoneInput,
       history: [], stage: null, stageTurns: 0, suggestions: [], conversationEnded: false,
     });
     void startConversation(newLead);
@@ -328,6 +348,7 @@ export function Chatbot() {
     setNameInput("");
     setEmailInput("");
     setPhoneInput("");
+    setPhoneCountry("IN");
     setTimingInput("");
     setRegisterError("");
     setConversationEnded(false);
@@ -490,15 +511,46 @@ export function Chatbot() {
                   required
                   className="w-full bg-paper border border-rule px-4 py-2.5 text-[13.5px] outline-none placeholder:text-[#94a3b8] focus:border-brand"
                 />
-                <input
-                  type="tel"
-                  value={phoneInput}
-                  onChange={(e) => { setPhoneInput(e.target.value); updateLeadField("phone", e.target.value); }}
-                  placeholder="Phone number, with country code"
-                  aria-label="Your phone number"
-                  required
-                  className="w-full bg-paper border border-rule px-4 py-2.5 text-[13.5px] outline-none placeholder:text-[#94a3b8] focus:border-brand"
-                />
+                <div className="flex gap-2">
+                  <div className="relative w-[112px] shrink-0">
+                    <select
+                      value={phoneCountry}
+                      onChange={(e) => {
+                        const country = e.target.value as CountryCode;
+                        setPhoneCountry(country);
+                        updateLeadField("phone", phoneInput ? `+${getCountryCallingCode(country)}${phoneInput}` : "");
+                        saveSession({ phoneCountry: country });
+                      }}
+                      aria-label="Country calling code"
+                      className="w-full appearance-none border border-rule bg-paper pl-2 pr-5 py-2.5 text-[13px] outline-none focus:border-brand"
+                    >
+                      {PHONE_COUNTRIES.map(({ country, name, callingCode }) => (
+                        <option key={country} value={country}>+{callingCode} · {name}</option>
+                      ))}
+                    </select>
+                    <ChevronDown size={13} className="pointer-events-none absolute right-1 top-1/2 -translate-y-1/2 text-[#94a3b8]" />
+                  </div>
+                  <input
+                    type="tel"
+                    inputMode="numeric"
+                    autoComplete="tel-national"
+                    value={phoneInput}
+                    onChange={(e) => {
+                      const digits = e.target.value.replace(/\D/g, "");
+                      setPhoneInput(digits);
+                      updateLeadField("phone", digits ? `+${getCountryCallingCode(phoneCountry)}${digits}` : "");
+                      saveSession({ phoneCountry, phoneNational: digits });
+                    }}
+                    placeholder="Phone number"
+                    aria-label="Phone number without country code"
+                    maxLength={15}
+                    required
+                    className="min-w-0 flex-1 bg-paper border border-rule px-3 py-2.5 text-[13.5px] outline-none placeholder:text-[#94a3b8] focus:border-brand"
+                  />
+                </div>
+                {phoneInput && !fullPhoneNumber(phoneInput, phoneCountry) && (
+                  <p className="text-[12px] text-red-600">Enter a valid phone number for the selected country.</p>
+                )}
                 <div className="relative w-full">
                   <select
                     value={timingInput}
@@ -524,7 +576,7 @@ export function Chatbot() {
                 {registerError && <p className="text-[12px] text-red-600">{registerError}</p>}
                 <button
                   type="submit"
-                  disabled={!nameInput.trim() || !isValidEmail(emailInput) || !phoneInput.trim() || !timingInput.trim() || registering}
+                  disabled={!nameInput.trim() || !isValidEmail(emailInput) || !fullPhoneNumber(phoneInput, phoneCountry) || !timingInput.trim() || registering}
                   className="mt-1 flex items-center justify-center gap-2 bg-brand px-4 py-2.5 text-[13.5px] font-medium text-white disabled:opacity-40"
                 >
                   {registering && <Loader2 size={14} className="animate-spin" />}
