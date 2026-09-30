@@ -120,6 +120,7 @@ export function Chatbot() {
   const [registering, setRegistering] = useState(false);
   const [registerError, setRegisterError] = useState("");
   const [savedChoice, setSavedChoice] = useState<ChatSession | null>(null);
+  const [confirmNewChat, setConfirmNewChat] = useState(false);
   const [sessionReady, setSessionReady] = useState(false);
 
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -145,7 +146,10 @@ export function Chatbot() {
 
   useEffect(() => {
     const saved = loadSession();
-    if (saved) setSavedChoice(saved);
+    if (saved) {
+      setSavedChoice(saved);
+      setOpen(true);
+    }
     setSessionReady(true);
   }, []);
 
@@ -342,6 +346,7 @@ export function Chatbot() {
     setLoading(false);
     setRegistering(false);
     setSavedChoice(null);
+    setConfirmNewChat(false);
     setLead(null);
     setMessages([]);
     setInput("");
@@ -420,25 +425,8 @@ export function Chatbot() {
 
   return (
     <>
-      {savedChoice && (
-        <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/40 px-4">
-          <div role="dialog" aria-modal="true" aria-labelledby="chat-resume-title" className="w-full max-w-85 bg-white p-5 shadow-[0_24px_60px_#11162533]">
-            <p id="chat-resume-title" className="font-display text-[18px] text-ink">
-              You have a chat in progress. Do you want to continue it or start a new chat?
-            </p>
-            <div className="mt-5 flex flex-col gap-2">
-              <button type="button" autoFocus onClick={() => restoreChat(savedChoice)} className="bg-brand px-4 py-2.5 text-[13px] font-medium text-white">
-                Continue chat
-              </button>
-              <button type="button" onClick={() => { startNewChat(); setOpen(true); }} className="border border-rule px-4 py-2.5 text-[13px] font-medium text-ink">
-                Start new chat
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
       <button
-        onClick={() => { if (sessionReady && !savedChoice) setOpen((v) => !v); }}
+        onClick={() => { if (sessionReady) setOpen((v) => !v); }}
         aria-label={open ? "Close chat" : "Open chat with TechGy Link"}
         aria-expanded={open}
         className={
@@ -451,7 +439,7 @@ export function Chatbot() {
           <span className="absolute top-0 right-0 h-3 w-3 rounded-full bg-[#25D366] border-2 border-white" />
         )}
       </button>
-      {open && sessionReady && !savedChoice && (
+      {open && sessionReady && (
         <div
           ref={panelRef}
           role="dialog"
@@ -466,7 +454,7 @@ export function Chatbot() {
             <div className="ml-auto flex items-center gap-1">
               {stage === "chat" && (
                 <button
-                  onClick={startNewChat}
+                  onClick={() => setConfirmNewChat(true)}
                   title="Start a new conversation"
                   aria-label="Start a new conversation"
                   className="p-1.5 hover:bg-white/10"
@@ -703,6 +691,31 @@ export function Chatbot() {
                 </div>
               )}
             </>
+          )}
+          {(savedChoice || confirmNewChat) && (
+            <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 px-4">
+              <div role="dialog" aria-modal="true" aria-labelledby="chat-confirm-title" className="w-full bg-white p-5 shadow-[0_24px_60px_#11162533]">
+                <p id="chat-confirm-title" className="font-display text-[18px] text-ink">
+                  {savedChoice
+                    ? "You have a chat in progress. Do you want to continue it or start a new chat?"
+                    : "Start a new chat? Your current conversation will be cleared."}
+                </p>
+                <div className="mt-5 flex flex-col gap-2">
+                  {savedChoice ? (
+                    <button type="button" autoFocus onClick={() => restoreChat(savedChoice)} className="bg-brand px-4 py-2.5 text-[13px] font-medium text-white">
+                      Continue chat
+                    </button>
+                  ) : (
+                    <button type="button" autoFocus onClick={() => setConfirmNewChat(false)} className="border border-rule px-4 py-2.5 text-[13px] font-medium text-ink">
+                      Keep chatting
+                    </button>
+                  )}
+                  <button type="button" onClick={startNewChat} className="bg-brand px-4 py-2.5 text-[13px] font-medium text-white">
+                    Start new chat
+                  </button>
+                </div>
+              </div>
+            </div>
           )}
         </div>
       )}
