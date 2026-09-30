@@ -135,7 +135,9 @@ export function Header() {
             href="/contact"
             className="cta-button header-talk-button inline-flex items-center rounded-full bg-brand text-white border border-brand max-[1023px]:ml-auto shrink-0 max-[370px]:px-3"
           >
-            Let’s talk <ArrowUpRight size={18} className="max-[767px]:w-[15px]" />
+            <span className="max-[400px]:hidden">Book a Discovery Call</span>
+            <span className="hidden max-[400px]:inline">Book a Call</span>
+            <ArrowUpRight size={18} className="max-[767px]:w-[15px]" />
           </Link>
           <button
             className="hidden max-[1023px]:block shrink-0 p-2 max-[767px]:p-[7px]"

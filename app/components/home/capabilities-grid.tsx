@@ -86,18 +86,21 @@ export function CollectiveCapabilities() {
                     <Link
                       key={s.id}
                       href={"/services/" + s.id}
-                      className="group flex items-center justify-between gap-5 py-5 border-t border-[#e2e8f0] text-[17px] leading-normal hover:text-brand max-[767px]:text-[16px] max-[767px]:py-[18px]"
+                      className="group flex items-center justify-between gap-5 py-5 border-t border-[#e2e8f0] text-[17px] leading-normal hover:text-brand active:text-brand max-[767px]:text-[16px] max-[767px]:py-[18px] max-[767px]:active:bg-[#f8f9fa]"
                     >
                       <span className="capability-link-label flex items-center gap-[14px]">
                         {ServiceIcon && (
                           <ServiceIcon
-                            className="capability-icon shrink-0 text-[#000000] transition-[transform,color] duration-300 ease-out group-hover:scale-110 group-hover:rotate-6 group-hover:text-brand"
+                            className="capability-icon shrink-0 text-[#000000] transition-[transform,color] duration-300 ease-out group-hover:scale-110 group-hover:rotate-6 group-hover:text-brand group-active:text-brand"
                             size={20}
                           />
                         )}
                         <span>{s.name}</span>
                       </span>
-                      <ArrowUpRight size={19} />
+                      <ArrowUpRight
+                        size={19}
+                        className="shrink-0 rounded-full border border-[#e2e8f0] p-1 text-brand max-[767px]:h-7 max-[767px]:w-7 max-[767px]:p-1.5"
+                      />
                     </Link>
                   );
                 })}

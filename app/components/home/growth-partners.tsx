@@ -11,8 +11,8 @@ export function GrowthPartners() {
         </div>
         <div className="min-w-0 w-full overflow-hidden bg-white growth-partners-window">
           <div className="growth-partners-track flex w-max">
-            <img src="/source/optimized/growth-partners.png" alt="Growth partners of TechGy Link" width={13096} height={496} loading="lazy" className="block h-[110px] max-[767px]:h-[90px] w-auto max-w-none shrink-0" />
-            <img src="/source/optimized/growth-partners.png" alt="" aria-hidden="true" width={13096} height={496} loading="lazy" className="block h-[110px] max-[767px]:h-[90px] w-auto max-w-none shrink-0" />
+            <img src="/source/optimized/growth-partners.webp" alt="Growth partners of TechGy Link" width={13096} height={496} loading="lazy" className="block h-[150px] max-[1023px]:h-[130px] max-[767px]:h-[120px] w-auto max-w-none shrink-0" />
+            <img src="/source/optimized/growth-partners.webp" alt="" aria-hidden="true" width={13096} height={496} loading="lazy" className="block h-[150px] max-[1023px]:h-[130px] max-[767px]:h-[120px] w-auto max-w-none shrink-0" />
           </div>
         </div>
       </div>

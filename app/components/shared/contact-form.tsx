@@ -8,6 +8,7 @@ export function ContactForm({ initialService = "", campaign = "" }) {
   const [error, setError] = useState("");
   const [draft, setDraft] = useState("");
   const [source, setSource] = useState(campaign);
+  const [moreDetail, setMoreDetail] = useState(false);
   useEffect(() => {
     const q = new URLSearchParams(location.search);
     if (!initialService) setService(q.get("service") || "");
@@ -238,32 +239,42 @@ export function ContactForm({ initialService = "", campaign = "" }) {
           placeholder="What would you like to build or improve? Tell us what exists today and what needs to change."
         />
       </div>
-      <div className={rowClass}>
-        <div className={fieldClass}>
-          <label className={labelClass} htmlFor="timing">
-            Expected timing <span className={optionalClass}>Optional</span>
-          </label>
-          <input
-            className={inputClass}
-            id="timing"
-            name="timing"
-            maxLength={120}
-            placeholder="For example, this quarter"
-          />
+      {moreDetail ? (
+        <div className={rowClass}>
+          <div className={fieldClass}>
+            <label className={labelClass} htmlFor="timing">
+              Expected timing <span className={optionalClass}>Optional</span>
+            </label>
+            <input
+              className={inputClass}
+              id="timing"
+              name="timing"
+              maxLength={120}
+              placeholder="For example, this quarter"
+            />
+          </div>
+          <div className={fieldClass}>
+            <label className={labelClass} htmlFor="budget">
+              Budget range <span className={optionalClass}>Optional</span>
+            </label>
+            <input
+              className={inputClass}
+              id="budget"
+              name="budget"
+              maxLength={100}
+              placeholder="Amount and currency"
+            />
+          </div>
         </div>
-        <div className={fieldClass}>
-          <label className={labelClass} htmlFor="budget">
-            Budget range <span className={optionalClass}>Optional</span>
-          </label>
-          <input
-            className={inputClass}
-            id="budget"
-            name="budget"
-            maxLength={100}
-            placeholder="Amount and currency"
-          />
-        </div>
-      </div>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setMoreDetail(true)}
+          className="mb-6 text-[13px] font-medium text-black underline underline-offset-2"
+        >
+          + Add timing and budget (optional)
+        </button>
+      )}
       <label className="flex items-start gap-3 mb-6 cursor-pointer text-[13px] leading-[1.6] text-black">
         <input
           type="checkbox"

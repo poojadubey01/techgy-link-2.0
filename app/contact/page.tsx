@@ -12,7 +12,7 @@ export default function Contact() {
       id="main"
       className="site-container mx-auto grid grid-cols-[1fr_1fr] gap-[100px] pt-20 pb-[120px] max-[1023px]:gap-10 max-[767px]:grid-cols-1 max-[767px]:gap-[35px] max-[767px]:pt-[45px] max-[767px]:pb-[70px]"
     >
-      <div>
+      <div className="max-[767px]:order-2">
         <p className="eyebrow text-brand">
           Every good partnership starts here
         </p>
@@ -60,7 +60,9 @@ export default function Contact() {
           </ul>
         </div>
       </div>
-      <ContactForm />
+      <div className="max-[767px]:order-1">
+        <ContactForm />
+      </div>
     </main>
   );
 }
