@@ -114,12 +114,12 @@ export function ContactForm({ initialService = "", campaign = "" }) {
         </div>
       </div>
     );
-  const labelClass = "block text-[13px] mb-[9px] text-black";
+  const labelClass = "block text-[13px] mb-[9px] max-[1023px]:mb-1.5 text-black";
   const optionalClass = "text-black text-[12px] ml-1";
-  const fieldClass = "mb-[25px] min-w-0 max-[1023px]:mb-[22px]";
-  const rowClass = "grid grid-cols-[1fr_1fr] gap-5 max-[1023px]:grid-cols-[1fr]";
+  const fieldClass = "mb-[25px] min-w-0 max-[1023px]:mb-3.5";
+  const rowClass = "grid grid-cols-[1fr_1fr] gap-x-5 max-[1023px]:grid-cols-[1fr]";
   const inputClass =
-    "w-full min-h-[52px] bg-white border border-white rounded-[2px] py-3 px-[13px] text-[16px] leading-normal text-black placeholder:text-black/60 focus-visible:outline-brand placeholder:text-[14px]";
+    "w-full min-h-[52px] max-[1023px]:min-h-11 bg-white border border-white rounded-[2px] py-3 max-[1023px]:py-2.5 px-[13px] text-[16px] leading-normal text-black placeholder:text-black/60 focus-visible:outline-brand placeholder:text-[14px]";
   const buttonBlueClass =
     "cta-button inline-flex items-center justify-center font-medium border border-transparent rounded-full bg-white text-brand hover:brightness-90 disabled:opacity-65 disabled:cursor-wait";
   return (
@@ -230,7 +230,7 @@ export function ContactForm({ initialService = "", campaign = "" }) {
           Tell us about the project *
         </label>
         <textarea
-          className={inputClass + " min-h-[145px] resize-y"}
+          className={inputClass + " min-h-[145px] max-[1023px]:min-h-[110px] resize-y"}
           name="message"
           id="message"
           required
