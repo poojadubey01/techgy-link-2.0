@@ -99,7 +99,8 @@ export function CollectiveCapabilities() {
                       </span>
                       <ArrowUpRight
                         size={19}
-                        className="shrink-0 rounded-full border border-[#e2e8f0] p-1 text-brand max-[767px]:h-7 max-[767px]:w-7 max-[767px]:p-1.5"
+                        strokeWidth={2.2}
+                        className="shrink-0 rounded-full border border-blue-200 bg-blue-50 p-1 text-brand max-[767px]:h-7 max-[767px]:w-7 max-[767px]:p-1.5"
                       />
                     </Link>
                   );
