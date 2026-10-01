@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { ArrowUpRight, Phone } from "@/app/components/ui/icons";
 import { services } from "@/data/catalogue";
 export function ContactForm({ initialService = "", campaign = "" }) {
@@ -9,6 +9,18 @@ export function ContactForm({ initialService = "", campaign = "" }) {
   const [draft, setDraft] = useState("");
   const [source, setSource] = useState(campaign);
   const [moreDetail, setMoreDetail] = useState(false);
+  const [message, setMessage] = useState("");
+  const MAX_WORDS = 500;
+  const messageWords = message.trim() ? message.trim().split(/\s+/).length : 0;
+  function handleMessageChange(e: ChangeEvent<HTMLTextAreaElement>) {
+    const value = e.target.value;
+    const words = value.trim() ? value.trim().split(/\s+/) : [];
+    if (words.length <= MAX_WORDS) {
+      setMessage(value);
+    } else {
+      setMessage(words.slice(0, MAX_WORDS).join(" "));
+    }
+  }
   useEffect(() => {
     const q = new URLSearchParams(location.search);
     if (!initialService) setService(q.get("service") || "");
@@ -155,16 +167,18 @@ export function ContactForm({ initialService = "", campaign = "" }) {
           />
         </div>
         <div className={fieldClass}>
-          <label className={labelClass} htmlFor="company">
-            Company <span className={optionalClass}>Optional</span>
+          <label className={labelClass} htmlFor="phone">
+            Phone *
           </label>
           <input
             className={inputClass}
-            name="company"
-            id="company"
-            autoComplete="organization"
-            maxLength={150}
-            placeholder="Your organisation"
+            type="tel"
+            name="phone"
+            id="phone"
+            autoComplete="tel"
+            required
+            maxLength={40}
+            placeholder="Include country code"
           />
         </div>
       </div>
@@ -185,18 +199,16 @@ export function ContactForm({ initialService = "", campaign = "" }) {
           />
         </div>
         <div className={fieldClass}>
-          <label className={labelClass} htmlFor="phone">
-            Phone *
+          <label className={labelClass} htmlFor="company">
+            Company <span className={optionalClass}>Optional</span>
           </label>
           <input
             className={inputClass}
-            type="tel"
-            name="phone"
-            id="phone"
-            autoComplete="tel"
-            required
-            maxLength={40}
-            placeholder="Include country code"
+            name="company"
+            id="company"
+            autoComplete="organization"
+            maxLength={150}
+            placeholder="Your organisation"
           />
         </div>
       </div>
@@ -226,15 +238,21 @@ export function ContactForm({ initialService = "", campaign = "" }) {
         </select>
       </div>
       <div className={fieldClass}>
-        <label className={labelClass} htmlFor="message">
-          Tell us about the project *
-        </label>
+        <div className="flex items-baseline justify-between gap-2 mb-[9px] max-[1023px]:mb-1.5">
+          <label className="text-[13px] text-black" htmlFor="message">
+            Tell us about the project <span className={optionalClass}>Optional</span>
+          </label>
+          <span className="shrink-0 text-black/60 text-[11px]">
+            {messageWords}/{MAX_WORDS} words
+          </span>
+        </div>
         <textarea
           className={inputClass + " min-h-[145px] max-[1023px]:min-h-[110px] resize-y"}
           name="message"
           id="message"
-          required
-          maxLength={3000}
+          value={message}
+          onChange={handleMessageChange}
+          maxLength={4000}
           rows={4}
           placeholder="What would you like to build or improve? Tell us what exists today and what needs to change."
         />
