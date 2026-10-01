@@ -86,9 +86,72 @@ export async function handleContact(
     : [];
   const mode =
     env.CONTACT_MODE ||
+    (env.SMTP_USER && env.SMTP_PASS ? "smtp" : null) ||
     (env.NODE_ENV === "production" ? "disabled" : "preview");
   if (mode === "preview") {
     return Response.json({ ok: true, preview: true });
+  }
+  if (mode === "smtp") {
+    if (!env.SMTP_USER || !env.SMTP_PASS) {
+      return Response.json(
+        {
+          error:
+            "Online enquiries are not connected yet. Please email or call us using the contact details below.",
+        },
+        { status: 503 },
+      );
+    }
+    try {
+      const { default: nodemailer } = await import("nodemailer");
+      const transporter = nodemailer.createTransport({
+        host: env.SMTP_HOST || "smtp.gmail.com",
+        port: Number(env.SMTP_PORT) || 465,
+        secure: true,
+        auth: { user: env.SMTP_USER, pass: env.SMTP_PASS },
+      });
+      const escapeHtml = (v: string) =>
+        v
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      const row = (label: string, value: string) =>
+        value
+          ? `<p><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</p>`
+          : "";
+      const html = `
+        <div style="font-family: sans-serif; font-size: 15px; line-height: 1.6; color: #1A1A1A;">
+          <h2 style="color: #0022FF;">New enquiry from the website</h2>
+          ${row("Name", name)}
+          ${row("Email", email)}
+          ${row("Phone", phone)}
+          ${row("Company", company)}
+          ${row("Interested in", services.join(", ") || "Not specified")}
+          ${row("Timing", str("timing", 120))}
+          ${row("Budget", str("budget", 100))}
+          ${row("Source", str("source", 700))}
+          <p><strong>Message:</strong></p>
+          <p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
+        </div>
+      `;
+      await transporter.sendMail({
+        from: `TechGy Link Website <${env.SMTP_USER}>`,
+        to: env.SMTP_TO || "sales@techgylink.com",
+        replyTo: email,
+        subject: `New enquiry from ${name}`,
+        html,
+      });
+      return Response.json({ ok: true });
+    } catch {
+      return Response.json(
+        {
+          error:
+            "We couldn’t send your enquiry. Your brief is still available below; please email or call us.",
+        },
+        { status: 502 },
+      );
+    }
   }
   if (mode !== "webhook" || !env.CONTACT_ENDPOINT) {
     return Response.json(
