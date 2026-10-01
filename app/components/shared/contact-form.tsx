@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { ArrowUpRight, Phone } from "@/app/components/ui/icons";
 import { services } from "@/data/catalogue";
 export function ContactForm({ initialService = "", campaign = "" }) {
+  const router = useRouter();
   const [service, setService] = useState(initialService);
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
@@ -69,7 +71,8 @@ export function ContactForm({ initialService = "", campaign = "" }) {
           result.error ||
             "Your enquiry could not be sent. Please use email or call us below.",
         );
-      setStatus(result.preview ? "preview" : "sent");
+      if (result.preview) setStatus("preview");
+      else router.push("/thank-you/");
     } catch (e) {
       setStatus("error");
       setError(
@@ -83,8 +86,6 @@ export function ContactForm({ initialService = "", campaign = "" }) {
     "eyebrow text-brand";
   const buttonOutlineClass =
     "cta-button inline-flex items-center justify-center font-medium border border-rule bg-transparent rounded-full";
-  const textLinkClass =
-    "cta-link inline-flex items-center font-medium text-brand";
   if (status === "preview")
     return (
       <div className="bg-paper p-[45px]" role="status">
@@ -101,29 +102,6 @@ export function ContactForm({ initialService = "", campaign = "" }) {
         >
           Return to the form
         </button>
-      </div>
-    );
-  if (status === "sent")
-    return (
-      <div className="bg-paper p-[45px]" role="status">
-        <p className={eyebrowClass}>Thank you for your brief</p>
-        <h2 className="my-[25px] mx-0 text-[47px]">
-          Your next chapter
-          <br />
-          starts here.
-        </h2>
-        <p className="mb-[25px]">
-          Your brief has been submitted. We’ll use the details you shared to
-          continue the conversation.
-        </p>
-        <a className={textLinkClass} href="tel:+919989858282">
-          <Phone size={16} className="shrink-0" /> Call +91 99898 58282
-        </a>
-        <div style={{ marginTop: 25 }}>
-          <button className={buttonOutlineClass} onClick={() => setStatus("idle")}>
-            Start another enquiry
-          </button>
-        </div>
       </div>
     );
   const labelClass = "block text-[13px] mb-[9px] max-[1023px]:mb-1.5 text-black";
