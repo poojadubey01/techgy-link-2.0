@@ -6,6 +6,7 @@ import { Header, Footer, Motion } from "@/app/components/layout/header-footer";
 import { Chatbot } from "@/app/components/shared/chatbot";
 import { WhatsAppButton } from "@/app/components/shared/whatsapp-button";
 import { CallButton } from "@/app/components/shared/call-button";
+import { BackToTopButton } from "@/app/components/shared/back-to-top-button";
 import { ScrollToTop } from "@/app/components/layout/scroll-to-top";
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <WhatsAppButton />
         <Chatbot />
         <CallButton />
+        <BackToTopButton />
         <Motion />
         <EssenceMotion />
       </body>
