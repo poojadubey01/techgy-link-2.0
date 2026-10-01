@@ -1,4 +1,9 @@
 import Link from "@/app/components/ui/internal-link";
+export const metadata = {
+  title: "Page not found",
+  description: "This page could not be found on TechGy Link.",
+  robots: { index: false, follow: true },
+};
 export default function NotFound() {
   return (
     <main

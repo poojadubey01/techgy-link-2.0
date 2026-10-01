@@ -65,7 +65,11 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const p = products.find((p) => p.slug === slug);
-  return { title: p?.name, description: p?.description };
+  return {
+    title: p?.name,
+    description: p?.description,
+    alternates: { canonical: "/products/" + slug + "/" },
+  };
 }
 export default async function Product({
   params,

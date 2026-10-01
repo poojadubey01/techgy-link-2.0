@@ -51,7 +51,8 @@ export const work = [
     category: p.sector,
     image: p.coverImage,
     description:
-      "Architectural visualisation exploring the project through composition, light, materials and its surrounding landscape.",
+      `${p.sector} visualisation in ${p.location}, covering ` +
+      `${p.tags.slice(0, -1).join(", ")} and ${p.tags[p.tags.length - 1]}.`,
     scope: p.tags,
   })).filter((p) => !excludedWorkSlugs.has(p.slug)),
 ];

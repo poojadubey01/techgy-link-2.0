@@ -12,7 +12,11 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const a = articles.find((a) => a.id === slug);
-  return { title: a?.title, description: a?.summary };
+  return {
+    title: a?.title,
+    description: a?.summary,
+    alternates: { canonical: "/insights/" + slug + "/" },
+  };
 }
 export default async function Article({
   params,

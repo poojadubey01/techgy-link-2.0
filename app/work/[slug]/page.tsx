@@ -16,7 +16,11 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const p = work.find((p) => p.slug === slug);
-  return { title: p?.name || "Project", description: p?.description };
+  return {
+    title: p?.name || "Project",
+    description: p?.description,
+    alternates: { canonical: "/work/" + slug + "/" },
+  };
 }
 export default async function Project({
   params,

@@ -16,7 +16,12 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const c = campaigns.find((c) => c.slug === slug);
-  return { title: c?.headline, description: c?.service.tagline };
+  const firstSentence = c?.service.description.split(". ")[0] + ".";
+  return {
+    title: c?.headline,
+    description: c ? c.headline + " " + firstSentence : undefined,
+    alternates: { canonical: "/campaigns/" + slug + "/" },
+  };
 }
 export default async function Campaign({
   params,

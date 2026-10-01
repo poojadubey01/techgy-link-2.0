@@ -887,7 +887,7 @@ export default [
   },
   {
     "slug": "dates-county",
-    "title": "Eco World",
+    "title": "Dates County",
     "location": "India",
     "sector": "Luxury Plotting Community",
     "tags": ["Resort Masterplan", "Golf & Sports", "Lake View"],
