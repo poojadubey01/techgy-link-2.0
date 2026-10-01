@@ -1,55 +1,77 @@
 [
     {
-        "name": "Sudeepth Reddy",
-        "company": "Valyouu | Agency",
-        "quote": "TechGy Link brought a structured and practical approach to our requirements. Their team understood our objectives quickly, communicated clearly, and focused on building solutions that align with real business needs.",
-        "logo": "/testimonials/Valyouu.svg"
+        "name": "Aashvi Vijetha",
+        "company": "Vijetha Groups | Architecture & Visualization",
+        "quote": "We wanted Vijetha Vaibhogam to capture the richness of traditional Indian culture while still feeling elegant and aspirational. TechGy understood that balance beautifully. They paid attention to the architecture, materials, colours and finer details to bring the vintage character of the project to life without making it feel dated. The final visuals felt authentic to the vision we had in mind.",
+        "logo": "/testimonials/vijetha.png"
     },
     {
-        "name": "Anudeep Reddy",
-        "company": "Habitat | Architecture & Visualization",
-        "quote": "Working with TechGy Link has been a smooth and professional experience. Their ability to understand requirements and translate them into practical digital solutions made the overall process efficient and well-structured.",
-        "logo": "/testimonials/Hirize.webp"
+        "name": "Aashvi Vijetha",
+        "company": "Other Side | Architecture & Visualization",
+        "quote": "Other Side was about showing people that there is a calmer side to the city. TechGy brought that idea to life through a 3-minute walkthrough that moved from the noise and pollution of the city into the peaceful world of our project. The transition was beautifully done, and when we showcased it at the CredAI event, it became a real conversation starter.",
+        "logo": "/testimonials/vijetha.png"
     },
     {
         "name": "V Venkata Kiran",
         "company": "Reliance Builders | Architecture & Visualization",
-        "quote": "TechGy Link demonstrated a strong understanding of our business requirements and approached the solution with clarity and professionalism. Their responsiveness and attention to detail gave us confidence throughout the engagement.",
+        "quote": "Elysium was about making people feel the space—the openness of the halls, bedrooms and balconies. TechGy captured that feeling beautifully. The outcome gave us the confidence to bring them into Revasa Aura as well. They already understood our expectations, which made the second collaboration feel natural. What started as one project quickly became a relationship we wanted to continue.",
         "logo": "/testimonials/Reliance builders.webp"
+    },
+    {
+        "name": "Vasavi Group",
+        "company": "Vasavi Atlantis | Architecture & Visualization",
+        "quote": "We knew Vasavi Atlantis would require a lot of visual content, but we honestly didn't expect 15 renders to be completed in just 20 days. What impressed us wasn't only the turnaround, but the consistency and detail across the entire set. It was a short journey, but we had a great time working with the TechGy team, and they made a demanding delivery feel remarkably smooth."
     },
     {
         "name": "Kalyan",
         "company": "IJM | Architecture & Visualization",
-        "quote": "What stood out about TechGy Link was their consultative approach. Rather than simply proposing technology, they focused on understanding our workflow and identifying solutions that could genuinely improve efficiency and visibility.",
+        "quote": "FCB Harmony was our first project with TechGy, so trusting a new visualization partner with an important project was a big decision. The team understood our requirements and delivered visuals that gave us confidence in their work. That experience led to Villa 64 in Vijayawada. What started with one project has grown into a partnership we look forward to continuing across many more projects.",
         "logo": "/testimonials/ijmindia.png"
-    },
-    {
-        "name": "Satish Gangam",
-        "company": "QuickBooks Connector | Finance",
-        "quote": "TechGy Link's team was professional, responsive, and focused on understanding the business requirement before recommending a solution. Their structured approach and clear communication made the engagement easy to work through."
-    },
-    {
-        "name": "Sim Singh",
-        "company": "Lending Bridge | Finance",
-        "quote": "Our experience with TechGy Link was defined by clear communication and a solution-oriented approach. The team took the time to understand our requirements and provided practical recommendations aligned with our business objectives.",
-        "logo": "/testimonials/Lending Bridge.png"
     },
     {
         "name": "E Prasanna",
         "company": "Eco World | Real Estate",
-        "quote": "TechGy Link understood the importance of having a streamlined digital process across customer interactions and business operations. Their team brought a professional approach and practical ideas that could help improve visibility, efficiency, and overall execution.",
+        "quote": "We wanted to create a complete digital experience, but had visualization, website, launch, sales and CRM requirements to bring together. TechGy connected all these pieces—from 3D visualization and an immersive website to the sales journey and a one stop CRM. Having one team understand and manage the bigger picture made the entire process much easier for us.",
         "logo": "/testimonials/Datescounty.svg"
     },
     {
-        "name": "Bal Raj",
-        "company": "Lending Bridge | Finance",
-        "quote": "TechGy Link combines technical understanding with a strong business perspective. Their approach was collaborative, transparent, and focused on creating solutions that can support both operational efficiency and future growth.",
-        "logo": "/testimonials/Lending Bridge.png"
+        "name": "Anudeep Reddy",
+        "company": "Hirize | Architecture & Visualization",
+        "quote": "Habitat was a huge undertaking—a 500-acre gated community with 30 acres of villa development that had to be brought to life through visuals. Choosing the right partner for something of that scale was a big responsibility. TechGy handled it beautifully, creating visuals that were detailed yet subtle and never overwhelming. The final result captured the scale, lifestyle and vision of the development exactly as we hoped.",
+        "logo": "/testimonials/Hirize.webp"
     },
     {
         "name": "Vinay Ram",
-        "company": "Green Land Capital & Veda Bharat | Real Estate",
-        "quote": "TechGy Link approached our requirements with a clear understanding of both technology and business processes. Their ability to identify gaps and recommend scalable solutions made the discussions valuable and productive.",
+        "company": "GLC — Green Land Capital | Real Estate",
+        "quote": "Our vision was to make farmland ownership simpler and more trustworthy—bringing verified, legally clear land together with a more natural and sustainable approach to farming. The challenge was that the journey involved so many different stages and people. TechGy went deep into our process and helped turn that complexity into one connected platform. They understood the vision behind the business, not just the technology we needed.",
         "logo": "/testimonials/Veda bharat.png"
+    },
+    {
+        "name": "Vinay Ram",
+        "company": "Veda Bharath | Agriculture & Technology",
+        "quote": "Veda Bharath works with different varieties of rice, each with its own process and workflow. We didn't want someone to simply build an application around assumptions. TechGy went to the ground, understood our different rice types and studied how our teams actually worked before building the solution. That effort made the final system feel like it was built around our business, rather than the other way around.",
+        "logo": "/testimonials/Veda bharat.png"
+    },
+    {
+        "name": "Planet Green",
+        "company": "Planet Green | Real Estate",
+        "quote": "Our sales operation had grown across multiple projects, but our processes hadn't grown with it. Leads were coming from different sources, follow-ups were difficult to track, and management didn't have one clear view of what was happening. TechGy Link understood that we didn't need a generic CRM. We needed a system built around the way our projects and sales teams actually operate. They brought our leads, communication, follow-ups, site visits and sales pipeline into one connected platform."
+    },
+    {
+        "name": "Satish Gangam",
+        "company": "QuickBooks Connector | Finance",
+        "quote": "We were managing data across multiple companies, and a lot of our team's time was going into repetitive manual work. TechGy helped us automate that process—bringing the information we needed together and even reducing the effort involved in reading and handling details such as memos. What once took hours of manual work could now be handled in a much shorter time, giving our team back valuable hours every day.",
+        "logo": "/testimonials/Quick books.svg"
+    },
+    {
+        "name": "Sim Singh",
+        "company": "Lending Bridge | Finance",
+        "quote": "Our goal was to make the lending journey simpler—from applying for a loan to managing it through completion. There were different loan products, requirements, documents and decisions that had to come together smoothly. TechGy took that entire journey and helped us structure it into a clear, connected workflow. They didn't just build a system for managing loans; they helped us make a complicated process much easier to follow.",
+        "logo": "/testimonials/Lending Bridge.png"
+    },
+    {
+        "name": "Spur.fit",
+        "company": "Spur.fit | Health & Fitness Technology",
+        "quote": "We already had wearable devices capturing valuable fitness data, but the challenge was turning that data into something people could actually understand and use on their phones. TechGy took on the challenge of bringing those metrics into a simple mobile experience. It was a demanding project, with a lot of data, devices and user expectations to consider, but the team stayed with it and turned a difficult problem into a practical everyday experience."
     }
 ]
