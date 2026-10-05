@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Lenis from "lenis";
 import { motion } from "framer-motion";
 import testimonialsData from "@/data/testimonials.json";
 import { ArrowLeft, ArrowRight } from "@/app/components/ui/icons";
@@ -15,256 +14,148 @@ type Testimonial = {
 
 const testimonials = testimonialsData as Testimonial[];
 
-const IDLE_SNAP_MS = 160;
-const GAP_PX = 48;
-const POP_TRANSITION =
-  "width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease";
-
 export function Testimonials() {
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const firstSetRef = useRef<HTMLDivElement>(null);
+
+  const targetXRef = useRef(0);
+  const currentXRef = useRef(0);
+  const isHoveredRef = useRef(false);
   const isDraggingRef = useRef(false);
-  const targetScrollRef = useRef(0);
-  const minScrollRef = useRef(0);
-  const maxScrollRef = useRef(0);
-  const lenisRef = useRef<Lenis | null>(null);
-  const cardStepRef = useRef(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const startXRef = useRef(0);
+  const startYRef = useRef(0);
+  const isIntentConfirmedRef = useRef(false);
+  const dragDistanceRef = useRef(0);
+  const singleWidthRef = useRef(0);
 
-  // Mobile state & refs
-  const [activeMobileIndex, setActiveMobileIndex] = useState(0);
-  const activeMobileIndexRef = useRef(0);
-  const mobileScrollRef = useRef<HTMLDivElement>(null);
-  const mobileCardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const [cursorClass, setCursorClass] = useState("cursor-grab");
 
-  // Below `sm` the drag carousel feels janky on touch, so we swap
-  // it out for a plain native scroll-snap strip with bottom-left navigation controls.
-  useEffect(() => {
-    const mql = window.matchMedia("(max-width: 639px)");
-    const update = () => setIsMobile(mql.matches);
-    update();
-    mql.addEventListener("change", update);
-    return () => mql.removeEventListener("change", update);
-  }, []);
+  const getGap = () => (typeof window !== "undefined" && window.innerWidth >= 640 ? 48 : 24);
 
-  const handleMobileScroll = () => {
-    const container = mobileScrollRef.current;
-    if (!container) return;
-    const containerLeft = container.getBoundingClientRect().left;
-    const gutter = container.firstElementChild
-      ? parseFloat(getComputedStyle(container.firstElementChild).paddingLeft)
-      : 0;
-    let closestIndex = 0;
-    let minDiff = Infinity;
-    mobileCardsRef.current.forEach((card, idx) => {
-      if (!card) return;
-      const diff = Math.abs(card.getBoundingClientRect().left - (containerLeft + gutter));
-      if (diff < minDiff) {
-        minDiff = diff;
-        closestIndex = idx;
-      }
-    });
-    activeMobileIndexRef.current = closestIndex;
-    setActiveMobileIndex(closestIndex);
-  };
-
-  const scrollToMobileCard = (index: number) => {
-    const container = mobileScrollRef.current;
-    const card = mobileCardsRef.current[index];
-    if (!container || !card) return;
-
-    const containerLeft = container.getBoundingClientRect().left;
-    const gutter = container.firstElementChild
-      ? parseFloat(getComputedStyle(container.firstElementChild).paddingLeft)
-      : 0;
-    const cardLeft = card.getBoundingClientRect().left;
-    const diff = cardLeft - (containerLeft + gutter);
-
-    container.scrollBy({
-      left: diff,
-      behavior: "smooth",
-    });
-    activeMobileIndexRef.current = index;
-    setActiveMobileIndex(index);
-  };
-
-  const handlePrevMobile = () => {
-    if (activeMobileIndex > 0) {
-      scrollToMobileCard(activeMobileIndex - 1);
-    }
-  };
-
-  const handleNextMobile = () => {
-    if (activeMobileIndex < testimonials.length - 1) {
-      scrollToMobileCard(activeMobileIndex + 1);
-    }
+  const updateSingleWidth = () => {
+    if (!firstSetRef.current) return;
+    const gap = getGap();
+    singleWidthRef.current = firstSetRef.current.offsetWidth + gap;
   };
 
   useEffect(() => {
-    if (isMobile) return;
-    const container = containerRef.current;
     const track = trackRef.current;
-    if (!container || !track) return;
+    if (!track) return;
 
-    const cards = cardRefs.current.filter((c): c is HTMLDivElement => !!c);
-    if (cards.length < 2) return;
+    updateSingleWidth();
+    window.addEventListener("resize", updateSingleWidth);
 
-    // Measure the actual rendered card width
-    let cardWidth = cards[0].getBoundingClientRect().width;
-    let cardStep = cardWidth + GAP_PX;
-    let centerOffset = (container.clientWidth - cardWidth) / 2;
-    let maxRaw = cardStep * (testimonials.length - 1);
-    const toRaw = (scroll: number) => scroll + centerOffset;
-    const toScroll = (raw: number) => raw - centerOffset;
-    const clampRaw = (raw: number) => Math.min(Math.max(raw, 0), maxRaw);
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const autoSpeed = reducedMotion ? 0 : 0.65; // ~39px per second at 60fps
 
-    const recalculate = () => {
-      const width = cards[0]?.getBoundingClientRect().width;
-      if (!width) return;
-      cardWidth = width;
-      cardStep = cardWidth + GAP_PX;
-      centerOffset = (container.clientWidth - cardWidth) / 2;
-      maxRaw = cardStep * (testimonials.length - 1);
-      cardStepRef.current = cardStep;
-      minScrollRef.current = toScroll(0);
-      maxScrollRef.current = toScroll(maxRaw);
-    };
-    window.addEventListener("resize", recalculate);
-    cardStepRef.current = cardStep;
-    minScrollRef.current = toScroll(0);
-    maxScrollRef.current = toScroll(maxRaw);
+    let rafId: number;
+    let lastTime = performance.now();
 
-    const lenis = new Lenis({
-      wrapper: container,
-      content: track,
-      orientation: "horizontal",
-      gestureOrientation: "horizontal",
-      smoothWheel: true,
-      syncTouch: true,
-      duration: 1.2,
-    });
-    lenisRef.current = lenis;
+    const tick = (now: number) => {
+      const dt = Math.min((now - lastTime) / 1000, 0.1);
+      lastTime = now;
 
-    // Start centered on the first card
-    lenis.scrollTo(toScroll(0), { immediate: true });
-    targetScrollRef.current = toScroll(0);
+      if (!isHoveredRef.current && !isDraggingRef.current && autoSpeed > 0) {
+        targetXRef.current -= autoSpeed * (dt * 60);
+      }
 
-    let rafId = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    };
-    rafId = requestAnimationFrame(raf);
+      // Smooth lerp to target position
+      currentXRef.current += (targetXRef.current - currentXRef.current) * 0.12;
 
-    let idleTimer: ReturnType<typeof setTimeout>;
-    const snapToNearest = (duration: number) => {
-      const raw = clampRaw(toRaw(lenis.animatedScroll));
-      const nearestRaw = clampRaw(Math.round(raw / cardStep) * cardStep);
-      const nearest = toScroll(nearestRaw);
-      lenis.scrollTo(nearest, { duration });
-      targetScrollRef.current = nearest;
+      // Wrap around seamlessly
+      const sw = singleWidthRef.current;
+      if (sw > 0) {
+        while (targetXRef.current <= -sw) {
+          targetXRef.current += sw;
+          currentXRef.current += sw;
+        }
+        while (targetXRef.current > 0) {
+          targetXRef.current -= sw;
+          currentXRef.current -= sw;
+        }
+      }
+
+      track.style.transform = `translate3d(${currentXRef.current}px, 0, 0)`;
+      rafId = requestAnimationFrame(tick);
     };
 
-    const updateScales = () => {
-      const containerRect = container.getBoundingClientRect();
-      const viewportCenter = containerRect.left + containerRect.width / 2;
-
-      cardRefs.current.forEach((card) => {
-        if (!card) return;
-
-        const rect = card.getBoundingClientRect();
-        const cardCenter = rect.left + rect.width / 2;
-
-        const distance = Math.abs(viewportCenter - cardCenter);
-        const normalized = Math.min(distance / cardStep, 1);
-
-        card.style.opacity = `${1 - normalized * 0.35}`;
-        card.style.zIndex = `${Math.round((1 - normalized) * 10)}`;
-      });
-
-      clearTimeout(idleTimer);
-      idleTimer = setTimeout(() => {
-        if (!isDraggingRef.current) snapToNearest(0.5);
-      }, IDLE_SNAP_MS);
-    };
-
-    lenis.on("scroll", updateScales);
-    updateScales();
-
-    // Drag to scroll (mouse + touch via Pointer Events)
-    const setCardTransitions = (value: string) => {
-      cardRefs.current.forEach((card) => {
-        if (card) card.style.transition = value;
-      });
-    };
-    setCardTransitions(POP_TRANSITION);
-
-    let startX = 0;
-    let startScroll = 0;
-    const onPointerDown = (e: PointerEvent) => {
-      isDraggingRef.current = true;
-      clearTimeout(idleTimer);
-      setCardTransitions("none");
-      startX = e.clientX;
-      startScroll = lenis.animatedScroll;
-      container.setPointerCapture(e.pointerId);
-      container.style.cursor = "grabbing";
-    };
-    const onPointerMove = (e: PointerEvent) => {
-      if (!isDraggingRef.current) return;
-      const delta = e.clientX - startX;
-      const raw = clampRaw(toRaw(startScroll - delta));
-      lenis.scrollTo(toScroll(raw), { immediate: true });
-    };
-    const onPointerUp = () => {
-      if (!isDraggingRef.current) return;
-      isDraggingRef.current = false;
-      container.style.cursor = "grab";
-      setCardTransitions(POP_TRANSITION);
-      snapToNearest(0.6);
-    };
-    container.addEventListener("pointerdown", onPointerDown);
-    window.addEventListener("pointermove", onPointerMove);
-    window.addEventListener("pointerup", onPointerUp);
+    rafId = requestAnimationFrame(tick);
 
     return () => {
       cancelAnimationFrame(rafId);
-      clearTimeout(idleTimer);
-      window.removeEventListener("resize", recalculate);
-      container.removeEventListener("pointerdown", onPointerDown);
-      window.removeEventListener("pointermove", onPointerMove);
-      window.removeEventListener("pointerup", onPointerUp);
-      lenis.off("scroll", updateScales);
-      lenis.destroy();
-      lenisRef.current = null;
+      window.removeEventListener("resize", updateSingleWidth);
     };
-  }, [isMobile]);
+  }, []);
 
-  // Desktop carousel is a single bounded pass through the real 9 cards,
-  // so prev/next clamp at the first and last card instead of wrapping.
-  const handlePrevDesktop = () => {
-    const lenis = lenisRef.current;
-    if (!lenis || !cardStepRef.current) return;
-    const next = Math.max(targetScrollRef.current - cardStepRef.current, minScrollRef.current);
-    targetScrollRef.current = next;
-    lenis.scrollTo(next, { duration: 0.6 });
+  const handleNext = () => {
+    const cardEl = firstSetRef.current?.firstElementChild as HTMLElement | null;
+    const cardWidth = cardEl ? cardEl.offsetWidth : 560;
+    const gap = getGap();
+    targetXRef.current -= cardWidth + gap;
   };
 
-  const handleNextDesktop = () => {
-    const lenis = lenisRef.current;
-    if (!lenis || !cardStepRef.current) return;
-    const next = Math.min(targetScrollRef.current + cardStepRef.current, maxScrollRef.current);
-    targetScrollRef.current = next;
-    lenis.scrollTo(next, { duration: 0.6 });
+  const handlePrev = () => {
+    const cardEl = firstSetRef.current?.firstElementChild as HTMLElement | null;
+    const cardWidth = cardEl ? cardEl.offsetWidth : 560;
+    const gap = getGap();
+    targetXRef.current += cardWidth + gap;
+  };
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    startXRef.current = e.clientX;
+    startYRef.current = e.clientY;
+    isDraggingRef.current = false;
+    isIntentConfirmedRef.current = false;
+    dragDistanceRef.current = 0;
+  };
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    const dx = e.clientX - startXRef.current;
+    const dy = e.clientY - startYRef.current;
+
+    if (!isIntentConfirmedRef.current) {
+      if (Math.abs(dx) > 6 || Math.abs(dy) > 6) {
+        if (Math.abs(dx) > Math.abs(dy)) {
+          isIntentConfirmedRef.current = true;
+          isDraggingRef.current = true;
+          setCursorClass("cursor-grabbing");
+          try {
+            (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+          } catch {}
+        } else {
+          isIntentConfirmedRef.current = true;
+          isDraggingRef.current = false;
+        }
+      }
+    }
+
+    if (isDraggingRef.current) {
+      const delta = e.clientX - startXRef.current;
+      startXRef.current = e.clientX;
+      targetXRef.current += delta;
+      currentXRef.current += delta;
+      dragDistanceRef.current += Math.abs(delta);
+    }
+  };
+
+  const onPointerUp = (e: React.PointerEvent) => {
+    if (isDraggingRef.current) {
+      try {
+        (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+      } catch {}
+      isDraggingRef.current = false;
+      setCursorClass("cursor-grab");
+    }
+    isIntentConfirmedRef.current = false;
   };
 
   return (
-    <section aria-labelledby="testimonials-title" className="w-full section-space">
-      <div className="site-container mx-auto mb-10 md:mb-16 [@media(min-width:1360px)]:mb-25 flex items-center justify-between gap-6">
+    <section aria-labelledby="testimonials-title" className="w-full section-space overflow-hidden">
+      <div className="site-container mx-auto mb-8 sm:mb-12 flex items-center justify-between gap-4">
         <motion.h2
           id="testimonials-title"
-          className="font-medium text-[32px] sm:text-[36px] [@media(min-width:1360px)]:text-[40px] leading-[1.2] [@media(min-width:1360px)]:leading-12 tracking-[-0.8px] text-ink"
+          className="font-medium text-[30px] sm:text-[36px] [@media(min-width:1360px)]:text-[40px] leading-[1.2] [@media(min-width:1360px)]:leading-12 tracking-[-0.8px] text-ink"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -273,11 +164,11 @@ export function Testimonials() {
           What our <span className="text-brand">partners</span> say.
         </motion.h2>
 
-        {/* Desktop/tablet prev/next controls, in the same row as the title */}
-        <div className="hidden sm:flex items-center gap-3 shrink-0">
+        {/* Prev / Next controls */}
+        <div className="flex items-center gap-3 shrink-0">
           <button
             type="button"
-            onClick={handlePrevDesktop}
+            onClick={handlePrev}
             aria-label="Previous testimonial"
             className="w-11 h-11 rounded-full border border-brand text-brand flex items-center justify-center transition-all duration-200 hover:bg-brand hover:text-white active:scale-95 cursor-pointer"
           >
@@ -286,7 +177,7 @@ export function Testimonials() {
 
           <button
             type="button"
-            onClick={handleNextDesktop}
+            onClick={handleNext}
             aria-label="Next testimonial"
             className="w-11 h-11 rounded-full border border-brand text-brand flex items-center justify-center transition-all duration-200 hover:bg-brand hover:text-white active:scale-95 cursor-pointer"
           >
@@ -295,129 +186,79 @@ export function Testimonials() {
         </div>
       </div>
 
-      {/* Mobile: swipe with scroll-snap & manual controls */}
-      <div className="sm:hidden w-full">
+      {/* Infinite Scrolling Track */}
+      <div
+        ref={containerRef}
+        className={`w-full overflow-hidden select-none touch-pan-y ${cursorClass}`}
+        onMouseEnter={() => { isHoveredRef.current = true; }}
+        onMouseLeave={() => { isHoveredRef.current = false; }}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+      >
         <div
-          ref={mobileScrollRef}
-          onScroll={handleMobileScroll}
-          className="w-full overflow-x-auto overscroll-x-contain touch-pan-x snap-x snap-mandatory [&::-webkit-scrollbar]:hidden scroll-smooth"
-          style={{ scrollbarWidth: "none" }}
+          ref={trackRef}
+          className="flex gap-6 sm:gap-12 w-max will-change-transform py-2"
         >
-          <div className="flex gap-6 w-max px-[var(--site-gutter)] scroll-px-[var(--site-gutter)]">
+          {/* First set of testimonials */}
+          <div ref={firstSetRef} className="flex gap-6 sm:gap-12 shrink-0">
             {testimonials.map((t, idx) => (
-              <div
-                key={`${t.name}-${t.company}-${idx}`}
-                ref={(el) => {
-                  mobileCardsRef.current[idx] = el;
-                }}
-                className="snap-center relative shrink-0 w-[86vw] h-[24rem] overflow-hidden bg-white border border-brand flex flex-col pt-10 px-6 pb-10"
-              >
-                <span className="font-display font-medium text-brand leading-[0.9] text-[60px]">
-                  &ldquo;
-                </span>
-                <p className="font-medium text-ink leading-[1.2] mt-4 line-clamp-4 text-[16px]">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className="flex items-center gap-4 mt-auto pt-10">
-                  {t.logo ? (
-                    <div className={`relative w-20 shrink-0 ${t.logo === "/testimonials/vijetha.png" ? "h-14" : "h-10"}`}>
-                      <img src={t.logo} alt={t.company} loading="lazy" className="absolute inset-0 h-full w-full object-contain object-left" />
-                    </div>
-                  ) : (
-                    <div aria-label={`${t.name} avatar`} className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-semibold text-white">
-                      {t.name.split(" ").map((part) => part[0]).join("")}
-                    </div>
-                  )}
-                  <div>
-                    <p className="font-medium text-ink leading-[1.2] text-[16px]">
-                      {t.name}
-                    </p>
-                    <p className="font-sans text-ink/60 mt-1 text-[13px]">
-                      {t.company}
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <TestimonialCard key={`${t.name}-${t.company}-${idx}`} t={t} />
+            ))}
+          </div>
+
+          {/* Second duplicate set for seamless infinite loop */}
+          <div aria-hidden="true" className="flex gap-6 sm:gap-12 shrink-0">
+            {testimonials.map((t, idx) => (
+              <TestimonialCard key={`${t.name}-${t.company}-dup-${idx}`} t={t} />
             ))}
           </div>
         </div>
-
-        {/* Mobile bottom-left controls for navigating left and right */}
-        <div className="site-container mx-auto flex items-center gap-3 mt-6">
-          <button
-            type="button"
-            onClick={handlePrevMobile}
-            disabled={activeMobileIndex === 0}
-            aria-label="Previous testimonial"
-            className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-200 ${
-              activeMobileIndex === 0
-                ? "border-rule text-ink/30 opacity-60 cursor-not-allowed"
-                : "border-brand text-brand hover:bg-brand hover:text-white active:scale-95 cursor-pointer"
-            }`}
-          >
-            <ArrowLeft size={20} />
-          </button>
-
-          <button
-            type="button"
-            onClick={handleNextMobile}
-            disabled={activeMobileIndex === testimonials.length - 1}
-            aria-label="Next testimonial"
-            className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-200 ${
-              activeMobileIndex === testimonials.length - 1
-                ? "border-rule text-ink/30 opacity-60 cursor-not-allowed"
-                : "border-brand text-brand hover:bg-brand hover:text-white active:scale-95 cursor-pointer"
-            }`}
-          >
-            <ArrowRight size={20} />
-          </button>
-        </div>
-      </div>
-
-      {/* Tablet/desktop: drag carousel */}
-      <div
-        ref={containerRef}
-        className="hidden sm:block relative w-full h-85 overflow-x-auto overflow-y-hidden overscroll-x-contain cursor-grab select-none touch-pan-y [&::-webkit-scrollbar]:hidden"
-        style={{ scrollbarWidth: "none" }}
-      >
-        <div ref={trackRef} className="flex items-center gap-12 w-max">
-          {testimonials.map((t, i) => (
-            <div
-              key={`${t.name}-${t.company}-${i}`}
-              ref={(el) => {
-                cardRefs.current[i] = el;
-              }}
-              className="relative shrink-0 w-[min(78vw,800px)] h-85 overflow-hidden bg-white border border-brand flex flex-col pt-12 px-10 pb-12 will-change-transform"
-            >
-              <span className="font-display font-medium text-brand leading-[0.9] text-[60px]">
-                &ldquo;
-              </span>
-              <p className="font-medium text-ink leading-[1.2] mt-4 max-w-212.5 line-clamp-4 text-[16px]">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <div className="flex items-center gap-4 mt-auto pt-10">
-                {t.logo ? (
-                  <div className={`relative w-20 shrink-0 ${t.logo === "/testimonials/vijetha.png" ? "h-14" : "h-10"}`}>
-                    <img src={t.logo} alt={t.company} loading="lazy" className="absolute inset-0 h-full w-full object-contain object-left" />
-                  </div>
-                ) : (
-                  <div aria-label={`${t.name} avatar`} className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-semibold text-white">
-                    {t.name.split(" ").map((part) => part[0]).join("")}
-                  </div>
-                )}
-                <div>
-                  <p className="font-medium text-ink leading-[1.2] text-[16px]">
-                    {t.name}
-                  </p>
-                  <p className="font-sans text-ink/60 mt-1 text-[13px]">
-                    {t.company}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
+  );
+}
+
+function TestimonialCard({ t }: { t: Testimonial }) {
+  return (
+    <div
+      className="relative shrink-0 w-[84vw] sm:w-[540px] md:w-[620px] h-[350px] sm:h-85 overflow-hidden bg-white border border-brand flex flex-col pt-8 px-6 pb-8 sm:pt-10 sm:px-9 sm:pb-10 select-none shadow-[0_4px_24px_rgba(0,34,255,0.03)]"
+    >
+      <span className="font-display font-medium text-brand leading-[0.9] text-[50px] sm:text-[58px] select-none">
+        &ldquo;
+      </span>
+      <p className="font-medium text-ink leading-[1.35] mt-3 line-clamp-4 text-[15px] sm:text-[16px]">
+        &ldquo;{t.quote}&rdquo;
+      </p>
+      <div className="flex items-center gap-4 mt-auto pt-6">
+        {t.logo ? (
+          <div className={`relative w-24 shrink-0 ${t.logo === "/testimonials/vijetha.png" ? "h-13" : "h-10"}`}>
+            <img
+              src={t.logo}
+              alt={t.company}
+              loading="lazy"
+              draggable={false}
+              className="absolute inset-0 h-full w-full object-contain object-left pointer-events-none"
+            />
+          </div>
+        ) : (
+          <div
+            aria-label={`${t.name} avatar`}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-semibold text-white select-none"
+          >
+            {t.name.split(" ").map((part) => part[0]).join("")}
+          </div>
+        )}
+        <div className="min-w-0">
+          <p className="font-medium text-ink leading-[1.2] text-[15px] sm:text-[16px] truncate">
+            {t.name}
+          </p>
+          <p className="font-sans text-ink/60 mt-1 text-[12px] sm:text-[13px] truncate">
+            {t.company}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
