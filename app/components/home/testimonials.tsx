@@ -306,7 +306,7 @@ export function Testimonials() {
           <div className="flex gap-6 w-max px-[var(--site-gutter)] scroll-px-[var(--site-gutter)]">
             {testimonials.map((t, idx) => (
               <div
-                key={t.name}
+                key={`${t.name}-${t.company}-${idx}`}
                 ref={(el) => {
                   mobileCardsRef.current[idx] = el;
                 }}
@@ -383,7 +383,7 @@ export function Testimonials() {
         <div ref={trackRef} className="flex items-center gap-12 w-max">
           {testimonials.map((t, i) => (
             <div
-              key={t.name}
+              key={`${t.name}-${t.company}-${i}`}
               ref={(el) => {
                 cardRefs.current[i] = el;
               }}

@@ -1,6 +1,38 @@
 [
     {
-        "name": "Aashvi Vijetha",
+        "name": "Vinay Ram",
+        "company": "GLC — Green Land Capital | Real Estate",
+        "quote": "Our vision was to make farmland ownership simpler and more trustworthy—bringing verified, legally clear land together with a more natural and sustainable approach to farming. The challenge was that the journey involved so many different stages and people. TechGy went deep into our process and helped turn that complexity into one connected platform. They understood the vision behind the business, not just the technology we needed."
+    },
+    {
+        "name": "Vinay Ram",
+        "company": "Veda Bharath | Agriculture & Technology",
+        "quote": "Veda Bharath works with different varieties of rice, each with its own process and workflow. We didn't want someone to simply build an application around assumptions. TechGy went to the ground, understood our different rice types and studied how our teams actually worked before building the solution. That effort made the final system feel like it was built around our business, rather than the other way around.",
+        "logo": "/testimonials/Veda bharat.png"
+    },
+    {
+        "name": "Planet Green",
+        "company": "Planet Green | Real Estate",
+        "quote": "Our sales operation had grown across multiple projects, but our processes hadn't grown with it. Leads were coming from different sources, follow-ups were difficult to track, and management didn't have one clear view of what was happening. TechGy Link understood that we didn't need a generic CRM. We needed a system built around the way our projects and sales teams actually operate. They brought our leads, communication, follow-ups, site visits and sales pipeline into one connected platform."
+    },
+    {
+        "name": "Satish Gangam",
+        "company": "QuickBooks Connector | Finance",
+        "quote": "We were managing data across multiple companies, and a lot of our team's time was going into repetitive manual work. TechGy helped us automate that process—bringing the information we needed together and even reducing the effort involved in reading and handling details such as memos. What once took hours of manual work could now be handled in a much shorter time, giving our team back valuable hours every day."
+    },
+    {
+        "name": "Sim Singh",
+        "company": "Lending Bridge | Finance",
+        "quote": "Our goal was to make the lending journey simpler—from applying for a loan to managing it through completion. There were different loan products, requirements, documents and decisions that had to come together smoothly. TechGy took that entire journey and helped us structure it into a clear, connected workflow. They didn't just build a system for managing loans; they helped us make a complicated process much easier to follow.",
+        "logo": "/testimonials/Lending Bridge.png"
+    },
+    {
+        "name": "Spur.fit",
+        "company": "Spur.fit | Health & Fitness Technology",
+        "quote": "We already had wearable devices capturing valuable fitness data, but the challenge was turning that data into something people could actually understand and use on their phones. TechGy took on the challenge of bringing those metrics into a simple mobile experience. It was a demanding project, with a lot of data, devices and user expectations to consider, but the team stayed with it and turned a difficult problem into a practical everyday experience."
+    },
+    {
+        "name": "Vijetha Groups",
         "company": "Vijetha Groups | Architecture & Visualization",
         "quote": "We wanted Vijetha Vaibhogam to capture the richness of traditional Indian culture while still feeling elegant and aspirational. TechGy understood that balance beautifully. They paid attention to the architecture, materials, colours and finer details to bring the vintage character of the project to life without making it feel dated. The final visuals felt authentic to the vision we had in mind.",
         "logo": "/testimonials/vijetha.png"
@@ -23,8 +55,8 @@
         "quote": "We knew Vasavi Atlantis would require a lot of visual content, but we honestly didn't expect 15 renders to be completed in just 20 days. What impressed us wasn't only the turnaround, but the consistency and detail across the entire set. It was a short journey, but we had a great time working with the TechGy team, and they made a demanding delivery feel remarkably smooth."
     },
     {
-        "name": "Kalyan",
-        "company": "IJM | Architecture & Visualization",
+        "name": "Vivek Chadda",
+        "company": "IJM Infrastructure | Architecture & Visualization",
         "quote": "FCB Harmony was our first project with TechGy, so trusting a new visualization partner with an important project was a big decision. The team understood our requirements and delivered visuals that gave us confidence in their work. That experience led to Villa 64 in Vijayawada. What started with one project has grown into a partnership we look forward to continuing across many more projects.",
         "logo": "/testimonials/ijmindia.png"
     },
@@ -37,41 +69,7 @@
     {
         "name": "Anudeep Reddy",
         "company": "Hirize | Architecture & Visualization",
-        "quote": "Habitat was a huge undertaking—a 500-acre gated community with 30 acres of villa development that had to be brought to life through visuals. Choosing the right partner for something of that scale was a big responsibility. TechGy handled it beautifully, creating visuals that were detailed yet subtle and never overwhelming. The final result captured the scale, lifestyle and vision of the development exactly as we hoped.",
+        "quote": "In the heart of 500 acre green rich highlands community. Hirize developers building 30 acres villa community project that had to be brought to life through visuals. Choosing the right partner for something of that scale was a big responsibility. TechGy handled it beautifully, creating visuals that were detailed yet subtle and never overwhelming. The final result captured the scale, lifestyle and vision of the development exactly as we hoped.",
         "logo": "/testimonials/Hirize.webp"
-    },
-    {
-        "name": "Vinay Ram",
-        "company": "GLC — Green Land Capital | Real Estate",
-        "quote": "Our vision was to make farmland ownership simpler and more trustworthy—bringing verified, legally clear land together with a more natural and sustainable approach to farming. The challenge was that the journey involved so many different stages and people. TechGy went deep into our process and helped turn that complexity into one connected platform. They understood the vision behind the business, not just the technology we needed.",
-        "logo": "/testimonials/Veda bharat.png"
-    },
-    {
-        "name": "Vinay Ram",
-        "company": "Veda Bharath | Agriculture & Technology",
-        "quote": "Veda Bharath works with different varieties of rice, each with its own process and workflow. We didn't want someone to simply build an application around assumptions. TechGy went to the ground, understood our different rice types and studied how our teams actually worked before building the solution. That effort made the final system feel like it was built around our business, rather than the other way around.",
-        "logo": "/testimonials/Veda bharat.png"
-    },
-    {
-        "name": "Planet Green",
-        "company": "Planet Green | Real Estate",
-        "quote": "Our sales operation had grown across multiple projects, but our processes hadn't grown with it. Leads were coming from different sources, follow-ups were difficult to track, and management didn't have one clear view of what was happening. TechGy Link understood that we didn't need a generic CRM. We needed a system built around the way our projects and sales teams actually operate. They brought our leads, communication, follow-ups, site visits and sales pipeline into one connected platform."
-    },
-    {
-        "name": "Satish Gangam",
-        "company": "QuickBooks Connector | Finance",
-        "quote": "We were managing data across multiple companies, and a lot of our team's time was going into repetitive manual work. TechGy helped us automate that process—bringing the information we needed together and even reducing the effort involved in reading and handling details such as memos. What once took hours of manual work could now be handled in a much shorter time, giving our team back valuable hours every day.",
-        "logo": "/testimonials/Quick books.svg"
-    },
-    {
-        "name": "Sim Singh",
-        "company": "Lending Bridge | Finance",
-        "quote": "Our goal was to make the lending journey simpler—from applying for a loan to managing it through completion. There were different loan products, requirements, documents and decisions that had to come together smoothly. TechGy took that entire journey and helped us structure it into a clear, connected workflow. They didn't just build a system for managing loans; they helped us make a complicated process much easier to follow.",
-        "logo": "/testimonials/Lending Bridge.png"
-    },
-    {
-        "name": "Spur.fit",
-        "company": "Spur.fit | Health & Fitness Technology",
-        "quote": "We already had wearable devices capturing valuable fitness data, but the challenge was turning that data into something people could actually understand and use on their phones. TechGy took on the challenge of bringing those metrics into a simple mobile experience. It was a demanding project, with a lot of data, devices and user expectations to consider, but the team stayed with it and turned a difficult problem into a practical everyday experience."
     }
 ]
