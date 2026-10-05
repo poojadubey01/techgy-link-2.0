@@ -33,9 +33,29 @@ const PROJECT_LINKS: Record<string, string> = {
   "office tracker hrms": "/products/office-tracker-hrms",
 };
 
-const isProjectSuggestion = (s: string) => /^see /i.test(s.trim());
-const projectSuggestionHref = (s: string) =>
-  PROJECT_LINKS[s.trim().replace(/^see /i, "").trim().toLowerCase()] ?? "/work";
+function getProjectLink(s: string): string | null {
+  const trimmed = s.trim();
+  const lower = trimmed.toLowerCase();
+  // Parting phrases, pleasantries, or normal suggestions must NEVER be treated as project links
+  if (
+    lower.includes("you soon") ||
+    lower.includes("later") ||
+    lower.includes("goodbye") ||
+    lower.includes("bye") ||
+    lower.includes("thanks") ||
+    lower.includes("thank you")
+  ) {
+    return null;
+  }
+  const stripped = lower.replace(/^(see|view|explore)\s+/i, "").trim();
+  if (PROJECT_LINKS[stripped]) {
+    return PROJECT_LINKS[stripped];
+  }
+  if (stripped === "our work" || stripped === "work" || stripped === "portfolio" || stripped === "case studies") {
+    return "/work";
+  }
+  return null;
+}
 
 type Lead = { name: string; email: string; phone: string; availableTiming: string };
 type ChatState = "ASK_NAME" | "ASK_EMAIL" | "ASK_PHONE" | "ASK_TIMING" | "CHAT";
@@ -111,6 +131,7 @@ export function Chatbot() {
   const [stage, setStage] = useState<Stage>("gate");
   const [lead, setLead] = useState<Lead | null>(null);
   const [conversationEnded, setConversationEnded] = useState(false);
+  const [selectedSuggestions, setSelectedSuggestions] = useState<string[]>([]);
 
   const [nameInput, setNameInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
@@ -131,6 +152,8 @@ export function Chatbot() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const typingIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const activeTypingRef = useRef<{ id: string; fullText: string } | null>(null);
+  const isSendingRef = useRef(false);
   const warmedRef = useRef(false);
   const chatEpochRef = useRef(0);
   const sessionRef = useRef<ChatSession>(emptySession());
@@ -153,7 +176,25 @@ export function Chatbot() {
     setSessionReady(true);
   }, []);
 
+  function completeCurrentTyping() {
+    if (typingIntervalRef.current) {
+      clearInterval(typingIntervalRef.current);
+      typingIntervalRef.current = null;
+    }
+    if (activeTypingRef.current) {
+      const { id, fullText } = activeTypingRef.current;
+      setMessages((prev) =>
+        prev.map((m) => (m.id === id ? { ...m, content: fullText } : m))
+      );
+      activeTypingRef.current = null;
+    }
+    setIsTyping(false);
+  }
+
   function restoreChat(saved: ChatSession) {
+    completeCurrentTyping();
+    isSendingRef.current = false;
+    setSelectedSuggestions([]);
     sessionRef.current = saved;
     setNameInput(saved.lead.name || "");
     setEmailInput(saved.lead.email || "");
@@ -172,7 +213,7 @@ export function Chatbot() {
       setMessages(saved.history.map((message, index) => ({
         ...message,
         id: nextId(),
-        suggestions: index === saved.history.length - 1 && message.role === "assistant"
+        suggestions: index === saved.history.length - 1 && message.role === "assistant" && !saved.conversationEnded
           ? saved.suggestions : undefined,
       })));
       if (!saved.history.length) void startConversation(restoredLead);
@@ -206,9 +247,17 @@ export function Chatbot() {
     }
   }, [open]);
 
+  // Keep scroll position sensible:
+  // - On greeting (messages <= 1): keep scrolled to top (top: 0) so the greeting is not cut off or scrolled up
+  // - On subsequent messages: scroll to bottom
   useEffect(() => {
-    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
-  }, [messages, loading, stage, conversationEnded]);
+    if (!scrollRef.current) return;
+    if (messages.length <= 1) {
+      scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (!isTyping) {
+      scrollRef.current.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
+    }
+  }, [messages.length, loading, stage, conversationEnded]);
 
   useEffect(() => {
     // On phones, a `fixed; bottom: 0` panel tracks the page's layout
@@ -253,23 +302,34 @@ export function Chatbot() {
 
   useEffect(() => {
     return () => {
-      if (typingIntervalRef.current) clearInterval(typingIntervalRef.current);
+      completeCurrentTyping();
     };
   }, []);
 
   function typeOutReply(id: string, fullText: string) {
+    // Finish any previous message that might still be typing
+    completeCurrentTyping();
+
     setIsTyping(true);
+    activeTypingRef.current = { id, fullText };
     let shown = 0;
-    if (typingIntervalRef.current) clearInterval(typingIntervalRef.current);
+
     typingIntervalRef.current = setInterval(() => {
       shown += TYPE_CHARS_PER_TICK;
       const done = shown >= fullText.length;
       setMessages((prev) =>
         prev.map((m) => (m.id === id ? { ...m, content: done ? fullText : fullText.slice(0, shown) } : m)),
       );
+      // Instant scroll during typing to prevent animation stutter and overlaps
+      if (scrollRef.current) {
+        scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+      }
       if (done) {
-        clearInterval(typingIntervalRef.current!);
-        typingIntervalRef.current = null;
+        if (typingIntervalRef.current) {
+          clearInterval(typingIntervalRef.current);
+          typingIntervalRef.current = null;
+        }
+        activeTypingRef.current = null;
         setIsTyping(false);
       }
     }, TYPE_TICK_MS);
@@ -285,6 +345,7 @@ export function Chatbot() {
     const newLead: Lead = { name, email, phone, availableTiming };
     setLead(newLead);
     setMessages([]);
+    setSelectedSuggestions([]);
     setStage("chat");
     saveSession({
       chatState: "CHAT",
@@ -311,6 +372,7 @@ export function Chatbot() {
     }
     setRegistering(true);
     setRegisterError("");
+    setSelectedSuggestions([]);
     try {
       const res = await fetch(CHAT_API_URL, {
         method: "POST",
@@ -324,7 +386,10 @@ export function Chatbot() {
       if (!res.ok) throw new Error(`Request failed with ${res.status}`);
       const data: { reply: string; suggestions?: string[]; stage?: string; stage_turns?: number } = await res.json();
       if (chatEpoch !== chatEpochRef.current) return;
-      const suggestions = data.suggestions || [];
+      const rawSuggestions = data.suggestions || [];
+      const suggestions = rawSuggestions.filter(
+        (s) => !/^(do\s+)?see you soon|talk to you soon|goodbye|bye for now$/i.test(s.trim())
+      );
       const history: HistoryMessage[] = [{ role: "assistant", content: data.reply }];
       saveSession({ history, stage: data.stage ?? null, stageTurns: data.stage_turns ?? 0, suggestions });
       setMessages([{ id: nextId(), role: "assistant", content: data.reply, suggestions }]);
@@ -340,9 +405,9 @@ export function Chatbot() {
     chatEpochRef.current++;
     try { sessionStorage.removeItem(SESSION_KEY); } catch {}
     sessionRef.current = emptySession();
-    if (typingIntervalRef.current) clearInterval(typingIntervalRef.current);
-    typingIntervalRef.current = null;
-    setIsTyping(false);
+    completeCurrentTyping();
+    isSendingRef.current = false;
+    setSelectedSuggestions([]);
     setLoading(false);
     setRegistering(false);
     setSavedChoice(null);
@@ -363,14 +428,29 @@ export function Chatbot() {
   async function sendMessage(override?: string) {
     const chatEpoch = chatEpochRef.current;
     const text = (override ?? input).trim();
-    if (!text || loading || isTyping || registering || !lead || !sessionRef.current.history.length) return;
+    if (!text || isSendingRef.current || loading || isTyping || registering || !lead || !sessionRef.current.history.length) return;
+
+    isSendingRef.current = true;
+    setSelectedSuggestions([]);
+
     const history = sessionRef.current.history;
     const previousStage = sessionRef.current.stage;
     const previousStageTurns = sessionRef.current.stageTurns;
+
+    // Deduplicate history so consecutive identical messages are never passed to LLM
+    const cleanHistory: HistoryMessage[] = [];
+    for (const msg of history) {
+      const last = cleanHistory[cleanHistory.length - 1];
+      if (!last || last.role !== msg.role || last.content.trim() !== msg.content.trim()) {
+        cleanHistory.push(msg);
+      }
+    }
+
     setMessages((prev) => [...prev, { id: nextId(), role: "user", content: text }]);
-    saveSession({ history: [...history, { role: "user", content: text }], suggestions: [] });
+    saveSession({ history: [...cleanHistory, { role: "user", content: text }], suggestions: [] });
     setInput("");
     setLoading(true);
+
     const requestChat = () =>
       fetch(CHAT_API_URL, {
         method: "POST",
@@ -381,11 +461,12 @@ export function Chatbot() {
           email: lead.email,
           phone: lead.phone,
           available_timing: lead.availableTiming,
-          history,
+          history: cleanHistory,
           stage: previousStage,
           stage_turns: previousStageTurns,
         }),
       });
+
     try {
       // A cold Lambda can blow past API Gateway's ~29s timeout on the first
       // request even after warming up. By the time that fails, the container
@@ -396,9 +477,22 @@ export function Chatbot() {
       if (!res.ok) throw new Error(`Request failed with ${res.status}`);
       const data: { reply: string; suggestions?: string[]; stage?: string; stage_turns?: number } = await res.json();
       if (chatEpoch !== chatEpochRef.current) return;
-      const hasEnded = data.reply.includes(CHAT_END_MARKER);
+
+      const hasEndedMarker = data.reply.includes(CHAT_END_MARKER);
       const cleanReply = data.reply.replace(CHAT_END_MARKER, "").trim();
-      const suggestions = hasEnded ? [] : data.suggestions ?? [];
+
+      // Check for natural wrap-up signals
+      const isNaturalEnd =
+        hasEndedMarker ||
+        (/goodbye|have a (great|wonderful|good) day|take care|in touch with you soon/i.test(cleanReply) &&
+          /goodbye|bye|thanks|thank you|no other questions|no questions/i.test(text));
+
+      const hasEnded = hasEndedMarker || isNaturalEnd;
+      const rawSuggestions = hasEnded ? [] : data.suggestions ?? [];
+      const suggestions = rawSuggestions.filter(
+        (s) => !/^(do\s+)?see you soon|talk to you soon|goodbye|bye for now$/i.test(s.trim())
+      );
+
       saveSession({
         history: [...sessionRef.current.history, { role: "assistant", content: cleanReply }],
         stage: data.stage ?? previousStage,
@@ -406,6 +500,7 @@ export function Chatbot() {
         suggestions,
         conversationEnded: hasEnded,
       });
+
       setLoading(false);
       const id = nextId();
       setMessages((prev) => [...prev, { id, role: "assistant", content: "", suggestions }]);
@@ -420,6 +515,8 @@ export function Chatbot() {
         id,
         "Sorry, I couldn’t reach the assistant right now. Please try again in a moment, or reach us on WhatsApp.",
       );
+    } finally {
+      isSendingRef.current = false;
     }
   }
 
@@ -444,7 +541,7 @@ export function Chatbot() {
           ref={panelRef}
           role="dialog"
           aria-label="TechGy Link chat assistant"
-          className="fixed z-60 flex flex-col bg-white border border-rule shadow-[0_35px_60px_#1116251a] right-5 bottom-38 w-[320px] h-125 max-h-[min(68dvh,calc(100dvh_-_164px))] overflow-hidden max-[767px]:right-0 max-[767px]:bottom-0 max-[767px]:left-0 max-[767px]:w-full max-[767px]:h-[80svh] max-[767px]:max-h-[80svh]"
+          className="fixed z-60 flex flex-col bg-white border border-rule shadow-[0_35px_60px_#1116251a] right-5 bottom-38 w-[340px] max-[380px]:w-[310px] h-125 max-h-[min(68dvh,calc(100dvh_-_164px))] overflow-hidden max-[767px]:right-0 max-[767px]:bottom-0 max-[767px]:left-0 max-[767px]:w-full max-[767px]:h-[80svh] max-[767px]:max-h-[80svh]"
         >
           <div className="flex items-center gap-3 bg-brand text-white px-5 py-4 shrink-0">
             <div className="min-w-0">
@@ -565,7 +662,7 @@ export function Chatbot() {
                 <button
                   type="submit"
                   disabled={!nameInput.trim() || !isValidEmail(emailInput) || !fullPhoneNumber(phoneInput, phoneCountry) || !timingInput.trim() || registering}
-                  className="mt-1 flex items-center justify-center gap-2 bg-brand px-4 py-2.5 text-[13.5px] font-medium text-white disabled:opacity-40"
+                  className="mt-1 flex items-center justify-center gap-2 bg-brand px-4 py-2.5 text-[13.5px] font-medium text-white disabled:opacity-40 cursor-pointer"
                 >
                   {registering && <Loader2 size={14} className="animate-spin" />}
                   {registering ? "Starting…" : "Start chat"}
@@ -592,13 +689,21 @@ export function Chatbot() {
                 )}
                 {messages.map((m, i) => {
                   const isLast = i === messages.length - 1;
-                  const suggestionsActive = isLast && !isTyping && !loading && !conversationEnded;
+                  const showSuggestions =
+                    isLast &&
+                    !isTyping &&
+                    !loading &&
+                    !conversationEnded &&
+                    m.role === "assistant" &&
+                    !!m.content &&
+                    Boolean(m.suggestions && m.suggestions.length > 0);
+
                   return (
                     <div key={m.id} className="flex flex-col gap-2">
                       <div className={"flex " + (m.role === "user" ? "justify-end" : "justify-start")}>
                         <p
                           className={
-                            "max-w-[85%] whitespace-pre-wrap wrap-break-word px-4 py-2.5 text-[13.5px] leading-normal " +
+                            "max-w-[85%] whitespace-pre-wrap break-words [overflow-wrap:anywhere] px-4 py-2.5 text-[13.5px] leading-normal " +
                             (m.role === "user"
                               ? "bg-brand text-white"
                               : "bg-white text-ink border border-rule")
@@ -607,26 +712,82 @@ export function Chatbot() {
                           {m.content}
                         </p>
                       </div>
-                      {m.role === "assistant" && !!m.content && m.suggestions && m.suggestions.length > 0 && (
-                        <div className={"flex flex-wrap gap-1.5" + (suggestionsActive ? "" : " pointer-events-none opacity-40")}>
-                          {m.suggestions.map((s) =>
-                            isProjectSuggestion(s) ? (
-                              <Link
-                                key={s}
-                                href={projectSuggestionHref(s)}
-                                className="border border-brand px-3 py-1.5 text-[12px] font-medium text-brand hover:bg-brand hover:text-white"
-                              >
-                                {s}
-                              </Link>
-                            ) : (
+
+                      {showSuggestions && m.suggestions && (
+                        <div className="flex flex-col gap-2 mt-1">
+                          <div className="flex flex-wrap gap-1.5">
+                            {m.suggestions.map((s) => {
+                              const projectHref = getProjectLink(s);
+                              if (projectHref) {
+                                return (
+                                  <Link
+                                    key={s}
+                                    href={projectHref}
+                                    className="inline-flex items-center gap-1 border border-brand bg-blue-50/40 px-3 py-1.5 text-[12px] font-medium text-brand hover:bg-brand hover:text-white transition-colors"
+                                  >
+                                    <span>{s}</span>
+                                    <span className="text-[10px]">↗</span>
+                                  </Link>
+                                );
+                              }
+
+                              const isChecked = selectedSuggestions.includes(s);
+                              return (
+                                <button
+                                  key={s}
+                                  type="button"
+                                  disabled={loading || isTyping}
+                                  onClick={() => {
+                                    if (loading || isTyping) return;
+                                    setSelectedSuggestions((prev) =>
+                                      prev.includes(s) ? prev.filter((item) => item !== s) : [...prev, s]
+                                    );
+                                  }}
+                                  className={`inline-flex items-center gap-2 border px-3 py-1.5 text-[12px] font-medium transition-all text-left ${
+                                    isChecked
+                                      ? "border-brand bg-brand text-white shadow-xs"
+                                      : "border-rule bg-white text-ink hover:border-brand/70 hover:text-brand"
+                                  } ${loading || isTyping ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+                                >
+                                  <span
+                                    className={`grid place-items-center h-3.5 w-3.5 rounded-xs border text-[10px] shrink-0 transition-colors ${
+                                      isChecked
+                                        ? "border-white bg-white text-brand font-bold"
+                                        : "border-rule bg-paper"
+                                    }`}
+                                  >
+                                    {isChecked && "✓"}
+                                  </span>
+                                  <span>{s}</span>
+                                </button>
+                              );
+                            })}
+                          </div>
+
+                          {selectedSuggestions.length > 0 && (
+                            <div className="flex items-center gap-2 pt-0.5">
                               <button
-                                key={s}
-                                onClick={() => sendMessage(s)}
-                                className="border border-rule bg-white px-3 py-1.5 text-[12px] font-medium hover:border-brand hover:text-brand"
+                                type="button"
+                                disabled={loading || isTyping}
+                                onClick={() => {
+                                  if (selectedSuggestions.length === 0 || loading || isTyping) return;
+                                  const combinedText = selectedSuggestions.join(", ");
+                                  setSelectedSuggestions([]);
+                                  sendMessage(combinedText);
+                                }}
+                                className="inline-flex items-center gap-1.5 bg-brand text-white px-3.5 py-1.5 text-[12px] font-medium rounded-xs hover:bg-blue-700 active:scale-95 transition-all disabled:opacity-50 shadow-xs cursor-pointer"
                               >
-                                {s}
+                                <span>Send {selectedSuggestions.length > 1 ? `(${selectedSuggestions.length})` : ""}</span>
+                                <Send size={12} />
                               </button>
-                            ),
+                              <button
+                                type="button"
+                                onClick={() => setSelectedSuggestions([])}
+                                className="text-[11px] text-[#94a3b8] hover:text-ink px-1 cursor-pointer"
+                              >
+                                Clear
+                              </button>
+                            </div>
                           )}
                         </div>
                       )}
@@ -645,7 +806,7 @@ export function Chatbot() {
                     <p className="font-display text-[15px]">Thank you for contacting us!</p>
                     <button
                       onClick={startNewChat}
-                      className="bg-brand px-4 py-2 text-[12.5px] font-medium text-white"
+                      className="bg-brand px-4 py-2 text-[12.5px] font-medium text-white cursor-pointer"
                     >
                       Start a new conversation
                     </button>
@@ -657,11 +818,17 @@ export function Chatbot() {
                   className="flex items-center gap-2 border-t border-rule px-3 py-3 shrink-0 bg-white"
                   onSubmit={(e) => {
                     e.preventDefault();
-                    sendMessage();
+                    if (selectedSuggestions.length > 0) {
+                      const combined = [selectedSuggestions.join(", "), input.trim()].filter(Boolean).join(" - ");
+                      setSelectedSuggestions([]);
+                      sendMessage(combined);
+                    } else {
+                      sendMessage();
+                    }
                   }}
                 >
                   <input
-                    className="flex-1 min-w-0 h-11 px-3.5 text-[14px] bg-paper border border-rule placeholder:text-[#94a3b8]"
+                    className="flex-1 min-w-0 h-11 px-3.5 text-[14px] bg-paper border border-rule placeholder:text-[#94a3b8] outline-none focus:border-brand"
                     placeholder="Type a message…"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
@@ -671,8 +838,8 @@ export function Chatbot() {
                   <button
                     type="submit"
                     aria-label="Send message"
-                    disabled={!input.trim() || loading || isTyping || registering || messages.length === 0}
-                    className="grid place-items-center h-11 w-11 shrink-0 bg-brand text-white disabled:opacity-40"
+                    disabled={(!input.trim() && selectedSuggestions.length === 0) || loading || isTyping || registering || messages.length === 0}
+                    className="grid place-items-center h-11 w-11 shrink-0 bg-brand text-white disabled:opacity-40 cursor-pointer"
                   >
                     <Send size={17} />
                   </button>
@@ -702,15 +869,15 @@ export function Chatbot() {
                 </p>
                 <div className="mt-5 flex flex-col gap-2">
                   {savedChoice ? (
-                    <button type="button" autoFocus onClick={() => restoreChat(savedChoice)} className="bg-brand px-4 py-2.5 text-[13px] font-medium text-white">
+                    <button type="button" autoFocus onClick={() => restoreChat(savedChoice)} className="bg-brand px-4 py-2.5 text-[13px] font-medium text-white cursor-pointer">
                       Continue chat
                     </button>
                   ) : (
-                    <button type="button" autoFocus onClick={() => setConfirmNewChat(false)} className="border border-rule px-4 py-2.5 text-[13px] font-medium text-ink">
+                    <button type="button" autoFocus onClick={() => setConfirmNewChat(false)} className="border border-rule px-4 py-2.5 text-[13px] font-medium text-ink cursor-pointer">
                       Keep chatting
                     </button>
                   )}
-                  <button type="button" onClick={startNewChat} className="bg-brand px-4 py-2.5 text-[13px] font-medium text-white">
+                  <button type="button" onClick={startNewChat} className="bg-brand px-4 py-2.5 text-[13px] font-medium text-white cursor-pointer">
                     Start new chat
                   </button>
                 </div>
