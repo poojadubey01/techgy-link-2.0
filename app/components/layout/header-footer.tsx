@@ -254,7 +254,7 @@ export function Footer() {
   const footerNavLink =
     "block text-[14px] leading-[1.75] mb-2.5 text-[#f8f9fa]";
   return (
-    <footer className="bg-[#111625] text-white">
+    <footer className="bg-brand text-white">
       {path !== "/contact/" && path !== "/contact" && (
         <div
           className={
@@ -264,7 +264,7 @@ export function Footer() {
         >
           <Link
             href="/contact"
-            className="cta-button inline-flex items-center rounded-full bg-brand text-white border border-brand my-[30px] hover:brightness-90"
+            className="cta-button inline-flex items-center rounded-full bg-white text-brand border border-transparent my-[30px] hover:bg-paper"
           >
             Start your project <ArrowUpRight size={18} />
           </Link>
@@ -329,7 +329,7 @@ export function Footer() {
       <div
         className={
           wrap +
-          " flex items-center gap-7 max-[1023px]:gap-5 max-[767px]:flex-wrap max-[767px]:gap-y-5 max-[767px]:gap-x-[18px] border-t border-t-[#0f1a3480] py-[26px] max-[767px]:py-7 text-[#f8f9fa] text-[12px] max-[767px]:text-[11px]"
+          " flex items-center gap-7 max-[1023px]:gap-5 max-[767px]:flex-wrap max-[767px]:gap-y-5 max-[767px]:gap-x-[18px] border-t border-t-[#f8f9fa26] py-[26px] max-[767px]:py-7 text-[#f8f9fa] text-[12px] max-[767px]:text-[11px]"
         }
       >
         <img
