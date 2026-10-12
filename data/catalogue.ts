@@ -41,7 +41,7 @@ export const digitalProjects = oldProjects.map((p) => ({
   ...p,
   kind: "Digital",
 }));
-const excludedWorkSlugs = new Set(["spur-fit", "nex2u"]);
+const excludedWorkSlugs = new Set(["spur-fit"]);
 export const work = [
   ...digitalProjects.filter((p) => !excludedWorkSlugs.has(p.slug)),
   ...architecture.map((p) => ({

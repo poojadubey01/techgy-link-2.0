@@ -28,6 +28,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/work/nex2u",
+        destination: "/work/",
+        permanent: true,
+      },
+      {
         // Old per-screen Greenland Capital case-study pages, now consolidated into
         // one page. Scoped to just these slugs so it doesn't also catch
         // /work/glc-mobile.webp (a real image, not a page).

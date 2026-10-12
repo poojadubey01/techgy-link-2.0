@@ -240,39 +240,6 @@ const blueprints: Record<string, Blueprint> = {
     ],
     note: "TechGy’s contribution is the iOS and wearable integration within Spur.fit’s wider platform.",
   },
-  nex2u: {
-    title: "Discovery with control over participation.",
-    centre: {
-      label: "Proximity discovery",
-      detail: "Location-aware profile exploration",
-      icon: "map",
-    },
-    inputs: [
-      {
-        label: "Profile context",
-        detail: "Professional or social",
-        icon: "people",
-      },
-      {
-        label: "Visibility preferences",
-        detail: "Stealth mode and granular controls",
-        icon: "eye",
-      },
-    ],
-    outputs: [
-      {
-        label: "Nearby profiles",
-        detail: "Discovery within a selected radius",
-        icon: "scan",
-      },
-      {
-        label: "Relevant connections",
-        detail: "Profile and conversation journeys",
-        icon: "message",
-      },
-    ],
-    note: "Product in development. The map describes the intended connected experience.",
-  },
 };
 
 // Decorative wires. The viewBox stretches to the map, so each run starts and

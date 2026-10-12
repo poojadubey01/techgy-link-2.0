@@ -102,7 +102,7 @@ export function PortfolioBreadth() {
 
 const solutionProof = {
   "connected-sales-operations": ["planet-green-crm", "quickbooks-integration"],
-  "digital-experience-product": ["lending-bridge", "nex2u"],
+  "digital-experience-product": ["lending-bridge", "greenland-capital"],
 };
 
 const propertyLaunchProof = ["dates-county", "vasavi-atlantis"].map((slug) => {
