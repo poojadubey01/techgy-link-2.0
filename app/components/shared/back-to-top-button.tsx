@@ -1,52 +1,29 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { ArrowUp } from "@/app/components/ui/icons";
 
 export function BackToTopButton() {
   const [visible, setVisible] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ticking = false;
+    let frame = 0;
     const update = () => {
       const scrollY = window.scrollY;
       const isVisible = scrollY > window.innerHeight * 0.6;
       setVisible(isVisible);
 
-      if (containerRef.current) {
-        if (!isVisible) {
-          containerRef.current.style.transform = "";
-        } else {
-          const footer = document.querySelector("footer");
-          if (footer) {
-            const rect = footer.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            const overlap = windowHeight - rect.top;
-            if (overlap > 0) {
-              const maxShift = Math.max(0, windowHeight - 90);
-              const shift = Math.min(overlap, maxShift);
-              containerRef.current.style.transform = `translateY(-${shift}px)`;
-            } else {
-              containerRef.current.style.transform = "";
-            }
-          } else {
-            containerRef.current.style.transform = "";
-          }
-        }
-      }
-      ticking = false;
+      frame = 0;
     };
 
     const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(update);
+      if (!frame) frame = requestAnimationFrame(update);
     };
 
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
     return () => {
+      cancelAnimationFrame(frame);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
@@ -54,10 +31,9 @@ export function BackToTopButton() {
 
   return (
     <div
-      ref={containerRef}
       aria-hidden={!visible}
       className={
-        "fixed z-40 left-5 bottom-5 max-[767px]:left-4 max-[767px]:bottom-4 transition-opacity duration-300 will-change-transform" +
+        "footer-bounded-floating fixed z-40 left-5 bottom-5 max-[767px]:left-4 max-[767px]:bottom-4 transition-opacity duration-300" +
         (visible
           ? " opacity-100 pointer-events-auto"
           : " opacity-0 pointer-events-none")

@@ -1,7 +1,44 @@
-export default [
+export type InsightImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+  position?: string;
+  fit?: "cover" | "contain";
+};
+
+export type InsightArticle = {
+  id: string;
+  category: string;
+  title: string;
+  summary: string;
+  banner?: InsightImage;
+  sections: [string, string][];
+};
+
+// Remove a banner object to display the page or article without an image.
+export const insightsPage: { banner?: InsightImage } = {
+  banner: {
+    src: "/portfolio/techgy-team.webp",
+    alt: "The TechGy Link team together in the studio",
+    width: 1280,
+    height: 341,
+  },
+};
+
+const articles: InsightArticle[] = [
   {
     "id": "website-or-application",
     "category": "Digital clarity",
+    "banner": {
+      "src": "/work/glc-web.webp",
+      "alt": "Green Land Capital website interface and corresponding wireframe",
+      "width": 1600,
+      "height": 1096,
+      "fit": "contain",
+      "caption": "From the work: the Green Land Capital digital experience."
+    },
     "title": "A website is not a business application.",
     "summary": "Start with what the person needs to do, not the technology you want to use.",
     "sections": [
@@ -26,6 +63,14 @@ export default [
   {
     "id": "automation-first-workflow",
     "category": "Practical AI",
+    "banner": {
+      "src": "/work/quickbooks.webp",
+      "alt": "QuickBooks connector presentation showing connected accounting workflows",
+      "width": 1600,
+      "height": 898,
+      "fit": "contain",
+      "caption": "From the work: connecting accounting tasks through a shared workflow."
+    },
     "title": "Automate one workflow. Learn before you scale.",
     "summary": "A useful automation begins with exceptions, ownership and a baseline.",
     "sections": [
@@ -50,6 +95,14 @@ export default [
   {
     "id": "connected-property-launch",
     "category": "Property experiences",
+    "banner": {
+      "src": "/architecture/vasavi-atlantis/Exterior_View.webp",
+      "alt": "Architectural visualisation of Vasavi Atlantis residential towers",
+      "width": 1600,
+      "height": 900,
+      "position": "center",
+      "caption": "From the work: an exterior visualisation of Vasavi Atlantis."
+    },
     "title": "The render, website and enquiry should tell one story.",
     "summary": "A connected launch is not a compulsory bundle. It is a coordinated customer journey.",
     "sections": [
@@ -72,3 +125,5 @@ export default [
     ]
   }
 ];
+
+export default articles;

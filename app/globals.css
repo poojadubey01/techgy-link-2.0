@@ -3,6 +3,12 @@
 @source not "../source-audit";
 @source not "../components";
 @source not "../vendor";
+
+/* Keep floating controls above the footer's legal row with their usual gap. */
+.footer-bounded-floating {
+  margin-bottom: var(--floating-footer-offset, 0px);
+}
+
 @font-face {
   font-family: Brutel;
   src: url("/source/fonts/brutel/Brutel-Regular.otf") format("opentype");

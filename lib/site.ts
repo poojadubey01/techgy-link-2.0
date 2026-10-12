@@ -1,6 +1,6 @@
 export const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://techgy-link-reimagined.phanikrishna.chatgpt.site"
+  "https://techgylink.com"
 ).replace(/\/$/, "");
 // Indexable by default. Set SITE_INDEXING=false on a host to keep a
 // review/staging copy out of search engines.

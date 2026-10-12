@@ -1,5 +1,7 @@
 import Link from "@/app/components/ui/internal-link";
 import { articles } from "@/data/catalogue";
+import { insightsPage } from "@/data/insights";
+import { InsightBanner } from "@/app/components/insights/insight-banner";
 import { CTA, Arrow } from "@/app/components/shared/common-blocks";
 export const metadata = {
   title: "Insights",
@@ -23,6 +25,7 @@ export default function Insights() {
           Practical perspectives on the questions that come before a successful
           brief.
         </p>
+        <InsightBanner image={insightsPage.banner} variant="overview" priority className="mt-10 max-[767px]:mt-7" />
       </section>
       <section className="site-container mx-auto grid grid-cols-3 gap-[45px] max-[1023px]:gap-7 max-[767px]:grid-cols-1 max-[767px]:gap-[35px]">
         {articles.map((a) => (
@@ -30,6 +33,11 @@ export default function Insights() {
             className="border-t border-t-[#e2e8f0] pt-[30px]"
             key={a.id}
           >
+            {a.banner?.src && (
+              <Link href={"/insights/" + a.id} aria-label={`Read ${a.title}`} className="block mb-7 rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand">
+                <InsightBanner image={a.banner} variant="card" />
+              </Link>
+            )}
             <p className="eyebrow text-[#111625]">
               {a.category}
             </p>

@@ -1,0 +1,11 @@
+.figure { min-width: 0; }
+.frame { overflow: hidden; border-radius: 4px; background: #eef0f5; }
+.frame img { display: block; width: 100%; height: 100%; }
+.article .frame { aspect-ratio: 16 / 9; max-height: 640px; }
+.card .frame { aspect-ratio: 16 / 10; }
+.overview .frame { aspect-ratio: 1280 / 341; }
+.figure figcaption { font-size: 12px; line-height: 1.7; color: #586173; margin-top: 14px; }
+@media (max-width: 767px) {
+  .article .frame { max-height: none; }
+  .figure figcaption { font-size: 11px; margin-top: 10px; }
+}

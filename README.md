@@ -35,6 +35,29 @@ solutions, work and campaigns used across the site.
 
 Import shared code with the `@/` alias, e.g. `import { services } from "@/data/catalogue"`.
 
+## Insights banner images
+
+Edit `data/insights.ts`. `insightsPage.banner` controls the banner on `/insights/`.
+Each article's `banner` appears on its listing card, detail page, and related cards.
+Remove a `banner` object to omit the image without leaving an empty image area.
+
+Put images in `public/insights/` (or use an existing public asset) and configure:
+
+```ts
+banner: {
+  src: "/insights/example.webp", // public URL, without the public/ prefix
+  alt: "A description of the image",
+  width: 1600,                  // original image dimensions
+  height: 900,
+  caption: "Optional caption",  // shown on the detail or listing-page banner
+  position: "center",           // crop focus, e.g. "50% 30%"
+  fit: "cover",                 // use "contain" to show the entire artwork
+}
+```
+
+Landscape images work best for article banners. The listing-page banner uses a
+wide 1280:341 ratio. Current images are existing site assets and can be replaced.
+
 ## Available scripts
 
 ```sh

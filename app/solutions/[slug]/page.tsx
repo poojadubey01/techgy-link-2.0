@@ -1,10 +1,12 @@
+import type { Metadata } from "next";
+import { notFound, permanentRedirect } from "next/navigation";
+import Link from "@/app/components/ui/internal-link";
+import { siteUrl } from "@/lib/site";
 import { GrowthPartners } from "@/app/components/home/growth-partners";
 import { SolutionEvidence } from "@/app/components/shared/portfolio-highlights";
 import { SolutionCollaboration } from "@/app/components/shared/service-contribution";
 import { ConnectedWorkspaceCanvas } from "@/app/components/services/connected-workspace-canvas";
 import { DigitalExperienceHeroCanvas } from "@/app/components/solutions/digital-experience-hero-laptop";
-import { notFound, permanentRedirect } from "next/navigation";
-import Link from "@/app/components/ui/internal-link";
 import { solutions, enquiry, services } from "@/data/catalogue";
 import { CTA, Arrow } from "@/app/components/shared/common-blocks";
 const aliases = {
@@ -24,13 +26,45 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { slug } = await params;
-  const s = solutions.find((s) => s.id === slug);
+  const canonicalSlug = aliases[slug as keyof typeof aliases] || slug;
+  const s = solutions.find((s) => s.id === canonicalSlug);
+  if (!s) return {};
+
+  const pageUrl = `${siteUrl}/solutions/${canonicalSlug}/`;
+  const ogImageUrl = `${siteUrl}/og/solutions/${canonicalSlug}.png`;
+  const fullTitle = `${s.title} | TechGy Link`;
+
   return {
-    title: s?.title,
-    description: s?.description,
-    alternates: { canonical: "/solutions/" + slug + "/" },
+    title: s.title,
+    description: s.description,
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      title: fullTitle,
+      description: s.description,
+      url: pageUrl,
+      siteName: "TechGy Link",
+      locale: "en_US",
+      type: "website",
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${s.title} — TechGy Link`,
+          type: "image/png",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: fullTitle,
+      description: s.description,
+      images: [ogImageUrl],
+    },
   };
 }
 export default async function Solution({

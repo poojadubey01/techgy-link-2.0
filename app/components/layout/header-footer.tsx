@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUpRight, ArrowUp, Menu, X, ChevronDown, Phone } from "@/app/components/ui/icons";
+import { ArrowUpRight, Menu, X, ChevronDown, Phone } from "@/app/components/ui/icons";
 const nav = [
   ["Solutions", "/solutions"],
   ["Work", "/work"],
@@ -247,6 +247,34 @@ export function Header() {
 }
 export function Footer() {
   const path = usePathname();
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      if (!bottomRef.current) return;
+      const offset = Math.max(0, window.innerHeight - bottomRef.current.getBoundingClientRect().top);
+      document.documentElement.style.setProperty("--floating-footer-offset", `${offset}px`);
+    };
+    const scheduleUpdate = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    // Follow layout changes from images, fonts, and route content as well as scrolling.
+    const observer = new ResizeObserver(scheduleUpdate);
+    observer.observe(document.body);
+    if (bottomRef.current) observer.observe(bottomRef.current);
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    update();
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      document.documentElement.style.removeProperty("--floating-footer-offset");
+    };
+  }, [path]);
   const wrap =
     "site-container mx-auto";
   const footerEyebrow =
@@ -327,6 +355,7 @@ export function Footer() {
         </div>
       </div>
       <div
+        ref={bottomRef}
         className={
           wrap +
           " flex items-center gap-7 max-[1023px]:gap-5 max-[767px]:flex-wrap max-[767px]:gap-y-5 max-[767px]:gap-x-[18px] border-t border-t-[#f8f9fa26] py-[26px] max-[767px]:py-7 text-[#f8f9fa] text-[12px] max-[767px]:text-[11px]"
@@ -355,12 +384,6 @@ export function Footer() {
           className="inline-flex items-center gap-2 max-[767px]:gap-1.5 text-[13px]"
         >
           LinkedIn <ArrowUpRight size={14} />
-        </a>
-        <a
-          href="#main"
-          className="inline-flex items-center gap-2 max-[767px]:gap-1.5 text-[13px]"
-        >
-          Back to top <ArrowUp size={14} />
         </a>
       </div>
     </footer>

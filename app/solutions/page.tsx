@@ -1,11 +1,28 @@
+import type { Metadata } from "next";
+import { siteUrl } from "@/lib/site";
 import Link from "@/app/components/ui/internal-link";
 import { solutions } from "@/data/catalogue";
 import { CTA, Arrow } from "@/app/components/shared/common-blocks";
-export const metadata = {
+export const metadata: Metadata = {
   title: "Connected business solutions",
   description:
     "Property launch, connected sales and operations, and digital product delivery: optional service combinations around a clear business problem.",
-  alternates: { canonical: "/solutions/" },
+  alternates: { canonical: `${siteUrl}/solutions/` },
+  openGraph: {
+    title: "Connected business solutions | TechGy Link",
+    description:
+      "Property launch, connected sales and operations, and digital product delivery: optional service combinations around a clear business problem.",
+    url: `${siteUrl}/solutions/`,
+    siteName: "TechGy Link",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Connected business solutions | TechGy Link",
+    description:
+      "Property launch, connected sales and operations, and digital product delivery: optional service combinations around a clear business problem.",
+  },
 };
 export default function Solutions() {
   return (

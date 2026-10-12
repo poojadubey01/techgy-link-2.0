@@ -22,7 +22,7 @@ export function WhatsAppButton() {
       rel="noopener noreferrer"
       aria-label={`Chat with us on WhatsApp (${phoneDisplay})`}
       title={`Chat with us on WhatsApp (${phoneDisplay})`}
-      className="fixed z-40 grid place-items-center h-14 w-14 max-[767px]:h-12 max-[767px]:w-12 rounded-full bg-[#25D366] text-white shadow-[0_18px_30px_#00000026] transition-transform hover:scale-105 right-5 bottom-5 max-[767px]:right-4 max-[767px]:bottom-4"
+      className="footer-bounded-floating fixed z-40 grid place-items-center h-14 w-14 max-[767px]:h-12 max-[767px]:w-12 rounded-full bg-[#25D366] text-white shadow-[0_18px_30px_#00000026] transition-transform hover:scale-105 right-5 bottom-5 max-[767px]:right-4 max-[767px]:bottom-4"
     >
       <WhatsAppGlyph />
     </a>
